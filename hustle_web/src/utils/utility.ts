@@ -1,4 +1,5 @@
 /* 유효성 검사나 예외처리를 담아 놓으면 좋을거같아요 ex) 이메일 유효성, 로그인 데이터 처리 등등*/
+// utils 대신 services\validation 등과 같이 할수도
 
 export const isValidPassword = (password: string): boolean => {
     // 비밀번호 유효성 검사 로직을 작성합니다.

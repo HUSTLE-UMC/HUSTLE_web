@@ -1,11 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7cdcef1-c9b5-41fa-9abd-2395d9808c87" name="변경" comment="" />
+    <list default="true" id="a7cdcef1-c9b5-41fa-9abd-2395d9808c87" name="변경" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hustle_web/src/components/GlobalStyle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/hustle_web/src/constants/styles/GlobalStyle.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hustle_web/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/hustle_web/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hustle_web/src/utils/utility.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hustle_web/src/utils/utility.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -22,10 +37,22 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/HUSTLE_web",
+    "last_opened_file_path": "D:/Hackathon_client-main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "C:\\Users\\karte\\AppData\\Roaming\\npm\\node_modules\\prettier",
+    "ts.external.directory.path": "D:\\HUSTLE_web\\hustle_web\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\HUSTLE_web\hustle_web\src\constants\styles" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="디폴트 작업">
@@ -35,6 +62,11 @@
       <option name="presentableId" value="Default" />
       <updated>1688464507398</updated>
       <workItem from="1688464511277" duration="38000" />
+      <workItem from="1688474633549" duration="6919000" />
+      <workItem from="1688566269629" duration="1394000" />
+      <workItem from="1688752175600" duration="64000" />
+      <workItem from="1688752576776" duration="618000" />
+      <workItem from="1688804653041" duration="1844000" />
     </task>
     <servers />
   </component>
