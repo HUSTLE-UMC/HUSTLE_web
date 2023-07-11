@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react";
 import Index from "../components/SportsButton/SportsButton";
-import { ReactComponent as BasketBall } from "../assets/icons/basketball.svg";
-import { ReactComponent as Tennis } from "../assets/icons/tennis.svg";
+import { ReactComponent as BasketBall } from "./assets/basketball.svg";
+import { ReactComponent as Tennis } from "./assets/tennis.svg";
 const meta = {
   title: "Example/SportsButton",
   component: Index,

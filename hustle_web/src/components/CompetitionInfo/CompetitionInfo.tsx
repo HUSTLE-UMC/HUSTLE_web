@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Layout, InfoText, TitleLayout, IconLayout } from "./styles";
-import { ReactComponent as ArrowIcon } from "./arrow.svg";
+import { ReactComponent as ArrowIcon } from "../../stories/assets/arrow.svg";
 
 interface ListProps {
   title: string;
