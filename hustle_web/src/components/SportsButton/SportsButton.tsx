@@ -1,21 +1,18 @@
 import React from "react";
-import { StyledButton, Label, ButtonLayout } from "./styles";
+import * as S from "./styles";
+import { ButtonProps } from "./ButtonProps";
 
-interface ButtonProps {
-  label: string;
-  clicked?: boolean;
-  Icon: React.FC<React.SVGProps<SVGSVGElement>>;
-}
-
-const Index = ({ label, clicked, Icon }: ButtonProps) => {
+const SportsButton = ({ label, clicked, Icon }: ButtonProps) => {
   return (
-    <ButtonLayout>
-      <StyledButton {...(clicked ? { color: "#3F37C9" } : { color: "white" })}>
-        <Icon {...(clicked ? { fill: "white" } : { fill: "black" })} />
-      </StyledButton>
-      <Label>{label}</Label>
-    </ButtonLayout>
+    <S.ButtonLayout>
+      <S.StyledButton
+        {...(clicked ? { color: "#3F37C9" } : { color: "white" })}
+      >
+        <Icon {...(clicked ? { fill: "white" } : { fill: "black" })}></Icon>
+      </S.StyledButton>
+      <S.Label>{label}</S.Label>
+    </S.ButtonLayout>
   );
 };
 
-export default Index;
+export default SportsButton;
