@@ -1,13 +1,13 @@
 import React from "react";
-import Index from "../components/CompetitionInfo/CompetitionInfo";
+import CompetitionList from "../../components/CompetitionList/CompetitionList";
 
 export default {
-  title: "Example/CometitionInfo",
-  component: Index,
+  title: "Example/CometitionList",
+  component: CompetitionList,
 };
 
 export const Standard = () => (
-  <Index
+  <CompetitionList
     title="가톨릭대학교 총장배 대회"
     sports="농구"
     place="가톨릭대학교 체육관"

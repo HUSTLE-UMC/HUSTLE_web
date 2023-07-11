@@ -1,11 +1,12 @@
 import { Meta, StoryObj } from "@storybook/react";
-import Index from "../components/SportsButton/SportsButton";
-import { ReactComponent as BasketBall } from "./assets/basketball.svg";
-import { ReactComponent as Tennis } from "./assets/tennis.svg";
+import SportsButton from "../../components/SportsButton/SportsButton";
+import { BasketBall } from "../assets/SportsButton";
+import { Tennis } from "../assets/SportsButton";
+
 const meta = {
   title: "Example/SportsButton",
-  component: Index,
-} satisfies Meta<typeof Index>;
+  component: SportsButton,
+} satisfies Meta<typeof SportsButton>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
