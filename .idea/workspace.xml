@@ -4,33 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7cdcef1-c9b5-41fa-9abd-2395d9808c87" name="변경" comment="Docs: constants 구조 조정">
+    <list default="true" id="a7cdcef1-c9b5-41fa-9abd-2395d9808c87" name="변경" comment="Refactor: 출력 리스트(하드코딩) 파일 추가 및 호출 방식 변경">
+      <change afterPath="$PROJECT_DIR$/hustle_web/src/components/Competition/list1.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hustle_web/src/components/FriendlyMatch/list2.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hustle_web/.storybook/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hustle_web/.storybook/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hustle_web/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/hustle_web/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hustle_web/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/hustle_web/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/hustle_web/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/hustle_web/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hustle_web/src/constants/styles/colors.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hustle_web/src/constants/styles/fonts.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hustle_web/src/stories/Button.stories.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hustle_web/src/stories/Button.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hustle_web/src/stories/Header.stories.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hustle_web/src/stories/Header.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hustle_web/src/stories/Introduction.mdx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hustle_web/src/stories/Page.stories.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hustle_web/src/stories/Page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hustle_web/src/stories/assets/code-brackets.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hustle_web/src/stories/assets/colors.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hustle_web/src/stories/assets/comments.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hustle_web/src/stories/assets/direction.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hustle_web/src/stories/assets/flow.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hustle_web/src/stories/assets/plugin.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hustle_web/src/stories/assets/repo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hustle_web/src/stories/assets/stackalt.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hustle_web/src/stories/button.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hustle_web/src/stories/header.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hustle_web/src/stories/page.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hustle_web/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/hustle_web/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,8 +19,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
-        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -106,7 +84,7 @@
       <workItem from="1688978508387" duration="3000" />
       <workItem from="1688990493763" duration="4389000" />
       <workItem from="1689009764513" duration="618000" />
-      <workItem from="1689053599099" duration="23175000" />
+      <workItem from="1689053599099" duration="27547000" />
     </task>
     <task id="LOCAL-00001" summary="Docs: constants 구조 조정">
       <created>1688815311296</created>
@@ -115,7 +93,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688815311296</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Feat: 대회 일정, 교류전 컴포넌트 작성 (#4)">
+      <created>1689165066196</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1689165066211</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -134,6 +119,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Docs: constants 구조 조정" />
-    <option name="LAST_COMMIT_MESSAGE" value="Docs: constants 구조 조정" />
+    <MESSAGE value="Feat: 대회 일정, 교류전 컴포넌트 작성 (#4)" />
+    <MESSAGE value="Refactor: 출력 리스트(하드코딩) 파일 추가 및 호출 방식 변경" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor: 출력 리스트(하드코딩) 파일 추가 및 호출 방식 변경" />
   </component>
 </project>
