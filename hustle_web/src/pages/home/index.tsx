@@ -8,9 +8,9 @@ const Home = () => {
     return (
         <>
         <HomeContainer>
-          <Header/>
           <h3>홈화면 임시입니다.</h3>
         </HomeContainer>
+            <Header/>
         <Questionmain />
         <Footer/>
         </>
