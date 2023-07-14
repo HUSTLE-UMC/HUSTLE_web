@@ -2,7 +2,7 @@ import React from "react";
 import CompetitionList from "../../components/CompetitionList/CompetitionList";
 
 export default {
-  title: "Example/CometitionList",
+  title: "Components/CometitionList",
   component: CompetitionList,
 };
 

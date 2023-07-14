@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ButtonLayout = styled.div`
-  width: 50px;
+  width: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,18 +9,18 @@ export const ButtonLayout = styled.div`
 `;
 
 export const StyledButton = styled.div`
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: ${(props) => props.color || "white"};
   border-radius: 50%;
-  margin-bottom: 3px;
-  box-shadow: rgba(0, 0, 0, 0.3) 3px 3px 3.5px;
+  margin-bottom: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.3) 5px 5px 5px;
 `;
 
 export const Label = styled.div`
-  font-size: 13px;
+  font-size: 20px;
   font-weight: 700;
 `;

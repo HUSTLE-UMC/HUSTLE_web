@@ -1,42 +1,17 @@
 import { Meta, StoryObj } from "@storybook/react";
 import SportsButton from "../../components/SportsButton/SportsButton";
-import { BasketBall } from "../assets/SportsButton";
-import { Tennis } from "../assets/SportsButton";
+import { BaseBall } from "../Icons/svg/index";
 
 const meta = {
-  title: "Example/SportsButton",
+  title: "Components/SportsButton",
   component: SportsButton,
 } satisfies Meta<typeof SportsButton>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
-
-export const Basket0: Story = {
+export const BaseBallBtn: Story = {
   args: {
-    label: "농구",
-    Icon: BasketBall,
-  },
-};
-
-export const Basket1: Story = {
-  args: {
-    label: "농구",
-    clicked: true,
-    Icon: BasketBall,
-  },
-};
-
-export const Tennis0: Story = {
-  args: {
-    label: "테니스",
-    Icon: Tennis,
-  },
-};
-
-export const Tennis1: Story = {
-  args: {
-    label: "테니스",
-    clicked: true,
-    Icon: Tennis,
+    label: "야구",
+    Icon: BaseBall,
   },
 };
