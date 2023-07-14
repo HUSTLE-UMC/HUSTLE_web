@@ -1,0 +1,13 @@
+export { ReactComponent as glasses } from "../../assets/Glass.svg";
+export { ReactComponent as download } from "../../assets/download.svg";
+export { ReactComponent as share } from "../../assets/share.svg";
+export { ReactComponent as right } from "../../assets/Icon_Feather Icon.svg";
+export { ReactComponent as BaseBall } from "../../assets/Sports/BaseBall.svg";
+export { ReactComponent as BasketBall } from "../../assets/Sports/BasketBall.svg";
+export { ReactComponent as Etc } from "../../assets/Sports/Etc.svg";
+export { ReactComponent as FootBall } from "../../assets/Sports/FootBall.svg";
+export { ReactComponent as Soccer } from "../../assets/Sports/Soccer.svg";
+export { ReactComponent as TableTennis } from "../../assets/Sports/TableTennis.svg";
+export { ReactComponent as Tennis } from "../../assets/Sports/Tennis.svg";
+export { ReactComponent as VolleyBall } from "../../assets/Sports/VolleyBall.svg";
+export { ReactComponent as Arrow } from "../../assets/Arrow.svg";
