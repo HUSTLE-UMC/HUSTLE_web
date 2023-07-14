@@ -1,15 +1,23 @@
 import { createGlobalStyle } from 'styled-components';
 
-const GlobalStyle = createGlobalStyle`
+export const supportScreenSize = 1080;
 
-* {
-    font-family: 'Pretendard', 'Malgun Gothic', sans-serif;
+export const GlobalStyle = createGlobalStyle`
+  html {
+    font-size: 62.5%; 
+
+    @media all and (max-width: ${supportScreenSize}px) {
+      font-size: 31.25%;
+    }
   }
-#root{
-  width:100%;
-  height:100%;
-}
+
+  body {
+    background: white;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, sans-serif, Roboto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
-
-
-export default GlobalStyle;
