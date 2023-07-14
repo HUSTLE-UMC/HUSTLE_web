@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
 export const HeaderContainer = styled.div`
   /*display: flex;
@@ -98,6 +99,12 @@ export const NavTextbox = styled.a`
   line-height: normal;
   text-decoration: none;
   white-space: pre-line;
+
+  &.active {
+    font-weight: bold;
+    color: blue;
+  }
+
   @media (max-width: 768px) {
     font-size: 0.25rem;
   }
@@ -167,4 +174,54 @@ export const HamburgerContainer = styled.img`
     width: 1rem;
     height: 1rem;
   }
-`
+`;
+
+export const LoginContainer = styled.button`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.31rem;
+  border: 0.3px solid #000;
+  background: #D1D7FC;
+  cursor: pointer; 
+  border-radius: 2.5rem;
+  box-shadow: 10px 10px 4px 0px rgba(0, 0, 0, 0.25);
+  @media (max-width: 768px) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    margin: 0.62rem 1.5rem;
+  }
+`;
+
+export const LoginText = styled.span`
+  color: #000;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  white-space: nowrap;
+  margin: 1.13rem 1.25rem 1.12rem 1.31rem;
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+`;
+
+export const AlarmImg = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+`;
+
+export const AlarmWrapper = styled.div`
+  width: 2.1875rem;
+  height: 2.55206rem;
+
+  @media (max-width: 768px) {
+    width: 1.0rem;
+    height: 1.0rem;
+  }
+`;

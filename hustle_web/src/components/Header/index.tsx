@@ -1,9 +1,11 @@
 import React from 'react';
-import {GapContainer, HamburgerContainer, HeaderContainer, LogoContainer, LogoText, LogoWrapper, Nav, NavTextbox, ProfileBtn, ProfileContainer, ProfileImage, RightContainer, SVGWrapper, UserName} from './styles';
-import logo from './header_logo.svg'
-import profile from './profile_icon.svg'
-import hamburger from './hamburger_icon.svg'
+import {AlarmWrapper, AlarmImg, GapContainer, HeaderContainer, LogoContainer, LogoText, LogoWrapper, Nav, NavTextbox, ProfileBtn, ProfileContainer, ProfileImage, RightContainer, SVGWrapper, UserName} from './styles';
+import logo from '../../assets/icons/header_logo.svg'
+import profile from '../../assets/icons/profile_icon.svg'
 import { Link } from 'react-router-dom';
+import alarm_none from '../../assets/icons/alarm-none_icon.svg'
+import alarm_active from '../../assets/icons/alarm-active_icon.svg'
+import { NavLink } from 'react-router-dom';
 
 type NavItem = {
     title:string;
@@ -45,7 +47,9 @@ const Header = () =>{
                             </ProfileContainer>
                         </Link>
                     </ProfileBtn>
-                    <HamburgerContainer src = {hamburger} alt = 'hamburgericon'/>
+                    <AlarmWrapper>
+                        <AlarmImg src = {alarm_none} alt = 'alarm'/>
+                    </AlarmWrapper>
                 </RightContainer>
             </GapContainer>
         </HeaderContainer>
