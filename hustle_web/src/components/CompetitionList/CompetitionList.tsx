@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import * as S from "./styles";
-import { Arrow } from "../../stories/assets/CompetitionList";
+import { Arrow } from "../../stories/Icons/svg/index";
 import { ListProps } from "./ListProps";
 
 const CompetitionList = ({ title, sports, place, date, due }: ListProps) => {

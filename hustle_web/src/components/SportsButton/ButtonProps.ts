@@ -1,5 +1,6 @@
+import { ReactElement } from "react";
+
 export interface ButtonProps {
   label: string;
-  clicked?: boolean;
-  Icon: JSX.ElementType;
+  Icon: React.FC<React.SVGProps<SVGSVGElement>>;
 }
