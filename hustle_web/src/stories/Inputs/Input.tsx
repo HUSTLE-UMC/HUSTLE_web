@@ -9,10 +9,10 @@ interface InputProps {
   onChange?: (value: string) => void;
 }
 
-export const Input = ({ 
-  size = 'medium', 
-  type = 'text', 
-  value = '', 
+export const Input = ({
+  size = 'medium',
+  type = 'text',
+  value = '',
   onChange ,
   }:InputProps) => {
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -25,15 +25,16 @@ export const Input = ({
   return(
     <div className='container'>
         <div className="search-bar">
-        <input
+            <div className='icon-div'>
+            <Icon icon="glasses" className="customIcon"  />
+            </div>
+            <input
           type={type}
           value={value}
           onChange={handleChange}
           className={['inputBox', `input--${size}`].join(' ')}
+          placeholder="궁금한 강의를 입력하세요"
         />
-        <div className='icon-div'>
-          <Icon icon="glasses" className="customIcon" size="0.7rem" />
-          </div>
       </div>
     </div>
   )
