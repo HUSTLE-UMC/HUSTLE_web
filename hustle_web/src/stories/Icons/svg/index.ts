@@ -11,3 +11,7 @@ export { ReactComponent as TableTennis } from "../../assets/Sports/TableTennis.s
 export { ReactComponent as Tennis } from "../../assets/Sports/Tennis.svg";
 export { ReactComponent as VolleyBall } from "../../assets/Sports/VolleyBall.svg";
 export { ReactComponent as Arrow } from "../../assets/Arrow.svg";
+export { ReactComponent as Writing } from "../../assets/Writing.svg";
+export { ReactComponent as Submit } from "../../assets/Submit.svg";
+export { ReactComponent as Character } from "./../../assets/Character.svg";
+export { ReactComponent as DownArrow } from "./../../assets/DownArrow.svg";
