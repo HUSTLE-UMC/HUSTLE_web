@@ -9,6 +9,7 @@ import Join from './pages/Join/Join';
 import Login from './pages/Login';
 import MyPageMain from './pages/MyPage/MyPageMain';
 import Community from './pages/Community/CommunityPage';
+import QuestionForm from './components/Community/Question/QuestionForm';
 
 
 import List1 from "./components/Competition/list1";
@@ -31,6 +32,7 @@ const Router = () => {
               <Route path='/community' element={<Community/>} />
               <Route path='/club' element={<Club/>} />
               <Route path='/join' element={<Join/>} />
+              <Route path='/question/questionForm' element={<QuestionForm/>}/>
               <Route path="/*" element={<DefaultLayout />} />
           </Routes>
       </Suspense>
