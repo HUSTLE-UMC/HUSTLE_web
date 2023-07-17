@@ -11,8 +11,7 @@ export const MyClubList = ({ clubs }: ClubListProps) => {
     setIsSelected(true);
   };
   return (
-    <S.Wrap>
-      <S.SelectedText>동아리 명</S.SelectedText>
+    <>
       <S.SelectedOption {...(isSelected && { style: { color: "black" } })}>
         {value}
       </S.SelectedOption>
@@ -24,7 +23,7 @@ export const MyClubList = ({ clubs }: ClubListProps) => {
           </S.IconWrap>
         </S.OptionList>
       ))}
-    </S.Wrap>
+    </>
   );
 };
 

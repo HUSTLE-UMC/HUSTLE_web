@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  width: 354px;
-  height: 160px;
-  margin: 35px 60px 22px 129px;
-  padding: 16px 0 0 34px;
+  box-sizing: border-box;
+  width: 34rem;
+  height: 15.5rem;
+  padding: 1.5rem 0 0 3rem;
   border-radius: 40px;
   border: solid 1px rgba(0, 0, 0, 0.25);
   background-color: #fff;
@@ -57,6 +57,3 @@ export const Content = styled.span`
   color: #000;
   margin-bottom: 6px;
 `;
-
-
-

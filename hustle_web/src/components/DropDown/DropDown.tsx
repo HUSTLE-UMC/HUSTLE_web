@@ -2,15 +2,26 @@ import React, { useState } from "react";
 import * as S from "./Styles";
 import { DropDownProps } from "./DropDownProps";
 import { DownArrow } from "../../stories/Icons/svg/index";
+import { menuState } from "../../recoil/friendlyMatchPage/states";
+import { menuTypes } from "../../recoil/friendlyMatchPage/types";
+import { useRecoilState } from "recoil";
 
-export const DropDown = ({ Items }: DropDownProps) => {
-  const [isOpen, setIsOpen] = useState<boolean>(true);
-  const [Value, setValue] = useState<string>(Items[0]);
+export const DropDown = ({ Items, index }: DropDownProps) => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [Value, setValue] = useState<string>(Items[index]);
+  const [menus, setMenus] = useRecoilState(menuState);
   const HandleClick = () => {
     setIsOpen(!isOpen);
   };
-  const HandleChange = (prop: number) => {
-    setValue(Items[prop]);
+  const HandleChange = (id: number) => {
+    setValue(Items[id]);
+    setMenus(
+      menus.map((m: menuTypes) => {
+        return m.id === id
+          ? { ...m, isSelected: true }
+          : { ...m, isSelected: false };
+      })
+    );
     setIsOpen(false);
   };
   return (
@@ -28,8 +39,8 @@ export const DropDown = ({ Items }: DropDownProps) => {
         </S.IconWrap>
       </S.DropDownTitle>
       {isOpen &&
-        Items.map((item, index) => (
-          <S.DropDownItem key={index} onClick={() => HandleChange(index)}>
+        Items.map((item, id) => (
+          <S.DropDownItem key={index} onClick={() => HandleChange(id)}>
             {item}
           </S.DropDownItem>
         ))}
