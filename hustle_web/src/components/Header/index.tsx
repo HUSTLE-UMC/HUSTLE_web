@@ -38,7 +38,7 @@ const Header = () =>{
                 </Nav>
                 <RightContainer>
                     <ProfileBtn>
-                        <Link to="/my-page">
+                        <Link to="/mypage">
                             <ProfileContainer>
                                 <SVGWrapper>
                                     <ProfileImage src = {profile} alt = 'profile'/>
