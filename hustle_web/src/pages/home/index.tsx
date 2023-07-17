@@ -10,8 +10,9 @@ const HomePage = () => {
             <li><Link to="/club">동아리게시판으로 이동</Link></li>
             <li><Link to="/friendly">교류전게시판으로 이동</Link></li>
             <li><Link to="/competitions">대회 게시판으로 이동</Link></li>
+            <li><Link to='/question/questionForm'>질문 게시판 글쓰기 폼</Link></li>
             <li><Link to="/mypage">마이페이지로 이동</Link></li>
-      </HomeContainer>
+        </HomeContainer>
         </>
     );
 };
