@@ -17,7 +17,7 @@ const navigationItems: NavItem[]=[
     {title: 'Home', path: '/'},
     {title: 'Competition', path: '/competition'},
     {title: 'Friendly\nmatch', path: '/match'},
-    {title: 'Community', path: '/community'},
+    {title: 'community', path: '/community'},
     {title: 'About Us', path: '/about'}
 
 ];

@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { Arrow } from "../../../stories/Icons/svg";
-import * as QL from './questionStyle';
+import * as QL from './QuestionStyle';
 import { useRecoilState, useRecoilValue } from "recoil";
 import { questionState } from "../../../recoil/community";
 

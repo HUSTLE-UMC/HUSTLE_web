@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import * as Q from './questionStyle';
+import * as Q from './QuestionStyle';
 import { useRecoilValue, useRecoilState } from "recoil";
 import {getQuestionSelector} from '../../../recoil/community';
-import QuestionList from './questionList';
+import QuestionList from './QuestionList';
 
 const QuestionMain = () => {
   const postList = useRecoilValue(getQuestionSelector);

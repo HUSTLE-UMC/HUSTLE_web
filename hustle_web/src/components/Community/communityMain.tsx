@@ -1,7 +1,7 @@
 import React , {useState} from 'react';
 import {Link} from "react-router-dom";
-import * as C from './communityMainStyle';
-import * as Q from '../Community/question/questionStyle'
+import * as C from './CommunityMainStyle';
+import * as Q from './Question/QuestionStyle'
 import { useRecoilValue, useRecoilState} from "recoil";
 import {getQuestionSelector} from '../../recoil/community';
 

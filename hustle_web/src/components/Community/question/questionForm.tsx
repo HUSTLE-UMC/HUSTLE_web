@@ -1,4 +1,4 @@
-import * as Q from './questionStyle'
+import * as Q from './QuestionStyle'
 import React, {useState} from 'react'
 import {useForm, SubmitHandler} from 'react-hook-form'
 import type {QuestionProps} from '../../../constants/interfaces'

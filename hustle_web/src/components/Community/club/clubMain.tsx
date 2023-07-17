@@ -1,5 +1,5 @@
 import React from 'react';
-import * as C from './clubStyle';
+import * as C from './ClubStyle';
 import { useState } from 'react';
 import { useRecoilValue, useRecoilState } from "recoil";
 
