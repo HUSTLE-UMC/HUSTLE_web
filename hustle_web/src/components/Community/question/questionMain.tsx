@@ -1,26 +1,32 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import * as Q from './questionStyle';
 import { useRecoilValue, useRecoilState } from "recoil";
 import {getQuestionSelector} from '../../../recoil/community';
-import {currentPageState, totalPageState} from '../../../recoil/pagenation'
-import List from './questionList';
-import {Icon} from '../../../stories/Icons/Icon'
-
+import QuestionList from './questionList';
 
 const QuestionMain = () => {
-  const [inputValue, setInputValue] = useState('');
-  //const questionList = useRecoilValue(getQuestionSelector);
-  const [currentPage, setCurrnetPage] = useRecoilState(currentPageState);
-  const totalPage = useRecoilValue(totalPageState);
+  const postList = useRecoilValue(getQuestionSelector);
   const [isDetailVisible, setIsDetailVisible] = useState(false);
   const [selectedQuestion, setSelectedQuestion] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filteredPosts, setFilteredPosts] = useState([]); //검색 결과 저장
 
+  //검색어 기능
   const handleInputChange = (value: string) => {
-    setInputValue(value);
-  };
+    setSearchQuery(value.toLowerCase());
+  }
 
-  const handlePageClick = (pageNumber : any) => {
-    setCurrnetPage(pageNumber);
+  const searchPosts = () => {
+    const filter = postList.filter((post:any) => 
+      post.title.toLowerCase().includes(searchQuery)
+    );
+    setFilteredPosts(filter);
+    console.log("검색어: ", searchQuery);
+  }
+  
+  const handleEnterKey = () => {
+    searchPosts();
   }
 
   const handleDetailClick = () => {
@@ -31,6 +37,12 @@ const QuestionMain = () => {
     setSelectedQuestion(id);
   };
 
+  useEffect(() => {
+    if(postList.data) {
+      setLoading(false);
+    }
+  },[postList.data]);
+
   return (
     <>
     <Q.Container>
@@ -38,30 +50,18 @@ const QuestionMain = () => {
         <Q.Search 
           size='small' 
           type='text'
-          value={inputValue}
-          onChange={handleInputChange}/>
+          value={searchQuery}
+          onChange={handleInputChange}
+          onEnter={handleEnterKey}
+          placeholder='궁금한 정보를 입력하세요'
+          />
       </div>
       <Q.FirstDiv>
         <Q.Border>[ 질문 게시판 ]</Q.Border>
         <Q.ButtonWrap><Q.WriteButton to='/question/write'>글쓰기</Q.WriteButton></Q.ButtonWrap>
       </Q.FirstDiv>
-      <div>
-        <div><List/></div>
-        <div>
-          <Icon icon="right" size="1rem" onClick={handleDetailClick}/>
-          {isDetailVisible && (
-            <div>
-              <List/>
-            </div>
-          )}
-        </div>
-      </div>
       {/* <div>
-        {Array.from({length : totalPage}, (index:number) => (
-          <button key={index + 1} onClick={() => handlePageClick(index+1)}>
-            {index + 1}
-          </button>
-        ))}
+        <QuestionList posts={filteredPosts.length > 0 ? filteredPosts : postList.data} loading={loading}/>
       </div> */}
     </Q.Container>
     </>
