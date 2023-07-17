@@ -1,52 +1,48 @@
 import React, {useState} from "react";
+import { Arrow } from "../../../stories/Icons/svg";
+import * as QL from './questionStyle';
+import { useRecoilState, useRecoilValue } from "recoil";
+import { questionState } from "../../../recoil/community";
 
-const List = () => {
-  const QuestionList = [ 
-    {
-      id : 1,
-      title : "부천 주변에 야외 농구 코트 있나요?",
-      detail : "부천 주변 야외 농구 코드가 있는지 궁금합니다."
-    },
-    {
-      id : 2,
-      title : "공덕 주변에 야외 농구 코트 있나요?",
-      detail : "공덕 근처 야외 농구 코드가 있는지 궁금합니다."
-    },
-    {
-      id : 3,
-      title : "역곡 주변에 야외 농구 코트 있나요?",
-      detail : "역곡 근처 야외 농구 코드가 있는지 궁금합니다."
-    },
-    {
-      id : 4,
-      title : "신도림 주변에 야외 농구 코트 있나요?",
-      detail : "신도림 근처 야외 농구 코드가 있는지 궁금합니다."
-    }
-  ]
-
+const QuestionList = ({posts, loading}:any) => {
   const [selectedQuestion, setSelectedQuestion] = useState(null);
+  const arrowButton:boolean[] = useRecoilValue(questionState);
+  const setArrowButton = useRecoilState(questionState)[1];
 
   const handleQuestionClick = (id:any) => {
     setSelectedQuestion(id);
   };
 
+  const handleClick = (index:number) => {
+    const newIcons = [...arrowButton];
+    newIcons[index] = !newIcons[index];
+    setArrowButton(newIcons);
+  }
+
   return (
-    <div>
-      <ul>
-        {QuestionList.map((post) => (
-          <li key={post.id} onClick={() => handleQuestionClick(post.id)}>
-            {post.title}
-            {selectedQuestion === post.id && (
-              <>
-                <br/>
+    <QL.listLayout>
+      {loading && <div>loading...</div>}
+      <QL.listContainer>
+        {posts.map((post:any,index:number) => (
+          <div>
+          <QL.Box key={post.id} onClick={() => handleQuestionClick(post.id)}>
+            <QL.List>{post.title}</QL.List>
+            <QL.IconWrap onClick={() => handleClick(index)}>
+              {arrowButton[index] ? <Arrow transform="rotate(180)"/> : <Arrow/>}
+            </QL.IconWrap>
+            </QL.Box>
+            <div>
+            {selectedQuestion === post.id && arrowButton[index] && (
+              <QL.detail>
                 {post.detail}
-              </>
+              </QL.detail>
             )}
-          </li>
+            </div>
+          </div>
         ))}
-      </ul>
-    </div>
+      </QL.listContainer>
+    </QL.listLayout>
   )
 }
 
-export default List;
+export default QuestionList;
