@@ -1,23 +1,23 @@
 import styled from "styled-components";
 
-export const MarkWrap = styled.div`
+export const MarkContainer = styled.div`
   display: flex;
   align-items: center;
 `;
 
-export const LabelWrap = styled.div`
+export const LabelContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 10rem;
-  height: 6rem;
+  width: 330px;
+  height: 200px;
   background: #3f37c9;
   color: white;
   opacity: 0.5;
-  margin-bottom: 4rem;
-  border-radius: 2rem 2rem 2rem 0;
-  margin-left: 0.5rem;
-  font-weight: 600;
-  font-size: 15px;
+  border-radius: 6rem 6rem 6rem 0;
+  margin-left: 2rem;
+  margin-bottom: 10rem;
+  font-weight: 700;
+  font-size: 30px;
 `;

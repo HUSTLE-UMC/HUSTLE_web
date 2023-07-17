@@ -1,19 +1,19 @@
 import React from "react";
 import { MarkProps } from "./MarkProps";
-import { Character } from "../../stories/Icons/svg/index";
+import { Character } from "../../stories/Icons/svg";
 import * as S from "./Styles";
 
 export const CompletionMark = ({ label }: MarkProps) => {
   const labels = label.split(" ");
   return (
-    <S.MarkWrap>
+    <S.MarkContainer>
       <Character />
-      <S.LabelWrap>
+      <S.LabelContainer>
         {labels.map((item, index) => {
           return <div key={index}>{item}</div>;
         })}
-      </S.LabelWrap>
-    </S.MarkWrap>
+      </S.LabelContainer>
+    </S.MarkContainer>
   );
 };
 

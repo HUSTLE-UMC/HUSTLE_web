@@ -64,7 +64,7 @@ export const buttonState = atom<buttonTypes[]>({
 
 //현재 선택되어 있는 버튼 정보 가져오는 selector
 export const ButtonSelector = selector({
-  key: "selectedButtonSelector",
+  key: "ButtonSelector",
   get: ({ get }: any) => {
     const buttons = get(buttonState);
     const selectedButton = buttons.filter((v: buttonTypes) => v.selected);
