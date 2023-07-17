@@ -7,6 +7,8 @@ interface InputProps {
   type?: 'text'|'number'|'default';
   value?: string;
   onChange?: (value: string) => void;
+  onEnter?: () => void;
+  placeholder?: string;
 }
 
 export const Input = ({
@@ -14,11 +16,18 @@ export const Input = ({
   type = 'text',
   value = '',
   onChange ,
+  onEnter,
+  placeholder = "",
   }:InputProps) => {
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       const newValue = event.target.value;
       if (onChange) {
         onChange(newValue);
+      }
+    };
+    const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+      if (event.key === "Enter" && onEnter) {
+        onEnter(); // 엔터키 이벤트 발생 시 onEnter 함수 호출
       }
     };
 
@@ -32,8 +41,9 @@ export const Input = ({
           type={type}
           value={value}
           onChange={handleChange}
+          onKeyDown={handleKeyDown}
           className={['inputBox', `input--${size}`].join(' ')}
-          placeholder="궁금한 강의를 입력하세요"
+          placeholder={placeholder}
         />
       </div>
     </div>

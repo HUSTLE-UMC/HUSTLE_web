@@ -1,43 +1,39 @@
 import React , {useState} from 'react';
 import {Link} from "react-router-dom";
-import * as C from './communityMainStyle';
+import * as C from './CommunityMainStyle';
+import * as Q from './Question/QuestionStyle'
 import { useRecoilValue, useRecoilState} from "recoil";
 import {getQuestionSelector} from '../../recoil/community';
-import {currentPageState, totalPageState} from '../../recoil/pagenation';
 
 
 const CommunityMain = () => {
   const [inputValue, setInputValue] = useState('');
   //const communityList = useRecoilValue(getCommunitySelector);
-  const [currentPage, setCurrnetPage] = useRecoilState(currentPageState);
-  const totalPage = useRecoilValue(totalPageState);
 
   const handleInputChange = (value: string) => {
     setInputValue(value);
   };
 
-  const handlePageClick = (pageNumber : any) => {
-    setCurrnetPage(pageNumber);
-  }
 
   return (
     <>
-    <div>
-      <div>
-        <C.Search 
-          size='small' 
-          type='text'
-          value={inputValue}
-          onChange={handleInputChange}/>
-      </div>
-      {/* <div>
-          {Array.from({length : totalPage}, (index:number) => (
-            <button key={index + 1} onClick={() => handlePageClick(index+1)}>
-              {index + 1}
-            </button>
-          ))}
-      </div> */}
-    </div>
+    <C.Layout>
+      <C.Container>
+        <Q.FirstDiv>
+          <Q.Border>[ 질문 게시판 ]</Q.Border>
+          <Q.ButtonWrap><Q.WriteButton to='/question'>더보기</Q.WriteButton></Q.ButtonWrap>
+        </Q.FirstDiv>
+        {/* <div>
+          <QuestionList posts={filteredPosts.length > 0 ? filteredPosts : postList.data} loading={loading}/>
+        </div> */}
+      </C.Container>
+      <C.Container>
+      <Q.FirstDiv>
+          <Q.Border>[ 동아리 게시판 ]</Q.Border>
+          <Q.ButtonWrap><Q.WriteButton to='/club'>더보기</Q.WriteButton></Q.ButtonWrap>
+        </Q.FirstDiv>
+      </C.Container>
+    </C.Layout>
     </>
   )
 }

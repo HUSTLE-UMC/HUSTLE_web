@@ -1,14 +1,16 @@
 import React,{Suspense} from 'react';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from './pages/home';
-import Competition from './pages/competition/Competition';
-import Club from './pages/community/Club';
-import Question from './pages/community/Question';
-import FriendlyMatch from './pages/friendlyMatch/FriendlyMatch';
-import Join from './pages/join/Join';
+import Competition from './pages/Competition/Competition';
+import Club from './pages/Community/Club';
+import Question from './pages/Community/QuestionPage';
+import FriendlyMatch from './pages/FriendlyMatch/FriendlyMatch';
+import Join from './pages/Join/Join';
 import Login from './pages/login';
-import MyPage from './pages/myPage/MyPage';
-import Community from './pages/community/Community';
+import MyPageMain from './pages/MyPage/MyPageMain';
+import Community from './pages/Community/CommunityPage';
+
+
 import List1 from "./components/Competition/list1";
 import List2 from "./components/FriendlyMatch/list2";
 
@@ -24,7 +26,7 @@ const Router = () => {
               <Route path="/login" element={<Login/>} />
               <Route path="/competitions" element={<List1 />} />
               <Route path="/friendly" element={<List2 />} />
-              <Route path='/mypage' element={<MyPage/>} />
+              <Route path='/mypage' element={<MyPageMain/>} />
               <Route path='/question' element={<Question/>} />
               <Route path='/community' element={<Community/>} />
               <Route path='/club' element={<Club/>} />
