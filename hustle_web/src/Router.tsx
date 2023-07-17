@@ -9,7 +9,7 @@ import Join from './pages/Join/Join';
 import Login from './pages/login';
 import MyPage from './pages/Mypage/Mypage';
 import Community from './pages/Community/Community';
-
+import QuestionForm from './components/Community/question/questionForm';
 
 import List1 from "./components/Competition/list1";
 import List2 from "./components/FriendlyMatch/list2";
@@ -33,6 +33,7 @@ const Router = () => {
               <Route path='/community' element={<Community/>} />
               <Route path='/club' element={<Club/>} />
               <Route path='/join' element={<Join/>} />
+              <Route path='/question/questionForm' element={<QuestionForm/>} />
           </Routes>
       </Suspense>
     </BrowserRouter>

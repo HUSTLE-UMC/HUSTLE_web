@@ -1,7 +1,7 @@
 import * as F from './footerStyles'
 import sendIcon from '../../stories/assets/Vector.png' 
 
-const footer = () => {
+const Footer = () => {
   return (
     <>
     <F.Footer>
@@ -48,4 +48,4 @@ const footer = () => {
   )
 }
 
-export default footer;
+export default Footer;

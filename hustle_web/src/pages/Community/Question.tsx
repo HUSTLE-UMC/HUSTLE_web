@@ -6,8 +6,9 @@ const QuestionPage = () => {
   return (
     <div>
       <Header/>
+      <div>
       <QuestionMain/>
-      <Footer/>
+      </div>
     </div>
   );
 };

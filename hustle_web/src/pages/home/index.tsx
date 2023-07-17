@@ -17,6 +17,8 @@ const HomePage = () => {
             <li><Link to="/friendly">교류전게시판으로 이동</Link></li>
             <li><Link to="/competitions">대회 게시판으로 이동</Link></li>
             <li><Link to="/mypage">마이페이지로 이동</Link></li>
+            <li><Link to="/community">커뮤니티페이지 이동</Link></li>
+            <li><Link to="/question/questionForm">질문 작성 폼 이동</Link></li>
       </ul>
         <Footer/>
         </>

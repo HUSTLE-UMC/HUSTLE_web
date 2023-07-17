@@ -5,3 +5,7 @@ import { Link } from "react-router-dom";
 export const Search = styled(Input)`
   align-items: center;
 `;
+
+export const Layout = styled.div``;
+
+export const Container = styled.div``;
