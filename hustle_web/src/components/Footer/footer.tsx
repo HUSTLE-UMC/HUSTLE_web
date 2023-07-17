@@ -1,7 +1,7 @@
 import * as F from './footerStyles'
-import sendIcon from '../../stories/assets/Vector.png' 
+import sendIcon from '../../stories/assets/Vector.png'
 
-const footer = () => {
+const Footer = () => {
   return (
     <>
     <F.Footer>
@@ -40,12 +40,11 @@ const footer = () => {
           <tr>
               <F.td>VIDEOS</F.td>
           </tr>
-            
+
       </F.tBody>
     </F.Table>
   </F.Footer>
   </>
   )
 }
-
-export default footer;
+export default Footer;
