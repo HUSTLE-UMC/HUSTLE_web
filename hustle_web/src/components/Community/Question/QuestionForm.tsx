@@ -36,7 +36,7 @@ const QuestionForm = () => {
           "Content-Type": "application/json",
         },
       });
-      navigate('/question');
+      navigate('/Question');
     } catch(error) {
       console.log("form data fail", error);
       setIsLoading(false);
@@ -51,8 +51,8 @@ const QuestionForm = () => {
           <Q.Border>[ 질문게시판 ]</Q.Border>
           <div>
             <Q.text>· 제목</Q.text>
-            <Q.contentInput 
-              type='title' 
+            <Q.contentInput
+              type='title'
               placeholder='제목을 입력하세요'
               {...register("title",titleRequirements)}
               />
@@ -60,7 +60,7 @@ const QuestionForm = () => {
           </div>
           <Q.text>· 내용</Q.text>
           <div>
-            <Q.textArea 
+            <Q.textArea
             placeholder = "내용을 입력해주세요"
             rows={5}
             cols={33}

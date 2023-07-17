@@ -7,7 +7,7 @@ export const questionState = atom({
 });
 
 export const getQuestionSelector = selector({
-  key : 'question/get',
+  key : 'Question/get',
   get : async({get}) => {
     try{
       const response = await axios.get('/질문게시판');

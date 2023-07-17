@@ -1,12 +1,12 @@
 import React,{Suspense} from 'react';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from './pages/home';
+import Home from './pages/Home';
 import Competition from './pages/Competition/Competition';
 import Club from './pages/Community/Club';
 import Question from './pages/Community/QuestionPage';
 import FriendlyMatch from './pages/FriendlyMatch/FriendlyMatch';
 import Join from './pages/Join/Join';
-import Login from './pages/login';
+import Login from './pages/Login';
 import MyPageMain from './pages/MyPage/MyPageMain';
 import Community from './pages/Community/CommunityPage';
 
