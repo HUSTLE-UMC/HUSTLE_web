@@ -307,3 +307,9 @@ export const Content_6 = styled.div`
 export const BtnWrapper = styled.div`
     text-align: center;
 `
+
+export const WarningMessage = styled.div`
+color: red;
+font-size: 14px;
+margin-top: 4px;
+`;

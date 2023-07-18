@@ -1,7 +1,7 @@
 /* 유효성 검사나 예외처리를 담아 놓으면 좋을거같아요 ex) 이메일 유효성, 로그인 데이터 처리 등등*/
 // utils 대신 services\validation 등과 같이 할수도
 
-export const isValidPassword = (password: string): boolean => {
+/*export const isValidPassword = (password: string): boolean => {
     // 비밀번호 유효성 검사 로직을 작성합니다.
     // 여기에 원하는 비밀번호 유효성 검사 조건을 추가하면 됩니다.
 
@@ -22,5 +22,23 @@ export const isValidPassword = (password: string): boolean => {
 
     // 모든 유효성 검사 조건을 통과한 경우에는 유효한 비밀번호로 판단합니다.
     return true;
-};
+};*/
+
+export const isValidPassword = (value: string): boolean => {
+
+    if (value.length < 6)
+        return false;
+
+    if(value.length > 20)
+        return false;
+
+    if(!/\d/.test(value))
+        return false;
+
+    if(!/[a-zA-Z]/.test(value))
+        return false;
+
+    return true;
+  };
+
 
