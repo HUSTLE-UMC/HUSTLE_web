@@ -8,16 +8,22 @@ const Community = React.lazy(() => import("./pages/Community/CommunityPage"));
 const Club = React.lazy(() => import("./pages/Community/Club"));
 const Join = React.lazy(() => import("./pages/Join/Join"));
 const Match = React.lazy(() => import("./pages/FriendlyMatch/FriendlyMatch"));
+const List1 = React.lazy(() => import("./components/Competition/list1"));
+const PostMatch = React.lazy(() => import("./components/FriendlyMatchPage/PostMatch/PostMatch"));
+const ApplyMatch = React.lazy(() => import("./components/FriendlyMatchPage/ApplyMatch/ApplyMatch"));
 
 const routes = [
   { path: "/", element: Home },
-  { path: "/Login", element: Login },
+  { path: "/login", element: Login },
   { path: "/mypage", element: MyPage },
-  { path: "/Question", element: Question },
-  { path: "/Community", element: Community },
-  { path: "/Club", element: Club },
-  { path: "/Join", element: Join },
-  { path: "/Match", element: Match },
+  { path: "/question", element: Question },
+  { path: "/community", element: Community },
+  { path: "/club", element: Club },
+  { path: "/join", element: Join },
+  { path: "/match", element: Match },
+  { path: "/competitions", element: List1 },
+  { path: "/post", element: PostMatch },
+  { path: "/apply", element: ApplyMatch },
 ];
 
 export default routes;
