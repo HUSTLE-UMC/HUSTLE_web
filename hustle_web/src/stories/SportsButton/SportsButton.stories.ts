@@ -13,5 +13,7 @@ export const BaseBallBtn: Story = {
   args: {
     label: "야구",
     Icon: BaseBall,
+    selected: false,
+    onClick: () => {},
   },
 };

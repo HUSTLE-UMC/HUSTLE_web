@@ -7,6 +7,7 @@ const Question = React.lazy(() => import("./pages/Community/QuestionPage"));
 const Community = React.lazy(() => import("./pages/Community/CommunityPage"));
 const Club = React.lazy(() => import("./pages/Community/Club"));
 const Join = React.lazy(() => import("./pages/Join/Join"));
+const Match = React.lazy(() => import("./pages/FriendlyMatch/FriendlyMatch"));
 
 const routes = [
   { path: "/", element: Home },
@@ -16,6 +17,7 @@ const routes = [
   { path: "/Community", element: Community },
   { path: "/Club", element: Club },
   { path: "/Join", element: Join },
+  { path: "/Match", element: Match },
 ];
 
 export default routes;
