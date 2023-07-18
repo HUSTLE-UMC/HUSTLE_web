@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { BirthInputProps } from "./types";
 
 export const Title=styled.div`
     color: #000;
@@ -120,11 +121,6 @@ export const NextBtnText = styled.div`
     line-height: normal;
 `
 
-export const Content_1 = styled.div`
-    display: flex;
-    //border-width: 128px 282px 742px 69px;
-`
-
 export const ProfileContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -185,12 +181,12 @@ export const NameField = styled.div`
     margin-left: 83px;
 `
 
-export const Content_2 = styled.div`
-    margin-top: 45px;
+export const FlexField = styled.div`
+    margin-top: 50px;
     display: flex;
 `
 
-export const BirthInput = styled.input`
+export const BirthInput = styled.input<BirthInputProps>`
     width: 202px;
     height: 50px;
     flex-shrink: 0;
@@ -233,11 +229,6 @@ export const GenderContainer = styled.div`
     margin-left: 83px;
 `
 
-export const Content_3=styled.div`
-    display: flex;
-    margin-top: 50px;
-`
-
 export const InputContainer = styled.div`
     display: inline-flex;
     flex-direction: column;
@@ -259,7 +250,7 @@ export const SignInBtn = styled.button`
     cursor: pointer;
 `
 
-export const Content_4 = styled.div`
+export const ColumnField = styled.div`
     display: inline-flex;
     flex-direction: column;
     margin-top: 50px;
@@ -291,17 +282,6 @@ export const PasswordText = styled.div`
     font-weight: 400;
     line-height: normal;
     margin-top: 23px;
-`
-
-export const Content_5 = styled.div`
-    display: inline-flex;
-    flex-direction: column;
-    margin-top: 50px;
-`
-
-export const Content_6 = styled.div`
-    display: flex;
-    margin-top: 50px;
 `
 
 export const BtnWrapper = styled.div`

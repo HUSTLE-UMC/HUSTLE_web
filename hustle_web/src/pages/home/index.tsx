@@ -3,8 +3,8 @@ import {HomeContainer} from "./styles";
 import Header from '../../components/Header';
 import Footer from '../../components/Footer/footer';
 import Questionmain from '../../components/Community/question/questionMain'
-import SignIn from '../../pages/signIn/'
-import Information from '../signIn/Information'
+import SignIn from '../SignIn'
+import Information from '../SignIn/Information'
 
 const Home = () => {
     return (
@@ -17,7 +17,6 @@ const Home = () => {
         <Footer/>
         </>*/
         <>
-            <Header/>
             <Information/>
         </>
 

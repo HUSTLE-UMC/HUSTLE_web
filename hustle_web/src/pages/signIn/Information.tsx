@@ -1,11 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import {WarningMessage, Content_1, Content_2, SigninContainer, Title, TitleContainer, ProfileImg, ProfileText, ImportantText, InputTitle, ProfileContainer, NameContainer, StyledInput, NameField, BirthInput, BirthContainer, BirthInputContainer, GenderInput, GenderContainer, Content_3, InputContainer, SignInBtn, NextBtnText, Content_4, PlaceholderInput, PasswordText, Content_5, Content_6, BtnWrapper} from './styles';
+import * as I from './styles';
 import profile from '../../../src/assets/images/profile_img.svg'
-import { BirthInputType } from "./types";
-import {isValidPassword} from '../../../src/utils/utility'
+import {isValidPassword} from '../../utils/utility'
 import { useRecoilState } from "recoil";
-import { confirmPasswordState, passwordState, showConfirmPasswordWarningState, showPasswordWarningState } from '../../../src/recoil/signin'
+import { confirmPasswordState, passwordState, showConfirmPasswordWarningState, showPasswordWarningState } from '../../recoil/signin'
 
 const Information = () =>{
     const HorizontalLine = styled.div`
@@ -43,104 +42,104 @@ const Information = () =>{
    
     return(
         <form onSubmit={handleSubmit}>
-            <SigninContainer>
-                <TitleContainer>
-                    <Title>회원가입</Title>
-                </TitleContainer>
+            <I.SigninContainer>
+                <I.TitleContainer>
+                    <I.Title>회원가입</I.Title>
+                </I.TitleContainer>
                 <HorizontalLine/>
-                <Content_1>
-                    <ProfileContainer>
-                        <ProfileImg src={profile} alt="프로필" />
-                        <ProfileText>프로필 사진 등록</ProfileText>
-                    </ProfileContainer>
-                    <NameField>
-                        <NameContainer>
-                            <ImportantText>*</ImportantText>
-                            <InputTitle>NAME</InputTitle>
-                        </NameContainer>
-                        <StyledInput type="text"/>
-                    </NameField>
-                </Content_1>
-                <Content_2>
-                    <BirthContainer>
-                        <NameContainer>
-                            <ImportantText>*</ImportantText>
-                            <InputTitle>생년월일</InputTitle>
-                        </NameContainer>
-                        <BirthInputContainer>
-                            <BirthInput type = "text"/>
-                            <BirthInput type = "text"/>
-                            <BirthInput type = "text"/>
-                        </BirthInputContainer>
-                    </BirthContainer>
-                    <GenderContainer>
-                        <NameContainer>
-                            <ImportantText>*</ImportantText>
-                            <InputTitle>성별</InputTitle>
-                        </NameContainer>
-                        <GenderInput type = "text" placeholder="남/여"/>
-                    </GenderContainer>  
-                </Content_2>
-                <Content_3>
-                    <InputContainer>
-                        <NameContainer>
-                            <ImportantText>*</ImportantText>
-                            <InputTitle>ID</InputTitle>
-                        </NameContainer>
-                        <PlaceholderInput type="text" placeholder="아이디를 입력하세요"/>
-                    </InputContainer>
-                    <SignInBtn>
-                        <NextBtnText> 중복확인 </NextBtnText>
-                    </SignInBtn>
-                </Content_3>
-                <Content_4>
-                    <NameContainer>
-                        <ImportantText>*</ImportantText>
-                        <InputTitle>PASSWORD</InputTitle>
-                    </NameContainer>
+                <I.FlexField>
+                    <I.ProfileContainer>
+                        <I.ProfileImg src={profile} alt="프로필" />
+                        <I.ProfileText>프로필 사진 등록</I.ProfileText>
+                    </I.ProfileContainer>
+                    <I.NameField>
+                        <I.NameContainer>
+                            <I.ImportantText>*</I.ImportantText>
+                            <I.InputTitle>NAME</I.InputTitle>
+                        </I.NameContainer>
+                        <I.StyledInput type="text"/>
+                    </I.NameField>
+                </I.FlexField>
+                <I.FlexField>
+                    <I.BirthContainer>
+                        <I.NameContainer>
+                            <I.ImportantText>*</I.ImportantText>
+                            <I.InputTitle>생년월일</I.InputTitle>
+                        </I.NameContainer>
+                        <I.BirthInputContainer>
+                            <I.BirthInput type = "text"/>
+                            <I.BirthInput type = "text"/>
+                            <I.BirthInput type = "text"/>
+                        </I.BirthInputContainer>
+                    </I.BirthContainer>
+                    <I.GenderContainer>
+                        <I.NameContainer>
+                            <I.ImportantText>*</I.ImportantText>
+                            <I.InputTitle>성별</I.InputTitle>
+                        </I.NameContainer>
+                        <I.GenderInput type = "text" placeholder="남/여"/>
+                    </I.GenderContainer>  
+                </I.FlexField>
+                <I.FlexField>
+                    <I.InputContainer>
+                        <I.NameContainer>
+                            <I.ImportantText>*</I.ImportantText>
+                            <I.InputTitle>ID</I.InputTitle>
+                        </I.NameContainer>
+                        <I.PlaceholderInput type="text" placeholder="아이디를 입력하세요"/>
+                    </I.InputContainer>
+                    <I.SignInBtn>
+                        <I.NextBtnText> 중복확인 </I.NextBtnText>
+                    </I.SignInBtn>
+                </I.FlexField>
+                <I.ColumnField>
+                    <I.NameContainer>
+                        <I.ImportantText>*</I.ImportantText>
+                        <I.InputTitle>PASSWORD</I.InputTitle>
+                    </I.NameContainer>
                     <div>
     
-                        <PlaceholderInput type = "password" placeholder="비밀번호를 입력하세요"
+                        <I.PlaceholderInput type = "password" placeholder="비밀번호를 입력하세요"
                             id="password" value={password} onChange={handleChangePassword}/>
                             {showPasswordWarning && (
-                                <WarningMessage>
+                                <I.WarningMessage>
                                 비밀번호는 영문과 숫자를 혼합하여 6자에서 20자 사이로 입력해주세요.
-                                </WarningMessage>
+                                </I.WarningMessage>
                             )}
                 
                     </div>
                     
-                </Content_4>
-                <Content_5>
-                    <NameContainer>
-                        <ImportantText>*</ImportantText>
-                        <InputTitle>PASSWORD CHECK</InputTitle>
-                    </NameContainer>
-                    <PlaceholderInput type = "password" placeholder="비밀번호 확인을 위하여 다시 한 번 입력하세요"
+                </I.ColumnField>
+                <I.ColumnField>
+                    <I.NameContainer>
+                        <I.ImportantText>*</I.ImportantText>
+                        <I.InputTitle>PASSWORD CHECK</I.InputTitle>
+                    </I.NameContainer>
+                    <I.PlaceholderInput type = "password" placeholder="비밀번호 확인을 위하여 다시 한 번 입력하세요"
                     value={confirmPassword} onChange={handleChangeConfirmPassword}/>
                     {showConfirmPasswordWarning && (
-                        <WarningMessage>비밀번호가 일치하지 않습니다.</WarningMessage>
+                        <I.WarningMessage>비밀번호가 일치하지 않습니다.</I.WarningMessage>
                     )}
-                </Content_5>
-                <Content_6>
-                    <InputContainer>
-                        <NameContainer>
-                            <ImportantText>*</ImportantText>
-                            <InputTitle>소속 대학교</InputTitle>
-                        </NameContainer>
-                        <PlaceholderInput type = "text" placeholder="재학 중인 대학교를 입력하세요"/>
-                    </InputContainer>
-                        <SignInBtn>
-                            <NextBtnText> 검색하기 </NextBtnText>
-                        </SignInBtn>
+                </I.ColumnField>
+                <I.FlexField>
+                    <I.InputContainer>
+                        <I.NameContainer>
+                            <I.ImportantText>*</I.ImportantText>
+                            <I.InputTitle>소속 대학교</I.InputTitle>
+                        </I.NameContainer>
+                        <I.PlaceholderInput type = "text" placeholder="재학 중인 대학교를 입력하세요"/>
+                    </I.InputContainer>
+                        <I.SignInBtn>
+                            <I.NextBtnText> 검색하기 </I.NextBtnText>
+                        </I.SignInBtn>
                     
-                </Content_6>
-                <BtnWrapper>
-                    <SignInBtn type = "submit">
-                        <NextBtnText> 회원가입 </NextBtnText>
-                    </SignInBtn>
-                </BtnWrapper>
-            </SigninContainer>
+                </I.FlexField>
+                <I.BtnWrapper>
+                    <I.SignInBtn type = "submit">
+                        <I.NextBtnText> 회원가입 </I.NextBtnText>
+                    </I.SignInBtn>
+                </I.BtnWrapper>
+            </I.SigninContainer>
         </form>
     )
 }

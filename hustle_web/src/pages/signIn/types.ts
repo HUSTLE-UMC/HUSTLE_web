@@ -1,3 +1,6 @@
-export interface BirthInputType {
-    type: string;
-  }
+import { ReactNode } from "react";
+
+export interface BirthInputProps {
+  children?: ReactNode;
+  type?: string;
+}

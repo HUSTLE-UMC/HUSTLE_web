@@ -5,8 +5,8 @@ import List2 from "./components/FriendlyMatch/list2";
 
 const loadingPage = <div>화면 로딩중...</div>;
 
-const Home = React.lazy(() => import("./pages/home"));
-const Login = React.lazy(() => import("./pages/login"));
+const Home = React.lazy(() => import("./pages/Home"));
+const Login = React.lazy(() => import("./pages/Login"));
 
 
 const App = () => {
