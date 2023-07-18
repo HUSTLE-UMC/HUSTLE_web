@@ -1,4 +1,4 @@
-import FriendlyMatch from "../../pages/friendlyMatch/FriendlyMatch";
+import FriendlyMatch from "../../pages/FriendlyMatch/FriendlyMatch";
 import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {

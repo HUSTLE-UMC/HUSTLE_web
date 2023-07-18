@@ -1,13 +1,13 @@
 import React from "react";
 
-const Home = React.lazy(() => import("./pages/home"));
-const Login = React.lazy(() => import("./pages/login"));
-const MyPage = React.lazy(() => import("./pages/myPage/MyPage"));
-const Question = React.lazy(() => import("./pages/community/Question"));
-const Community = React.lazy(() => import("./pages/community/Community"));
-const Club = React.lazy(() => import("./pages/community/Club"));
-const Join = React.lazy(() => import("./pages/join/Join"));
-const Match = React.lazy(() => import("./pages/friendlyMatch/FriendlyMatch"));
+const Home = React.lazy(() => import("./pages/Home"));
+const Login = React.lazy(() => import("./pages/Login"));
+const MyPage = React.lazy(() => import("./pages/MyPage/MyPage"));
+const Question = React.lazy(() => import("./pages/Community/Question"));
+const Community = React.lazy(() => import("./pages/Community/Community"));
+const Club = React.lazy(() => import("./pages/Community/Club"));
+const Join = React.lazy(() => import("./pages/Join/Join"));
+const Match = React.lazy(() => import("./pages/FriendlyMatch/FriendlyMatch"));
 
 const routes = [
   { path: "/", element: Home },
