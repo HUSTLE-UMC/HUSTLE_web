@@ -1,4 +1,4 @@
-import { LoginContainer, LoginText } from "./styles";
+import { LoginContainer, LoginText } from "./Styles";
 
 export const LoginBtn = () =>{
 //로그인 안 했을 경우 버튼 <ProfileBtn> 대체

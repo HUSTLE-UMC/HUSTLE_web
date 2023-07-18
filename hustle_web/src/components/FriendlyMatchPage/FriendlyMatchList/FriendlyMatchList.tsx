@@ -1,5 +1,5 @@
 import React from "react";
-import * as L from "./styles";
+import * as L from "./Styles";
 import MatchListProps from "./MatchListProps";
 import Test from "../../../assets/svg/Test.svg";
 import { Link } from "react-router-dom";

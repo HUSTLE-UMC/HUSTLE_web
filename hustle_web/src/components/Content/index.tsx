@@ -1,7 +1,7 @@
 import React, { Suspense, useState } from "react";
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import routes from "../../routes";
-import { Content } from "./styles";
+import { Content } from "./Styles";
 
 const loading = <div>화면을 불러오는 중 입니다.</div>;
 

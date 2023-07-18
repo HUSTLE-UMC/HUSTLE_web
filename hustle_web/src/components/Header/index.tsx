@@ -1,5 +1,5 @@
 import React from 'react';
-import {AlarmWrapper, AlarmImg, GapContainer, HeaderContainer, LogoContainer, LogoText, LogoWrapper, Nav, NavTextbox, ProfileBtn, ProfileContainer, ProfileImage, RightContainer, SVGWrapper, UserName} from './styles';
+import {AlarmWrapper, AlarmImg, GapContainer, HeaderContainer, LogoContainer, LogoText, LogoWrapper, Nav, NavTextbox, ProfileBtn, ProfileContainer, ProfileImage, RightContainer, SVGWrapper, UserName} from './Styles';
 import logo from '../../assets/icons/header_logo.svg'
 import profile from '../../assets/icons/profile_icon.svg'
 import { Link } from 'react-router-dom';

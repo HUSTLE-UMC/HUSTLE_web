@@ -22,18 +22,20 @@ const Router = () => {
     <BrowserRouter>
       <Suspense fallback={loadingPage}>
         <Routes>
+          <Route path="/" element={<DefaultLayout />}>
+          <Route index element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/competitions" element={<List1 />} />
           <Route path="/mypage" element={<MyPageMain />} />
-          <Route path="/question" element={<Question />} />
           <Route path="/community" element={<Community />} />
           <Route path="/club" element={<Club />} />
           <Route path="/join" element={<Join />} />
-          <Route path="/question/questionForm" element={<QuestionForm />} />
+            <Route path="/question" element={<Question />} />
+            <Route path="/question/questionForm" element={<QuestionForm />} />
           <Route path="/match" element={<FriendlyMatch />} />
           <Route path="/post" element={<PostMatch />} />
           <Route path="/apply" element={<ApplyMatch />} />
-          <Route path="/*" element={<DefaultLayout />} />
+          </Route>
         </Routes>
       </Suspense>
     </BrowserRouter>
