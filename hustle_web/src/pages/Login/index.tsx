@@ -1,14 +1,13 @@
 import React from 'react';
 import {LoginContainer} from "./styles";
+import LoginMain from '../../components/Login/Login';
 
 
 const LoginPage = () => {
     return (
-        <>
         <LoginContainer>
-            <h3>로그인 화면 임시입니다.</h3>
+            <LoginMain/>
         </LoginContainer>
-        </>
     );
 };
 

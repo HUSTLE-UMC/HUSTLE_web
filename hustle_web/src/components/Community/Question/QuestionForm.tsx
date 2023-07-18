@@ -6,6 +6,9 @@ import FormRequirements from '../../../constants/FormRequirements'
 import {defaultQuestionValue} from '../../../constants/defaultFormOption'
 import axios from 'axios'
 import {useNavigate} from 'react-router-dom'
+import SportsMenu from "../../SportsMenu/SportsMenu";
+import {ButtonSelector} from '../../../recoil/SportsButton'
+import { useRecoilValue } from 'recoil'
 
 const {titleRequirements, contentRequirements} = FormRequirements;
 let defaultValue = defaultQuestionValue;
@@ -13,6 +16,7 @@ let defaultValue = defaultQuestionValue;
 const QuestionForm = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
+  const [selectedButton, setSelectedButton] = useRecoilValue(ButtonSelector);
 
   const {
     register,
@@ -23,20 +27,33 @@ const QuestionForm = () => {
     defaultValues: defaultValue,
   });
 
+  console.log(watch());
+
   const onSubmitHandler: SubmitHandler<QuestionProps> = async(data) => {
     console.log(data);
+    const formData = {
+      sport : selectedButton,
+      title : data.title,
+      content : data.content 
+    };
     setIsLoading(true);
+
+    if(!selectedButton || !data.title || !data.content) {
+      alert("모든 항목을 입력해주세요!");
+      return;
+    }
 
     try {
       const response = await axios.post(
         "질문작성 api",
-        data,
+        formData,
         {
         headers:{
           "Content-Type": "application/json",
         },
       });
-      navigate('/Question');
+      console.log("질문 등록 성공!", response.data);
+      navigate('/question');
     } catch(error) {
       console.log("form data fail", error);
       setIsLoading(false);
@@ -48,6 +65,7 @@ const QuestionForm = () => {
     <>
       <Q.Form onSubmit={handleSubmit(onSubmitHandler)}>
         <Q.questionContainer>
+          <SportsMenu/>
           <Q.Border>[ 질문게시판 ]</Q.Border>
           <div>
             <Q.text>· 제목</Q.text>
