@@ -12,6 +12,7 @@ const HomePage = () => {
             <li><Link to="/competitions">대회 게시판으로 이동</Link></li>
             <li><Link to="/mypage">마이페이지로 이동</Link></li>
             <li><Link to ="/question/questionForm">질문 게시판 폼 이동</Link></li>
+            <li><Link to="/login">로그인</Link></li>
       </HomeContainer>
         </>
     );
