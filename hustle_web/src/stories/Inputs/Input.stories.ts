@@ -10,7 +10,7 @@ const meta: Meta<typeof Input> = {
 export default meta;
 type Story = StoryObj<typeof Input>;
 
-export const Default: Story = {
+export const Medium: Story = {
   args: {
     size: "medium",
     type: "text",

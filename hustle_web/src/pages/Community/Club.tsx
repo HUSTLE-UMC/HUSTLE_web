@@ -1,7 +1,9 @@
+import ClubMain from "../../components/Community/Club/ClubMain";
+
 const ClubPage = () => {
   return (
     <div>
-      ClubPage 페이지입니다.
+      <ClubMain/>
     </div>
   );
 };

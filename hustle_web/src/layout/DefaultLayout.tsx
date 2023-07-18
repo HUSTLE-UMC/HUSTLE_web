@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import {supportScreenSize} from "../constants/styles/GlobalStyle";
-import Footer from "../components/Footer/footer";
+import FooterComponent from "../components/Footer/Footer";
 import Header from "../components/Header";
 import WebContent from "../components/Content";
 const DefaultLayout = () => {
@@ -11,7 +11,7 @@ const DefaultLayout = () => {
         <Root>
             <Header />
             <WebContent />
-            <Footer />
+            <FooterComponent/>
         </Root>
     );
 };

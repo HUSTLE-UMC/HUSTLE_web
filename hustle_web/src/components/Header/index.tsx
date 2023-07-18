@@ -15,9 +15,9 @@ type NavItem = {
 const navigationItems: NavItem[]=[
     //링크는 임의 설정
     {title: 'Home', path: '/'},
-    {title: 'Competition', path: '/competition'},
+    {title: 'Competition', path: '/Competition'},
     {title: 'Friendly\nmatch', path: '/match'},
-    {title: 'community', path: '/community'},
+    {title: 'Community', path: '/Community'},
     {title: 'About Us', path: '/about'}
 
 ];
