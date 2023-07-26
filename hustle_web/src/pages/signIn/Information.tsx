@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import * as S from './signinStyles';
 import * as I from './styles';
 import profile from '../../../src/assets/images/profile_img.svg'
 import {isValidPassword} from '../../utils/utility'
@@ -42,7 +43,7 @@ const Information = () =>{
    
     return(
         <form onSubmit={handleSubmit}>
-            <I.SigninContainer>
+            <S.SigninContainer>
                 <I.TitleContainer>
                     <I.Title>회원가입</I.Title>
                 </I.TitleContainer>
@@ -139,7 +140,7 @@ const Information = () =>{
                         <I.NextBtnText> 회원가입 </I.NextBtnText>
                     </I.SignInBtn>
                 </I.BtnWrapper>
-            </I.SigninContainer>
+            </S.SigninContainer>
         </form>
     )
 }
