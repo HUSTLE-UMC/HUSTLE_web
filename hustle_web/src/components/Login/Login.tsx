@@ -68,36 +68,36 @@ const LoginMain = () => {
   return (
     <L.Layout>
       <L.H2>로그인</L.H2>
-      <L.Line/>
       <L.Container onSubmit={handleSubmit(onSubmitHandler)}>
         <L.Box>
-            <L.text>ID</L.text>
             <div>
             <L.Input
               type="username"
               placeholder="아이디를 입력하세요"
               {...register("username",usernameRequirements)}
             />
-            {errors.username && (<div>{errors.username.message}</div>)}
+            {errors.username && (<L.ErrorDiv>{errors.username.message}</L.ErrorDiv>)}
           </div>
-          <L.text>PASSWORD</L.text>
             <div>
             <L.Input
               type="password"
               placeholder="비밀번호를 입력하세요"
               {...register("password",passwordRequirements)}
             />
-            {errors.password && (<div>{errors.password.message}</div>)}
-            {errors.password && errors.password.type === "pattern" && (<div>{errors.password.message}</div>)}
+            {errors.password && errors.password.type === "pattern" && (<L.ErrorDiv>{errors.password.message}</L.ErrorDiv>)}
             </div>
             <L.SubmitButton type="submit">
               {isLoading ? "LOGINING..." : "로그인"}
             </L.SubmitButton>
         </L.Box>
       </L.Container>
+      <L.Line></L.Line>
+      <L.ButtonDiv><L.KakaoButton>카카오 로그인</L.KakaoButton></L.ButtonDiv>
       <L.ButtonDiv>
         <L.Button onClick={forgotIdPage}>ID 찾기</L.Button>
+        <L.ButtonLine></L.ButtonLine>
         <L.Button onClick={forgotPwPage}>비밀번호 찾기</L.Button>
+        <L.ButtonLine></L.ButtonLine>
         <L.Button onClick={joinPage}>회원가입</L.Button>
       </L.ButtonDiv>  
     </L.Layout>

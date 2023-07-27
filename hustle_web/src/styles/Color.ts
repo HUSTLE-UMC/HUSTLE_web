@@ -1,5 +1,5 @@
 const Colors = {
-  WriteButton: "#677af5",
+  WriteButton: "#F99E29",
 };
 
 export default Colors;
