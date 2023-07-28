@@ -49,7 +49,6 @@ const Information = () =>{
             <I.Div>
                 <I.TextWrap>아이디</I.TextWrap>
                 <I.Input type="username" placeholder="이름을 입력하세요"
-                         {...register("name", usernameRequirements)}
                         />
             </I.Div>
         </form>
