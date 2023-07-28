@@ -61,6 +61,7 @@ export const SubmitButton = styled.button`
   font-size: 1.6rem;
   font-weight: 600;
   margin-top: 2rem;
+  cursor: pointer;
 `;
 
 export const ButtonDiv = styled.div`
@@ -74,6 +75,7 @@ export const Button = styled.button`
   border: none;
   background: none;
   text-align: center;
+  cursor: pointer;
 `;
 
 export const Div = styled.div`
@@ -103,4 +105,5 @@ export const KakaoButton = styled.button`
   color: white;
   font-size: 1.6rem;
   margin: 1rem;
+  cursor: pointer;
 `;
