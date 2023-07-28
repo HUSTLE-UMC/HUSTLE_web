@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import List1 from "./components/Competition/list1";
-import List2 from "./components/FriendlyMatch/list2";
+import List1 from "./components/Competition/List1";
+import List2 from "./components/FriendlyMatch/List2";
 
 const loadingPage = <div>화면 로딩중...</div>;
 

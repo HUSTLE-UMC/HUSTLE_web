@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import * as Q from './questionStyle';
+import * as Q from './QuestionStyle';
 import { useRecoilValue, useRecoilState } from "recoil";
 import {getQuestionSelector} from '../../../recoil/community';
 import {currentPageState, totalPageState} from '../../../recoil/pagenation'
-import List from './questionList';
+import List from './QuestionList';
 import {Icon} from '../../../stories/Icons/Icon'
 
 
@@ -35,8 +35,8 @@ const QuestionMain = () => {
     <>
     <Q.Container>
       <div>
-        <Q.Search 
-          size='small' 
+        <Q.Search
+          size='small'
           type='text'
           value={inputValue}
           onChange={handleInputChange}/>

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import * as L from './lectureStyle';
+import * as L from './LectureStyle';
 import { useRecoilValue, useRecoilState } from "recoil";
 import {getLectureSelector} from '../../../recoil/community';
 import {currentPageState, totalPageState} from '../../../recoil/pagenation';
@@ -18,13 +18,13 @@ const ClubMain = () => {
   const handlePageClick = (pageNumber : any) => {
     setCurrnetPage(pageNumber);
   }
-  
+
   return (
     <>
     <div>
       <div>
-        <L.Search 
-          size='small' 
+        <L.Search
+          size='small'
           type='text'
           value={inputValue}
           onChange={handleInputChange}/>

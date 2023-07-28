@@ -7,7 +7,7 @@ export const questionState = atom({
 });
 
 export const getQuestionSelector = selector({
-  key : 'question/get',
+  key : 'Question/get',
   get : async({get}) => {
     try{
       const response = await axios.get('question/API');
@@ -18,7 +18,7 @@ export const getQuestionSelector = selector({
       //페이지당 보여져야하는 게시물
       const postsPerPage = 9;
       //총 페이지 수 계산
-      const totalPage = Math.ceil(totalPosts/postsPerPage); 
+      const totalPage = Math.ceil(totalPosts/postsPerPage);
       return {
         data,
         totalPage,
@@ -30,7 +30,7 @@ export const getQuestionSelector = selector({
 });
 
 export const getLectureSelector = selector({
-  key : 'lecture/get',
+  key : 'Lecture/get',
   get : async({get}) => {
     try{
       const response = await axios.get('lecture/API');
@@ -40,13 +40,13 @@ export const getLectureSelector = selector({
       //페이지당 보여져야하는 게시물
       const postsPerPage = 9;
       //총 페이지 수 계산
-      const totalPage = Math.ceil(totalPosts/postsPerPage); 
+      const totalPage = Math.ceil(totalPosts/postsPerPage);
       return {
         data,
         totalPage,
       };
     } catch(error) {
       throw new Error('Failed to fetch data');
-    } 
+    }
   },
 });

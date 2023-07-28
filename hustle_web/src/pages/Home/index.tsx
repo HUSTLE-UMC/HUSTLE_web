@@ -1,8 +1,8 @@
 import React from 'react';
-import {HomeContainer} from "./styles";
+import {HomeContainer} from "./Styles";
 import Header from '../../components/Header';
-import Footer from '../../components/Footer/footer';
-import Questionmain from '../../components/Community/question/questionMain'
+import Footer from '../../components/Footer/Footer';
+import Questionmain from '../../components/Community/Question/QuestionMain'
 import SignIn from '../SignIn'
 import Information from '../SignIn/Information'
 

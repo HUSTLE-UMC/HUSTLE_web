@@ -5,7 +5,7 @@ const Login = React.lazy(() => import("./pages/Login"));
 
 const routes = [
   { path: "/", element: Home },
-  { path: "/login", element: Login },
+  { path: "/Login", element: Login },
 ];
 
 export default routes;

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import * as S from "./styles";
+import * as S from "./Styles";
 import { Arrow } from "../../stories/Icons/svg/index";
 import { ListProps } from "./ListProps";
 

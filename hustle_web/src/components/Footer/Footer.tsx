@@ -1,5 +1,5 @@
-import * as F from './footerStyles'
-import sendIcon from '../../stories/assets/Vector.png' 
+import * as F from './FooterStyles'
+import sendIcon from '../../stories/assets/Vector.png'
 
 const footer = () => {
   return (
@@ -40,7 +40,7 @@ const footer = () => {
           <tr>
               <F.td>VIDEOS</F.td>
           </tr>
-            
+
       </F.tBody>
     </F.Table>
   </F.Footer>

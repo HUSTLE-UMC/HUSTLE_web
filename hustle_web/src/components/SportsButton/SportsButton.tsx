@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import * as S from "./styles";
+import * as S from "./Styles";
 import { ButtonProps } from "./ButtonProps";
 
 const SportsButton = ({ label, Icon }: ButtonProps) => {

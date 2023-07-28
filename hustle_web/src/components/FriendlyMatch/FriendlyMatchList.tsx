@@ -1,5 +1,5 @@
 import React from "react";
-import * as L from "./styles";
+import * as L from "./Styles";
 import FriendlyMatch from "./FriendlyMatch";
 import Test from "../../assets/svg/Test.svg";
 

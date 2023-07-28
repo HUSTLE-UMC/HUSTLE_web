@@ -1,13 +1,14 @@
-import React from 'react';
-import * as C from './clubStyle';
-import { useState } from 'react';
-import { useRecoilValue, useRecoilState } from "recoil";
-import {getLectureSelector} from '../../../recoil/community';
-import {currentPageState, totalPageState} from '../../../recoil/pagenation';
+import React , {useState} from 'react';
+import {Link} from "react-router-dom";
+import * as C from './CommunityMainStyle';
+import { useRecoilValue, useRecoilState} from "recoil";
+import {getQuestionSelector} from '../../recoil/community';
+import {currentPageState, totalPageState} from '../../recoil/pagenation';
 
-const ClubMain = () => {
+
+const CommunityMain = () => {
   const [inputValue, setInputValue] = useState('');
-  //const clubList = useRecoilValue(getLectureSelector);
+  //const communityList = useRecoilValue(getCommunitySelector);
   const [currentPage, setCurrnetPage] = useRecoilState(currentPageState);
   const totalPage = useRecoilValue(totalPageState);
 
@@ -23,8 +24,8 @@ const ClubMain = () => {
     <>
     <div>
       <div>
-        <C.Search 
-          size='small' 
+        <C.Search
+          size='small'
           type='text'
           value={inputValue}
           onChange={handleInputChange}/>
@@ -38,8 +39,7 @@ const ClubMain = () => {
       </div> */}
     </div>
     </>
-
   )
 }
 
-export default ClubMain;
+export default CommunityMain;
