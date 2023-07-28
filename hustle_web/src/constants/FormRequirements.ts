@@ -15,14 +15,14 @@ const contentRequirements = {
 const usernameRequirements = {
   required: {
     value: true,
-    message: "아이디를 입력해주세요!",
+    message: "* 아이디를 입력해주세요!",
   },
 };
 
 const passwordRequirements = {
   required: {
     value: true,
-    message: "비밀번호를 입력해주세요!",
+    message: "* 비밀번호를 입력해주세요!",
     pattern: {
       value:
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/,

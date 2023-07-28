@@ -2,42 +2,40 @@ import styled from "styled-components";
 import Colors from "../../styles/Color";
 
 export const Layout = styled.div`
-  width: 100%;
+  width: 1280px;
   height: 100vh;
   justify-content: center;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  background-color: #fcfcfc;
 `;
 
 export const H2 = styled.h2`
   font-weight: 700;
-  font-size: 2.5rem;
+  font-size: 2.4rem;
   line-height: 3rem;
-  margin-left: 3rem;
+  color: #656565;
 `;
 
 export const Line = styled.hr`
-  margin-bottom: 3rem;
-  margin-top: 0;
-  width: 100%;
+  margin-top: 1rem;
+  width: 394px;
   height: 1px;
-  border: 0;
-  background: rgba(0, 0, 0, 0.25);
+  background-color: rgba(148, 148, 148, 0.5);
+  border: none;
 `;
 
 export const Container = styled.form`
-  width: 95%;
+  width: 394px;
   display: flex;
-  justify-content: left;
+  justify-content: center;
   align-items: center;
-  margin-left: 2.5rem;
 `;
 
 export const Box = styled.div`
-  width: 100%;
   display: flex;
   flex-direction: column;
-  margin-bottom: 0.5rem;
 `;
 
 export const text = styled.div`
@@ -47,38 +45,62 @@ export const text = styled.div`
 `;
 
 export const Input = styled.input`
-  width: 100%;
-  border-radius: 1rem;
+  width: 394px;
+  border-radius: 1.2rem;
   border: 1px solid rgba(0, 0, 0, 0.25);
-  height: 5rem;
-  padding: 0 0 0 1rem;
-  margin-bottom: 3rem;
+  height: 4rem;
 `;
 
 export const SubmitButton = styled.button`
-  width: 101%;
+  width: 100%;
   background: ${Colors.WriteButton};
   border: none;
-  border-radius: 1rem;
-  height: 5rem;
+  border-radius: 1.2rem;
+  height: 4.7rem;
   color: white;
-  font-size: 3rem;
-  /* line-height: 3.6rem; */
-  font-weight: 700;
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-top: 2rem;
 `;
 
 export const ButtonDiv = styled.div`
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  button {
-    margin-right: 2rem;
-  }
 `;
 
 export const Button = styled.button`
-  margin-right: 2rem;
   border: none;
   background: none;
   text-align: center;
+`;
+
+export const Div = styled.div`
+  display: flex;
+`;
+
+export const ErrorDiv = styled.div`
+  padding: 5px;
+  flex-shrink: 0;
+  font-size: 2rem;
+  font-weight: 400;
+  color: red;
+`;
+
+export const ButtonLine = styled.div`
+  border-left: 1px solid black;
+  height: 1rem;
+  margin: 1rem;
+`;
+
+export const KakaoButton = styled.button`
+  width: 394px;
+  background: ${Colors.WriteButton};
+  border: none;
+  border-radius: 1.2rem;
+  height: 4.7rem;
+  color: white;
+  font-size: 1.6rem;
+  margin: 1rem;
 `;

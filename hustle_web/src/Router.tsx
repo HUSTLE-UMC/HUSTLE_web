@@ -2,8 +2,8 @@ import React, { Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Competition from "./pages/Competition/Competition";
-import Club from "./pages/Community/Club";
-import Question from "./pages/Community/QuestionPage";
+import Club from "./pages/Community/Club/Club";
+import Question from "./pages/Community/Question/QuestionPage";
 import FriendlyMatch from "./pages/FriendlyMatch/FriendlyMatch";
 import Join from "./pages/Join/Join";
 import Login from "./pages/Login";
@@ -28,14 +28,14 @@ const Router = () => {
           <Route path="/competitions" element={<List1 />} />
           <Route path="/mypage" element={<MyPageMain />} />
           <Route path="/community" element={<Community />} />
-          <Route path="/club" element={<Club />} />
+          <Route path="/community/club" element={<Club />} />
           <Route path="/join" element={<Join />} />
-            <Route path="/question" element={<Question />} />
-            <Route path="/question/questionForm" element={<QuestionForm />} />
+          <Route path="/community/question" element={<Question />} />
+          <Route path="/community/question/write" element={<QuestionForm />} />
           <Route path="/match" element={<FriendlyMatch />} />
           <Route path="/post" element={<PostMatch />} />
           <Route path="/apply" element={<ApplyMatch />} />
-          </Route>
+        </Route>
         </Routes>
       </Suspense>
     </BrowserRouter>

@@ -58,7 +58,7 @@ const QuestionMain = () => {
       </div>
       <Q.FirstDiv>
         <Q.Border>[ 질문 게시판 ]</Q.Border>
-        <Q.ButtonWrap><Q.WriteButton to='/question/write'>글쓰기</Q.WriteButton></Q.ButtonWrap>
+        <Q.ButtonWrap><Q.WriteButton to='/community/question/write'>글쓰기</Q.WriteButton></Q.ButtonWrap>
       </Q.FirstDiv>
       {/* <div>
         <QuestionList posts={filteredPosts.length > 0 ? filteredPosts : postList.data} loading={loading}/>

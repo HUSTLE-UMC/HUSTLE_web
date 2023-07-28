@@ -1,4 +1,4 @@
-import QuestionMain from "../../components/Community/Question/QuestionMain";
+import QuestionMain from "../../../components/Community/Question/QuestionMain";
 
 const QuestionPage = () => {
   return (
