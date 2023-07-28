@@ -7,6 +7,8 @@ import { defaultLoginValue } from "../../constants/defaultFormOption";
 import FormRequirements from "../../constants/FormRequirements";
 import axios from "axios";
 import { AuthContext } from "../Auth/AuthProvider";
+import { userAtom } from "../../recoil/login/login";
+import { useRecoilState } from "recoil";
 
 const {usernameRequirements, passwordRequirements} = FormRequirements;
 let defaultValue = defaultLoginValue;
@@ -15,17 +17,14 @@ const LoginMain = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const {setIsLoggedIn, setAccessToken, refreshToken} = useContext(AuthContext);
+  const [user, setUser] = useRecoilState(userAtom);
 
   function joinPage() {
-    navigate("/join")
+    navigate("/join");
   }
 
-  function forgotIdPage() {
-    navigate("/forgotId")
-  }
-
-  function forgotPwPage() {
-    navigate("/forgotpw")
+  function forgotPage() {
+    navigate("/forgot");
   }
   
   const {
@@ -55,6 +54,8 @@ const LoginMain = () => {
       localStorage.setItem("refreshToken", user.refreshToken);
       //리코일에 jwt토큰에 업뎃
       setAccessToken(accessToken);
+      //리코일에 유저정보 저장
+      setUser(user);
       setIsLoggedIn(true);
       navigate("/")
     } finally {
@@ -94,9 +95,7 @@ const LoginMain = () => {
       <L.Line></L.Line>
       <L.ButtonDiv><L.KakaoButton>카카오 로그인</L.KakaoButton></L.ButtonDiv>
       <L.ButtonDiv>
-        <L.Button onClick={forgotIdPage}>ID 찾기</L.Button>
-        <L.ButtonLine></L.ButtonLine>
-        <L.Button onClick={forgotPwPage}>비밀번호 찾기</L.Button>
+        <L.Button onClick={forgotPage}>아이디 찾기 · 비밀번호 찾기</L.Button>
         <L.ButtonLine></L.ButtonLine>
         <L.Button onClick={joinPage}>회원가입</L.Button>
       </L.ButtonDiv>  
