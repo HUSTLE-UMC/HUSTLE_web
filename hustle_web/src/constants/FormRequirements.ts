@@ -32,11 +32,27 @@ const passwordRequirements = {
   },
 };
 
+const idRequirements = {
+  required: {
+    value: true,
+    message: "* 아이디를 입력해주세요.",
+  },
+};
+
+const birthRequirements = {
+  required: {
+    value: true,
+    message: "* 생년월일을 정확히 입력해주세요.",
+  },
+};
+
 const FormRequirements = {
   titleRequirements,
   contentRequirements,
   usernameRequirements,
   passwordRequirements,
+  birthRequirements,
+  idRequirements,
 };
 
 export default FormRequirements;
