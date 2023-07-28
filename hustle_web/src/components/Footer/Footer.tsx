@@ -1,51 +1,22 @@
-import * as F from './FooterStyles'
-import sendIcon from '../../stories/assets/Vector.png'
+import * as F from './FooterStyles';
+import React from 'react';
+import logo from '../../assets/icons/header_logo.svg'
 
-const footer = () => {
+const FooterComponent = () => {
   return (
-    <>
-    <F.Footer>
-    <F.Table>
-      <F.tHead>
-        <tr>
-          <F.td>Product</F.td>
-          <F.td>Information</F.td>
-          <F.td>Development</F.td>
-          <F.td>Subscribe</F.td>
-        </tr>
-      </F.tHead>
-      <F.tBody>
-        <tr>
-          <F.td>COMPETITION</F.td>
-          <F.td>TEAM</F.td>
-          <F.td>UMC 4TH HUSTLE</F.td>
-          <F.td rowSpan={2}>이메일 폼 만들기</F.td>
-        </tr>
-        <tr>
-            <F.td>FRIENDLY MATCH</F.td>
-          </tr>
-          <tr>
-            <F.td>SPORTS</F.td>
-          </tr>
-          <tr>
-              <F.td>University Team</F.td>
-              {/* <F.td colSpan={4}>이메일을 입력하시면 각종 대회 정보 및, 교류전 정보를<br/> 이메일로 발송해드립니다.</F.td> */}
-          </tr>
-          <tr>
-              <F.td>RANKING</F.td>
-          </tr>
-          <tr>
-              <F.td>MVP of the Game</F.td>
-          </tr>
-          <tr>
-              <F.td>VIDEOS</F.td>
-          </tr>
-
-      </F.tBody>
-    </F.Table>
-  </F.Footer>
-  </>
+      <>
+        <F.Footer>
+          <F.Box>
+            <F.LogoWrapper src = {logo} alt='logo'/>
+            <F.LogoText>HUSTLE</F.LogoText>
+          </F.Box>
+          <F.TextWrapper>
+            <F.Text>개인정보 처리 방침</F.Text>
+            <F.Line></F.Line>
+            <F.Text>TEAM HUSTLE</F.Text>
+          </F.TextWrapper>
+        </F.Footer>
+      </>
   )
 }
-
-export default footer;
+export default FooterComponent;
