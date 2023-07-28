@@ -13,6 +13,8 @@ import QuestionForm from "./components/Community/Question/QuestionForm";
 import List1 from "./components/Competition/list1";
 import PostMatch from "./components/FriendlyMatchPage/PostMatch/PostMatch";
 import ApplyMatch from "./components/FriendlyMatchPage/ApplyMatch/ApplyMatch";
+import ForgotPage from "./pages/Forgot/Forgotpage";
+import ResetPage from "./pages/Forgot/Reset/Resetpage";
 
 const loadingPage = <div>화면 로딩중...</div>;
 const DefaultLayout = React.lazy(() => import("./layout/DefaultLayout"));
@@ -35,6 +37,8 @@ const Router = () => {
           <Route path="/match" element={<FriendlyMatch />} />
           <Route path="/post" element={<PostMatch />} />
           <Route path="/apply" element={<ApplyMatch />} />
+          <Route path="/forgot" element={<ForgotPage/>} />
+          <Route path="/reset" element={<ResetPage/>}/>
         </Route>
         </Routes>
       </Suspense>
