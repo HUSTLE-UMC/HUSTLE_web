@@ -18,3 +18,26 @@ export interface AuthContextType {
   refreshAccessToken: () => Promise<void>;
   logoutHandler: () => void;
 }
+
+export interface buttonProps {
+  active: boolean;
+}
+
+export interface forgotProps {
+  name: string;
+  birth: number;
+}
+
+export interface ErrorProps {
+  onError: boolean;
+}
+
+export interface findPwProps {
+  name: string;
+  birth: number;
+  id: string;
+}
+
+export interface isMatchProps {
+  isMatch: boolean;
+}

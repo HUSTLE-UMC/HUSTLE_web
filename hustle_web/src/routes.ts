@@ -21,6 +21,10 @@ const ApplyMatch = React.lazy(
   () => import("./components/FriendlyMatchPage/ApplyMatch/ApplyMatch")
 );
 
+const ForgotPage = React.lazy(() => import("./pages/Forgot/Forgotpage"));
+
+const ResetPage = React.lazy(() => import("./pages/Forgot/Reset/Resetpage"));
+
 const routes = [
   { path: "/", element: Home },
   { path: "/login", element: Login },
@@ -34,6 +38,8 @@ const routes = [
   { path: "/competitions", element: List1 },
   { path: "/post", element: PostMatch },
   { path: "/apply", element: ApplyMatch },
+  { path: "/forgot", element: ForgotPage },
+  { path: "/reset", element: ResetPage },
 ];
 
 export default routes;
