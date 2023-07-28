@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import * as S from './signinStyles';
-import * as I from './styles';
-import profile from '../../../src/assets/images/profile_img.svg'
+import * as S from './UserStyles';
+import * as I from './InformationStyles';
+import profile from '../../assets/images/profile_img.svg'
 import {isValidPassword} from '../../utils/utility'
 import { useRecoilState } from "recoil";
 import { confirmPasswordState, passwordState, showConfirmPasswordWarningState, showPasswordWarningState } from '../../recoil/signin'
@@ -12,7 +12,7 @@ const Information = () =>{
     margin-top: 50px;
     border-bottom: solid 2px  rgba(0, 0, 0, 0.25);
     `;
-    
+
     const [password, setPassword] = useRecoilState(passwordState);
     const [showPasswordWarning, setShowPasswordWarning] = useRecoilState(showPasswordWarningState);
     const [confirmPassword, setConfirmPassword] = useRecoilState(confirmPasswordState);
@@ -34,13 +34,13 @@ const Information = () =>{
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault(); // 기본 폼 제출 동작을 막음
-    
+
         if (!isValidPassword(password)) {
           setShowPasswordWarning(true);
           return;
         }
     }
-   
+
     return(
         <form onSubmit={handleSubmit}>
             <S.SigninContainer>
@@ -79,7 +79,7 @@ const Information = () =>{
                             <I.InputTitle>성별</I.InputTitle>
                         </I.NameContainer>
                         <I.GenderInput type = "text" placeholder="남/여"/>
-                    </I.GenderContainer>  
+                    </I.GenderContainer>
                 </I.FlexField>
                 <I.FlexField>
                     <I.InputContainer>
@@ -99,7 +99,7 @@ const Information = () =>{
                         <I.InputTitle>PASSWORD</I.InputTitle>
                     </I.NameContainer>
                     <div>
-    
+
                         <I.PlaceholderInput type = "password" placeholder="비밀번호를 입력하세요"
                             id="password" value={password} onChange={handleChangePassword}/>
                             {showPasswordWarning && (
@@ -107,9 +107,9 @@ const Information = () =>{
                                 비밀번호는 영문과 숫자를 혼합하여 6자에서 20자 사이로 입력해주세요.
                                 </I.WarningMessage>
                             )}
-                
+
                     </div>
-                    
+
                 </I.ColumnField>
                 <I.ColumnField>
                     <I.NameContainer>
@@ -133,7 +133,7 @@ const Information = () =>{
                         <I.SignInBtn>
                             <I.NextBtnText> 검색하기 </I.NextBtnText>
                         </I.SignInBtn>
-                    
+
                 </I.FlexField>
                 <I.BtnWrapper>
                     <I.SignInBtn type = "submit">

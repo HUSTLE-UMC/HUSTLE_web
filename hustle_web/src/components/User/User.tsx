@@ -1,8 +1,8 @@
 import React, {useState} from "react"
-import {BoxContainer, Text, CheckContainer, CheckboxInput, CheckText, GuideText, SigninContainer, Title, TitleContainer, CheckboxLabel, TermsContainer, TermsText, NextBtn, NextBtnWrapper, NextBtnText} from './styles'
+import {BoxContainer, Text, CheckContainer, CheckboxInput, CheckText, GuideText, SigninContainer, Title, TitleContainer, CheckboxLabel, TermsContainer, TermsText, NextBtn, NextBtnWrapper, NextBtnText} from './InformationStyles'
 import styled from "styled-components";
 
-const SignIn = () =>{
+const User = () =>{
     const [isChecked, setIsChecked] = useState(false);
 
     const handleCheckboxChange = () => {
@@ -54,4 +54,4 @@ const SignIn = () =>{
     )
 }
 
-export default SignIn;
+export default User;
