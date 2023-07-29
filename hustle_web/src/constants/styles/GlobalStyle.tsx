@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-export const supportScreenSize = 1080;
+export const supportScreenSize = 1280;
 
 export const GlobalStyle = createGlobalStyle`
   html {
@@ -15,7 +15,7 @@ export const GlobalStyle = createGlobalStyle`
     background: white;
     margin: 0;
     padding: 0;
-    font-family: -apple-system, sans-serif, Roboto;
+    font-family: "Pretendard", -apple-system, sans-serif, Roboto;
     display: flex;
     flex-direction: column;
     align-items: center;
