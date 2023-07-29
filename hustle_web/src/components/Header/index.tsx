@@ -1,60 +1,31 @@
-import React from 'react';
-import {AlarmWrapper, AlarmImg, GapContainer, HeaderContainer, LogoContainer, LogoText, LogoWrapper, Nav, NavTextbox, ProfileBtn, ProfileContainer, ProfileImage, RightContainer, SVGWrapper, UserName} from './Styles';
-import logo from '../../assets/icons/header_logo.svg'
-import profile from '../../assets/icons/profile_icon.svg'
-import { Link } from 'react-router-dom';
-import alarm_none from '../../assets/icons/alarm-none_icon.svg'
-import alarm_active from '../../assets/icons/alarm-active_icon.svg'
-import { NavLink } from 'react-router-dom';
+import { useNavigate, useLocation } from "react-router-dom";
+import { useState } from "react";
+import { HeaderIcon } from "../../assets/logos/HeaderLogo";
+import * as H from "./Styles";
+import Colors from "../../styles/Color";
+import FONT from "../../styles/Font";
 
-type NavItem = {
-    title:string;
-    path: string;
+const Header = () => {
+    const navigate = useNavigate();
+
+
+    return (
+        <H.Header>
+            <H.LogoWrap>
+                <HeaderIcon onClick={() => navigate("/")} />
+            </H.LogoWrap>
+            <H.BtnWrap>
+                <H.HeaderBtn>홈</H.HeaderBtn>
+                <H.HeaderBtn>대회</H.HeaderBtn>
+                <H.HeaderBtn>교류전</H.HeaderBtn>
+                <H.HeaderBtn>커뮤니티</H.HeaderBtn>
+                <H.HeaderBtn>순위</H.HeaderBtn>
+            </H.BtnWrap>
+
+
+
+        </H.Header>
+    );
 };
-
-const navigationItems: NavItem[]=[
-    //링크는 임의 설정
-    {title: 'Home', path: '/'},
-    {title: 'Competition', path: '/Competition'},
-    {title: 'Friendly\nmatch', path: '/match'},
-    {title: 'Community', path: '/Community'},
-    {title: 'About Us', path: '/about'}
-
-];
-
-const Header = () =>{
-    return(
-        <HeaderContainer>
-            <GapContainer>
-                <LogoContainer>
-                    <LogoWrapper src = {logo} alt='logo'/>
-                    <LogoText>HUSTLE</LogoText>
-                </LogoContainer>
-                <Nav>
-                    {navigationItems.map((item, index) => (
-                        <NavTextbox key={index} href={item.path} className='NavTextbox'>
-                            {item.title}</NavTextbox>
-                    ))}
-                </Nav>
-                <RightContainer>
-                    <ProfileBtn>
-                        <Link to="/mypage">
-                            <ProfileContainer>
-                                <SVGWrapper>
-                                    <ProfileImage src = {profile} alt = 'profile'/>
-                                </SVGWrapper>
-                                <UserName>한은경</UserName>
-                            </ProfileContainer>
-                        </Link>
-                    </ProfileBtn>
-                    <AlarmWrapper>
-                        <AlarmImg src = {alarm_none} alt = 'alarm'/>
-                    </AlarmWrapper>
-                </RightContainer>
-            </GapContainer>
-        </HeaderContainer>
-    )
-}
-
 
 export default Header;
