@@ -1,11 +1,9 @@
 import { atom, selector } from "recoil";
-import * as I from "../stories/Icons/svg/index";
 
 export interface buttonTypes {
   id: number;
   label: string;
   selected: boolean;
-  Icon: React.FC<React.SVGProps<SVGSVGElement>>;
 }
 
 export const buttonState = atom<buttonTypes[]>({
@@ -15,49 +13,41 @@ export const buttonState = atom<buttonTypes[]>({
       id: 0,
       label: "축구",
       selected: false,
-      Icon: I.Soccer,
     },
     {
       id: 1,
       label: "농구",
       selected: false,
-      Icon: I.BasketBall,
     },
     {
       id: 2,
       label: "야구",
       selected: false,
-      Icon: I.BaseBall,
     },
     {
       id: 3,
       label: "배구",
       selected: false,
-      Icon: I.VolleyBall,
     },
     {
       id: 4,
       label: "테니스",
       selected: false,
-      Icon: I.Tennis,
     },
     {
       id: 5,
       label: "탁구",
       selected: false,
-      Icon: I.TableTennis,
     },
     {
       id: 6,
       label: "풋살",
       selected: false,
-      Icon: I.FootBall,
     },
     {
       id: 7,
-      label: "기타종목",
+      label: "더보기",
       selected: false,
-      Icon: I.Etc,
     },
   ],
 });

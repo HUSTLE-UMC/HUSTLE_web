@@ -20,7 +20,6 @@ export const SportsMenu = () => {
         <SportsButton
           key={index}
           label={button.label}
-          Icon={button.Icon}
           selected={button.selected}
           onClick={() => handleSelect(index)}
         ></SportsButton>
