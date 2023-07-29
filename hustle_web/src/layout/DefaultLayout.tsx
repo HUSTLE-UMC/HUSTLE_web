@@ -21,7 +21,6 @@ const Root = styled.div`
   flex-direction: column;
   width: 1280px;
   height: 100vh;
-  background-color: purple;
 
   @media all and (max-width: ${supportScreenSize}px) {
     width: 100vw;

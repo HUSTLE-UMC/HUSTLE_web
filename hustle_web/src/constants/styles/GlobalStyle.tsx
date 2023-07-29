@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-export const supportScreenSize = 1440;
+export const supportScreenSize = 1280;
 
 export const GlobalStyle = createGlobalStyle`
   html {
