@@ -30,12 +30,12 @@ export const BtnWrap = styled.div`
 
 export const HeaderBtn = styled.div`
   display: flex;
-  width: 2.5rem;
+  width: auto;
   height: 3.875rem;
   padding: 1.58333rem 0rem;
+  margin: 0 8rem;
   justify-content: center;
   align-items: center;
-  gap: 3.33333rem;
   color: orange;
 `;
 
