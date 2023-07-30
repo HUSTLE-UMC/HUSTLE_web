@@ -5,11 +5,13 @@ import Colors from "../../styles/Color";
 export const Header = styled.div`
   display: flex;
   width: 100%;
-  position: fixed;
+  height: 20rem;
+  //포지션 fixed로 하니까 화면 비율과 관련된 문제들이 발생해서 relative로 설정함
+  position: relative;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.10);
+  z-index: 1;
 `;
 
 export const LogoWrap = styled.div`
