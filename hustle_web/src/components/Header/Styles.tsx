@@ -1,14 +1,15 @@
 import styled from "styled-components";
+import FONT from "../../styles/Font";
+import Colors from "../../styles/Color";
 
 export const Header = styled.div`
-  width: 100%;
-  height: 10rem;
-  background-color: purple;
-  position: fixed;
   display: flex;
+  width: 100%;
+  position: fixed;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.10);
 `;
 
 export const LogoWrap = styled.div`
@@ -17,7 +18,6 @@ export const LogoWrap = styled.div`
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
-  background-color: #61dafb;
 `;
 
 export const BtnWrap = styled.div`
@@ -25,17 +25,27 @@ export const BtnWrap = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: blanchedalmond;
 `;
 
 export const HeaderBtn = styled.div`
   display: flex;
-  width: auto;
   height: 3.875rem;
   padding: 1.58333rem 0rem;
   margin: 0 8rem;
   justify-content: center;
   align-items: center;
-  color: orange;
+  color: ${Colors.MainBlack};
+  font-size: ${FONT.SIZE.TITLE3};
+  font-weight: ${FONT.WEIGHT.REGULAR};
+
+
+  &:hover {
+    color: ${Colors.MainSemi};
+  }
+
+  /* active 상태일 때 스타일 */
+  &:active {
+    color: ${Colors.MainColor};
+  }
 `;
 
