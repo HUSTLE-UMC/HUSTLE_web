@@ -1,227 +1,53 @@
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
+import FONT from "../../styles/Font";
+import Colors from "../../styles/Color";
 
-export const HeaderContainer = styled.div`
-  /*display: flex;
+export const Header = styled.div`
+  display: flex;
+  width: 100%;
+  height: 20rem;
+  //포지션 fixed로 하니까 화면 비율과 관련된 문제들이 발생해서 relative로 설정함
+  position: relative;
   flex-direction: column;
-  background-color: #616161;
-  align-items: normal;*/
-  //margin 및 padding은 있다면 rem으로??
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1;
+`;
+
+export const LogoWrap = styled.div`
   display: flex;
-  width: 100%;
-  padding: 2.25rem 2.69rem;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  //gap: 109px;
-  @media (min-width: 768px) {
-    //flex-direction: column;
-    //justify-content: space-between;
-    align-items: center;
-    justify-content: center;
-    //flex-direction: column;
-  }
+  justify-content: center;
+  padding: 1.5rem;
 `;
 
-export const GapContainer = styled.div`
-  display: inline-flex;
-  align-items: flex-start;
-  gap: 6.8125rem;
-  @media (max-width: 768px) {
-    gap: 1rem;
-    flex-direction: column;
-  }
-`
-
-export const LogoContainer = styled.div`
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.62rem;
-`;
-
-export const LogoWrapper = styled.img`
-  width: 3.125rem;
-  height: 3.125rem;
-  object-fit: contain;
-  @media (max-width: 768px) {
-    width: 2rem;
-    height: 2rem;
-}
-`
-
-export const Nav = styled.div`
+export const BtnWrap = styled.div`
   display: flex;
-  //text-align: center;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  gap: 3.12rem;
-  @media (max-width: 768px) {
-    //justify-content: center;
-    //align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-`
-
-export const LogoText = styled.span`
-    color: #000;
-    //font-family: Pretendard;
-    font-size: 3.125rem;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    @media (max-width: 768px) {
-    font-size: 2rem;
-  }
 `;
 
-export const RightContainer = styled.div`
+export const HeaderBtn = styled.div`
   display: flex;
-  gap: 3.12rem;
+  height: 3.875rem;
+  padding: 1.58333rem 0rem;
+  margin: 0 8rem;
   justify-content: center;
   align-items: center;
-  
-  @media (max-width: 768px) {
-    gap: 1rem;
-    justify-content: center;
-    align-items: center;
-  }
-`
+  color: ${Colors.MainBlack};
+  font-size: ${FONT.SIZE.TITLE3};
+  font-weight: ${FONT.WEIGHT.REGULAR};
 
-export const NavTextbox = styled.a`
-  color: #000;
-  text-align: center;
-  font-family: Pretendard;
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  text-decoration: none;
-  white-space: pre-line;
 
-  &.active {
-    font-weight: bold;
-    color: blue;
+  &:hover {
+    color: ${Colors.MainSemi};
   }
 
-  @media (max-width: 768px) {
-    font-size: 0.25rem;
+  /* active 상태일 때 스타일 */
+  &:active {
+    color: ${Colors.MainColor};
   }
 `;
 
-export const ProfileBtn = styled.div`
-  width: 170px;
-  height: 60px;
-  border-radius: 2.5rem;
-  border: 0.3px solid #000;
-  background: #FFF;
-  box-shadow: 10px 10px 4px 0px rgba(0, 0, 0, 0.25);
-    @media (max-width: 768px) {
-    width: 120px;
-    height: 40px;
-  }
-`;
-
-export const ProfileContainer = styled.div`
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.31rem;
-  margin: 0.62rem 1.5rem 0.62rem 1.12rem;
-  @media (max-width: 768px) {
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 0.8rem;
-    margin: 0.62rem 1.5rem;
-  }
-`;
-
-export const SVGWrapper = styled.div`
-    width: 2.5rem;
-    height: 2.5rem;
-
-  @media (max-width: 768px) {
-    width: 1.5rem;
-    height: 1.5rem;
-  }
-`;
-export const ProfileImage = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-`;
-
-export const UserName = styled.span`
-  color: #000;
-  font-family: Pretendard;
-  font-size: 1.5625rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  white-space: nowrap;
-  @media (max-width: 768px) {
-    font-size: 1rem;
-  }
-`;
-
-export const HamburgerContainer = styled.img`
-  width: 2.25rem;
-  height: 1.75rem;
-  object-fit: contain;
-  @media (max-width: 768px) {
-    width: 1rem;
-    height: 1rem;
-  }
-`;
-
-export const LoginContainer = styled.button`
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.31rem;
-  border: 0.3px solid #000;
-  background: #D1D7FC;
-  cursor: pointer; 
-  border-radius: 2.5rem;
-  box-shadow: 10px 10px 4px 0px rgba(0, 0, 0, 0.25);
-  @media (max-width: 768px) {
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 0.8rem;
-    margin: 0.62rem 1.5rem;
-  }
-`;
-
-export const LoginText = styled.span`
-  color: #000;
-  text-align: center;
-  font-family: Pretendard;
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  white-space: nowrap;
-  margin: 1.13rem 1.25rem 1.12rem 1.31rem;
-  @media (max-width: 768px) {
-    font-size: 1rem;
-  }
-`;
-
-export const AlarmImg = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-`;
-
-export const AlarmWrapper = styled.div`
-  width: 2.1875rem;
-  height: 2.55206rem;
-
-  @media (max-width: 768px) {
-    width: 1.0rem;
-    height: 1.0rem;
-  }
-`;
