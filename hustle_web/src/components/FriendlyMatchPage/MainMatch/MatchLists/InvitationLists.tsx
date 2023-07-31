@@ -1,25 +1,14 @@
-import React from "react";
-import * as S from "../Styles";
-import MatchTitle from "../MatchTitle/MatchTitle";
-import List2 from "../../FriendlyMatchList/list2";
+import React from 'react';
+import * as S from '../Styles';
+import MatchTitle from '../MatchTitle/MatchTitle';
+import FriendlyMatchList from '../../FriendlyMatchList/FriendlyMatchList';
 
 export const InvitationLists = () => {
   return (
     <>
-      <MatchTitle label="초청해주세요!" />
+      <MatchTitle label='초청해주세요!' />
       <S.ListBox>
-        <List2 id={1} />
-        <List2 id={1} />
-        <List2 id={1} />
-        <List2 id={1} />
-        <List2 id={1} />
-        <List2 id={1} />
-        <List2 id={1} />
-        <List2 id={1} />
-        <List2 id={1} />
-        <List2 id={1} />
-        <List2 id={1} />
-        <List2 id={1} />
+        <FriendlyMatchList />
       </S.ListBox>
     </>
   );

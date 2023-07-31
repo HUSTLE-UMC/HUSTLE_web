@@ -1,9 +1,9 @@
-import FriendlyMatch from "../../pages/FriendlyMatch/FriendlyMatch";
-import type { Meta, StoryObj } from "@storybook/react";
+import FriendlyMatch from '../../pages/FriendlyMatch/FriendlyMatch';
+import type { Meta, StoryObj } from '@storybook/react';
 
 const meta = {
-  title: "Pages/FriendlyMatch",
-  component: FriendlyMatch,
+  title: 'Pages/FriendlyMatch',
+  component: FriendlyMatch
 } satisfies Meta<typeof FriendlyMatch>;
 
 export default meta;

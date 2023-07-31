@@ -1,59 +1,53 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+import Colors from '../../../styles/Color';
+import FONT from '../../../styles/Font';
 
-export const Wrapper = styled.div`
+export const Layout = styled.div`
+  width: 33rem;
+  height: 25rem;
+`;
+
+export const ImgLayout = styled.div`
+  width: 100%;
+  height: 15rem;
+`;
+export const ContentLayout = styled.div`
   box-sizing: border-box;
-  width: 34rem;
-  height: 15.5rem;
-  padding: 1.5rem 0 0 3rem;
-  border-radius: 40px;
-  border: solid 1px rgba(0, 0, 0, 0.25);
-  background-color: #fff;
+  width: 100%;
+  height: 10rem;
+  background: #fcfcfc;
+  padding: 1rem 2rem;
 `;
 
-export const TitleWrap = styled.div`
+export const SportBox = styled.div`
+  height: 2.6rem;
+  color: ${Colors.MainSemi};
+  font-size: ${FONT.SIZE.BODY3};
+  font-weight: ${FONT.WEIGHT.SEMIBOLD};
+`;
+
+export const TitleBox = styled(SportBox)`
+  overflow: hidden;
+  text-overflow: ellipsis;
+  whitespace: nowrap;
+  color: ${Colors.Gray75};
+`;
+
+export const ContentContainer = styled.div`
   display: flex;
-  flex-direction: row;
-  height: 50px;
-  margin-bottom: 18px;
-  align-items: center;
+  align-items: flex-end;
+  justify-content: space-between;
 `;
 
-export const ContentWrap = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-export const ImgWrap = styled.div`
-  width: 50px;
-  height: 50px;
-  border-radius: 70%;
-  margin-right: 24px;
-`;
-
-export const Title = styled.span`
-  width: auto;
-  height: auto;
-  //font-family: Pretendard;
-  font-size: 20px;
-  font-weight: bold;
-  font-stretch: normal;
+export const ContentBox = styled.div`
+  font-size: ${FONT.SIZE.CAPTION};
   font-style: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  text-align: left;
+  font-weight: ${FONT.WEIGHT.LIGHT};
+  color: ${Colors.Gray50};
 `;
 
-export const Content = styled.span`
-  width: auto;
-  height: auto;
-  //font-family: Pretendard;
-  font-size: 12px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  text-align: left;
-  color: #000;
-  margin-bottom: 6px;
+export const SubmitBtn = styled(ContentBox)`
+  color: ${Colors.Gray80};
+  text-decoration-line: underline;
+  cursor: pointer;
 `;

@@ -9,3 +9,12 @@ export interface submitTypes {
   msg: string;
   isSubmitted: boolean;
 }
+
+export interface clubListsTypes {
+  id: number;
+  img: string;
+  sport: string;
+  title: string;
+  location: string;
+  date: string;
+}
