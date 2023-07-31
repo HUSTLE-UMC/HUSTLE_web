@@ -1,19 +1,23 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+import Colors from '../../styles/Color';
+import FONT from '../../styles/Font';
 
-export const ButtonLayout = styled.div`
-  width: 6rem;
-  height: 3.125rem;
+export const StyledBtn = styled.div`
+  width: 8rem;
+  height: 5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-size: ${FONT.SIZE.BODY2};
+  font-weight: ${FONT.WEIGHT.MEDIUM};
+  color: ${Colors.Gray80};
   &:hover {
     cursor: pointer;
   }
 `;
 
-export const Button = styled.div`
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: ${(props) => props.color || "black"};
+export const SelectedBtn = styled(StyledBtn)`
+  color: ${Colors.TrueWhite};
+  background: ${Colors.WriteButton};
 `;

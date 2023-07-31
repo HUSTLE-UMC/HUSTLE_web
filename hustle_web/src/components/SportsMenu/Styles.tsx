@@ -1,9 +1,11 @@
-import { styled } from "styled-components";
+import { styled } from 'styled-components';
 
-export const CategoryWrap = styled.div`
+export const CategoryLayout = styled.div`
+  box-sizing: border-box;
+  width: 1280px;
+  height: 5rem;
   display: flex;
-  justify-content: space-evenly;
-  margin: 5rem 0;
-  background: white;
-  padding: 0 20rem;
+  justify-content: center;
+  align-items: center;
+  background: #fcfcfc;
 `;
