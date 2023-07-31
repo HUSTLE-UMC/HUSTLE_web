@@ -1,42 +1,38 @@
-import React from "react";
-import * as L from "./Styles";
-import MatchListProps from "./MatchListProps";
-import Test from "../../../assets/svg/Test.svg";
-import { Link } from "react-router-dom";
+import React from 'react';
+import * as L from './Styles';
+import { useRecoilValue } from 'recoil';
+import { clubListsState } from '../../../recoil/friendlyMatchPage/states';
+import img from '../../../assets/images/TempLogo.png';
 
-interface FriendlyMatchListProps {
-  matches: MatchListProps[];
-  index: number;
-}
-
-export const FriendlyMatchList = ({
-  matches,
-  index,
-}: FriendlyMatchListProps) => {
+export const FriendlyMatchList = () => {
+  const clubLists = useRecoilValue(clubListsState);
   return (
-    <Link
-      to="/apply"
-      style={{ textDecoration: "none" }}
-      state={{ index: { index } }}
-    >
-      <L.Wrapper>
-        {matches.map((match, index) => (
-          <div key={index}>
-            <L.TitleWrap>
-              <L.ImgWrap>
-                <img src={Test} alt="" />
-              </L.ImgWrap>
-              <L.Title>{match.name}</L.Title>
-            </L.TitleWrap>
-            <L.ContentWrap>
-              <L.Content>{match.title}</L.Content>
-              <L.Content>{match.location}</L.Content>
-              <L.Content>{match.date}</L.Content>
-            </L.ContentWrap>
-          </div>
-        ))}
-      </L.Wrapper>
-    </Link>
+    <L.Layout>
+      {clubLists.map((match, index) => (
+        <div key={index}>
+          <L.ImgLayout>
+            <img src={img} />
+          </L.ImgLayout>
+          <L.ContentLayout>
+            <L.SportBox>{match.sport}</L.SportBox>
+            <L.TitleBox>{match.title}</L.TitleBox>
+            <L.ContentContainer>
+              <div>
+                <L.ContentBox>{match.location}</L.ContentBox>
+                <L.ContentBox> {match.date}</L.ContentBox>
+              </div>
+              <L.SubmitBtn
+                onClick={() => {
+                  console.log('임시 동작');
+                }}
+              >
+                신청하기
+              </L.SubmitBtn>
+            </L.ContentContainer>
+          </L.ContentLayout>
+        </div>
+      ))}
+    </L.Layout>
   );
 };
 
