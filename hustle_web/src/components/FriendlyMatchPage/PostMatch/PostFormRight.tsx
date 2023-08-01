@@ -1,9 +1,9 @@
-import React from "react";
-import * as R from "./Styles";
-import { Attach } from "../../../stories/Icons/svg";
-import { SubmitButton } from "../SubmitButton/SubmitButton";
-import TextInput from "../../TextInput/TextInput";
-import { Link } from "react-router-dom";
+import React from 'react';
+import * as R from './Styles';
+import { Attach } from '../../../stories/Icons/svg';
+import { SubmitButton } from '../SubmitButton/SubmitButton';
+import TextInput from '../../TextInput/TextInput';
+import { Link } from 'react-router-dom';
 
 interface Props {
   id: number;
@@ -17,9 +17,9 @@ export const PostFormRight = ({ id }: Props) => {
           {
             <R.RightLayout>
               <R.TitleContainer>주요 활동 지역</R.TitleContainer>
-              <TextInput size="medium" holder="주요 활동 지역을 입력하세요" />
-              <Link to="/match" style={{ textDecoration: "none" }}>
-                <SubmitButton label="게시하기" Icon small />
+              <TextInput size='medium' holder='주요 활동 지역을 입력하세요' />
+              <Link to='/match' style={{ textDecoration: 'none' }}>
+                <SubmitButton label='게시하기' small />
               </Link>
             </R.RightLayout>
           }
@@ -37,8 +37,8 @@ export const PostFormRight = ({ id }: Props) => {
                 </R.LocationBox>
                 가톨릭대학교 체육관
               </R.LocationContainer>
-              <Link to="/match" style={{ textDecoration: "none" }}>
-                <SubmitButton label="게시하기" Icon />
+              <Link to='/match' style={{ textDecoration: 'none' }}>
+                <SubmitButton label='게시하기' />
               </Link>
             </R.RightLayout>
           }

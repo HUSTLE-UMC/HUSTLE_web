@@ -1,30 +1,30 @@
-import * as S from "./Styles";
-import SportsButton from "../SportsButton/SportsButton";
-import { useRecoilState } from "recoil";
-import { buttonState, buttonTypes } from "../../recoil/SportsButton";
+import * as S from './Styles';
+import SportsButton from '../SportsButton/SportsButton';
+import { useRecoilState } from 'recoil';
+import { sportsMenuState, sportsTypes } from '../../recoil/SportsButton';
 
 export const SportsMenu = () => {
-  const [buttons, setButtons] = useRecoilState(buttonState);
+  const [menus, setMenus] = useRecoilState(sportsMenuState);
   const handleSelect = (id: number) => {
-    setButtons(
-      buttons.map((button: buttonTypes) => {
-        return button.id === id
-          ? { ...button, selected: true }
-          : { ...button, selected: false };
+    setMenus(
+      menus.map((m: sportsTypes) => {
+        return m.id === id
+          ? { ...m, selected: true }
+          : { ...m, selected: false };
       })
     );
   };
   return (
-    <S.CategoryWrap>
-      {buttons.map((button, index) => (
+    <S.CategoryLayout>
+      {menus.map((m, index) => (
         <SportsButton
           key={index}
-          label={button.label}
-          selected={button.selected}
+          label={m.label}
+          selected={m.selected}
           onClick={() => handleSelect(index)}
         ></SportsButton>
       ))}
-    </S.CategoryWrap>
+    </S.CategoryLayout>
   );
 };
 

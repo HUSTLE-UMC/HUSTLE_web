@@ -1,63 +1,73 @@
-import { atom, selector } from "recoil";
+import { atom, selector } from 'recoil';
 
-export interface buttonTypes {
+export interface sportsTypes {
   id: number;
   label: string;
   selected: boolean;
 }
 
-export const buttonState = atom<buttonTypes[]>({
-  key: "buttonState",
+export const sportsMenuState = atom<sportsTypes[]>({
+  key: 'sportsMenuState',
   default: [
     {
       id: 0,
-      label: "축구",
-      selected: false,
+      label: '축구',
+      selected: false
     },
     {
       id: 1,
-      label: "농구",
-      selected: false,
+      label: '농구',
+      selected: false
     },
     {
       id: 2,
-      label: "야구",
-      selected: false,
+      label: '야구',
+      selected: false
     },
     {
       id: 3,
-      label: "배구",
-      selected: false,
+      label: '배구',
+      selected: false
     },
     {
       id: 4,
-      label: "테니스",
-      selected: false,
+      label: '테니스',
+      selected: false
     },
     {
       id: 5,
-      label: "탁구",
-      selected: false,
+      label: '탁구',
+      selected: false
     },
     {
       id: 6,
-      label: "풋살",
-      selected: false,
+      label: '풋살',
+      selected: false
     },
     {
       id: 7,
-      label: "더보기",
-      selected: false,
-    },
-  ],
+      label: '더보기',
+      selected: false
+    }
+  ]
 });
 
-//현재 선택되어 있는 버튼 정보 가져오는 selector
-export const ButtonSelector = selector({
-  key: "ButtonSelector",
+// 현재 선택되어 있는 운동종목 정보 Selector
+export const SportsSelector = selector({
+  key: 'SportsSelector',
   get: ({ get }: any) => {
-    const buttons = get(buttonState);
-    const selectedButton = buttons.filter((v: buttonTypes) => v.selected);
-    return selectedButton;
-  },
+    const sports = get(sportsMenuState);
+    const selectedSports = sports.filter((v: sportsTypes) => v.selected);
+    return selectedSports;
+  }
+});
+
+// 현재 선택되어 있는 종목의 ID Selector
+export const SportsIdSelector = selector({
+  key: 'SportsIdSelector',
+  get: ({ get }: any) => {
+    const sports = get(sportsMenuState);
+    const selectedId = sports.findIndex((v: sportsTypes) => v.selected);
+    return selectedId;
+  }
 });
