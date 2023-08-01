@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import Colors from "../../styles/Color";
+import styled from 'styled-components';
+import Colors from '../../styles/Color';
 
 export const Layout = styled.div`
   width: 1280px;
@@ -53,7 +53,7 @@ export const Input = styled.input`
 
 export const SubmitButton = styled.button`
   width: 100%;
-  background: ${Colors.WriteButton};
+  background: ${Colors.MainColor};
   border: none;
   border-radius: 1.2rem;
   height: 4.7rem;
@@ -98,7 +98,7 @@ export const ButtonLine = styled.div`
 
 export const KakaoButton = styled.button`
   width: 394px;
-  background: ${Colors.WriteButton};
+  background: ${Colors.MainColor};
   border: none;
   border-radius: 1.2rem;
   height: 4.7rem;
