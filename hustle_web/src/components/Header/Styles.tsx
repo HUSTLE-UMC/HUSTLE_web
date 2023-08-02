@@ -51,3 +51,12 @@ export const HeaderBtn = styled.div`
   }
 `;
 
+export const ProfileWrap = styled.div`
+  font-size: ${FONT.SIZE.BODY3};
+  font-weight: ${FONT.WEIGHT.REGULAR};
+`;
+
+export const LogoutText= styled.div`
+  font-size: ${FONT.SIZE.BODY2};
+  font-weight: ${FONT.WEIGHT.REGULAR};
+`
