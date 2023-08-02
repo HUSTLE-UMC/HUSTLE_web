@@ -1,8 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-
-export const HomeContainer= styled.div`
-display: flex;
-flex-direction: row;
-background-color: orange;
+export const HomeContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  background-color: orange;
 `;

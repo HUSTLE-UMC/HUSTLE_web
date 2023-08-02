@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const StyledButton = styled.button`
   width: 30px;
@@ -15,15 +15,15 @@ const StyledButton = styled.button`
 const IconWrapper = styled.span`
   width: 24px;
   height: 24px;
-  /* ... */ 
+  /* ... */
 `;
 
 const Button = ({ fontSize, children }) => (
-    <StyledButton fontSize={fontSize}>
-        <IconWrapper>
-            <img src="../../assets/icons/play.svg" alt="Loading" />
-        </IconWrapper>
-        {children}
-    </StyledButton>
+  <StyledButton fontSize={fontSize}>
+    <IconWrapper>
+      <img src='../../assets/icons/play.svg' alt='Loading' />
+    </IconWrapper>
+    {children}
+  </StyledButton>
 );
 export default Button;

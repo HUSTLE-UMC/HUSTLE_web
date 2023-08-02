@@ -1,12 +1,12 @@
-import Reset from "../../../components/Forgot/Reset/Reset";
-import { Container } from "../ForgotStyle";
+import Reset from '../../../components/Forgot/Reset/Reset';
+import { Container } from '../ForgotStyle';
 
 const ResetPage = () => {
   return (
     <Container>
-      <Reset/>
+      <Reset />
     </Container>
-  )
-}
+  );
+};
 
 export default ResetPage;

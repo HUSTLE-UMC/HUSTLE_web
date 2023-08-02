@@ -1,5 +1,5 @@
-import React from "react";
-import * as C from "./Styles";
+import React from 'react';
+import * as C from './Styles';
 
 const MatchCard = () => {
   return (

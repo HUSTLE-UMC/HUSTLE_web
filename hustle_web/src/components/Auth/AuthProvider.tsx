@@ -1,6 +1,10 @@
 import React, { createContext, useEffect } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { LoginState, TokenState, refreshTokenState } from '../../recoil/login/loginState';
+import {
+  LoginState,
+  TokenState,
+  refreshTokenState
+} from '../../recoil/login/loginState';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import type { AuthContextType } from '../../constants/interfaces';
@@ -8,46 +12,48 @@ import type { AuthContextType } from '../../constants/interfaces';
 const AuthContext = createContext<AuthContextType>({
   isLoggedIn: false,
   setIsLoggedIn: () => {},
-  accessToken:null,
-  setAccessToken:() => {},
-  refreshToken:null,
+  accessToken: null,
+  setAccessToken: () => {},
+  refreshToken: null,
   updateAccessToken: () => {},
   refreshAccessToken: async () => {},
-  logoutHandler: () => {},
+  logoutHandler: () => {}
 });
 
 const AuthProvider = ({ children }: any) => {
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(LoginState);
-  const [accessToken, setAccessToken] = useRecoilState<string | null>(TokenState);
+  const [accessToken, setAccessToken] = useRecoilState<string | null>(
+    TokenState
+  );
   const refreshToken = useRecoilValue(refreshTokenState);
 
-  const updateAccessToken = (token:string) => {
+  const updateAccessToken = (token: string) => {
     setAccessToken(token);
-  }
+  };
 
   const refreshAccessToken = async () => {
     try {
-      const response = await axios.post("/auth/refresh", {refreshToken});
-      const {accessToken} = response.data;
+      const response = await axios.post('/auth/refresh', { refreshToken });
+      const { accessToken } = response.data;
       setAccessToken(accessToken);
-    } catch(error) {
+    } catch (error) {
       logoutHandler();
     }
   };
 
   const logoutHandler = () => {
-    localStorage.removeItem("accessToken");
+    localStorage.removeItem('accessToken');
     setIsLoggedIn(false);
     setAccessToken(null);
     navigate('/');
   };
 
   useEffect(() => {
-    if(accessToken){
+    if (accessToken) {
       setIsLoggedIn(true);
     }
-  },[accessToken, setIsLoggedIn]);
+  }, [accessToken, setIsLoggedIn]);
 
   const authContextValue: AuthContextType = {
     isLoggedIn,
@@ -57,8 +63,8 @@ const AuthProvider = ({ children }: any) => {
     refreshToken,
     updateAccessToken,
     refreshAccessToken,
-    logoutHandler,
-  }
+    logoutHandler
+  };
 
   return (
     <AuthContext.Provider value={authContextValue}>
