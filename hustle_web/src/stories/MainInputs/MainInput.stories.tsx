@@ -1,13 +1,39 @@
-import React from 'react';
-import { Story, Meta } from '@storybook/react';
-import MainInput, { InputProps } from './MainInput';
+import type { Meta, StoryObj } from '@storybook/react';
+import MainInput from '../../components/MainInput/MainInput';
 
-export default {
-  title: 'Components/MainInput',
+const meta = {
+  title: 'Components/MainInput/MainInput',
   component: MainInput
-} as Meta;
+} satisfies Meta<typeof MainInput>;
 
-const Template: Story<InputProps> = (args) => <Input {...args} />;
+export default meta;
+type Story = StoryObj<typeof meta>;
 
-export const Default = Template.bind({});
-Default.args = {};
+export const MediumInput: Story = {
+  args: {
+    type: 'default',
+    value: '',
+    placeholder: 'Medium 버튼입니다',
+    onChange: (value) => {
+      console.log('Input value:', value);
+    },
+    onEnter: () => {
+      console.log('Enter key pressed');
+    }
+  }
+};
+
+export const SmallInput: Story = {
+  args: {
+    type: 'default',
+    value: '',
+    placeholder: 'Small 버튼입니다',
+    small: true,
+    onChange: (value) => {
+      console.log('Input value:', value);
+    },
+    onEnter: () => {
+      console.log('Enter key pressed');
+    }
+  }
+};

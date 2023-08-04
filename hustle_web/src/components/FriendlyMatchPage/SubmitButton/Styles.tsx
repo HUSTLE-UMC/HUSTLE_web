@@ -3,8 +3,8 @@ import Colors from '../../../styles/Color';
 import FONT from '../../../styles/Font';
 
 export const MediumButton = styled.div`
-  width: 39.4rem;
-  height: 4.7rem;
+  width: 40rem;
+  height: 4.8rem;
   display: flex;
   align-items: center;
   justify-content: center;

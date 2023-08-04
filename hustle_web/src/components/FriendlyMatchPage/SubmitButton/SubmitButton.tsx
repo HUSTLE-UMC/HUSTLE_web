@@ -1,7 +1,6 @@
 import React from 'react';
 import * as S from './Styles';
 import { ButtonProps } from './ButtonProps';
-import { Submit } from '../../../stories/Icons/svg/index';
 
 export const SubmitButton = ({ label, small, onClick }: ButtonProps) => {
   return (
