@@ -24,14 +24,15 @@
         "react/react-in-jsx-scope": "off",
         "spaced-comment": "error",
         "quotes": ["error", "single"],
-        "no-duplicate-imports": "error"
+        "no-duplicate-imports": "error",
+        "@typescript-eslint/no-empty-function": "off"
     },
-    "settings": { 
+    "settings": {
     "import/parsers": {
-      "@typescript-eslint/parser": [".ts", ".tsx", ".js"] 
-    }, 
-    "import/resolver": { 
-      "typescript": "./tsconfig.json" 
+      "@typescript-eslint/parser": [".ts", ".tsx", ".js"]
+    },
+    "import/resolver": {
+      "typescript": "./tsconfig.json"
     }
   }
 }
