@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import * as S from "./Styles";
-import { Arrow } from "../../stories/Icons/svg/index";
-import { ListProps } from "./ListProps";
+import React, { useState } from 'react';
+import * as S from './Styles';
+import { Arrow } from '../../stories/Icons/svg/index';
+import { ListProps } from './ListProps';
 
 const CompetitionList = ({ title, sports, place, date, due }: ListProps) => {
   const [isClicked, setIsClicked] = useState<boolean>(false);
@@ -13,7 +13,7 @@ const CompetitionList = ({ title, sports, place, date, due }: ListProps) => {
       <S.TitleLayout>
         {title}
         <S.IconLayout onClick={() => handleClick()}>
-          {isClicked ? <Arrow transform="rotate(180)" /> : <Arrow />}
+          {isClicked ? <Arrow transform='rotate(180)' /> : <Arrow />}
         </S.IconLayout>
       </S.TitleLayout>
       {isClicked && (

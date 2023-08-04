@@ -1,11 +1,11 @@
-import QuestionMain from "../../../components/Community/Question/QuestionMain";
+import QuestionMain from '../../../components/Community/Question/QuestionMain';
 
 const QuestionPage = () => {
   return (
     <div>
-      <QuestionMain/>
+      <QuestionMain />
     </div>
-  )
-}
+  );
+};
 
 export default QuestionPage;

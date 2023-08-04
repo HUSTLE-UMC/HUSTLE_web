@@ -9,6 +9,7 @@ const Colors = {
 
   Gray10: '#F0F0F0',
   Gray20: '#DFDFDF',
+  Gray30: '#C2C1C1',
   Gray50: '#999797',
   Gray70: '#707070',
   Gray75: '#555',

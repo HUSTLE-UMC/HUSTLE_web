@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import FONT from "../../styles/Font";
-import Colors from "../../styles/Color";
+import styled from 'styled-components';
+import FONT from '../../styles/Font';
+import Colors from '../../styles/Color';
 
 export const Header = styled.div`
   display: flex;
@@ -40,7 +40,6 @@ export const HeaderBtn = styled.div`
   font-size: ${FONT.SIZE.TITLE3};
   font-weight: ${FONT.WEIGHT.REGULAR};
 
-
   &:hover {
     color: ${Colors.MainSemi};
   }
@@ -50,4 +49,3 @@ export const HeaderBtn = styled.div`
     color: ${Colors.MainColor};
   }
 `;
-

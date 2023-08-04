@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import * as S from "./Styles";
-import { DropDownProps } from "./DropDownProps";
-import { DownArrow } from "../../stories/Icons/svg/index";
-import { menuState } from "../../recoil/friendlyMatchPage/states";
-import { menuTypes } from "../../recoil/friendlyMatchPage/types";
-import { useRecoilState } from "recoil";
+import React, { useState } from 'react';
+import * as S from './Styles';
+import { DropDownProps } from './DropDownProps';
+import { DownArrow } from '../../stories/Icons/svg/index';
+import { menuState } from '../../recoil/friendlyMatchPage/states';
+import { menuTypes } from '../../recoil/friendlyMatchPage/types';
+import { useRecoilState } from 'recoil';
 
 export const DropDown = ({ Items, index }: DropDownProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -26,13 +26,13 @@ export const DropDown = ({ Items, index }: DropDownProps) => {
   };
   return (
     <S.DropDownWrap
-      {...(!isOpen && { style: { border: "0", boxShadow: "none" } })}
+      {...(!isOpen && { style: { border: '0', boxShadow: 'none' } })}
     >
       <S.DropDownTitle onClick={() => HandleClick()}>
         <S.TitleText>{Value}</S.TitleText>
         <S.IconWrap
           {...(isOpen && {
-            style: { visibility: "hidden", marginLeft: "0" },
+            style: { visibility: 'hidden', marginLeft: '0' }
           })}
         >
           <DownArrow />
