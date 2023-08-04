@@ -13,7 +13,7 @@ const Header = () => {
 
   // user 상태 정의 (임시로 빈 객체로 초기화)
   const [user, setUser] = useState<LoginProps | null>(null);
-
+  
   return (
     <H.Header>
       <H.LogoWrap>

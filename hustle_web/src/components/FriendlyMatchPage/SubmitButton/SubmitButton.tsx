@@ -1,28 +1,15 @@
-import React from "react";
-import * as S from "./Styles";
-import { ButtonProps } from "./ButtonProps";
-import { Submit } from "../../../stories/Icons/svg/index";
+import React from 'react';
+import * as S from './Styles';
+import { ButtonProps } from './ButtonProps';
 
-export const SubmitButton = ({ label, small, onClick, Icon }: ButtonProps) => {
+export const SubmitButton = ({ label, small, onClick }: ButtonProps) => {
   return (
     <>
       {small ? (
-        <S.SmallButton onClick={onClick}>
-          {label}
-          {Icon && (
-            <S.IconWrap>
-              <Submit />
-            </S.IconWrap>
-          )}
-        </S.SmallButton>
+        <S.SmallButton onClick={onClick}>{label}</S.SmallButton>
       ) : (
         <S.MediumButton onClick={onClick}>
           <div>{label}</div>
-          {Icon && (
-            <S.IconWrap>
-              <Submit />
-            </S.IconWrap>
-          )}
         </S.MediumButton>
       )}
     </>

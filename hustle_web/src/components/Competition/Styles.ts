@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -29,8 +29,6 @@ export const ImgWrap = styled.div`
   margin-right: 24px;
 `;
 
-
-
 export const Title = styled.span`
   //font-family: Pretendard;
   width: auto;
@@ -59,4 +57,3 @@ export const Sub = styled.span`
   text-align: left;
   color: #000;
 `;
-

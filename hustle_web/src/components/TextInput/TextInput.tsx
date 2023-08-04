@@ -1,5 +1,5 @@
-import React from "react";
-import * as T from "./Styles";
+import React from 'react';
+import * as T from './Styles';
 
 interface Props {
   size: string;
@@ -8,11 +8,11 @@ interface Props {
 
 export const TextInput = ({ size, holder }: Props) => {
   switch (size) {
-    case "small":
+    case 'small':
       return <>{<T.InputSmall placeholder={holder} />}</>;
-    case "medium":
+    case 'medium':
       return <>{<T.InputMedium placeholder={holder} />}</>;
-    case "large":
+    case 'large':
       return <>{<T.InputLarge placeholder={holder} />}</>;
     default:
       return <>{}</>;

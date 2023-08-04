@@ -19,7 +19,7 @@ export const refreshTokenState = atom({
 export const accessTokenState = atom({
   key: 'accessTokenState',
   default: null,
-  effects_UNSTABLE: [persistAtom],
+  effects_UNSTABLE: [persistAtom]
 });
 
 export const TokenState = atom<string | null>({

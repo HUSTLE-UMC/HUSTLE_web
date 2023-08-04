@@ -1,4 +1,4 @@
-import { atom, selector } from "recoil";
+import { atom, selector } from 'recoil';
 import axios from 'axios';
 
 export const questionState = atom({

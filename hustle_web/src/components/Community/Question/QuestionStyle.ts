@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import { Input } from "../../../stories/Inputs/Input";
-import { Link } from "react-router-dom";
-import Colors from "../../../styles/Color";
+import styled from 'styled-components';
+import { Input } from '../../../stories/Inputs/Input';
+import { Link } from 'react-router-dom';
+import Colors from '../../../styles/Color';
 
 export const Container = styled.div`
   width: 1440px;

@@ -50,6 +50,7 @@ export const HeaderBtn = styled.div`
   }
 `;
 
+
 // LoginComponent.tsx에서 사용
 export const ProfileWrap = styled.div`
   display: flex;
@@ -68,3 +69,4 @@ export const LogoutText = styled.div`
   font-size: ${FONT.SIZE.BODY2};
   font-weight: ${FONT.WEIGHT.REGULAR};
 `;
+

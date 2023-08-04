@@ -4,6 +4,7 @@ import {
   LoginState,
   TokenState,
   refreshTokenState,
+
 } from '../../recoil/login/loginState';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -11,6 +12,7 @@ import type { AuthContextType } from '../../constants/interfaces';
 
 const AuthContext = createContext<AuthContextType>({
   isLoggedIn: false,
+
   setIsLoggedIn: () => {
     return;
   },
@@ -28,12 +30,14 @@ const AuthContext = createContext<AuthContextType>({
   logoutHandler: () => {
     return;
   },
+
 });
 
 const AuthProvider = ({ children }: any) => {
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(LoginState);
   const [accessToken, setAccessToken] = useRecoilState<string | null>(
+
     TokenState,
   );
   const refreshToken = useRecoilValue(refreshTokenState);

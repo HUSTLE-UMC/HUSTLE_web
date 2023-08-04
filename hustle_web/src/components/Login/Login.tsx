@@ -33,7 +33,7 @@ const LoginMain = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<LoginProps>({
-    defaultValues: defaultValue,
+    defaultValues: defaultValue
   });
 
   const onSubmitHandler: SubmitHandler<LoginProps> = async (
