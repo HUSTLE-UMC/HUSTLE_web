@@ -40,7 +40,6 @@ export const HeaderBtn = styled.div`
   font-size: ${FONT.SIZE.TITLE3};
   font-weight: ${FONT.WEIGHT.REGULAR};
 
-
   &:hover {
     color: ${Colors.MainSemi};
   }
@@ -51,12 +50,21 @@ export const HeaderBtn = styled.div`
   }
 `;
 
+// LoginComponent.tsx에서 사용
 export const ProfileWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+// LoginComponent.tsx에서 사용
+export const ProfileText = styled.div`
   font-size: ${FONT.SIZE.BODY3};
   font-weight: ${FONT.WEIGHT.REGULAR};
 `;
 
-export const LogoutText= styled.div`
+// NotLoginComponent.tsx에서 사용
+export const LogoutText = styled.div`
   font-size: ${FONT.SIZE.BODY2};
   font-weight: ${FONT.WEIGHT.REGULAR};
-`
+`;

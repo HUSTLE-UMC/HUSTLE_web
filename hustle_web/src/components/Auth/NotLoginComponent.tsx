@@ -1,12 +1,7 @@
-interface NotLoginProps {
-    onClick: () => void; // onClick prop 추가
-  }
+import { useNavigate } from 'react-router-dom';
+import * as H from '../../components/Header/Styles';
 
-export const NotLoginComponent = ({ onClick }: NotLoginProps) => {
-
-    
-
-    return(
-        <div onClick={onClick}>로그인</div>
-    )
-}
+export const NotLoginComponent = () => {
+  const navigate = useNavigate();
+  return <H.LogoutText onClick={() => navigate('/login')}>로그인</H.LogoutText>;
+};
