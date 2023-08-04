@@ -1,13 +1,19 @@
 import { useNavigate, useLocation } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { HeaderIcon } from '../../assets/logos/HeaderLogo';
 import * as H from './Styles';
 import Colors from '../../styles/Color';
 import FONT from '../../styles/Font';
+import { NotLoginComponent } from '../Auth/NotLoginComponent';
+import { LoginComponent } from '../Auth/LoginComponent';
+import { LoginProps } from '../../constants/interfaces';
 
 const Header = () => {
   const navigate = useNavigate();
 
+  // user 상태 정의 (임시로 빈 객체로 초기화)
+  const [user, setUser] = useState<LoginProps | null>(null);
+  
   return (
     <H.Header>
       <H.LogoWrap>
@@ -21,6 +27,7 @@ const Header = () => {
           커뮤니티
         </H.HeaderBtn>
         <H.HeaderBtn>순위</H.HeaderBtn>
+        {user !== null ? <LoginComponent user={user} /> : <NotLoginComponent />}
       </H.BtnWrap>
     </H.Header>
   );

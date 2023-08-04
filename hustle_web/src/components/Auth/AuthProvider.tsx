@@ -3,7 +3,8 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import {
   LoginState,
   TokenState,
-  refreshTokenState
+  refreshTokenState,
+
 } from '../../recoil/login/loginState';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -11,20 +12,33 @@ import type { AuthContextType } from '../../constants/interfaces';
 
 const AuthContext = createContext<AuthContextType>({
   isLoggedIn: false,
-  setIsLoggedIn: () => {},
+
+  setIsLoggedIn: () => {
+    return;
+  },
   accessToken: null,
-  setAccessToken: () => {},
+  setAccessToken: () => {
+    return;
+  },
   refreshToken: null,
-  updateAccessToken: () => {},
-  refreshAccessToken: async () => {},
-  logoutHandler: () => {}
+  updateAccessToken: () => {
+    return;
+  },
+  refreshAccessToken: async () => {
+    return;
+  },
+  logoutHandler: () => {
+    return;
+  },
+
 });
 
 const AuthProvider = ({ children }: any) => {
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(LoginState);
   const [accessToken, setAccessToken] = useRecoilState<string | null>(
-    TokenState
+
+    TokenState,
   );
   const refreshToken = useRecoilValue(refreshTokenState);
 
@@ -63,7 +77,7 @@ const AuthProvider = ({ children }: any) => {
     refreshToken,
     updateAccessToken,
     refreshAccessToken,
-    logoutHandler
+    logoutHandler,
   };
 
   return (

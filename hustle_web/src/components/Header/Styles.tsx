@@ -49,3 +49,24 @@ export const HeaderBtn = styled.div`
     color: ${Colors.MainColor};
   }
 `;
+
+
+// LoginComponent.tsx에서 사용
+export const ProfileWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+// LoginComponent.tsx에서 사용
+export const ProfileText = styled.div`
+  font-size: ${FONT.SIZE.BODY3};
+  font-weight: ${FONT.WEIGHT.REGULAR};
+`;
+
+// NotLoginComponent.tsx에서 사용
+export const LogoutText = styled.div`
+  font-size: ${FONT.SIZE.BODY2};
+  font-weight: ${FONT.WEIGHT.REGULAR};
+`;
+

@@ -31,21 +31,21 @@ const LoginMain = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors }
+    formState: { errors },
   } = useForm<LoginProps>({
     defaultValues: defaultValue
   });
 
   const onSubmitHandler: SubmitHandler<LoginProps> = async (
-    data: LoginProps
+    data: LoginProps,
   ) => {
     console.log(data);
     setIsLoading(true);
     try {
       const response = await axios.post('/auth/login', data, {
         headers: {
-          'Content-Type': 'application/json'
-        }
+          'Content-Type': 'application/json',
+        },
       });
       const user = response.data;
       const accessToken = user.accessToken;

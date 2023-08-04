@@ -7,13 +7,13 @@ const { persistAtom } = recoilPersist();
 export const LoginState = atom<boolean>({
   key: 'LoginState',
   default: false,
-  effects_UNSTABLE: [persistAtom]
+  effects_UNSTABLE: [persistAtom],
 });
 
 export const refreshTokenState = atom({
   key: 'refreshTokenState',
   default: localStorage.getItem('refreshToken') || null, // 이전에 저장된 refreshToken이 있다면 가져옴
-  effects_UNSTABLE: [persistAtom]
+  effects_UNSTABLE: [persistAtom],
 });
 
 export const accessTokenState = atom({
@@ -25,5 +25,5 @@ export const accessTokenState = atom({
 export const TokenState = atom<string | null>({
   key: 'TokenState',
   default: null,
-  effects_UNSTABLE: [persistAtom]
+  effects_UNSTABLE: [persistAtom],
 });
