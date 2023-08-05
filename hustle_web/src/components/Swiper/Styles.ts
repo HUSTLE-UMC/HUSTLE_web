@@ -2,15 +2,16 @@ import styled from 'styled-components';
 
 export const SwiperContainer = styled.div`
   width: 100%;
-  height: 100%;
+  height: auto;
   position: relative;
+  background-color: #61dafb;
 `;
 
 export const SwiperSlide = styled.div`
   width: 100%;
-  height: 100%;
+  height: auto;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 `;
 
