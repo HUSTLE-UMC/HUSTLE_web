@@ -1,32 +1,16 @@
 import React from 'react';
 import { HomeContainer } from './Styles';
-import { Link } from 'react-router-dom';
+import Swiper from '../../components/Swiper/Swiper';
+import banner1 from '../../assets/svg/banner1.svg';
+import banner2 from '../../assets/svg/banner2.svg';
+import banner3 from '../../assets/svg/banner3.svg';
 
 const HomePage = () => {
+  const images = [banner1, banner2, banner3];
   return (
     <>
       <HomeContainer>
-        <li>
-          <Link to='/community'>커뮤니티로 이동</Link>
-        </li>
-        <li>
-          <Link to='/community/question/write'>질문하기 폼</Link>
-        </li>
-        <li>
-          <Link to='/friendly'>교류전게시판으로 이동</Link>
-        </li>
-        <li>
-          <Link to='/competitions'>대회 게시판으로 이동</Link>
-        </li>
-        <li>
-          <Link to='/mypage'>마이페이지로 이동</Link>
-        </li>
-        <li>
-          <Link to='/login'>로그인</Link>
-        </li>
-        <li>
-          <Link to='/forgot'>아이디찾기</Link>
-        </li>
+        <Swiper images={images} pagination={true} />
       </HomeContainer>
     </>
   );
