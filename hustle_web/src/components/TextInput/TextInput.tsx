@@ -14,6 +14,8 @@ export const TextInput = ({ size, holder }: Props) => {
       return <>{<T.InputMedium placeholder={holder} />}</>;
     case 'large':
       return <>{<T.InputLarge placeholder={holder} />}</>;
+    case 'small-right':
+      return <>{<T.InputSmallRight placeholder={holder} />}</>;
     default:
       return <>{}</>;
   }

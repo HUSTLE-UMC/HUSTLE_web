@@ -27,6 +27,9 @@ const HomePage = () => {
         <li>
           <Link to='/forgot'>아이디찾기</Link>
         </li>
+        <li>
+          <Link to='/maincompetition'>대회개설</Link>
+        </li>
       </HomeContainer>
     </>
   );

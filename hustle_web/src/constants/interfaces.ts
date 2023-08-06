@@ -41,3 +41,23 @@ export interface findPwProps {
 export interface isMatchProps {
   isMatch: boolean;
 }
+
+export interface LeftCompetitionProps {
+  competitiondate: number;
+  recruitdate: number;
+  fee: number;
+  team: number;
+  presidentname: string;
+  president2name: string;
+  onDataChange: (data: LeftCompetitionProps) => void;
+}
+
+export interface RightCompetitionProps {
+  competitiondue: number;
+  recruitdue: number;
+  recruitteam: number;
+  finalteam: number;
+  presidentphone: string;
+  president2phone: string;
+  onDataChange: (data: RightCompetitionProps) => void;
+}
