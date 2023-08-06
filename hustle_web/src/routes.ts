@@ -2,6 +2,7 @@ import React from 'react';
 
 const Home = React.lazy(() => import('./pages/Home'));
 const Login = React.lazy(() => import('./pages/Login'));
+const SignIn = React.lazy(() => import('./pages/SignIn'));
 const MyPage = React.lazy(() => import('./pages/MyPage/MyPageMain'));
 const Question = React.lazy(
   () => import('./pages/Community/Question/QuestionPage')
@@ -28,6 +29,7 @@ const ResetPage = React.lazy(() => import('./pages/Forgot/Reset/Resetpage'));
 const routes = [
   { path: '/', element: Home },
   { path: '/login', element: Login },
+  { path: '/signIn', element: SignIn },
   { path: '/mypage', element: MyPage },
   { path: '/community/question', element: Question },
   { path: '/community/question/write', element: QuestionForm },
