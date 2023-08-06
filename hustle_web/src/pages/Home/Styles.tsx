@@ -20,6 +20,13 @@ export const HotContainer = styled.div`
   background-color: ${Colors.Gray10};
 `;
 
+export const HotBox = styled.div`
+  display: grid;
+  grid-row-gap: 2rem;
+  grid-column-gap: 4rem;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+`;
+
 export const MatchContainer = styled.div`
   width: 100%;
   height: 38rem;

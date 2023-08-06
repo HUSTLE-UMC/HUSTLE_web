@@ -17,6 +17,7 @@ const Colors = {
   MainBlack: '#252525',
   TrueBlack: '#000000',
   TrueWhite: '#FFFFFF',
+  BGgray: '#FCFCFC',
   Impact: '#3F37C9'
 } as const;
 

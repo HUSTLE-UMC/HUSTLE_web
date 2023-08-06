@@ -49,30 +49,6 @@ export const clubListsState = atom<T.clubListsTypes[]>({
       title: '대회 연습 상대 구해요!',
       location: '가톨릭대학교 체육관',
       date: '2023-07-07'
-    },
-    {
-      id: 3,
-      img: '',
-      sport: '배구',
-      title: '대회 연습 상대 구해요!',
-      location: '가톨릭대학교 체육관',
-      date: '2023-07-07'
-    },
-    {
-      id: 4,
-      img: '',
-      sport: '배구',
-      title: '대회 연습 상대 구해요!',
-      location: '가톨릭대학교 체육관',
-      date: '2023-07-07'
-    },
-    {
-      id: 5,
-      img: '',
-      sport: '배구',
-      title: '대회 연습 상대 구해요!',
-      location: '가톨릭대학교 체육관',
-      date: '2023-07-07'
     }
   ]
 });
