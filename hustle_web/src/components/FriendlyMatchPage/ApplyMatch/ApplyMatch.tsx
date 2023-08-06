@@ -18,7 +18,9 @@ const ApplyMatch = () => {
       <SportsMenu />
       <MatchTitle label='교류전 구해요!' />
       <A.ContentLayout>
+        <A.SideContainer />
         <MatchDetail />
+        <A.SideContainer />
       </A.ContentLayout>
       <A.ListTitle>
         <A.ListText>교류전 구해요!의 다른 글</A.ListText>
