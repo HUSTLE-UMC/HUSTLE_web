@@ -22,7 +22,7 @@ const Header = () => {
       <H.BtnWrap>
         <H.HeaderBtn onClick={() => navigate('/')}>홈</H.HeaderBtn>
         <H.HeaderBtn onClick={() => navigate('/match')}>대회</H.HeaderBtn>
-        <H.HeaderBtn>교류전</H.HeaderBtn>
+        <H.HeaderBtn onClick={() => navigate('/friendly')}>교류전</H.HeaderBtn>
         <H.HeaderBtn onClick={() => navigate('/community')}>
           커뮤니티
         </H.HeaderBtn>
