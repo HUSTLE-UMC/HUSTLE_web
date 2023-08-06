@@ -26,6 +26,10 @@ const ForgotPage = React.lazy(() => import('./pages/Forgot/Forgotpage'));
 
 const ResetPage = React.lazy(() => import('./pages/Forgot/Reset/Resetpage'));
 
+const MainCompetition = React.lazy(
+  () => import('./pages/MainCompetition/MainCompetition')
+);
+
 const routes = [
   { path: '/', element: Home },
   { path: '/login', element: Login },
@@ -41,7 +45,8 @@ const routes = [
   { path: '/post', element: PostMatch },
   { path: '/apply', element: ApplyMatch },
   { path: '/forgot', element: ForgotPage },
-  { path: '/reset', element: ResetPage }
+  { path: '/reset', element: ResetPage },
+  { path: '/maincompetition', element: MainCompetition }
 ];
 
 export default routes;
