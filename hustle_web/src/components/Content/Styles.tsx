@@ -9,5 +9,6 @@ export const Content = styled.div`
   background-color: ${Colors.Gray10};
   align-items: center;
   margin: 0 auto;
+  border-bottom: 1px solid ${Colors.Gray20};
   //margin 및 padding은 있다면 rem으로??
 `;

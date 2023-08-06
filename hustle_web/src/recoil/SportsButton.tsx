@@ -52,6 +52,11 @@ export const sportsMenuState = atom<sportsTypes[]>({
   ]
 });
 
+export const sportSelectState = atom<boolean>({
+  key: 'sportSelectState',
+  default: false
+});
+
 // 현재 선택되어 있는 운동종목 정보 Selector
 export const SportsSelector = selector({
   key: 'SportsSelector',

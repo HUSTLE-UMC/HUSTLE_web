@@ -11,10 +11,17 @@ export interface submitTypes {
 }
 
 export interface clubListsTypes {
-  id: number;
+  sportId: number;
   img: string;
   sport: string;
+  clubName: string;
   title: string;
   location: string;
   date: string;
+  person: string;
+  contact: string;
+}
+
+export interface selectedTypes {
+  selected: boolean;
 }

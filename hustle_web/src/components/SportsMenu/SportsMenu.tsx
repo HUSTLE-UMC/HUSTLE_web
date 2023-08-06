@@ -1,10 +1,15 @@
 import * as S from './Styles';
 import SportsButton from '../SportsButton/SportsButton';
-import { useRecoilState } from 'recoil';
-import { sportsMenuState, sportsTypes } from '../../recoil/SportsButton';
+import { useRecoilState, useSetRecoilState } from 'recoil';
+import {
+  sportsMenuState,
+  sportSelectState,
+  sportsTypes
+} from '../../recoil/SportsButton';
 
 export const SportsMenu = () => {
   const [menus, setMenus] = useRecoilState(sportsMenuState);
+  const setIsSelected = useSetRecoilState(sportSelectState);
   const handleSelect = (id: number) => {
     setMenus(
       menus.map((m: sportsTypes) => {
@@ -13,6 +18,7 @@ export const SportsMenu = () => {
           : { ...m, selected: false };
       })
     );
+    setIsSelected(true);
   };
   return (
     <S.CategoryLayout>

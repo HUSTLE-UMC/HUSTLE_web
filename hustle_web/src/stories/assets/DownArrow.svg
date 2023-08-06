@@ -1,10 +1,9 @@
         <svg
-          width="12"
-          height="9"
+          width="10"
+          height="5"
           viewBox="0 0 18 9"
-          fill="black"
+          fill="#999797"
           xmlns="http://www.w3.org/2000/svg"
-          transform={transform}
         >
           <path d="M9.00006 8.414L17.4141 0L0.586063 -7.35575e-07L9.00006 8.414Z" />
         </svg>

@@ -1,53 +1,57 @@
 import styled from 'styled-components';
+import FONT from '../../../styles/Font';
+import Colors from '../../../styles/Color';
 
-export const Layout = styled.div`
-  display: grid;
-  grid-template-rows: 0.1fr 1fr;
-  grid-template-columns: 1fr 1fr;
-  position: relative;
+export const PostLayout = styled.div`
   width: 100%;
-  height: 100rem;
+  display: flex;
+  background: #fcfcfc;
+  padding-top: 2rem;
+  display: grid;
+  grid-template-columns: 18.5rem 39.4rem 18.5rem;
+  justify-content: center;
+  grid-gap: 5.3rem;
 `;
 
-export const DropDownLayout = styled.div`
-  grid-column-start: 1;
-  grid-column-end: 3;
-  margin: 2rem 0;
+export const SideContainer = styled.div`
+  width: 18rem;
 `;
 
-export const LeftLayout = styled.div`
-  box-sizing: border-box;
-  margin: 0 auto;
+export const PostContainer = styled.div`
+  width: 39.4rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 `;
 
-export const RightLayout = styled.div`
-  box-sizing: border-box;
-  margin: 0 auto;
+export const TitleBox = styled.div`
+  font-size: ${FONT.SIZE.BODY2};
+  font-weight: ${FONT.WEIGHT.BOLD};
+  color: ${Colors.Gray70};
+  margin: 1rem 0;
 `;
 
-export const TitleContainer = styled.div`
-  font-size: 28px;
-  font-weight: 700;
+export const InputBox = styled.div`
+  width: 39.4rem;
+  display: flex;
+  justify-content: space-between;
+`;
+
+export const ImageBox = styled.div`
+  width: 18rem;
+  height: 18rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: ${Colors.Gray10};
+  border-radius: 2rem;
   margin-top: 2rem;
 `;
 
-export const InputContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 50rem;
-`;
-
-export const LocationContainer = styled.div`
-  font-size: 15px;
-  margin-bottom: 4rem;
-`;
-export const LocationBox = styled.div`
-  width: 43rem;
-  height: 27rem;
-  background: rgba(217, 217, 217, 1);
-  border-radius: 2.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0.5rem 0;
+export const ImageCaption = styled.div`
+  font-size: ${FONT.SIZE.BODY3};
+  font-weight: ${FONT.WEIGHT.LIGHT};
+  color: ${Colors.Gray30};
 `;
