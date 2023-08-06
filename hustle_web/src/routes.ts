@@ -9,9 +9,7 @@ const Question = React.lazy(
 const Community = React.lazy(() => import('./pages/Community/CommunityPage'));
 const Club = React.lazy(() => import('./pages/Community/Club/Club'));
 const Join = React.lazy(() => import('./pages/Join/Join'));
-const Friendly = React.lazy(
-  () => import('./pages/FriendlyMatch/FriendlyMatch')
-);
+const Match = React.lazy(() => import('./pages/FriendlyMatch/FriendlyMatch'));
 const List1 = React.lazy(() => import('./components/Competition/list1'));
 const QuestionForm = React.lazy(
   () => import('./components/Community/Question/QuestionForm')
@@ -22,15 +20,7 @@ const PostMatch = React.lazy(
 const ApplyMatch = React.lazy(
   () => import('./components/FriendlyMatchPage/ApplyMatch/ApplyMatch')
 );
-const ApplyForm = React.lazy(
-  () => import('./components/FriendlyMatchPage/ApplyMatch/ApplyForm')
-);
-const FriendlyLists = React.lazy(
-  () =>
-    import(
-      './components/FriendlyMatchPage/MainMatch/FriendlyLists/FriendlyLists'
-    )
-);
+
 const ForgotPage = React.lazy(() => import('./pages/Forgot/Forgotpage'));
 
 const ResetPage = React.lazy(() => import('./pages/Forgot/Reset/Resetpage'));
@@ -44,13 +34,10 @@ const routes = [
   { path: '/community', element: Community },
   { path: '/club', element: Club },
   { path: '/join', element: Join },
-  { path: '/friendly', element: Friendly },
-  { path: '/friendly/match', element: FriendlyLists },
-  { path: '/friendly/invite', element: FriendlyLists },
+  { path: '/match', element: Match },
   { path: '/competitions', element: List1 },
-  { path: '/friendly/post', element: PostMatch },
-  { path: '/friendly/apply', element: ApplyMatch },
-  { path: '/friendly/apply/form', element: ApplyForm },
+  { path: '/post', element: PostMatch },
+  { path: '/apply', element: ApplyMatch },
   { path: '/forgot', element: ForgotPage },
   { path: '/reset', element: ResetPage }
 ];

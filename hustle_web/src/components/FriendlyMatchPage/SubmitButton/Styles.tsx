@@ -14,7 +14,6 @@ export const MediumButton = styled.div`
   font-size: ${FONT.SIZE.BODY2};
   font-weight: ${FONT.WEIGHT.SEMIBOLD};
   margin: 2rem 0;
-  cursor: pointer;
 `;
 
 export const SmallButton = styled(MediumButton)`

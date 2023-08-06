@@ -9,7 +9,7 @@ export const TitleContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid ${Colors.Gray20};
+  border-bottom: ${Colors.Gray20};
 `;
 
 export const IconBox = styled.div`

@@ -1,45 +1,42 @@
 import styled from 'styled-components';
-import Colors from '../../styles/Color';
-import FONT from '../../styles/Font';
 
-export const DropDownLayout = styled.div`
-  width: 18.5rem;
-  border: 1px solid ${Colors.Gray20};
-  border-radius: 1.2rem;
-  background: ${Colors.TrueWhite};
+export const DropDownWrap = styled.div`
+  width: 25rem;
+  height: 4rem;
+  border: 0.5px solid rgba(0, 0, 0, 0.25);
+  border-radius: 20px 20px 0px 0px;
+  box-shadow: rgba(0, 0, 0, 0.25) 4px 4px 3px;
+  font-size: 18px;
 `;
 
 export const DropDownTitle = styled.div`
-  width: 100%;
-  height: 4rem;
-  font-size: ${FONT.SIZE.BODY2};
-  font-weight: ${FONT.WEIGHT.SEMIBOLD};
+  box-sizing: border-box;
+  background: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: ${Colors.Gray80};
-`;
-
-export const DropDownItem = styled(DropDownTitle)`
-  display: flex;
-  justify-content: space-evenly;
-  box-sizing: border-box;
-  padding: 0 3rem;
-  border-top: 1px solid ${Colors.Gray20};
-  border-radius: 0;
-  font-weight: ${FONT.WEIGHT.REGULAR};
-  position: relative;
-  z-index: 999;
+  width: 100%;
+  height: 100%;
+  border: 0.5px solid rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
 `;
 
 export const TitleText = styled.div`
-  margin: 0 3rem;
+  font-weight: 700;
+  margin: 0 2rem;
 `;
 
-export const IconBox = styled.div`
+export const IconWrap = styled.div`
+  display: block;
   padding-bottom: 0.5rem;
 `;
 
-export const RadioButtonBox = styled.div`
-  padding-top: 0.5rem;
+export const DropDownItem = styled(DropDownTitle)`
+  border-top: 0;
+  border-radius: 0;
+  font-weight: 400;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.25) 4px 4px 3px;
+  position: relative;
+  z-index: 999;
 `;

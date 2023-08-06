@@ -1,20 +1,22 @@
 import React from 'react';
 import * as S from './Styles';
+import { MatchTitleProps } from './MatchTitleProps';
 import { Writing } from '../../../../stories/Icons/svg';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-interface MatchTitleProps {
-  label: string;
-}
-
-export const MatchTitle = ({ label }: MatchTitleProps) => {
-  const navigate = useNavigate();
+export const MatchTitle = ({ label, match }: MatchTitleProps) => {
   return (
     <S.TitleContainer>
       <S.TextBox>{label}</S.TextBox>
-      <S.IconBox onClick={() => navigate('/friendly/post')}>
-        <Writing />
-      </S.IconBox>
+      <Link
+        to='/post'
+        style={{ textDecoration: 'none' }}
+        {...(match && { state: { ...{ isMatch: { match } } } })}
+      >
+        <S.IconBox>
+          <Writing />
+        </S.IconBox>
+      </Link>
     </S.TitleContainer>
   );
 };

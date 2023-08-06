@@ -45,10 +45,10 @@ export const TextWrapper = styled.div`
 `;
 
 export const Text = styled.div`
-  font-size : 1.2rem;
+  font-size: 1.2rem;
   font-weight: 400;
-  Line height: 1.4rem;
-  color : #7B7B7B;
+  line-height: 1.4rem;
+  color: #7b7b7b;
   margin-left: 1rem;
 `;
 

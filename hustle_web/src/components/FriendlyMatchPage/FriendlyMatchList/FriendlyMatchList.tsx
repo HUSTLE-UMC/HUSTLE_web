@@ -1,9 +1,6 @@
 import React from 'react';
 import * as L from './Styles';
 import { Props } from './MatchListProps';
-import { useNavigate } from 'react-router-dom';
-import { useSetRecoilState } from 'recoil';
-import { selectedMatchID } from '../../../recoil/friendlyMatchPage/states';
 
 export const FriendlyMatchList = ({
   id,
@@ -13,12 +10,6 @@ export const FriendlyMatchList = ({
   location,
   date
 }: Props) => {
-  const navigate = useNavigate();
-  const setSelectedMatchID = useSetRecoilState(selectedMatchID);
-  const handleClick = (id: number) => {
-    setSelectedMatchID(id);
-    navigate('/friendly/apply');
-  };
   return (
     <L.Layout key={id}>
       <L.ImgLayout>
@@ -34,7 +25,7 @@ export const FriendlyMatchList = ({
           </div>
           <L.SubmitBtn
             onClick={() => {
-              handleClick(id);
+              console.log('임시 동작');
             }}
           >
             신청하기

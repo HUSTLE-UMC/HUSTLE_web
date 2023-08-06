@@ -8,9 +8,11 @@ interface Props {
 
 export const TextInput = ({ size, holder }: Props) => {
   switch (size) {
-    case 's':
+    case 'small':
       return <>{<T.InputSmall placeholder={holder} />}</>;
-    case 'l':
+    case 'medium':
+      return <>{<T.InputMedium placeholder={holder} />}</>;
+    case 'large':
       return <>{<T.InputLarge placeholder={holder} />}</>;
     default:
       return <>{}</>;

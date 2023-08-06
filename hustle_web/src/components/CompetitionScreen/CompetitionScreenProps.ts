@@ -1,7 +1,8 @@
 export interface Props {
   id: number;
   img: string;
-  sport: string;
+  sort: string;
   title: string;
+  location: string;
   date: string;
 }

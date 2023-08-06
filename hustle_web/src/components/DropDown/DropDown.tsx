@@ -1,29 +1,20 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import * as S from './Styles';
-import {
-  DownArrow,
-  RadioButton,
-  RadioButtonSelected
-} from '../../stories/Icons/svg/index';
-import { dropdownMenuState } from '../../recoil/friendlyMatchPage/states';
+import { DropDownProps } from './DropDownProps';
+import { DownArrow } from '../../stories/Icons/svg/index';
+import { menuState } from '../../recoil/friendlyMatchPage/states';
 import { menuTypes } from '../../recoil/friendlyMatchPage/types';
-import { useRecoilState, useRecoilValue } from 'recoil';
-import { dropdownMenuSelector } from '../../recoil/friendlyMatchPage/selectors';
-import { useNavigate } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
 
-interface DropDownProps {
-  index: number;
-}
-
-export const DropDown = ({ index }: DropDownProps) => {
+export const DropDown = ({ Items, index }: DropDownProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [menus, setMenus] = useRecoilState(dropdownMenuState);
-  const [title, setTitle] = useState<string>(menus[index].label);
-  const selectedID = useRecoilValue(dropdownMenuSelector);
-  const navigate = useNavigate();
-
+  const [Value, setValue] = useState<string>(Items[index]);
+  const [menus, setMenus] = useRecoilState(menuState);
+  const HandleClick = () => {
+    setIsOpen(!isOpen);
+  };
   const HandleChange = (id: number) => {
-    setTitle(menus[id].label);
+    setValue(Items[id]);
     setMenus(
       menus.map((m: menuTypes) => {
         return m.id === id
@@ -32,31 +23,28 @@ export const DropDown = ({ index }: DropDownProps) => {
       })
     );
     setIsOpen(false);
-    id === 0 ? navigate('/friendly/post') : navigate('/friendly/apply/form');
   };
-
   return (
-    <S.DropDownLayout>
-      <S.DropDownTitle onClick={() => setIsOpen(!isOpen)}>
-        <S.TitleText>{title}</S.TitleText>
-        <S.IconBox>
+    <S.DropDownWrap
+      {...(!isOpen && { style: { border: '0', boxShadow: 'none' } })}
+    >
+      <S.DropDownTitle onClick={() => HandleClick()}>
+        <S.TitleText>{Value}</S.TitleText>
+        <S.IconWrap
+          {...(isOpen && {
+            style: { visibility: 'hidden', marginLeft: '0' }
+          })}
+        >
           <DownArrow />
-        </S.IconBox>
+        </S.IconWrap>
       </S.DropDownTitle>
       {isOpen &&
-        menus.map((item) => (
-          <S.DropDownItem key={item.id} onClick={() => HandleChange(item.id)}>
-            <S.RadioButtonBox>
-              {item.id === selectedID ? (
-                <RadioButtonSelected />
-              ) : (
-                <RadioButton />
-              )}
-            </S.RadioButtonBox>
-            <>{item.label}</>
+        Items.map((item, id) => (
+          <S.DropDownItem key={index} onClick={() => HandleChange(id)}>
+            {item}
           </S.DropDownItem>
         ))}
-    </S.DropDownLayout>
+    </S.DropDownWrap>
   );
 };
 

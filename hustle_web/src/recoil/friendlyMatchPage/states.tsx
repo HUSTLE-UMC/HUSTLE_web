@@ -1,12 +1,25 @@
 import { atom } from 'recoil';
 import * as T from './types';
 
-export const dropdownMenuState = atom<T.menuTypes[]>({
-  key: 'dropdownMenuState',
+export const menuState = atom<T.menuTypes[]>({
+  key: 'menuState',
   default: [
-    { id: 0, label: '교류전 개설', isSelected: false },
-    { id: 1, label: '교류전 신청', isSelected: false }
+    { id: 0, label: '교류전 요청', isSelected: false },
+    { id: 1, label: '초청 요청', isSelected: false }
   ]
+});
+
+export const submitTypeState = atom<T.submitTypes[]>({
+  key: 'submitTypeState',
+  default: [
+    { id: 0, msg: '요청이 완료되었습니다\r!', isSubmitted: true },
+    { id: 1, msg: '초청이 완료되었습니다\r!', isSubmitted: false }
+  ]
+});
+
+export const selectedState = atom<boolean>({
+  key: 'selectedState',
+  default: false
 });
 
 // 교류전 목록
@@ -14,54 +27,28 @@ export const clubListsState = atom<T.clubListsTypes[]>({
   key: 'clubListsState',
   default: [
     {
-      sportId: 1,
+      id: 0,
       img: '',
       sport: '농구',
       title: '대회 연습 상대 구해요!',
-      clubName: '가톨릭대학교 바스타즈',
       location: '가톨릭대학교 체육관',
-      date: '2023-07-07',
-      person: '최유빈',
-      contact: '010-0000-0000'
+      date: '2023-07-07'
     },
     {
-      sportId: 3,
+      id: 1,
+      img: '',
+      sport: '농구',
+      title: '대회 연습 상대 구해요!',
+      location: '가톨릭대학교 체육관',
+      date: '2023-07-07'
+    },
+    {
+      id: 2,
       img: '',
       sport: '배구',
-      title: '배구 경기 하실 분!',
-      clubName: '배구동아리',
-      location: 'ㅇㅇ시 ㅇㅇ동',
-      date: '2023-07-07',
-      person: '홍길동',
-      contact: '010-0000-0000'
-    },
-    {
-      sportId: 0,
-      img: '',
-      sport: '축구',
-      title: '축구 같이 합시다',
-      clubName: '축구동아리',
-      location: '서울특별시 어디어디',
-      date: '2023-07-07',
-      person: '아무개',
-      contact: '010-0000-0000'
-    },
-    {
-      sportId: 0,
-      img: '',
-      sport: '축구',
-      title: '축구 교류전 할 사람',
-      clubName: '축구동아리222',
-      location: '시흥시 어디어디 체육관',
-      date: '2023-07-07',
-      person: '아무개2',
-      contact: '010-0000-0000'
+      title: '대회 연습 상대 구해요!',
+      location: '가톨릭대학교 체육관',
+      date: '2023-07-07'
     }
   ]
-});
-
-// 사용자가 신청하기를 선택한 교류전
-export const selectedMatchID = atom<number>({
-  key: 'selectedMatchID',
-  default: 0
 });
