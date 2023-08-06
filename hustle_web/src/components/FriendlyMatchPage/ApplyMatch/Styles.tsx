@@ -1,62 +1,69 @@
 import styled from 'styled-components';
+import Colors from '../../../styles/Color';
+import FONT from '../../../styles/Font';
 
-export const Layout = styled.div`
-  display: grid;
-  grid-template-rows: 48px 1fr 400px;
-  grid-template-columns: 1fr 1fr;
-  position: relative;
+export const ContentLayout = styled.div`
   width: 100%;
-`;
-
-export const TitleLayout = styled.div`
-  grid-column-start: 1;
-  grid-column-end: 3;
-  font-size: 30px;
-  font-weight: 800;
-  color: #3f37c9;
-`;
-
-export const LeftLayout = styled.div`
-  box-sizing: border-box;
-  margin: 0 auto;
-  padding-top: 4rem;
-`;
-
-export const RightLayout = styled.div`
-  box-sizing: border-box;
-  margin: 0 auto;
-`;
-
-export const SvgLayout = styled.div`
-  grid-column-start: 1;
-  grid-column-end: 3;
-  display: flex;
+  height: 57.2rem;
+  background: #fcfcfc;
+  padding-top: 2rem;
+  display: grid;
+  grid-template-columns: 18.5rem 39.4rem 18.5rem;
   justify-content: center;
+  grid-gap: 5.3rem;
 `;
 
-export const TitleContainer = styled.div`
-  font-size: 28px;
-  font-weight: 700;
-  margin-top: 2rem;
+export const FormLayout = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 39.4rem;
+  height: 30rem;
 `;
 
-export const InputContainer = styled.div`
+export const SideContainer = styled.div`
+  width: 18.5rem;
+`;
+
+export const TitleBox = styled.div`
+  font-size: ${FONT.SIZE.BODY2};
+  font-weight: ${FONT.WEIGHT.BOLD};
+  color: ${Colors.Gray70};
+  margin: 1rem 0;
+`;
+
+export const InputBox = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 50rem;
 `;
 
-export const ButtonContainer = styled.div`
-  margin-left: 3rem;
-`;
-
-export const LocationBox = styled.div`
-  width: 50rem;
-  height: 50rem;
-  background: rgba(217, 217, 217, 1);
-  border-radius: 2.5rem;
+export const ListLayout = styled.div`
+  width: 101rem;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  gap: 3rem;
+  padding: 2rem 0;
+`;
+
+export const ListTitle = styled.div`
+  box-sizing: border-box;
+  width: 100%;
+  padding: 1rem 10rem;
+  display: flex;
   align-items: center;
-  margin: 1rem 0;
+  justify-content: space-between;
+  border-bottom: 1px solid ${Colors.Gray20};
+`;
+
+export const ListText = styled.div`
+  font-size: ${FONT.SIZE.BODY1};
+  font-weight: ${FONT.WEIGHT.REGULAR};
+  color: ${Colors.Gray80};
+`;
+
+export const ListButton = styled.div`
+  font-size: ${FONT.SIZE.BODY3};
+  font-weight: ${FONT.WEIGHT.REGULAR};
+  color: ${Colors.WriteButton};
+  cursor: pointer;
 `;

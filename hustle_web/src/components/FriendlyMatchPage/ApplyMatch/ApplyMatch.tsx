@@ -1,44 +1,45 @@
-import React, { useEffect } from 'react';
 import * as A from './Styles';
-import MatchCard from '../MatchCard/MatchCard';
-import MatchRequest from './MatchRequest';
-import MatchInvitation from './MatchInvitation';
-import CompletionMark from '../../CompletionMark/CompletionMark';
-import { useRecoilState, useRecoilValue } from 'recoil';
-import { submitMsgSelector } from '../../../recoil/friendlyMatchPage/selectors';
-import { selectedState } from '../../../recoil/friendlyMatchPage/states';
-import { useLocation } from 'react-router-dom';
 import SportsMenu from '../../SportsMenu/SportsMenu';
+import MatchTitle from '../MainMatch/MatchTitle/MatchTitle';
+import MatchDetail from '../MatchDetail/MatchDetail';
+import { useRecoilValue } from 'recoil';
+import OtherMatchList from '../OtherMatchList/OtherMatchList';
+import { otherMatchSelector } from '../../../recoil/friendlyMatchPage/selectors';
+import { useNavigate } from 'react-router-dom';
 
 const ApplyMatch = () => {
-  const msg = useRecoilValue(submitMsgSelector);
-  const [isSelected, setIsSelected] = useRecoilState(selectedState);
-  const location = useLocation();
-  const Index = location.state?.index.index;
-  useEffect(() => {
-    setIsSelected(false);
-  }, []);
+  const otherMatch = useRecoilValue(otherMatchSelector);
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate('/friendly/match');
+  };
   return (
     <>
       <SportsMenu />
-      <A.Layout>
-        <A.TitleLayout>
-          {Index === 0 && ' • 교류전 요청'}
-          {Index === 1 && ' • 교류전 초청'}
-        </A.TitleLayout>
-        <A.LeftLayout>
-          <MatchCard />
-        </A.LeftLayout>
-        <A.RightLayout>
-          {Index === 0 && <MatchRequest />}
-          {Index === 1 && <MatchInvitation />}
-        </A.RightLayout>
-        {isSelected && (
-          <A.SvgLayout>
-            <CompletionMark label={msg} />
-          </A.SvgLayout>
-        )}
-      </A.Layout>
+      <MatchTitle label='교류전 구해요!' />
+      <A.ContentLayout>
+        <MatchDetail />
+      </A.ContentLayout>
+      <A.ListTitle>
+        <A.ListText>교류전 구해요!의 다른 글</A.ListText>
+        <A.ListButton onClick={() => handleClick()}>더보기 {'>'}</A.ListButton>
+      </A.ListTitle>
+      <A.ListLayout>
+        {otherMatch.map((m, i) => {
+          if (i < 4) {
+            return (
+              <OtherMatchList
+                key={i}
+                id={i}
+                sport={m.sport}
+                title={m.title}
+                img={m.img}
+                date={m.date}
+              />
+            );
+          }
+        })}
+      </A.ListLayout>
     </>
   );
 };
