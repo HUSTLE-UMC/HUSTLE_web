@@ -36,7 +36,7 @@ export const RowContainer = styled.div`
 `;
 
 export const RightWrapper = styled.div`
-  width: 32rem;
+  width: 34rem;
   display: flex;
   justify-content: right;
 `;
