@@ -12,7 +12,6 @@ const Swiper: React.FC<SwiperProps> = ({ images = [], pagination }) => {
     if (swiperContainerRef.current) {
       swiperRef.current = new SwiperClass(swiperContainerRef.current, {
         pagination: pagination ? { clickable: true } : false
-        // 여기에 추가적인 Swiper.js 옵션을 설정할 수 있습니다.
       });
     }
 

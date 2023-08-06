@@ -17,7 +17,7 @@ export const SwiperSlide = styled.div`
 
 export const SwiperImage = styled.img`
   width: 100%;
-  height: auto;
+  height: 40rem;
   max-height: 100%;
   object-fit: cover;
 `;
