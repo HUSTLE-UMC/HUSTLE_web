@@ -55,6 +55,9 @@ const HomePage = () => {
             ))}
           </S.ListBox>
         </S.MatchContainer>
+        <S.RankContainer>
+          <ListInfo title='인기 순위' />
+        </S.RankContainer>
       </S.HomeContainer>
     </>
   );

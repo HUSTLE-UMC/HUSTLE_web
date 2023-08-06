@@ -7,7 +7,16 @@ export const HomeContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  background-color: orange;
+`;
+
+export const RankContainer = styled.div`
+  width: 100%;
+  height: 33rem;
+  display: flex;
+  flex-direction: column;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  background-color: ${Colors.Gray10};
 `;
 
 export const HotContainer = styled.div`
@@ -39,9 +48,9 @@ export const MatchContainer = styled.div`
 
 export const ListBox = styled.div`
   display: grid;
-  grid-row-gap: 2rem;
-  grid-column-gap: 4rem;
+  grid-row-gap: 12rem;
+  grid-column-gap: 6rem;
   grid-template-columns: 1fr 1fr 1fr;
   margin: 1.5rem 0;
-  padding: 0 10rem;
+  padding: 0 3rem;
 `;
