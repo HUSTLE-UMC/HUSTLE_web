@@ -20,8 +20,8 @@ const LoginMain = () => {
     useContext(AuthContext);
   const [user, setUser] = useRecoilState(userAtom);
 
-  function joinPage() {
-    navigate('/join');
+  function signInPage() {
+    navigate('/signIn');
   }
 
   function forgotPage() {
@@ -31,21 +31,21 @@ const LoginMain = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors }
   } = useForm<LoginProps>({
     defaultValues: defaultValue
   });
 
   const onSubmitHandler: SubmitHandler<LoginProps> = async (
-    data: LoginProps,
+    data: LoginProps
   ) => {
     console.log(data);
     setIsLoading(true);
     try {
       const response = await axios.post('/auth/login', data, {
         headers: {
-          'Content-Type': 'application/json',
-        },
+          'Content-Type': 'application/json'
+        }
       });
       const user = response.data;
       const accessToken = user.accessToken;
@@ -102,7 +102,7 @@ const LoginMain = () => {
       <L.ButtonDiv>
         <L.Button onClick={forgotPage}>아이디 찾기 · 비밀번호 찾기</L.Button>
         <L.ButtonLine></L.ButtonLine>
-        <L.Button onClick={joinPage}>회원가입</L.Button>
+        <L.Button onClick={signInPage}>회원가입</L.Button>
       </L.ButtonDiv>
     </L.Layout>
   );
