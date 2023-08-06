@@ -61,3 +61,9 @@ export interface RightCompetitionProps {
   president2phone: string;
   onDataChange: (data: RightCompetitionProps) => void;
 }
+
+export interface MainCompetitionProps {
+  competitionname: string;
+  teamname: string;
+  support: string;
+}

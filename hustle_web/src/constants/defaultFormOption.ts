@@ -32,3 +32,9 @@ export const defaultRightCompetition = {
   presidentphone: '',
   president2phone: ''
 };
+
+export const defaultMainCompetition = {
+  competitionname: '',
+  teamname: '',
+  support: ''
+};
