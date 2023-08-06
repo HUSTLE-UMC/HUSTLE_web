@@ -46,3 +46,9 @@ export const Error = styled.div`
   padding: 5px;
   flex-shrink: 0;
 `;
+
+export const CancleImageBtn = styled.button`
+  border: 'none';
+  background: 'none';
+  cursor: 'pointer';
+`;
