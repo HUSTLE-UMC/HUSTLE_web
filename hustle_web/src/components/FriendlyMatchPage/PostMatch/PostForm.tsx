@@ -14,18 +14,26 @@ export const PostForm = () => {
     register,
     handleSubmit,
     formState: { errors }
-  } = useForm<PostMatchProps>({ defaultValues: defaultValue });
+  } = useForm<PostMatchProps>({
+    defaultValues: {
+      ...defaultValue
+    }
+  });
 
   const onSubmitHandler: SubmitHandler<PostMatchProps> = (data) => {
     console.log(data);
     alert('교류전 신청이 완료되었습니다.');
   };
+
   return (
     <form onSubmit={handleSubmit(onSubmitHandler)}>
       <M.PostContainer>
         <div>
           <M.TitleBox>동아리 명</M.TitleBox>
-          <M.InputLarge {...register('clubName', contentRequirements)} />
+          <M.InputLarge
+            placeholder='동아리 명을 입력하세요'
+            {...register('clubName', contentRequirements)}
+          />
           {errors.clubName && (
             <M.ErrorText>{errors.clubName.message}</M.ErrorText>
           )}
@@ -51,18 +59,24 @@ export const PostForm = () => {
         </div>
         <div>
           <M.TitleBox>교류전 제목</M.TitleBox>
-          <M.InputLarge {...register('title', contentRequirements)} />
+          <M.InputLarge
+            placeholder='교류전 제목을 입력하세요'
+            {...register('title', contentRequirements)}
+          />
           {errors.title && <M.ErrorText>{errors.title.message}</M.ErrorText>}
         </div>
         <div>
           <M.TitleBox>일시</M.TitleBox>
-          <M.InputLarge {...register('date', contentRequirements)} />
+          <M.InputLarge
+            type='date'
+            {...register('date', contentRequirements)}
+          />
           {errors.date && <M.ErrorText>{errors.date.message}</M.ErrorText>}
         </div>
         <div>
           <M.TitleBox>교류전 위치</M.TitleBox>
           <M.InputLarge
-            type='location'
+            placeholder='교류전 위치를 입력하세요'
             {...register('location', contentRequirements)}
           />
           {errors.location && (
@@ -73,7 +87,7 @@ export const PostForm = () => {
           <Photo />
         </M.ImageBox>
         <M.ImageCaption>교류전 위치 사진을 업로드 해주세요</M.ImageCaption>
-        <M.SubmitButton>신청하기</M.SubmitButton>
+        <M.SubmitButton type='submit'>신청하기</M.SubmitButton>
       </M.PostContainer>
     </form>
   );

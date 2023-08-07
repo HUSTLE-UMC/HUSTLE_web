@@ -31,7 +31,7 @@ export const ApplyForm = () => {
         <S.FormLayout>
           <S.TitleBox>동아리 명</S.TitleBox>
           <S.InputLarge
-            type='clubName'
+            placeholder='동아리 명을 입력하세요'
             {...register('clubName', contentRequirements)}
           />
           {errors.clubName && (
@@ -40,11 +40,11 @@ export const ApplyForm = () => {
           <S.TitleBox>대표자 연락처</S.TitleBox>
           <S.InputBox>
             <S.InputSmall
-              type='person'
+              placeholder='이름'
               {...register('person', contentRequirements)}
             />
             <S.InputSmall
-              type='contact'
+              placeholder='연락처'
               {...register('contact', contentRequirements)}
             />
           </S.InputBox>
