@@ -12,8 +12,8 @@ export interface submitTypes {
 
 export interface clubListsTypes {
   sportId: number;
-  img: string;
   sport: string;
+  img: string;
   clubName: string;
   title: string;
   location: string;

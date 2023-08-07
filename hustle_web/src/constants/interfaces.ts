@@ -41,3 +41,21 @@ export interface findPwProps {
 export interface isMatchProps {
   isMatch: boolean;
 }
+
+export interface ApplyMatchProps {
+  clubName: string;
+  person: string;
+  contact: string;
+}
+
+export interface PostMatchProps {
+  sportId: number;
+  sport: string;
+  img: string;
+  clubName: string;
+  title: string;
+  location: string;
+  date: string;
+  person: string;
+  contact: string;
+}
