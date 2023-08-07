@@ -10,4 +10,5 @@ export const Content = styled.div`
   align-items: center;
   margin: 0 auto;
   position: relative;
+  //relative 속성확인
 `;

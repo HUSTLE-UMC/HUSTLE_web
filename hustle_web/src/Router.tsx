@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Competition from './pages/Competition/Competition';
 import Club from './pages/Community/Club/Club';
 import Question from './pages/Community/Question/QuestionPage';
+import FriendlyMatch from './pages/FriendlyMatch/FriendlyMatch';
 import Join from './pages/Join/Join';
 import Login from './pages/Login';
 import SignIn from './pages/SignIn';
@@ -15,8 +16,8 @@ import PostMatch from './components/FriendlyMatchPage/PostMatch/PostMatch';
 import ApplyMatch from './components/FriendlyMatchPage/ApplyMatch/ApplyMatch';
 import ForgotPage from './pages/Forgot/Forgotpage';
 import ResetPage from './pages/Forgot/Reset/Resetpage';
-import FriendlyMatch from './pages/FriendlyMatch/FriendlyMatch';
-import MainCompetition from './pages/MainCompetition/MainCompetition';
+import ApplyForm from './components/FriendlyMatchPage/ApplyMatch/ApplyForm';
+import FriendlyLists from './components/FriendlyMatchPage/MainMatch/FriendlyLists/FriendlyLists';
 
 const loadingPage = <div>화면 로딩중...</div>;
 const DefaultLayout = React.lazy(() => import('./layout/DefaultLayout'));
@@ -40,12 +41,14 @@ const Router = () => {
               path='/community/question/write'
               element={<QuestionForm />}
             />
-            <Route path='/match' element={<FriendlyMatch />} />
-            <Route path='/post' element={<PostMatch />} />
-            <Route path='/apply' element={<ApplyMatch />} />
+            <Route path='/friendly' element={<FriendlyMatch />} />
+            <Route path='/friendly/invite' element={<FriendlyLists />} />
+            <Route path='/friendly/match' element={<FriendlyLists />} />
+            <Route path='/friendly/post' element={<PostMatch />} />
+            <Route path='/friendly/apply' element={<ApplyMatch />} />
+            <Route path='/friendly/apply/form' element={<ApplyForm />} />
             <Route path='/forgot' element={<ForgotPage />} />
             <Route path='/reset' element={<ResetPage />} />
-            <Route path='/maincompetition' element={<MainCompetition />} />
           </Route>
         </Routes>
       </Suspense>

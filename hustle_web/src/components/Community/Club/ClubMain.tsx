@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
 import * as C from './ClubStyle';
-import { useRecoilValue, useRecoilState } from 'recoil';
+import { useState } from 'react';
 
 const ClubMain = () => {
   const [inputValue, setInputValue] = useState('');

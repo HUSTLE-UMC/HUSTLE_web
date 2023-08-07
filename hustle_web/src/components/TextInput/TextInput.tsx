@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import * as T from './Styles';
 
 interface Props {
   size: string;
   holder: string;
+  type?: string;
 }
 
 export const TextInput = ({ size, holder }: Props) => {

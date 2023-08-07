@@ -1,18 +1,16 @@
-import { number } from 'prop-types';
-
 export const defaultQuestionValue = {
   title: '',
-  content: ''
+  content: '',
 };
 
 export const defaultLoginValue = {
   username: '',
-  password: ''
+  password: '',
 };
 
 export const defaultCompetition = {
   competitionName: '',
-  clubName: ''
+  clubName: '',
 };
 
 export const defaultLeftCompetition = {
@@ -21,7 +19,7 @@ export const defaultLeftCompetition = {
   fee: 0,
   team: 0,
   presidentname: '',
-  president2name: ''
+  president2name: '',
 };
 
 export const defaultRightCompetition = {
@@ -30,11 +28,30 @@ export const defaultRightCompetition = {
   recruitteam: 0,
   finalteam: 0,
   presidentphone: '',
-  president2phone: ''
+  president2phone: '',
 };
 
 export const defaultMainCompetition = {
   competitionname: '',
   teamname: '',
-  support: ''
+  support: '',
+  password: '',
+};
+
+export const defaultApplyFormValue = {
+  clubName: '',
+  person: '',
+  contact: '',
+};
+
+export const defaultPostFormValue = {
+  sportId: 0,
+  sport: '',
+  img: '',
+  clubName: '',
+  title: '',
+  location: '',
+  date: '',
+  person: '',
+  contact: ''
 };
