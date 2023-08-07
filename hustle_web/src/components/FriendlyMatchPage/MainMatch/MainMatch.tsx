@@ -1,5 +1,5 @@
 import * as S from './Styles';
-import MatchLists from './FriendlyLists/FriendlyLists';
+import MatchLists from './FriendlyLists/MatchLists';
 import InvitationLists from './FriendlyLists/InvitationLists';
 import SubmitButton from '../SubmitButton/SubmitButton';
 import { useNavigate } from 'react-router-dom';
