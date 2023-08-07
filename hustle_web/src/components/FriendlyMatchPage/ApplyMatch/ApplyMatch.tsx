@@ -1,11 +1,11 @@
 import * as A from './Styles';
 import SportsMenu from '../../SportsMenu/SportsMenu';
 import MatchTitle from '../MainMatch/MatchTitle/MatchTitle';
-import MatchDetail from '../MatchDetail/MatchDetail';
 import { useRecoilValue } from 'recoil';
 import OtherMatchList from '../OtherMatchList/OtherMatchList';
 import { otherMatchSelector } from '../../../recoil/friendlyMatchPage/selectors';
 import { useNavigate } from 'react-router-dom';
+import MatchDetail from '../MatchDetail/MatchDetail';
 
 const ApplyMatch = () => {
   const otherMatch = useRecoilValue(otherMatchSelector);
