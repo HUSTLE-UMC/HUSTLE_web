@@ -59,3 +59,29 @@ export interface PostMatchProps {
   person: string;
   contact: string;
 }
+
+export interface LeftCompetitionProps {
+  competitiondate: number;
+  recruitdate: number;
+  fee: number;
+  team: number;
+  presidentname: string;
+  president2name: string;
+  onDataChange: (data: LeftCompetitionProps) => void;
+}
+
+export interface RightCompetitionProps {
+  competitiondue: number;
+  recruitdue: number;
+  recruitteam: number;
+  finalteam: number;
+  presidentphone: string;
+  president2phone: string;
+  onDataChange: (data: RightCompetitionProps) => void;
+}
+
+export interface MainCompetitionProps {
+  competitionname: string;
+  teamname: string;
+  support: string;
+}

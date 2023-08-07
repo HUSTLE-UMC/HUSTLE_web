@@ -7,6 +7,7 @@ import Question from './pages/Community/Question/QuestionPage';
 import FriendlyMatch from './pages/FriendlyMatch/FriendlyMatch';
 import Join from './pages/Join/Join';
 import Login from './pages/Login';
+import SignIn from './pages/SignIn';
 import MyPageMain from './pages/MyPage/MyPageMain';
 import Community from './pages/Community/CommunityPage';
 import QuestionForm from './components/Community/Question/QuestionForm';
@@ -29,6 +30,7 @@ const Router = () => {
           <Route path='/' element={<DefaultLayout />}>
             <Route index element={<Home />} />
             <Route path='/login' element={<Login />} />
+            <Route path='/signIn' element={<SignIn />} />
             <Route path='/competitions' element={<List1 />} />
             <Route path='/mypage' element={<MyPageMain />} />
             <Route path='/community' element={<Community />} />
