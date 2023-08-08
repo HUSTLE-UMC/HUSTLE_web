@@ -1,128 +1,185 @@
 import React, { useState, useEffect } from 'react';
-import { useForm } from 'react-hook-form';
+import { SubmitHandler, useForm } from 'react-hook-form';
 import * as C from './Styles';
-import TextInput from './TextInput copy';
-import UploadImg from '../../assets/svg/competition-img.svg';
-import LeftCompetition from './LeftCompetition';
-import RightCompetition from './RightCompetition';
-import SubmitButton from '../../components/FriendlyMatchPage/SubmitButton/SubmitButton';
+import * as M from '../../components/FriendlyMatchPage/PostMatch/Styles';
 import LogoImg from '../../assets/images/competition_logoimg.png';
-import {
-  LeftCompetitionProps,
-  RightCompetitionProps,
-  MainCompetitionProps
-} from '../../constants/interfaces';
+import { MainCompetitionProps } from '../../constants/interfaces';
 import { defaultMainCompetition } from '../../constants/defaultFormOption';
 import FormRequirements from '../../constants/FormRequirements';
+import UploadImage from './UploadImage';
+import DropDown from '../../components/DropDown/DropDown';
+
 const MainCompetition = () => {
   const { contentRequirements } = FormRequirements;
   const defaultMainValue = defaultMainCompetition;
   const {
     register,
+    handleSubmit,
     formState: { errors }
   } = useForm<MainCompetitionProps>({
-    defaultValues: defaultMainValue
+    defaultValues: { ...defaultMainValue }
   });
 
-  const [selectedImage, setSelectedImage] = useState<File | null>(null);
-
-  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.files && event.target.files.length > 0) {
-      setSelectedImage(event.target.files[0]);
-    }
-  };
-
-  const handleRemoveImage = () => {
-    setSelectedImage(null);
-  };
-
-  const [leftCompetitionData, setLeftCompetitionData] =
-    useState<LeftCompetitionProps | null>(null);
-
-  const [rightCompetitionData, setRightCompetitionData] =
-    useState<RightCompetitionProps | null>(null);
-
-  const handleLeftDataChange = (data: LeftCompetitionProps) => {
-    setLeftCompetitionData(data);
-  };
-
-  const handleRightDataChange = (data: RightCompetitionProps) => {
-    setRightCompetitionData(data);
-  };
-
-  const handleMainFormSubmit = () => {
-    console.log('제출');
+  const onSubmitHandler: SubmitHandler<MainCompetitionProps> = (data) => {
+    console.log(data);
+    alert('대회 신청이 완료되었습니다.');
   };
 
   return (
-    <C.CompetitonContainer>
-      <C.RowContainer>
-        <img src={LogoImg} alt='로고' width='20%' />
-        <C.TitleText>대회 개설</C.TitleText>
-      </C.RowContainer>
-      <C.SubtitleText>대회 이름</C.SubtitleText>
-      <TextInput
-        size='medium'
-        holder='개설하고자 하는 대회 이름을 입력하세요'
-        type='competitionname'
-        {...register('competitionname', contentRequirements)}
-      />
-      {errors.competitionname && (
-        <C.Error>{errors.competitionname.message}</C.Error>
-      )}
-      <C.SubtitleText>주최</C.SubtitleText>
-      <TextInput
-        size='medium'
-        holder='동아리/단체명을 입력하세요'
-        type='teamname'
-        {...register('teamname', contentRequirements)}
-      />
-      {errors.teamname && <C.Error>{errors.teamname.message}</C.Error>}
-
-      <C.SubtitleText>대회 포스터</C.SubtitleText>
-      <C.CenterWrapper>
-        {selectedImage ? (
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            <span>{selectedImage.name}</span>
-            <C.CancleImageBtn onClick={handleRemoveImage}>
-              <span role='img' aria-label='remove'>
-                ❌
-              </span>
-            </C.CancleImageBtn>
-          </div>
-        ) : (
-          <label>
-            <input
-              type='file'
-              style={{ display: 'none' }}
-              accept='image/*'
-              onChange={handleImageChange}
-            />
-            <img
-              src={UploadImg}
-              alt='업로드 이미지'
-              style={{ cursor: 'pointer' }}
-            />
-          </label>
+    <form onSubmit={handleSubmit(onSubmitHandler)}>
+      <C.CompetitonContainer>
+        <C.RowContainer>
+          <img src={LogoImg} alt='로고' width='20%' />
+          <C.TitleText>대회 개설</C.TitleText>
+        </C.RowContainer>
+        <C.SubtitleText>대회 이름</C.SubtitleText>
+        <C.InputLarge
+          placeholder='개설하고자 하는 대회 이름을 입력하세요'
+          {...register('competitionname', contentRequirements)}
+        />
+        {errors.competitionname && (
+          <C.Error>{errors.competitionname.message}</C.Error>
         )}
-      </C.CenterWrapper>
-      <C.RowContainer>
-        <LeftCompetition onDataChange={handleLeftDataChange} />
-        <RightCompetition onDataChange={handleRightDataChange} />
-      </C.RowContainer>
-      <C.SubtitleText>후원</C.SubtitleText>
-      <TextInput
-        size='medium'
-        holder='후원 단체명을 입력하세요'
-        type='support'
-        {...register('support', contentRequirements)}
-      />
-      {errors.support && <C.Error>{errors.support.message}</C.Error>}
+        <C.SubtitleText>주최</C.SubtitleText>
+        <C.InputLarge
+          placeholder='동아리/단체명을 입력하세요'
+          {...register('teamname', contentRequirements)}
+        />
+        {errors.teamname && <C.Error>{errors.teamname.message}</C.Error>}
 
-      <C.RightWrapper>
-        <SubmitButton label='대회 등록' small onClick={handleMainFormSubmit} />
-      </C.RightWrapper>
-    </C.CompetitonContainer>
+        <C.SubtitleText>대회 포스터</C.SubtitleText>
+        <C.CenterWrapper>
+          <UploadImage />
+        </C.CenterWrapper>
+        <C.RowContainer>
+          <div>
+            <C.SubtitleText>대회 시작일</C.SubtitleText>
+            <M.InputSmall
+              type='date'
+              {...register('competitiondate', contentRequirements)}
+            />
+            {errors.competitiondate && (
+              <C.Error>{errors.competitiondate.message}</C.Error>
+            )}
+
+            <C.SubtitleText>모집 시작일</C.SubtitleText>
+            <M.InputSmall
+              type='date'
+              {...register('recruitdate', contentRequirements)}
+            />
+            {errors.recruitdate && (
+              <C.Error>{errors.recruitdate.message}</C.Error>
+            )}
+
+            <C.SubtitleText>참가비</C.SubtitleText>
+            <C.InputContainer>
+              <C.InputSmall {...register('fee', contentRequirements)} />
+              <C.CurrencyText>원</C.CurrencyText>
+              {errors.fee && <C.Error>{errors.fee.message}</C.Error>}
+            </C.InputContainer>
+
+            <C.SubtitleText>예선 조</C.SubtitleText>
+            <C.InputContainer>
+              <C.InputSmall {...register('team', contentRequirements)} />
+              <C.CurrencyText>조</C.CurrencyText>
+              {errors.team && <C.Error>{errors.team.message}</C.Error>}
+            </C.InputContainer>
+
+            <C.TitleText>대표자 연락처</C.TitleText>
+            <C.SubtitleText>회장</C.SubtitleText>
+            <C.InputSmall
+              placeholder='이름'
+              {...register('presidentname', contentRequirements)}
+            />
+            {errors.presidentname && (
+              <C.Error>{errors.presidentname.message}</C.Error>
+            )}
+
+            <C.SubtitleText>부회장</C.SubtitleText>
+            <C.InputSmall
+              placeholder='이름'
+              {...register('president2name', contentRequirements)}
+            />
+            {errors.president2name && (
+              <C.Error>{errors.president2name.message}</C.Error>
+            )}
+          </div>
+          <div>
+            <C.SubtitleText>대회 종료일</C.SubtitleText>
+            <M.InputSmall
+              type='date'
+              {...register('competitiondue', contentRequirements)}
+            />
+            {errors.competitiondue && (
+              <C.Error>{errors.competitiondue.message}</C.Error>
+            )}
+
+            <C.SubtitleText>모집 마감일</C.SubtitleText>
+            <M.InputSmall
+              type='date'
+              {...register('recruitdue', contentRequirements)}
+            />
+            {errors.recruitdue && (
+              <C.Error>{errors.recruitdue.message}</C.Error>
+            )}
+
+            <C.SubtitleText>모집팀 수</C.SubtitleText>
+            <C.InputContainer>
+              <C.InputSmall {...register('recruitteam', contentRequirements)} />
+              <C.CurrencyText>팀</C.CurrencyText>
+              {errors.recruitteam && (
+                <C.Error>{errors.recruitteam.message}</C.Error>
+              )}
+            </C.InputContainer>
+
+            <C.SubtitleText>본선 진출</C.SubtitleText>
+            <C.InputContainer>
+              <C.InputSmall {...register('finalteam', contentRequirements)} />
+              <C.CurrencyText>강</C.CurrencyText>
+              {errors.finalteam && (
+                <C.Error>{errors.finalteam.message}</C.Error>
+              )}
+            </C.InputContainer>
+
+            <C.TitleText>
+              <span>&nbsp;</span>
+            </C.TitleText>
+            <C.SubtitleText>
+              <span>&nbsp;</span>
+            </C.SubtitleText>
+            <C.InputSmall
+              placeholder='연락처'
+              {...register('presidentphone', contentRequirements)}
+            />
+            {errors.presidentphone && (
+              <C.Error>{errors.presidentphone.message}</C.Error>
+            )}
+
+            <C.SubtitleText>
+              <span>&nbsp;</span>
+            </C.SubtitleText>
+
+            <C.InputSmall
+              placeholder='연락처'
+              {...register('president2phone', contentRequirements)}
+            />
+            {errors.president2phone && (
+              <C.Error>{errors.president2phone.message}</C.Error>
+            )}
+          </div>
+        </C.RowContainer>
+        <C.SubtitleText>후원</C.SubtitleText>
+        <C.InputLarge
+          placeholder='후원 단체명을 입력하세요'
+          {...register('support', contentRequirements)}
+        />
+        {errors.support && <C.Error>{errors.support.message}</C.Error>}
+
+        <C.CenterWrapper>
+          <M.SubmitButton type='submit'>대회 신청하기</M.SubmitButton>
+        </C.CenterWrapper>
+      </C.CompetitonContainer>
+    </form>
   );
 };
 
