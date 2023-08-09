@@ -49,6 +49,7 @@ export const Input = styled.input`
   border-radius: 1.2rem;
   border: 1px solid rgba(0, 0, 0, 0.25);
   height: 4rem;
+  margin-top: 2rem;
 `;
 
 export const SubmitButton = styled.button`
