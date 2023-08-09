@@ -17,7 +17,7 @@ export const Input = ({
   value = '',
   onChange ,
   onEnter,
-  placeholder = "",
+  placeholder = '',
   }:InputProps) => {
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
       const newValue = event.target.value;
@@ -26,16 +26,16 @@ export const Input = ({
       }
     };
     const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-      if (event.key === "Enter" && onEnter) {
+      if (event.key === 'Enter' && onEnter) {
         onEnter(); // 엔터키 이벤트 발생 시 onEnter 함수 호출
       }
     };
 
   return(
     <div className='container'>
-        <div className="search-bar">
+        <div className='search-bar'>
             <div className='icon-div'>
-            <Icon icon="glasses" className="customIcon"  />
+            <Icon icon='glasses' className='customIcon'  />
             </div>
             <input
           type={type}

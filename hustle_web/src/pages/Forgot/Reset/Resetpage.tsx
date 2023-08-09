@@ -1,5 +1,5 @@
-import Reset from "../../../components/Forgot/Reset/Reset";
-import { Container } from "../ForgotStyle";
+import Reset from '../../../components/Forgot/Reset/Reset';
+import { Container } from '../ForgotStyle';
 
 const ResetPage = () => {
   return (

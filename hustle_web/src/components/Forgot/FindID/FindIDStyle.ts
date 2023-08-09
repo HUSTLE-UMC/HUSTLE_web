@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { ErrorProps } from "../../../constants/interfaces";
-import Colors from "../../../styles/Color";
+import styled from 'styled-components';
+import { ErrorProps } from '../../../constants/interfaces';
+import Colors from '../../../styles/Color';
 
 export const Container = styled.div`
   display: flex;
@@ -17,7 +17,7 @@ export const Input = styled.input<ErrorProps>`
   width: 394px;
   border-radius: 12px;
   padding: 12px 0px 12px 20px;
-  border: 1px solid ${(props) => (props.onError ? "red" : "#00000040")};
+  border: 1px solid ${(props) => (props.onError ? 'red' : '#00000040')};
 `;
 
 export const ErrorDiv = styled.div`

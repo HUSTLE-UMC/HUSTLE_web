@@ -1,16 +1,16 @@
-import React from "react";
-import Button from "./";
-import styled from "styled-components";
+import React from 'react';
+import Button from './';
+import styled from 'styled-components';
 
 // 사용할 컴포넌트에 대한 명세
 export default {
-    title: "Components/Button",
+    title: 'Components/Button',
     component: [Button],
     argTypes: {
         fontSize: {
             control: {
-                type: "radio",
-                options: ["big", "small"],
+                type: 'radio',
+                options: ['big', 'small'],
             },
         },
     },

@@ -28,7 +28,7 @@ const AuthProvider = ({ children }: any) => {
 
   const refreshAccessToken = async () => {
     try {
-      const response = await axios.post("/auth/refresh", {refreshToken});
+      const response = await axios.post('/auth/refresh', {refreshToken});
       const {accessToken} = response.data;
       setAccessToken(accessToken);
     } catch(error) {
@@ -37,7 +37,7 @@ const AuthProvider = ({ children }: any) => {
   };
 
   const logoutHandler = () => {
-    localStorage.removeItem("accessToken");
+    localStorage.removeItem('accessToken');
     setIsLoggedIn(false);
     setAccessToken(null);
     navigate('/');

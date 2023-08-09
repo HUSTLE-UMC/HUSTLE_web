@@ -1,5 +1,5 @@
 import React from 'react';
-import {LoginContainer} from "./Styles";
+import {LoginContainer} from './Styles';
 import LoginMain from '../../components/Login/Login';
 
 

@@ -1,9 +1,9 @@
 export const defaultQuestionValue = {
-  title: "",
-  content: "",
+  title: '',
+  content: ''
 };
 
 export const defaultLoginValue = {
-  username: "",
-  password: "",
+  username: '',
+  password: ''
 };

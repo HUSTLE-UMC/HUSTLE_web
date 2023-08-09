@@ -6,7 +6,7 @@ import FormRequirements from '../../../constants/FormRequirements'
 import {defaultQuestionValue} from '../../../constants/defaultFormOption'
 import axios from 'axios'
 import {useNavigate} from 'react-router-dom'
-import SportsMenu from "../../SportsMenu/SportsMenu";
+import SportsMenu from '../../SportsMenu/SportsMenu';
 import {ButtonSelector} from '../../../recoil/SportsButton'
 import { useRecoilValue } from 'recoil'
 
@@ -39,25 +39,25 @@ const QuestionForm = () => {
     setIsLoading(true);
 
     if(!selectedButton || !data.title || !data.content) {
-      alert("모든 항목을 입력해주세요!");
+      alert('모든 항목을 입력해주세요!');
       return;
     }
 
     try {
       const response = await axios.post(
-        "질문작성 api",
+        '질문작성 api',
         formData,
         {
         headers:{
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
       });
-      console.log("질문 등록 성공!", response.data);
+      console.log('질문 등록 성공!', response.data);
       navigate('/question');
     } catch(error) {
-      console.log("form data fail", error);
+      console.log('form data fail', error);
       setIsLoading(false);
-      alert("폼전송실패");
+      alert('폼전송실패');
     }
   }
 
@@ -72,17 +72,17 @@ const QuestionForm = () => {
             <Q.contentInput
               type='title'
               placeholder='제목을 입력하세요'
-              {...register("title",titleRequirements)}
+              {...register('title',titleRequirements)}
               />
               {errors.title && (<div>{errors.title.message}</div>)}
           </div>
           <Q.text>· 내용</Q.text>
           <div>
             <Q.textArea
-            placeholder = "내용을 입력해주세요"
+            placeholder = '내용을 입력해주세요'
             rows={5}
             cols={33}
-            {...register("content", contentRequirements)}
+            {...register('content', contentRequirements)}
             />
             {errors.content && (<div>{errors.content.message}</div>)}
           </div>

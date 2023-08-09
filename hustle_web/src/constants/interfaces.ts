@@ -41,3 +41,7 @@ export interface findPwProps {
 export interface isMatchProps {
   isMatch: boolean;
 }
+
+export interface Window {
+  kakao: any;
+}

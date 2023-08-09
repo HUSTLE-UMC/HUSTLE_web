@@ -17,7 +17,7 @@ const CommunityPage = () => {
       <C.Container>
         <Q.FirstDiv>
           <Q.Border>[ 질문 게시판 ]</Q.Border>
-          <Q.ButtonWrap><Q.WriteButton to="/community/question">더보기</Q.WriteButton></Q.ButtonWrap>
+          <Q.ButtonWrap><Q.WriteButton to='/community/question'>더보기</Q.WriteButton></Q.ButtonWrap>
         </Q.FirstDiv>
         {/* <div>
           <QuestionList posts={filteredPosts.length > 0 ? filteredPosts : postList.data} loading={loading}/>
@@ -26,7 +26,7 @@ const CommunityPage = () => {
       <C.Container>
       <Q.FirstDiv>
           <Q.Border>[ 동아리 게시판 ]</Q.Border>
-          <Q.ButtonWrap><Q.WriteButton to="/community/club">더보기</Q.WriteButton></Q.ButtonWrap>
+          <Q.ButtonWrap><Q.WriteButton to='/community/club'>더보기</Q.WriteButton></Q.ButtonWrap>
         </Q.FirstDiv>
       </C.Container>
     </C.Layout>

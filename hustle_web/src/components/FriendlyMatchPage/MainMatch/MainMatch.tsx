@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import * as S from "./Styles";
-import MatchLists from "./MatchLists/MatchLists";
-import InvitationLists from "./MatchLists/InvitationLists";
-import SubmitButton from "../SubmitButton/SubmitButton";
-import { Link } from "react-router-dom";
-import SportsMenu from "../../SportsMenu/SportsMenu";
+import React, { useEffect, useState } from 'react';
+import * as S from './Styles';
+import MatchLists from './MatchLists/MatchLists';
+import InvitationLists from './MatchLists/InvitationLists';
+import SubmitButton from '../SubmitButton/SubmitButton';
+import { Link } from 'react-router-dom';
+import SportsMenu from '../../SportsMenu/SportsMenu';
 
 export const MainMatch = () => {
   const [isMatch, setIsMatch] = useState(false);
@@ -37,7 +37,7 @@ export const MainMatch = () => {
           </S.Container>
           <S.ButtonBox>
             <SubmitButton
-              label="더 보기"
+              label='더 보기'
               small
               onClick={() => {
                 setIsMatch(true);
@@ -49,7 +49,7 @@ export const MainMatch = () => {
           </S.Container>
           <S.ButtonBox>
             <SubmitButton
-              label="더 보기"
+              label='더 보기'
               small
               onClick={() => {
                 setIsInvitation(true);

@@ -1,7 +1,7 @@
-import React from "react";
-import * as L from "./Styles";
-import Competition from "./Competition";
-import Test from "../../assets/svg/Test.svg";
+import React from 'react';
+import * as L from './Styles';
+import Competition from './Competition';
+import Test from '../../assets/svg/Test.svg';
 
 interface CompetitionListProps {
     competitions: Competition[];

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import * as Q from './QuestionStyle';
-import { useRecoilValue, useRecoilState } from "recoil";
+import { useRecoilValue, useRecoilState } from 'recoil';
 import {getQuestionSelector} from '../../../recoil/community';
 import QuestionList from './QuestionList';
 
@@ -9,7 +9,7 @@ const QuestionMain = () => {
   const [isDetailVisible, setIsDetailVisible] = useState(false);
   const [selectedQuestion, setSelectedQuestion] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState('');
   const [filteredPosts, setFilteredPosts] = useState([]); //검색 결과 저장
 
   //검색어 기능
@@ -22,7 +22,7 @@ const QuestionMain = () => {
       post.title.toLowerCase().includes(searchQuery)
     );
     setFilteredPosts(filter);
-    console.log("검색어: ", searchQuery);
+    console.log('검색어: ', searchQuery);
   }
   
   const handleEnterKey = () => {

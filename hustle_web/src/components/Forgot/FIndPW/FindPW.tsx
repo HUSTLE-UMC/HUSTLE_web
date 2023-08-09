@@ -33,7 +33,7 @@ const FindPw = () => {
       setFoundUser(foundUser);
     })
     .catch((error) => {
-      console.log("failed find password", error);
+      console.log('failed find password', error);
     });
   };
 
@@ -47,30 +47,30 @@ const FindPw = () => {
         <form onSubmit={handleSubmit(onSubmitHandler)}>
           <F.Div>
             <F.Text>이름</F.Text>
-            <F.Input type="username" placeholder="이름을 입력하세요"
-            {...register("name", usernameRequirements)} 
+            <F.Input type='username' placeholder='이름을 입력하세요'
+            {...register('name', usernameRequirements)} 
             onError = {nameError}
             />
             {errors.name && (<F.ErrorDiv>{errors.name.message}</F.ErrorDiv>)}
           </F.Div>
           <F.Div>
             <F.Text>생년월일</F.Text>
-            <F.Input type="birth" placeholder="생년월일을 입력하세요"
-            {...register("birth", birthRequirements)}
+            <F.Input type='birth' placeholder='생년월일을 입력하세요'
+            {...register('birth', birthRequirements)}
             onError = {birthError}
             />
             {errors.birth && (<F.ErrorDiv>{errors.birth.message}</F.ErrorDiv>)}
           </F.Div>
           <F.Div>
             <F.Text>아이디</F.Text>
-            <F.Input type="id" placeholder='아이디를 입력하세요'
-            {...register("id", idRequirements)}
+            <F.Input type='id' placeholder='아이디를 입력하세요'
+            {...register('id', idRequirements)}
             onError={idError}
             />
             {errors.id && (<F.ErrorDiv>{errors.id.message}</F.ErrorDiv>)}
           </F.Div>
           <F.Div>
-            <F.Button type="submit">비밀번호 재설정</F.Button>
+            <F.Button type='submit'>비밀번호 재설정</F.Button>
           </F.Div>
         </form>
       ) : (

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const ButtonLayout = styled.div`
   width: 6rem;
@@ -15,5 +15,5 @@ export const ButtonLayout = styled.div`
 export const Button = styled.div`
   font-size: 1.5rem;
   font-weight: 600;
-  color: ${(props) => props.color || "black"};
+  color: ${(props) => props.color || 'black'};
 `;

@@ -98,12 +98,13 @@ export const ButtonLine = styled.div`
 
 export const KakaoButton = styled.button`
   width: 394px;
-  background: ${Colors.MainColor};
+  background-image: url('../../stories/assets/kakao_login_medium_narrow.png');
   border: none;
   border-radius: 1.2rem;
   height: 4.7rem;
-  color: white;
   font-size: 1.6rem;
   margin: 1rem;
   cursor: pointer;
+  background-color: #fee500;
+  color: #3c1e1e;
 `;

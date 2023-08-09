@@ -1,5 +1,5 @@
-import ForgotMain from "../../components/Forgot/Forgot";
-import { Container } from "./ForgotStyle";
+import ForgotMain from '../../components/Forgot/Forgot';
+import { Container } from './ForgotStyle';
 
 const FindPage = () => {
   return (

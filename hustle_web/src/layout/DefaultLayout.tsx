@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import {supportScreenSize} from "../constants/styles/GlobalStyle";
-import FooterComponent from "../components/Footer/Footer";
-import Header from "../components/Header";
-import WebContent from "../components/Content";
+import React from 'react';
+import styled from 'styled-components';
+import {supportScreenSize} from '../constants/styles/GlobalStyle';
+import FooterComponent from '../components/Footer/Footer';
+import Header from '../components/Header';
+import WebContent from '../components/Content';
 const DefaultLayout = () => {
     //페이지가 로딩할 때 액션을 넣으면 될듯
 

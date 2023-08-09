@@ -1,7 +1,7 @@
-import React, { Suspense, useState } from "react";
-import { Navigate, Route, Routes, useLocation } from "react-router-dom";
-import routes from "../../routes";
-import { Content } from "./Styles";
+import React, { Suspense, useState } from 'react';
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
+import routes from '../../routes';
+import { Content } from './Styles';
 
 const loading = <div>화면을 불러오는 중 입니다.</div>;
 
@@ -15,7 +15,7 @@ const WebContent = () => {
         <Content>
             <Suspense fallback={loading}>
                 {!isExistsFilteredRoute ? (
-                    <Navigate to="/404" />
+                    <Navigate to='/404' />
                 ) : (
                     <Routes>
                         {routes.map(

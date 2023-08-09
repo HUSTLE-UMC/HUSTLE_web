@@ -1,5 +1,5 @@
-import React from "react";
-import ClubMain from "../../../components/Community/Club/ClubMain";
+import React from 'react';
+import ClubMain from '../../../components/Community/Club/ClubMain';
 
 const ClubPage = () => {
   return (

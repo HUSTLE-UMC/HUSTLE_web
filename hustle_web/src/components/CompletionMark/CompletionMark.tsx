@@ -1,10 +1,10 @@
-import React from "react";
-import { MarkProps } from "./MarkProps";
-import { Character } from "../../stories/Icons/svg";
-import * as S from "./Styles";
+import React from 'react';
+import { MarkProps } from './MarkProps';
+import { Character } from '../../stories/Icons/svg';
+import * as S from './Styles';
 
 export const CompletionMark = ({ label }: MarkProps) => {
-  const labels = label.split(" ");
+  const labels = label.split(' ');
   return (
     <S.MarkContainer>
       <Character />

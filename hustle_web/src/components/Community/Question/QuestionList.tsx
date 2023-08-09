@@ -1,8 +1,8 @@
-import React, {useState} from "react";
-import { Arrow } from "../../../stories/Icons/svg";
+import React, {useState} from 'react';
+import { Arrow } from '../../../stories/Icons/svg';
 import * as QL from './QuestionStyle';
-import { useRecoilState, useRecoilValue } from "recoil";
-import { questionState } from "../../../recoil/community";
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { questionState } from '../../../recoil/community';
 
 const QuestionList = ({posts, loading}:any) => {
   const [selectedQuestion, setSelectedQuestion] = useState(null);
@@ -28,7 +28,7 @@ const QuestionList = ({posts, loading}:any) => {
           <QL.Box key={post.id} onClick={() => handleQuestionClick(post.id)}>
             <QL.List>{post.title}</QL.List>
             <QL.IconWrap onClick={() => handleClick(index)}>
-              {arrowButton[index] ? <Arrow transform="rotate(180)"/> : <Arrow/>}
+              {arrowButton[index] ? <Arrow transform='rotate(180)'/> : <Arrow/>}
             </QL.IconWrap>
             </QL.Box>
             <div>

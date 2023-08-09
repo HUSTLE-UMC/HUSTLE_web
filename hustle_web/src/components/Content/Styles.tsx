@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import Colors from "../../styles/Color";
+import styled from 'styled-components';
+import Colors from '../../styles/Color';
 
 export const Content = styled.div`
   width: 1280px;

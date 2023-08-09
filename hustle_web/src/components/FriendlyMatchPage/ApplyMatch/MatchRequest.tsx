@@ -1,13 +1,13 @@
-import React from "react";
-import * as S from "./Styles";
-import MyClubList from "../MyClubList/MyClubList";
-import TextInput from "../../TextInput/TextInput";
-import SubmitButton from "../SubmitButton/SubmitButton";
+import React from 'react';
+import * as S from './Styles';
+import MyClubList from '../MyClubList/MyClubList';
+import TextInput from '../../TextInput/TextInput';
+import SubmitButton from '../SubmitButton/SubmitButton';
 import {
   selectedState,
   submitTypeState,
-} from "../../../recoil/friendlyMatchPage/states";
-import { useRecoilState } from "recoil";
+} from '../../../recoil/friendlyMatchPage/states';
+import { useRecoilState } from 'recoil';
 
 const MatchRequest = () => {
   const [types, setTypes] = useRecoilState(submitTypeState);
@@ -27,16 +27,16 @@ const MatchRequest = () => {
       {
         <>
           <S.TitleContainer>동아리 명</S.TitleContainer>
-          <MyClubList clubs={["동아리 1", "동아리 2"]} />
+          <MyClubList clubs={['동아리 1', '동아리 2']} />
           <S.TitleContainer>대표자 연락처</S.TitleContainer>
           <S.InputContainer>
-            <TextInput size="small" holder="이름" />
-            <TextInput size="medium" holder="010-XXXX-XXXX" />
+            <TextInput size='small' holder='이름' />
+            <TextInput size='medium' holder='010-XXXX-XXXX' />
           </S.InputContainer>
           {!isSelected && (
             <S.ButtonContainer>
               <SubmitButton
-                label="신청하기"
+                label='신청하기'
                 Icon
                 onClick={() => handleClick(0)}
               />

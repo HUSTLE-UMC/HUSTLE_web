@@ -1,7 +1,7 @@
-import * as S from "./Styles";
-import SportsButton from "../SportsButton/SportsButton";
-import { useRecoilState } from "recoil";
-import { buttonState, buttonTypes } from "../../recoil/SportsButton";
+import * as S from './Styles';
+import SportsButton from '../SportsButton/SportsButton';
+import { useRecoilState } from 'recoil';
+import { buttonState, buttonTypes } from '../../recoil/SportsButton';
 
 export const SportsMenu = () => {
   const [buttons, setButtons] = useRecoilState(buttonState);
