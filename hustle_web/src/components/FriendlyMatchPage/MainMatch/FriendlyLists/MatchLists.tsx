@@ -13,7 +13,7 @@ export const MatchLists = () => {
   const clubs = useRecoilValue(clubListsState);
   const filteredmatchs = useRecoilValue(matchListsSelector);
   const isSelected = useRecoilValue(sportSelectState);
-  let matchs;
+  let matchs = [];
   isSelected ? (matchs = filteredmatchs) : (matchs = clubs);
   return (
     <>

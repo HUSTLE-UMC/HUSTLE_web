@@ -59,3 +59,21 @@ export interface PostMatchProps {
   person: string;
   contact: string;
 }
+
+export interface MainCompetitionProps {
+  competitionname: string;
+  teamname: string;
+  support: string;
+  competitiondue: number;
+  recruitdue: number;
+  recruitteam: number;
+  finalteam: number;
+  presidentphone: string;
+  president2phone: string;
+  competitiondate: number;
+  recruitdate: number;
+  fee: number;
+  team: number;
+  presidentname: string;
+  president2name: string;
+}

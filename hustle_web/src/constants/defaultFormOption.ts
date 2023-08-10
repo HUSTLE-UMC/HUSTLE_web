@@ -8,6 +8,29 @@ export const defaultLoginValue = {
   password: ''
 };
 
+export const defaultCompetition = {
+  competitionName: '',
+  clubName: ''
+};
+
+export const defaultMainCompetition = {
+  competitionname: '',
+  teamname: '',
+  support: '',
+  competitiondue: 0,
+  recruitdue: 0,
+  recruitteam: 0,
+  finalteam: 0,
+  presidentphone: '',
+  president2phone: '',
+  competitiondate: 0,
+  recruitdate: 0,
+  fee: 0,
+  team: 0,
+  presidentname: '',
+  president2name: ''
+};
+
 export const defaultApplyFormValue = {
   clubName: '',
   person: '',

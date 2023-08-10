@@ -2,6 +2,7 @@ import React from 'react';
 
 const Home = React.lazy(() => import('./pages/Home'));
 const Login = React.lazy(() => import('./pages/Login'));
+const SignIn = React.lazy(() => import('./pages/SignIn'));
 const MyPage = React.lazy(() => import('./pages/MyPage/MyPageMain'));
 const Question = React.lazy(
   () => import('./pages/Community/Question/QuestionPage')
@@ -35,9 +36,14 @@ const ForgotPage = React.lazy(() => import('./pages/Forgot/Forgotpage'));
 
 const ResetPage = React.lazy(() => import('./pages/Forgot/Reset/Resetpage'));
 
+const MainCompetition = React.lazy(
+  () => import('./pages/MainCompetition/MainCompetition')
+);
+
 const routes = [
   { path: '/', element: Home },
   { path: '/login', element: Login },
+  { path: '/signIn', element: SignIn },
   { path: '/mypage', element: MyPage },
   { path: '/community/question', element: Question },
   { path: '/community/question/write', element: QuestionForm },
@@ -52,7 +58,8 @@ const routes = [
   { path: '/friendly/apply', element: ApplyMatch },
   { path: '/friendly/apply/form', element: ApplyForm },
   { path: '/forgot', element: ForgotPage },
-  { path: '/reset', element: ResetPage }
+  { path: '/reset', element: ResetPage },
+  { path: '/maincompetition', element: MainCompetition }
 ];
 
 export default routes;
