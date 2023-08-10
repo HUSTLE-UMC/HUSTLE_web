@@ -77,3 +77,9 @@ export interface MainCompetitionProps {
   presidentname: string;
   president2name: string;
 }
+
+export interface CompetitionApplyProps {
+  teamname: string;
+  name: string;
+  phone: string;
+}

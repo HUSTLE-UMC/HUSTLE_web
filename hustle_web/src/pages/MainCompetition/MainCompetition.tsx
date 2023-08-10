@@ -22,7 +22,7 @@ const MainCompetition = () => {
 
   const onSubmitHandler: SubmitHandler<MainCompetitionProps> = (data) => {
     console.log(data);
-    alert('대회 신청이 완료되었습니다.');
+    alert('대회 등록이 완료되었습니다.');
   };
 
   return (
@@ -176,7 +176,7 @@ const MainCompetition = () => {
         {errors.support && <C.Error>{errors.support.message}</C.Error>}
 
         <C.CenterWrapper>
-          <M.SubmitButton type='submit'>대회 신청하기</M.SubmitButton>
+          <M.SubmitButton type='submit'>대회 등록하기</M.SubmitButton>
         </C.CenterWrapper>
       </C.CompetitonContainer>
     </form>
