@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import * as C from '../Styles';
+import * as C from './Styles';
 import UploadImg from '../../../assets/svg/competition-img.svg';
 
 const UploadImage = () => {

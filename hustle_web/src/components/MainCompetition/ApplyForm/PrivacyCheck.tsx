@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import * as A from '../Styles';
+import * as C from './Styles';
 import TopArrow from '../../../assets/svg/competition_arrow-top.svg';
 import BottomArrow from '../../../assets/svg/competition_arrow-bottom.svg';
 import CheckboxOn from '../../../assets/svg/competition_check.svg';
@@ -27,27 +27,27 @@ const PrivacyCheck = ({ onCheck }: PrivacyCheckProps) => {
 
   return (
     <>
-      <A.ApplyRowContainer>
-        <A.ApplySubtitleText>개인정보수집 동의</A.ApplySubtitleText>
-        <A.CaptionText>개인정보수집에 동의합니다.</A.CaptionText>
+      <C.ApplyRowContainer>
+        <C.ApplySubtitleText>개인정보수집 동의</C.ApplySubtitleText>
+        <C.CaptionText>개인정보수집에 동의합니다.</C.CaptionText>
 
-        <A.CheckboxContainer2>
+        <C.CheckboxContainer2>
           <img
             src={isChecked ? CheckboxOn : CheckboxOff}
             alt='checkbox'
             onClick={handleCheckboxChange}
           />
-        </A.CheckboxContainer2>
-      </A.ApplyRowContainer>
+        </C.CheckboxContainer2>
+      </C.ApplyRowContainer>
 
-      <A.ArrowBox>
+      <C.ArrowBox>
         <img
           src={isOpen ? TopArrow : BottomArrow}
           alt='Arrow'
           onClick={toggleDropdown}
         />
-      </A.ArrowBox>
-      {isOpen && <A.NoticeBox>개인정보수집동의 내용</A.NoticeBox>}
+      </C.ArrowBox>
+      {isOpen && <C.NoticeBox>개인정보수집동의 내용</C.NoticeBox>}
     </>
   );
 };

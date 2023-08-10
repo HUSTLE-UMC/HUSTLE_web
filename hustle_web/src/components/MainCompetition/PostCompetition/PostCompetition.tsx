@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import * as C from '../Styles';
-import * as M from '../../FriendlyMatchPage/PostMatch/Styles';
+import * as C from './Styles';
 import LogoImg from '../../../assets/images/competition_logoimg.png';
 import { MainCompetitionProps } from '../../../constants/interfaces';
 import { defaultMainCompetition } from '../../../constants/defaultFormOption';
 import FormRequirements from '../../../constants/FormRequirements';
 import UploadImage from './UploadImage';
-import DropDown from '../../DropDown/DropDown';
 
 const PostCompetition = () => {
   const { contentRequirements } = FormRequirements;
@@ -54,7 +52,7 @@ const PostCompetition = () => {
         <C.RowContainer>
           <div>
             <C.SubtitleText>대회 시작일</C.SubtitleText>
-            <M.InputSmall
+            <C.InputSmall
               type='date'
               {...register('competitiondate', contentRequirements)}
             />
@@ -63,7 +61,7 @@ const PostCompetition = () => {
             )}
 
             <C.SubtitleText>모집 시작일</C.SubtitleText>
-            <M.InputSmall
+            <C.InputSmall
               type='date'
               {...register('recruitdate', contentRequirements)}
             />
@@ -106,7 +104,7 @@ const PostCompetition = () => {
           </div>
           <div>
             <C.SubtitleText>대회 종료일</C.SubtitleText>
-            <M.InputSmall
+            <C.InputSmall
               type='date'
               {...register('competitiondue', contentRequirements)}
             />
@@ -115,7 +113,7 @@ const PostCompetition = () => {
             )}
 
             <C.SubtitleText>모집 마감일</C.SubtitleText>
-            <M.InputSmall
+            <C.InputSmall
               type='date'
               {...register('recruitdue', contentRequirements)}
             />
@@ -176,7 +174,7 @@ const PostCompetition = () => {
         {errors.support && <C.Error>{errors.support.message}</C.Error>}
 
         <C.CenterWrapper>
-          <M.SubmitButton type='submit'>대회 등록하기</M.SubmitButton>
+          <C.SubmitButton type='submit'>대회 등록하기</C.SubmitButton>
         </C.CenterWrapper>
       </C.CompetitonContainer>
     </form>

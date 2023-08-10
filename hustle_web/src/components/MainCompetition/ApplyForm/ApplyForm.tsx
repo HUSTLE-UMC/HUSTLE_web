@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import * as C from '../Styles';
+import * as C from './Styles';
 import NoticeCheck from './NoticeCheck';
 import PrivacyCheck from './PrivacyCheck';
-import * as M from '../../FriendlyMatchPage/PostMatch/Styles';
 import { CompetitionApplyProps } from '../../../constants/interfaces';
 import { defaultCompetitionApplyFormValue } from '../../../constants/defaultFormOption';
 import FormRequirements from '../../../constants/FormRequirements';
@@ -86,9 +85,9 @@ const ApplyForm = () => {
         <NoticeCheck onCheck={(isChecked) => setIsNoticeChecked(isChecked)} />
         <PrivacyCheck onCheck={(isChecked) => setIsPrivacyChecked(isChecked)} />
 
-        <M.SubmitButton type='submit' onClick={handleSubmit(onSubmitHandler)}>
+        <C.SubmitButton type='submit' onClick={handleSubmit(onSubmitHandler)}>
           대회 신청하기
-        </M.SubmitButton>
+        </C.SubmitButton>
       </form>
     </C.ApplyContainer>
   );

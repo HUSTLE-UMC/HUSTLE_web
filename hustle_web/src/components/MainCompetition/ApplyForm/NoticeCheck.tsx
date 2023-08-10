@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import * as A from '../Styles';
+import * as C from './Styles';
 import TopArrow from '../../../assets/svg/competition_arrow-top.svg';
 import BottomArrow from '../../../assets/svg/competition_arrow-bottom.svg';
 import CheckboxOn from '../../../assets/svg/competition_check.svg';
@@ -27,26 +27,26 @@ const NoticeCheck = ({ onCheck }: NoticeCheckProps) => {
 
   return (
     <>
-      <A.ApplyRowContainer>
-        <A.ApplySubtitleText>대회 주의사항</A.ApplySubtitleText>
-        <A.CaptionText>주의사항을 확인했습니다.</A.CaptionText>
+      <C.ApplyRowContainer>
+        <C.ApplySubtitleText>대회 주의사항</C.ApplySubtitleText>
+        <C.CaptionText>주의사항을 확인했습니다.</C.CaptionText>
 
-        <A.CheckboxContainer>
+        <C.CheckboxContainer>
           <img
             src={isChecked ? CheckboxOn : CheckboxOff}
             alt='checkbox'
             onClick={handleCheckboxChange}
           />
-        </A.CheckboxContainer>
-      </A.ApplyRowContainer>
-      <A.ArrowBox>
+        </C.CheckboxContainer>
+      </C.ApplyRowContainer>
+      <C.ArrowBox>
         <img
           src={isOpen ? TopArrow : BottomArrow}
           alt='Arrow'
           onClick={toggleDropdown}
         />
-      </A.ArrowBox>
-      {isOpen && <A.NoticeBox>대회 주의 사항</A.NoticeBox>}
+      </C.ArrowBox>
+      {isOpen && <C.NoticeBox>대회 주의 사항</C.NoticeBox>}
     </>
   );
 };
