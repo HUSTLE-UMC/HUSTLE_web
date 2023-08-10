@@ -21,30 +21,31 @@ const QuestionList = ({ posts, loading }: any) => {
 
   return (
     <QL.listLayout>
-      {loading && <div>loading...</div>}
-      <QL.listContainer>
-        {posts.map((post: any, index: number) => (
-          <div>
-            <QL.Box key={post.id} onClick={() => handleQuestionClick(post.id)}>
-              <QL.List>{post.title}</QL.List>
-              <QL.IconWrap onClick={() => handleClick(index)}>
-                {arrowButton[index] ? (
-                  <Arrow transform='rotate(180)' />
-                ) : (
-                  <Arrow />
-                )}
-              </QL.IconWrap>
-            </QL.Box>
-            <div>
-              {selectedQuestion === post.id && arrowButton[index] && (
-                <QL.detail>{post.detail}</QL.detail>
+    {loading && <div>loading...</div>}
+    <QL.listContainer>
+      {posts.map((post: any, index: number) => (
+        <div key={post.id}>
+          <QL.Box onClick={() => handleQuestionClick(post.id)}>
+            <QL.List>{post.title}</QL.List>
+            <QL.IconWrap onClick={() => handleClick(index)}>
+              {arrowButton[index] ? (
+                <Arrow transform='rotate(180)' />
+              ) : (
+                <Arrow />
               )}
-            </div>
+            </QL.IconWrap>
+          </QL.Box>
+          <div>
+            {selectedQuestion === post.id && arrowButton[index] && (
+              <QL.detail>{post.detail}</QL.detail>
+            )}
           </div>
-        ))}
-      </QL.listContainer>
-    </QL.listLayout>
-  );
+        </div>
+      ))}
+    </QL.listContainer>
+  </QL.listLayout>
+);
 };
+
 
 export default QuestionList;
