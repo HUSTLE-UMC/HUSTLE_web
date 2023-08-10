@@ -1,9 +1,11 @@
-const MyPageMain = () => {
+import MypageMain from '../../components/MyPage/MypageMain';
+
+const MyPage = () => {
   return (
     <div>
-      MyPage 페이지입니다.
+      <MypageMain/>
     </div>
   );
 };
 
-export default MyPageMain;
+export default MyPage;
