@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import * as A from './Styles';
-import * as C from '../../pages/MainCompetition/Styles';
-import TopArrow from '../../assets/svg/competition_arrow-top.svg';
-import BottomArrow from '../../assets/svg/competition_arrow-bottom.svg';
-import CheckboxOn from '../../assets/svg/competition_check.svg';
-import CheckboxOff from '../../assets/svg/competition_check-none.svg';
+import * as A from '../Styles';
+import TopArrow from '../../../assets/svg/competition_arrow-top.svg';
+import BottomArrow from '../../../assets/svg/competition_arrow-bottom.svg';
+import CheckboxOn from '../../../assets/svg/competition_check.svg';
+import CheckboxOff from '../../../assets/svg/competition_check-none.svg';
 import { PrivacyCheckProps } from './ApplyFormProps';
 
 const PrivacyCheck = ({ onCheck }: PrivacyCheckProps) => {
@@ -28,8 +27,8 @@ const PrivacyCheck = ({ onCheck }: PrivacyCheckProps) => {
 
   return (
     <>
-      <A.RowContainer>
-        <A.SubtitleText>개인정보수집 동의</A.SubtitleText>
+      <A.ApplyRowContainer>
+        <A.ApplySubtitleText>개인정보수집 동의</A.ApplySubtitleText>
         <A.CaptionText>개인정보수집에 동의합니다.</A.CaptionText>
 
         <A.CheckboxContainer2>
@@ -39,7 +38,7 @@ const PrivacyCheck = ({ onCheck }: PrivacyCheckProps) => {
             onClick={handleCheckboxChange}
           />
         </A.CheckboxContainer2>
-      </A.RowContainer>
+      </A.ApplyRowContainer>
 
       <A.ArrowBox>
         <img

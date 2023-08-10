@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import * as C from '../../pages/MainCompetition/Styles';
-import * as A from './Styles';
+import * as C from '../Styles';
 import NoticeCheck from './NoticeCheck';
 import PrivacyCheck from './PrivacyCheck';
-import * as M from '../../components/FriendlyMatchPage/PostMatch/Styles';
-import { CompetitionApplyProps } from '../../constants/interfaces';
-import { defaultCompetitionApplyFormValue } from '../../constants/defaultFormOption';
-import FormRequirements from '../../constants/FormRequirements';
+import * as M from '../../FriendlyMatchPage/PostMatch/Styles';
+import { CompetitionApplyProps } from '../../../constants/interfaces';
+import { defaultCompetitionApplyFormValue } from '../../../constants/defaultFormOption';
+import FormRequirements from '../../../constants/FormRequirements';
 
 const ApplyForm = () => {
   const { contentRequirements } = FormRequirements;
@@ -37,31 +36,31 @@ const ApplyForm = () => {
   };
 
   return (
-    <A.ApplyContainer>
+    <C.ApplyContainer>
       <form>
         <C.TitleText>대회 신청</C.TitleText>
-        <A.SubtitleText>가톨릭대학교 총장배 대회</A.SubtitleText>
+        <C.ApplySubtitleText>가톨릭대학교 총장배 대회</C.ApplySubtitleText>
 
-        <A.RowContainer>
-          <A.SubtitleLightText>가톨릭대학교 바스타즈</A.SubtitleLightText>
-          <A.SubtitleLightText>2023-07-07</A.SubtitleLightText>
-        </A.RowContainer>
+        <C.ApplyRowContainer>
+          <C.SubtitleLightText>가톨릭대학교 바스타즈</C.SubtitleLightText>
+          <C.SubtitleLightText>2023-07-07</C.SubtitleLightText>
+        </C.ApplyRowContainer>
 
-        <A.LeftWrapper>
-          <A.SubtitleText>동아리명</A.SubtitleText>
-        </A.LeftWrapper>
+        <C.LeftWrapper>
+          <C.ApplySubtitleText>동아리명</C.ApplySubtitleText>
+        </C.LeftWrapper>
         <C.InputLarge
           placeholder='참여를 희망하는 동아리 명을 입력하세요'
           {...register('teamname', contentRequirements)}
         />
-        <A.LeftWrapper>
+        <C.LeftWrapper>
           {errors.teamname && <C.Error>{errors.teamname.message}</C.Error>}
-        </A.LeftWrapper>
+        </C.LeftWrapper>
 
-        <A.LeftWrapper>
-          <A.SubtitleText>대표자 연락처</A.SubtitleText>
-        </A.LeftWrapper>
-        <A.RowContainer>
+        <C.LeftWrapper>
+          <C.ApplySubtitleText>대표자 연락처</C.ApplySubtitleText>
+        </C.LeftWrapper>
+        <C.ApplyRowContainer>
           <C.InputSmall
             placeholder='이름'
             {...register('name', contentRequirements)}
@@ -70,9 +69,9 @@ const ApplyForm = () => {
             placeholder='연락처'
             {...register('phone', contentRequirements)}
           />
-        </A.RowContainer>
+        </C.ApplyRowContainer>
 
-        <A.LeftWrapper>
+        <C.LeftWrapper>
           {errors.name && errors.phone && (
             <C.Error>{errors.name.message}</C.Error>
           )}
@@ -82,7 +81,7 @@ const ApplyForm = () => {
           {!errors.name && errors.phone && (
             <C.Error>{errors.phone.message}</C.Error>
           )}
-        </A.LeftWrapper>
+        </C.LeftWrapper>
 
         <NoticeCheck onCheck={(isChecked) => setIsNoticeChecked(isChecked)} />
         <PrivacyCheck onCheck={(isChecked) => setIsPrivacyChecked(isChecked)} />
@@ -91,7 +90,7 @@ const ApplyForm = () => {
           대회 신청하기
         </M.SubmitButton>
       </form>
-    </A.ApplyContainer>
+    </C.ApplyContainer>
   );
 };
 

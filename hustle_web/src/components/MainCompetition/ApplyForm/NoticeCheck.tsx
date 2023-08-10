@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import * as A from './Styles';
-import * as C from '../../pages/MainCompetition/Styles';
-import TopArrow from '../../assets/svg/competition_arrow-top.svg';
-import BottomArrow from '../../assets/svg/competition_arrow-bottom.svg';
-import CheckboxOn from '../../assets/svg/competition_check.svg';
-import CheckboxOff from '../../assets/svg/competition_check-none.svg';
+import * as A from '../Styles';
+import TopArrow from '../../../assets/svg/competition_arrow-top.svg';
+import BottomArrow from '../../../assets/svg/competition_arrow-bottom.svg';
+import CheckboxOn from '../../../assets/svg/competition_check.svg';
+import CheckboxOff from '../../../assets/svg/competition_check-none.svg';
 import { NoticeCheckProps } from './ApplyFormProps';
 
 const NoticeCheck = ({ onCheck }: NoticeCheckProps) => {
@@ -28,8 +27,8 @@ const NoticeCheck = ({ onCheck }: NoticeCheckProps) => {
 
   return (
     <>
-      <A.RowContainer>
-        <A.SubtitleText>대회 주의사항</A.SubtitleText>
+      <A.ApplyRowContainer>
+        <A.ApplySubtitleText>대회 주의사항</A.ApplySubtitleText>
         <A.CaptionText>주의사항을 확인했습니다.</A.CaptionText>
 
         <A.CheckboxContainer>
@@ -39,7 +38,7 @@ const NoticeCheck = ({ onCheck }: NoticeCheckProps) => {
             onClick={handleCheckboxChange}
           />
         </A.CheckboxContainer>
-      </A.RowContainer>
+      </A.ApplyRowContainer>
       <A.ArrowBox>
         <img
           src={isOpen ? TopArrow : BottomArrow}

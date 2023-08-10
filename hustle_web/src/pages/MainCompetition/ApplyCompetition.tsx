@@ -1,4 +1,4 @@
-import ApplyForm from '../../components/MainCompetition/ApplyForm';
+import ApplyForm from '../../components/MainCompetition/ApplyForm/ApplyForm';
 import SportsMenu from '../../components/SportsMenu/SportsMenu';
 
 const ApplyCompetition = () => {
