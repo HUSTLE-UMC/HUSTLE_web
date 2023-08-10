@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import FONT from '../../styles/Font';
-import Colors from '../../styles/Color';
+import FONT from '../../../styles/Font';
+import Colors from '../../../styles/Color';
 
 export const CompetitonContainer = styled.div``;
 
@@ -59,7 +59,7 @@ export const InputLarge = styled.input`
   border: 1px solid ${Colors.Gray30};
   display: flex;
   align-items: center;
-  width: 39.25rem;
+  width: 39rem;
   height: 4rem;
   padding: 0 1.2rem;
   font-size: ${FONT.SIZE.BODY3};
@@ -87,4 +87,33 @@ export const CurrencyText = styled.span`
   top: 50%;
   color: ${Colors.Gray30};
   transform: translateY(-50%);
+`;
+
+export const CaptionText = styled.div`
+  font-size: ${FONT.SIZE.CAPTION};
+  font-weight: ${FONT.WEIGHT.LIGHT};
+  color: ${Colors.Gray30};
+  margin-top: 1.2rem;
+`;
+
+export const LeftWrapper = styled.div`
+  width: 39.25rem;
+  display: flex;
+  justify-content: left;
+`;
+
+export const SubmitButton = styled.button`
+  all: unset;
+  width: 40rem;
+  height: 4.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: ${Colors.WriteButton};
+  color: ${Colors.TrueWhite};
+  border-radius: 1.2rem;
+  font-size: ${FONT.SIZE.BODY2};
+  font-weight: ${FONT.WEIGHT.SEMIBOLD};
+  margin: 2rem 0;
+  cursor: pointer;
 `;

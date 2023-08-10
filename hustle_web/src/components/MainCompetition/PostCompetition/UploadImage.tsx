@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import * as C from './Styles';
-import UploadImg from '../../assets/svg/competition-img.svg';
+import UploadImg from '../../../assets/svg/competition-img.svg';
 
 const UploadImage = () => {
   const [selectedImage, setSelectedImage] = useState<File | null>(null);

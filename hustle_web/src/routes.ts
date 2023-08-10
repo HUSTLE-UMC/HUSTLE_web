@@ -40,6 +40,10 @@ const MainCompetition = React.lazy(
   () => import('./pages/MainCompetition/MainCompetition')
 );
 
+const ApplyCompetition = React.lazy(
+  () => import('./pages/MainCompetition/ApplyCompetition')
+);
+
 const routes = [
   { path: '/', element: Home },
   { path: '/login', element: Login },
@@ -59,7 +63,8 @@ const routes = [
   { path: '/friendly/apply/form', element: ApplyForm },
   { path: '/forgot', element: ForgotPage },
   { path: '/reset', element: ResetPage },
-  { path: '/maincompetition', element: MainCompetition }
+  { path: '/maincompetition', element: MainCompetition },
+  { path: '/maincompetition/apply', element: ApplyCompetition }
 ];
 
 export default routes;

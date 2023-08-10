@@ -48,3 +48,9 @@ export const defaultPostFormValue = {
   person: '',
   contact: ''
 };
+
+export const defaultCompetitionApplyFormValue = {
+  teamname: '',
+  name: '',
+  phone: ''
+};
