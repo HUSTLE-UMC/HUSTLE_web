@@ -9,13 +9,12 @@ import FormRequirements from '../../../constants/FormRequirements';
 
 const ApplyForm = () => {
   const { contentRequirements } = FormRequirements;
-  const defaultMainValue = defaultCompetitionApplyFormValue;
   const {
     register,
     handleSubmit,
     formState: { errors }
   } = useForm<CompetitionApplyProps>({
-    defaultValues: { ...defaultMainValue }
+    defaultValues: { ...defaultCompetitionApplyFormValue }
   });
 
   const [isNoticeChecked, setIsNoticeChecked] = useState(false);
