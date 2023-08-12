@@ -3,7 +3,6 @@ import * as S from './Styles';
 import { MainInputProps } from './MainInputProps';
 
 export const MainInput = ({
-  type = 'text',
   value = '',
   placeholder = '',
   onChange,
