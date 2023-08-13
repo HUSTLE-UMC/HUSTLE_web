@@ -18,7 +18,11 @@ const Colors = {
   TrueBlack: '#000000',
   TrueWhite: '#FFFFFF',
   BGgray: '#FCFCFC',
-  Impact: '#3F37C9'
-} as const;
+  Impact: '#3F37C9',
 
+  Applying: '#FF4733',
+  Before: '#7433FF',
+  Ongoing: '#00D115',
+  Finish: '#8B8B8B'
+} as const;
 export default Colors;
