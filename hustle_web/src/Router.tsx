@@ -33,7 +33,7 @@ const Router = () => {
             <Route index element={<Home />} />
             <Route path='/login' element={<Login />} />
             <Route path='/signIn' element={<SignIn />} />
-            <Route path='/competitions' element={<List1 />} />
+            <Route path='/competitions' element={<Competition />} />
             <Route path='/mypage' element={<MyPageMain />} />
             <Route path='/community' element={<Community />} />
             <Route path='/community/club' element={<Club />} />

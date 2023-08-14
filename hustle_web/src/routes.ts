@@ -13,7 +13,7 @@ const Join = React.lazy(() => import('./pages/Join/Join'));
 const Friendly = React.lazy(
   () => import('./pages/FriendlyMatch/FriendlyMatch')
 );
-const List1 = React.lazy(() => import('./components/Competition/list1'));
+const Competition = React.lazy(() => import('./pages/Competition/Competition'));
 const QuestionForm = React.lazy(
   () => import('./components/Community/Question/QuestionForm')
 );
@@ -57,7 +57,7 @@ const routes = [
   { path: '/friendly', element: Friendly },
   { path: '/friendly/match', element: FriendlyLists },
   { path: '/friendly/invite', element: FriendlyLists },
-  { path: '/competitions', element: List1 },
+  { path: '/competitions', element: Competition },
   { path: '/friendly/post', element: PostMatch },
   { path: '/friendly/apply', element: ApplyMatch },
   { path: '/friendly/apply/form', element: ApplyForm },

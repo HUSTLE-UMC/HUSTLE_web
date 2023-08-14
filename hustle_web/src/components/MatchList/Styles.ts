@@ -5,6 +5,8 @@ import Colors from '../../styles/Color';
 export const ListContainer = styled.ul`
   list-style-type: none;
   padding: 0;
+  width: 120rem;
+  height: 112rem;
 `;
 
 export const MatchItem = styled.li`

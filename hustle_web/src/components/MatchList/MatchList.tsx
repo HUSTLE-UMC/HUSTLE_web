@@ -5,11 +5,11 @@ import { MatchListProps } from './MatchListProps';
 import MatchStatus from '../MatchStatus/MatchStatus';
 import MatchButton from '../MatchButton/MatchButton';
 
-interface ContestListProps {
+interface MatchListProps {
   contests: Contest[];
 }
 
-const ContestList: React.FC<ContestListProps> = ({ contests }) => {
+const ContestList: React.FC<MatchListProps> = ({ contests }) => {
   return (
     <L.ListContainer>
       {contests.map((contest, index) => (
