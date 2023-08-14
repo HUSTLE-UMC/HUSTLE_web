@@ -1,7 +1,7 @@
 import React from 'react';
 import * as S from './Styles';
 import MatchList from '../../components/MatchList/MatchList';
-const CompetitionPage = () => {
+const Competition = () => {
   const contests = [
     {
       label: '모집 중',
@@ -28,4 +28,4 @@ const CompetitionPage = () => {
   );
 };
 
-export default CompetitionPage;
+export default Competition;

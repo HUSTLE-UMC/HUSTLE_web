@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Route } from 'react-router-dom';
 const Home = React.lazy(() => import('./pages/Home'));
 const Login = React.lazy(() => import('./pages/Login'));
 const SignIn = React.lazy(() => import('./pages/SignIn'));
@@ -43,6 +43,9 @@ const MainCompetition = React.lazy(
 const ApplyCompetition = React.lazy(
   () => import('./pages/MainCompetition/ApplyCompetition')
 );
+const CompetitionApply = React.lazy(
+  () => import('./pages/Competition/CompetitionApply/CompetitionApply')
+);
 
 const routes = [
   { path: '/', element: Home },
@@ -58,6 +61,7 @@ const routes = [
   { path: '/friendly/match', element: FriendlyLists },
   { path: '/friendly/invite', element: FriendlyLists },
   { path: '/competitions', element: Competition },
+  { path: '/competitions/apply', element: CompetitionApply },
   { path: '/friendly/post', element: PostMatch },
   { path: '/friendly/apply', element: ApplyMatch },
   { path: '/friendly/apply/form', element: ApplyForm },

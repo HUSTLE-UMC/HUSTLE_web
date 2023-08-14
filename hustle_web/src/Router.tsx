@@ -11,7 +11,6 @@ import SignIn from './pages/SignIn';
 import MyPageMain from './pages/MyPage/MyPageMain';
 import Community from './pages/Community/CommunityPage';
 import QuestionForm from './components/Community/Question/QuestionForm';
-import List1 from './components/Competition/list1';
 import PostMatch from './components/FriendlyMatchPage/PostMatch/PostMatch';
 import ApplyMatch from './components/FriendlyMatchPage/ApplyMatch/ApplyMatch';
 import ForgotPage from './pages/Forgot/Forgotpage';
@@ -20,6 +19,7 @@ import ApplyForm from './components/FriendlyMatchPage/ApplyMatch/ApplyForm';
 import FriendlyLists from './components/FriendlyMatchPage/MainMatch/FriendlyLists/FriendlyLists';
 import MainCompetition from './pages/MainCompetition/MainCompetition';
 import ApplyCompetition from './pages/MainCompetition/ApplyCompetition';
+import CompetitionApply from './pages/Competition/CompetitionApply/CompetitionApply';
 
 const loadingPage = <div>화면 로딩중...</div>;
 const DefaultLayout = React.lazy(() => import('./layout/DefaultLayout'));
@@ -34,6 +34,7 @@ const Router = () => {
             <Route path='/login' element={<Login />} />
             <Route path='/signIn' element={<SignIn />} />
             <Route path='/competitions' element={<Competition />} />
+            <Route path='/competitions/apply' element={<CompetitionApply />} />
             <Route path='/mypage' element={<MyPageMain />} />
             <Route path='/community' element={<Community />} />
             <Route path='/community/club' element={<Club />} />
