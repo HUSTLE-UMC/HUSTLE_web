@@ -16,7 +16,6 @@ export const ApplyWrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-top: 0.1rem solid ${Colors.MainBlack};
   background-color: white;
 `;
 
@@ -25,9 +24,16 @@ export const ContentWrap = styled.div`
   height: 60.2rem;
   display: flex;
   flex-direction: row;
-  align-items: center;
   background-color: white;
   margin-bottom: 6.6rem;
+`;
+
+export const ImgWrap = styled.img`
+  width: 42.6rem;
+  height: 60.2rem;
+  display: flex;
+  margin-right: 8.7rem;
+  flex-direction: column;
 `;
 
 export const BtnWrap = styled.div`
