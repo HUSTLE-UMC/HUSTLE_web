@@ -1,5 +1,4 @@
 import * as S from './Styles';
-import DropDown from '../../DropDown/DropDown';
 import SportsMenu from '../../SportsMenu/SportsMenu';
 import FormRequirements from '../../../constants/FormRequirements';
 import { SubmitHandler, useForm } from 'react-hook-form';
@@ -23,11 +22,9 @@ export const ApplyForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmitHandler)}>
-      <SportsMenu />
+      <SportsMenu disable />
       <S.ContentLayout>
-        <S.SideContainer>
-          <DropDown index={1} />
-        </S.SideContainer>
+        <S.SideContainer></S.SideContainer>
         <S.FormLayout>
           <S.TitleBox>동아리 명</S.TitleBox>
           <S.InputLarge

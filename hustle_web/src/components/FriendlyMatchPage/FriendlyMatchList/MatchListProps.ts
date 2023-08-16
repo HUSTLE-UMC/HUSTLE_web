@@ -1,6 +1,6 @@
 export interface Props {
   id: number;
-  img: string;
+  clubName: string;
   sport: string;
   title: string;
   location: string;

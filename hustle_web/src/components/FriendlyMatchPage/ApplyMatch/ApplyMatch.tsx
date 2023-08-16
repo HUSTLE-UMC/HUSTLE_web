@@ -1,47 +1,24 @@
 import * as A from './Styles';
 import SportsMenu from '../../SportsMenu/SportsMenu';
-import MatchTitle from '../MainMatch/MatchTitle/MatchTitle';
-import { useRecoilValue } from 'recoil';
-import OtherMatchList from '../OtherMatchList/OtherMatchList';
-import { otherMatchSelector } from '../../../recoil/friendlyMatchPage/selectors';
-import { useNavigate } from 'react-router-dom';
 import MatchDetail from '../MatchDetail/MatchDetail';
+import { friendlyMenuSelector } from '../../../recoil/friendlyMatchPage/selectors';
+import { useRecoilValue } from 'recoil';
+import { friendlyMenuState } from '../../../recoil/friendlyMatchPage/states';
 
 const ApplyMatch = () => {
-  const otherMatch = useRecoilValue(otherMatchSelector);
-  const navigate = useNavigate();
-  const handleClick = () => {
-    navigate('/friendly/match');
-  };
+  const menu = useRecoilValue(friendlyMenuState);
+  const index = useRecoilValue(friendlyMenuSelector);
   return (
     <>
-      <SportsMenu />
-      <MatchTitle label='교류전 구해요!' />
+      <SportsMenu disable />
+      <A.MenuLayout>
+        <A.MenuTitle>{menu[index].label}</A.MenuTitle>
+      </A.MenuLayout>
       <A.ContentLayout>
         <A.SideContainer />
         <MatchDetail />
         <A.SideContainer />
       </A.ContentLayout>
-      <A.ListTitle>
-        <A.ListText>교류전 구해요!의 다른 글</A.ListText>
-        <A.ListButton onClick={() => handleClick()}>더보기 {'>'}</A.ListButton>
-      </A.ListTitle>
-      <A.ListLayout>
-        {otherMatch.map((m, i) => {
-          if (i < 4) {
-            return (
-              <OtherMatchList
-                key={i}
-                id={i}
-                sport={m.sport}
-                title={m.title}
-                img={m.img}
-                date={m.date}
-              />
-            );
-          }
-        })}
-      </A.ListLayout>
     </>
   );
 };

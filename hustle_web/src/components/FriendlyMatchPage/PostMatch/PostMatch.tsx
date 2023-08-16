@@ -1,18 +1,21 @@
 import DropDown from '../../DropDown/DropDown';
 import * as M from './Styles';
 import SportsMenu from '../../SportsMenu/SportsMenu';
-
-import PostForm from './PostForm';
+import MatchForm from './MatchForm';
+import InvitationForm from './InvitationForm';
+import { friendlyMenuSelector } from '../../../recoil/friendlyMatchPage/selectors';
+import { useRecoilValue } from 'recoil';
 
 export const PostMatch = () => {
+  const matchId = useRecoilValue(friendlyMenuSelector);
   return (
     <>
       <SportsMenu />
       <M.PostLayout>
         <M.SideContainer>
-          <DropDown index={0} />
+          <DropDown />
         </M.SideContainer>
-        <PostForm />
+        {matchId === 0 ? <MatchForm /> : <InvitationForm />}
         <M.SideContainer />
       </M.PostLayout>
     </>
