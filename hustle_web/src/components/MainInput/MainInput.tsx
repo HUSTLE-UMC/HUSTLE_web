@@ -7,7 +7,8 @@ export const MainInput = ({
   placeholder = '',
   onChange,
   onEnter,
-  small
+  small,
+  type = 'default'
 }: MainInputProps) => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = event.target.value;
