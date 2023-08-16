@@ -20,6 +20,7 @@ export const LogoWrap = styled.div`
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
+  //margin-left: 25rem;
 `;
 
 export const BtnWrap = styled.div`
@@ -50,7 +51,6 @@ export const HeaderBtn = styled.div`
   }
 `;
 
-
 // LoginComponent.tsx에서 사용
 export const ProfileWrap = styled.div`
   display: flex;
@@ -66,7 +66,26 @@ export const ProfileText = styled.div`
 
 // NotLoginComponent.tsx에서 사용
 export const LogoutText = styled.div`
-  font-size: ${FONT.SIZE.BODY2};
+  font-size: ${FONT.SIZE.BODY3};
   font-weight: ${FONT.WEIGHT.REGULAR};
+  margin-right: 2rem;
+  cursor: pointer;
 `;
 
+export const RowContainer = styled.div`
+  gap: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const Gap = styled.div`
+  margin-left: 40rem;
+`;
+
+export const RightContainer = styled.div`
+  width: 1280px;
+  display: flex;
+  justify-content: right;
+`;
