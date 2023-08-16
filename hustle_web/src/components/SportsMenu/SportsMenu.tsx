@@ -7,10 +7,14 @@ import {
   sportsTypes
 } from '../../recoil/SportsButton';
 
-export const SportsMenu = () => {
+interface Props {
+  disable?: boolean;
+}
+
+export const SportsMenu = ({ disable }: Props) => {
   const [menus, setMenus] = useRecoilState(sportsMenuState);
   const setIsSelected = useSetRecoilState(sportSelectState);
-  const handleSelect = (id: number) => {
+  const handleClick = (id: number) => {
     setMenus(
       menus.map((m: sportsTypes) => {
         return m.id === id
@@ -27,7 +31,13 @@ export const SportsMenu = () => {
           key={index}
           label={m.label}
           selected={m.selected}
-          onClick={() => handleSelect(index)}
+          onClick={
+            disable
+              ? () => {
+                  alert('종목 변경을 원하시면 목록 페이지로 돌아가 주세요.');
+                }
+              : () => handleClick(index)
+          }
         ></SportsButton>
       ))}
     </S.CategoryLayout>

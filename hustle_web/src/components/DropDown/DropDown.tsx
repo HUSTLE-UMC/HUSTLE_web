@@ -5,23 +5,16 @@ import {
   RadioButton,
   RadioButtonSelected
 } from '../../stories/Icons/svg/index';
-import { dropdownMenuState } from '../../recoil/friendlyMatchPage/states';
+import { friendlyMenuState } from '../../recoil/friendlyMatchPage/states';
 import { menuTypes } from '../../recoil/friendlyMatchPage/types';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { dropdownMenuSelector } from '../../recoil/friendlyMatchPage/selectors';
-import { useNavigate } from 'react-router-dom';
+import { friendlyMenuSelector } from '../../recoil/friendlyMatchPage/selectors';
 
-interface DropDownProps {
-  index: number;
-}
-
-export const DropDown = ({ index }: DropDownProps) => {
+export const DropDown = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [menus, setMenus] = useRecoilState(dropdownMenuState);
-  const [title, setTitle] = useState<string>(menus[index].label);
-  const selectedID = useRecoilValue(dropdownMenuSelector);
-  const navigate = useNavigate();
-
+  const [menus, setMenus] = useRecoilState(friendlyMenuState);
+  const selectedID = useRecoilValue(friendlyMenuSelector);
+  const [title, setTitle] = useState<string>(menus[selectedID].label);
   const HandleChange = (id: number) => {
     setTitle(menus[id].label);
     setMenus(
@@ -32,7 +25,6 @@ export const DropDown = ({ index }: DropDownProps) => {
       })
     );
     setIsOpen(false);
-    id === 0 ? navigate('/friendly/post') : navigate('/friendly/apply/form');
   };
 
   return (
