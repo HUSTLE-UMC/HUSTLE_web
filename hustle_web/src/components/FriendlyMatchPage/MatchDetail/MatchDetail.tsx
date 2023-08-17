@@ -35,7 +35,11 @@ const MatchDetail = () => {
           <C.InfoTitle>동아리명</C.InfoTitle>
           <C.InfoTitle>대표자 연락처</C.InfoTitle>
           <C.InfoTitle>희망 일시</C.InfoTitle>
-          <C.InfoTitle>교류전 장소</C.InfoTitle>
+          {menu === 0 ? (
+            <C.InfoTitle>교류전장소</C.InfoTitle>
+          ) : (
+            <C.InfoTitle>주요 활동 지역</C.InfoTitle>
+          )}
           <C.InfoTitle>위치 보기</C.InfoTitle>
         </div>
         <div>
