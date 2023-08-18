@@ -84,6 +84,16 @@ export interface CompetitionApplyProps {
   phone: string;
 }
 
+export interface SignInProps {
+  id: string;
+  password: string;
+  passwordcheck: string;
+  name: string;
+  birth: string;
+  university: string;
+  gender: string;
+}
+
 export interface RankingProps {
   id: number;
   rank: string;

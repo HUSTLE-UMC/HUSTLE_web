@@ -54,3 +54,13 @@ export const defaultCompetitionApplyFormValue = {
   name: '',
   phone: ''
 };
+
+export const defaultSignInFormValue = {
+  id: '',
+  password: '',
+  passwordcheck: '',
+  name: '',
+  birth: '',
+  university: '',
+  gender: ''
+};
