@@ -4,7 +4,6 @@ import {
   LoginState,
   TokenState,
   refreshTokenState,
-
 } from '../../recoil/login/loginState';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -36,10 +35,7 @@ const AuthContext = createContext<AuthContextType>({
 const AuthProvider = ({ children }: any) => {
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(LoginState);
-  const [accessToken, setAccessToken] = useRecoilState<string | null>(
-
-    TokenState,
-  );
+  const [accessToken, setAccessToken] = useRecoilState<string | null>(TokenState,);
   const refreshToken = useRecoilValue(refreshTokenState);
 
   const updateAccessToken = (token: string) => {
@@ -48,7 +44,7 @@ const AuthProvider = ({ children }: any) => {
 
   const refreshAccessToken = async () => {
     try {
-      const response = await axios.post('/auth/refresh', { refreshToken });
+      const response = await axios.post('https://api.sport-hustle.com/api/auth/refresh', { refreshToken });
       const { accessToken } = response.data;
       setAccessToken(accessToken);
     } catch (error) {

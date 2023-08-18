@@ -43,6 +43,35 @@ export const CompetitionState = atom<T.CompetitionTypes[]>({
       title: '가톨릭대학교 총장배 대회',
       location: '경기대학교 수원캠퍼스 체육관',
       date: '2023.8.13 - 2023.8.20'
+    },
+    {
+      id: 5,
+      img: '',
+      sort: '대회',
+      title: '국민대학교 총장배 대회',
+      location: '경기대학교 수원캠퍼스 체육관',
+      date: '2023.8.13 - 2023.8.20'
+    },
+    {
+      id: 6,
+      img: '',
+      sort: '대회',
+      title: '인천대학교 총장배 대회',
+      location: '경기대학교 수원캠퍼스 체육관',
+      date: '2023.8.13 - 2023.8.20'
+    },
+    {
+      id: 7,
+      img: '',
+      sort: '대회',
+      title: '국민대학교 총장배 대회',
+      location: '경기대학교 수원캠퍼스 체육관',
+      date: '2023.8.13 - 2023.8.20'
     }
   ]
+});
+
+export const selectedCompetitionId = atom<number>({
+  key : 'selectedCompetitonId',
+  default: 0
 });
