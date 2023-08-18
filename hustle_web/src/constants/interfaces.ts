@@ -83,3 +83,12 @@ export interface CompetitionApplyProps {
   name: string;
   phone: string;
 }
+
+export interface SignInProps {
+  id: string;
+  password: string;
+  passwordcheck: string;
+  name: string;
+  birth: string;
+  university: string;
+}
