@@ -13,6 +13,7 @@ const SignIn = () => {
     { id: '', name: '', address: '' }
   ]);
   const [searchQuery, setSearchQuery] = useState(''); // 검색어 상태 추가
+  const [gender, setGender] = useState('');
 
   const onSubmitHandler: SubmitHandler<SignInProps> = async (
     data: SignInProps
@@ -25,7 +26,8 @@ const SignIn = () => {
           password: data.password,
           name: data.name,
           birth: data.birth,
-          university: data.university
+          university: data.university,
+          gender: data.gender
         }
       );
       if (data.password !== data.passwordcheck) {
@@ -133,6 +135,7 @@ const SignIn = () => {
           />
           {errors.name && <S.ErrorDiv>{errors.name.message}</S.ErrorDiv>}
         </S.Box>
+
         <S.Box>
           <S.InputLabel>생일</S.InputLabel>
           <S.InputLarge
@@ -142,6 +145,27 @@ const SignIn = () => {
           />
           {errors.birth && <S.ErrorDiv>{errors.birth.message}</S.ErrorDiv>}
         </S.Box>
+
+        {/* <S.Box>
+          <S.InputLabel>성별</S.InputLabel>
+          <div>
+            <S.Genderbutton
+              type='button'
+              onClick={() => setGender('female')}
+              active={gender === 'female'}
+            >
+              여자
+              </S.Genderbutton>
+            <button
+              type='button'
+              onClick={() => setGender('male')}
+              active={gender === 'male'}
+            >
+              남자
+            </button>
+          </div>
+        </S.Box> */}
+
         <S.Box>
           <S.InputLabel>소속 대학교</S.InputLabel>
           <S.InputLarge

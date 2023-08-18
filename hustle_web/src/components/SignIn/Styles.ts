@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import Colors from '../../styles/Color';
 import FONT from '../../styles/Font';
+// import { GenderButtonProps } from './GenderButton';
+
 export const Layout = styled.div`
   width: 1280px;
   height: 100vh;
@@ -137,3 +139,25 @@ export const UniversityList = styled.div`
     }
   }
 `;
+
+// {
+//   const Genderbutton = styled.button<GenderButtonProps>`
+//   padding: 10px 20px;
+//   font-size: 16px;
+//   border: none;
+//   border-radius: 5px;
+//   cursor: pointer;
+//   background-color: ${(props) => (props.isActive ? 'pink' : 'white')};
+//   color: ${(props) => (props.isActive ? 'white' : 'black')};
+//   margin-right: 10px;
+
+//   &:active {
+//     background-color: pink;
+//     color: white;
+//   }
+
+//   &:hover {
+//     background-color: ${(props) => (props.isActive ? 'pink' : '#f0f0f0')};
+//   }
+// `;
+// }

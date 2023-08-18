@@ -61,5 +61,6 @@ export const defaultSignInFormValue = {
   passwordcheck: '',
   name: '',
   birth: '',
-  university: ''
+  university: '',
+  gender: ''
 };

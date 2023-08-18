@@ -91,4 +91,5 @@ export interface SignInProps {
   name: string;
   birth: string;
   university: string;
+  gender: string;
 }
