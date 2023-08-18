@@ -1,5 +1,6 @@
 import React from 'react';
 import * as L from './Styles';
+import { useNavigate } from 'react-router-dom';
 import { MatchListProps } from './MatchListProps';
 
 import MatchStatus from '../MatchStatus/MatchStatus';
@@ -10,6 +11,12 @@ interface MatchListProps {
 }
 
 const ContestList: React.FC<MatchListProps> = ({ contests }) => {
+  const navigate = useNavigate();
+
+  const handleApplyClick = () => {
+    navigate('/competitions/apply'); //
+  };
+
   return (
     <L.ListContainer>
       {contests.map((contest, index) => (
@@ -23,9 +30,7 @@ const ContestList: React.FC<MatchListProps> = ({ contests }) => {
             <MatchButton
               type='small'
               label='신청하기'
-              onClick={() => {
-                /* 온클릭 이벤트 */
-              }}
+              onClick={handleApplyClick}
             />
           </L.BtnWrap>
           <L.BtnWrap>
