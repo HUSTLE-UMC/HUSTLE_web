@@ -47,6 +47,8 @@ const CompetitionApply = React.lazy(
   () => import('./pages/Competition/CompetitionApply/CompetitionApply')
 );
 
+const RankingPage = React.lazy(() => import('./pages/Ranking/RankingPage'));
+
 const routes = [
   { path: '/', element: Home },
   { path: '/login', element: Login },
@@ -68,7 +70,8 @@ const routes = [
   { path: '/forgot', element: ForgotPage },
   { path: '/reset', element: ResetPage },
   { path: '/maincompetition', element: MainCompetition },
-  { path: '/maincompetition/apply', element: ApplyCompetition }
+  { path: '/maincompetition/apply', element: ApplyCompetition },
+  { path: '/ranking', element: RankingPage }
 ];
 
 export default routes;

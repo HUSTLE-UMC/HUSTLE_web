@@ -19,7 +19,9 @@ import ApplyForm from './components/FriendlyMatchPage/ApplyMatch/ApplyForm';
 import FriendlyLists from './components/FriendlyMatchPage/MainMatch/FriendlyLists/FriendlyLists';
 import MainCompetition from './pages/MainCompetition/MainCompetition';
 import ApplyCompetition from './pages/MainCompetition/ApplyCompetition';
+import RankingPage from './pages/Ranking/RankingPage';
 import CompetitionApply from './pages/Competition/CompetitionApply/CompetitionApply';
+
 
 const loadingPage = <div>화면 로딩중...</div>;
 const DefaultLayout = React.lazy(() => import('./layout/DefaultLayout'));
@@ -53,6 +55,7 @@ const Router = () => {
             <Route path='/forgot' element={<ForgotPage />} />
             <Route path='/reset' element={<ResetPage />} />
             <Route path='/maincompetition' element={<MainCompetition />} />
+            <Route path='/ranking' element={<RankingPage/>}/>
             <Route
               path='/maincompetition/apply'
               element={<ApplyCompetition />}

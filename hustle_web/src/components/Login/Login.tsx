@@ -16,7 +16,7 @@ const defaultValue = defaultLoginValue;
 const LoginMain = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
-  const { setIsLoggedIn, setAccessToken, refreshToken } =
+  const { setIsLoggedIn, setAccessToken } =
     useContext(AuthContext);
   const [user, setUser] = useRecoilState(userAtom);
 
@@ -42,7 +42,7 @@ const LoginMain = () => {
     console.log(data);
     setIsLoading(true);
     try {
-      const response = await axios.post('/auth/login', data, {
+      const response = await axios.post('https://api.sport-hustle.com/api/auth/signin', data, {
         headers: {
           'Content-Type': 'application/json'
         }

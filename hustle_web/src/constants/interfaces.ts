@@ -83,3 +83,13 @@ export interface CompetitionApplyProps {
   name: string;
   phone: string;
 }
+
+export interface RankingProps {
+  id: number;
+  rank: string;
+  teamname: string;
+  matchesNumber: number;
+  win: number;
+  undefeat: number;
+  defeat: number;
+}
