@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Route } from 'react-router-dom';
 const Home = React.lazy(() => import('./pages/Home'));
 const Login = React.lazy(() => import('./pages/Login'));
 const SignIn = React.lazy(() => import('./pages/SignIn'));
@@ -13,7 +13,7 @@ const Join = React.lazy(() => import('./pages/Join/Join'));
 const Friendly = React.lazy(
   () => import('./pages/FriendlyMatch/FriendlyMatch')
 );
-const List1 = React.lazy(() => import('./components/Competition/list1'));
+const Competition = React.lazy(() => import('./pages/Competition/Competition'));
 const QuestionForm = React.lazy(
   () => import('./components/Community/Question/QuestionForm')
 );
@@ -43,6 +43,9 @@ const MainCompetition = React.lazy(
 const ApplyCompetition = React.lazy(
   () => import('./pages/MainCompetition/ApplyCompetition')
 );
+const CompetitionApply = React.lazy(
+  () => import('./pages/Competition/CompetitionApply/CompetitionApply')
+);
 
 const RankingPage = React.lazy(() => import('./pages/Ranking/RankingPage'));
 
@@ -59,7 +62,8 @@ const routes = [
   { path: '/friendly', element: Friendly },
   { path: '/friendly/match', element: FriendlyLists },
   { path: '/friendly/invite', element: FriendlyLists },
-  { path: '/competitions', element: List1 },
+  { path: '/competitions', element: Competition },
+  { path: '/competitions/apply', element: CompetitionApply },
   { path: '/friendly/post', element: PostMatch },
   { path: '/friendly/apply', element: ApplyMatch },
   { path: '/friendly/apply/form', element: ApplyForm },

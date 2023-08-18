@@ -26,7 +26,12 @@ export const PostContainer = styled.div`
   align-items: center;
 `;
 
+export const PostBox = styled.div`
+  width: 100%;
+`;
+
 export const TitleBox = styled.div`
+  width: 39.4rem;
   font-size: ${FONT.SIZE.BODY2};
   font-weight: ${FONT.WEIGHT.BOLD};
   color: ${Colors.Gray70};
@@ -61,7 +66,7 @@ export const InputSmall = styled(InputLarge)`
 `;
 
 export const ImageBox = styled.div`
-  width: 18rem;
+  width: 100%;
   height: 18rem;
   display: flex;
   align-items: center;

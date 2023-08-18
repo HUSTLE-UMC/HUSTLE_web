@@ -16,12 +16,26 @@ const Header = () => {
 
   return (
     <H.Header>
-      <H.LogoWrap>
-        <HeaderIcon onClick={() => navigate('/')} />
-      </H.LogoWrap>
+      <H.RightContainer>
+        <H.RowContainer>
+          <H.LogoWrap>
+            <HeaderIcon onClick={() => navigate('/')} />
+          </H.LogoWrap>
+          <H.Gap>
+            {user !== null ? (
+              <LoginComponent user={user} />
+            ) : (
+              <NotLoginComponent />
+            )}
+          </H.Gap>
+        </H.RowContainer>
+      </H.RightContainer>
+
       <H.BtnWrap>
         <H.HeaderBtn onClick={() => navigate('/')}>홈</H.HeaderBtn>
-        <H.HeaderBtn onClick={() => navigate('/match')}>대회</H.HeaderBtn>
+        <H.HeaderBtn onClick={() => navigate('/competitions')}>
+          대회
+        </H.HeaderBtn>
         <H.HeaderBtn onClick={() => navigate('/friendly')}>교류전</H.HeaderBtn>
         <H.HeaderBtn onClick={() => navigate('/community')}>
           커뮤니티
@@ -29,6 +43,7 @@ const Header = () => {
         <H.HeaderBtn onClick={() => navigate('/ranking')}>순위</H.HeaderBtn>
         {user !== null ? <LoginComponent user={user} /> : <NotLoginComponent />}
         <H.HeaderBtn onClick={() => navigate('/mypage')}>Mypage</H.HeaderBtn>
+        <H.HeaderBtn>순위</H.HeaderBtn>
       </H.BtnWrap>
     </H.Header>
   );

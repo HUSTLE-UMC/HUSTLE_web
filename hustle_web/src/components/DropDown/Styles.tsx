@@ -18,28 +18,32 @@ export const DropDownTitle = styled.div`
   align-items: center;
   justify-content: center;
   color: ${Colors.Gray80};
+  position: relative;
 `;
 
 export const DropDownItem = styled(DropDownTitle)`
-  display: flex;
-  justify-content: space-evenly;
   box-sizing: border-box;
-  padding: 0 3rem;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 4.5rem;
   border-top: 1px solid ${Colors.Gray20};
   border-radius: 0;
   font-weight: ${FONT.WEIGHT.REGULAR};
-  position: relative;
   z-index: 999;
 `;
 
 export const TitleText = styled.div`
-  margin: 0 3rem;
+  margin: 0 2rem;
 `;
 
 export const IconBox = styled.div`
   padding-bottom: 0.5rem;
+  position: absolute;
+  right: 1rem;
 `;
 
 export const RadioButtonBox = styled.div`
+  position: absolute;
+  left: 2rem;
   padding-top: 0.5rem;
 `;

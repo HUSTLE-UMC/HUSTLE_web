@@ -2,6 +2,23 @@ import styled from 'styled-components';
 import Colors from '../../../styles/Color';
 import FONT from '../../../styles/Font';
 
+export const MenuLayout = styled.div`
+  box-sizing: border-box;
+  width: 100%;
+  padding: 1rem 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-bottom: 0.5px solid ${Colors.Gray20};
+`;
+
+export const MenuTitle = styled.div`
+  font-size: ${FONT.SIZE.BODY1};
+  font-weight: ${FONT.WEIGHT.MEDIUM};
+  color: ${Colors.MainBlack};
+  cursor: pointer;
+`;
+
 export const ContentLayout = styled.div`
   width: 100%;
   height: 57.2rem;

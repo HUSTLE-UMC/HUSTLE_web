@@ -6,7 +6,7 @@ export const Content = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: ${Colors.Gray10};
+  background-color: ${Colors.TrueWhite};
   align-items: center;
   margin: 0 auto;
   position: relative;

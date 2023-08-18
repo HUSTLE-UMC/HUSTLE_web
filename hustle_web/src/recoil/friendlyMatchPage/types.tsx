@@ -10,10 +10,9 @@ export interface submitTypes {
   isSubmitted: boolean;
 }
 
-export interface clubListsTypes {
+export interface matchListsTypes {
   sportId: number;
   sport: string;
-  img: string;
   clubName: string;
   title: string;
   location: string;
@@ -22,6 +21,18 @@ export interface clubListsTypes {
   contact: string;
 }
 
-export interface selectedTypes {
-  selected: boolean;
+export interface invitationListsTypes {
+  sportId: number;
+  sport: string;
+  clubName: string;
+  title: string;
+  location: string;
+  date: string;
+  person: string;
+  contact: string;
+}
+
+export interface pageNumberTypes {
+  id: number;
+  isSelected: boolean;
 }
