@@ -4,19 +4,20 @@ import Colors from '../../styles/Color';
 
 export const TeamContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  width: 12.1rem;
-  height: 16.3rem;
+  justify-content: flex-start;
+  width: auto;
+  height: 2.4rem;
 `;
 
 export const LogoWrap = styled.img`
   display: flex;
   align-items: center;
-  width: 12.1rem;
-  height: 12.1rem;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
   object-fit: cover;
-  margin-bottom: 2.5rem;
   border-radius: 10rem;
 `;
 
@@ -26,7 +27,20 @@ export const NameWrap = styled.div`
   align-items: center;
   justify-content: center;
   font-size: ${FONT.SIZE.BODY3};
-  font-weight: ${FONT.WEIGHT.BOLD};
+  font-weight: ${FONT.WEIGHT.REGULAR};
   color: ${Colors.MainBlack};
   font-family: Pretendard;
+  margin-left: 1.4rem;
+`;
+
+export const ReverseNameWrap = styled.div`
+  //width: auto;
+  //height: auto;
+  align-items: center;
+  justify-content: center;
+  font-size: ${FONT.SIZE.BODY3};
+  font-weight: ${FONT.WEIGHT.REGULAR};
+  color: ${Colors.MainBlack};
+  font-family: Pretendard;
+  margin-right: 1.4rem;
 `;

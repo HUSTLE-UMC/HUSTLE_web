@@ -12,6 +12,7 @@ export const Header = styled.div`
   align-items: center;
   justify-content: space-between;
   z-index: 1;
+  border: 0.1rem solid ${Colors.Gray20};
 `;
 
 export const LogoWrap = styled.div`
