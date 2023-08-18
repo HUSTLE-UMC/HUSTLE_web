@@ -4,6 +4,7 @@ import Colors from '../../styles/Color';
 
 export const TeamContainer = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   width: 12.1rem;
   height: 16.3rem;

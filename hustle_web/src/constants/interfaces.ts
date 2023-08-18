@@ -93,3 +93,13 @@ export interface SignInProps {
   university: string;
   gender: string;
 }
+
+export interface RankingProps {
+  id: number;
+  rank: string;
+  teamname: string;
+  matchesNumber: number;
+  win: number;
+  undefeat: number;
+  defeat: number;
+}

@@ -9,7 +9,7 @@ export const TitleContainer = styled.div`
   flex-direction: column;
   border-bottom: 0.2rem solid ${Colors.MainBlack};
   background-color: white;
-  margin-top: 7.2rem;
+  margin-top: 3.6rem;
 `;
 
 export const TitleWrap = styled.div`

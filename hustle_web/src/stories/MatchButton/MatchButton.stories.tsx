@@ -4,7 +4,7 @@ import MatchButton from '../../components/MatchButton/MatchButton';
 import { MatchButtonProps } from '../../components/MatchButton/MatchButtonProps';
 
 export default {
-  title: 'Components/MatchButton',
+  title: 'Components/GroupSelector',
   component: MatchButton
 } as Meta<typeof MatchButton>;
 

@@ -5,8 +5,8 @@ import FONT from '../../../styles/Font';
 export const ContentContainer = styled.ul`
   list-style-type: none;
   padding: 0;
-  width: 120rem;
-  height: 112rem;
+  width: auto;
+  height: 46rem;
   border-bottom: 0.1rem solid ${Colors.MainBlack};
   background-color: white;
 `;

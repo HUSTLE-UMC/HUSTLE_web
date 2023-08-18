@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Colors from '../../styles/Color';
+import FONT from '../../styles/Font';
 
 export const HomeContainer = styled.div`
   width: 100%;
@@ -38,7 +39,7 @@ export const HotBox = styled.div`
 
 export const MatchContainer = styled.div`
   width: 100%;
-  height: 38rem;
+  height: 41rem;
   display: flex;
   flex-direction: column;
   margin-top: 3rem;
@@ -47,10 +48,16 @@ export const MatchContainer = styled.div`
 `;
 
 export const ListBox = styled.div`
-  display: grid;
-  grid-row-gap: 12rem;
-  grid-column-gap: 6rem;
-  grid-template-columns: 1fr 1fr 1fr;
-  margin: 1.5rem 0;
-  padding: 0 3rem;
+  width: 100%;
+  height: 41rem;
+  overflow: hidden;
+`;
+
+export const TextBox = styled.div`
+  width: 100%;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  font-size: ${FONT.SIZE.BODY3};
+  color: ${Colors.Gray80};
 `;
