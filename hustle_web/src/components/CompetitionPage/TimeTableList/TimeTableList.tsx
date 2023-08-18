@@ -11,9 +11,9 @@ const TimeTableList: React.FC<TimeTableListProps> = ({ timeTable }) => {
     <S.ListContainer>
       <S.TimeWrap>{timeTable.time}</S.TimeWrap>
       <S.MatchNameWrap>{timeTable.matchName}</S.MatchNameWrap>
-      <S.TeamLabel>{team1}</S.TeamLabel>
-      <S.TeamLabel>{team2}</S.TeamLabel>
-      <S.ScoreLabel>{score}</S.ScoreLabel>
+      {/*<S.TeamLabel>{team1}</S.TeamLabel>*/}
+      {/*<S.TeamLabel>{team2}</S.TeamLabel>*/}
+      {/*<S.ScoreLabel>{score}</S.ScoreLabel>*/}
     </S.ListContainer>
   );
 };
