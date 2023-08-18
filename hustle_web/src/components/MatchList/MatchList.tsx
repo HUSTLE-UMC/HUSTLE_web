@@ -1,16 +1,13 @@
 import React from 'react';
 import * as L from './Styles';
 import { useNavigate } from 'react-router-dom';
-import { MatchListProps } from './MatchListProps';
-
 import MatchStatus from '../MatchStatus/MatchStatus';
 import MatchButton from '../MatchButton/MatchButton';
 
-interface MatchListProps {
+interface MatchingListProps {
   contests: Contest[];
 }
-
-const ContestList: React.FC<MatchListProps> = ({ contests }) => {
+const ContestList: React.FC<MatchingListProps> = ({ contests }) => {
   const navigate = useNavigate();
 
   const handleApplyClick = () => {

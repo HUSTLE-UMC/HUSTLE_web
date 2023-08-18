@@ -29,7 +29,8 @@ export const listsSelector = selector({
           : (matchs = get(invitationListsSelector))
         : menu === 0
         ? (matchs = get(S.CompetitionState))
-        : (matchs = get(S.invitationListsState));
+        : //   33번줄 바꿔야함 임시로 해결
+          (matchs = get(S.CompetitionState));
     }
     return matchs;
   }
