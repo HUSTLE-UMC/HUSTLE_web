@@ -40,9 +40,26 @@ export const TimeWrap = styled.div`
 `;
 
 export const MatchNameWrap = styled.div`
-  width: 36.5rem;
+  width: 28rem;
   height: auto;
   color: ${Colors.Gray70};
   font-size: ${FONT.SIZE.BODY3};
   font-weight: ${FONT.WEIGHT.REGULAR};
+`;
+
+export const MatchResultWrap = styled.div`
+  width: 48.9rem;
+  height: auto;
+
+  > * {
+    flex: 1;
+  }
+`;
+
+export const MatchResultBox = styled.div`
+  width: auto;
+  height: auto;
+  color: ${Colors.MainBlack};
+  font-size: ${FONT.SIZE.BODY2};
+  font-weight: ${FONT.WEIGHT.BOLD};
 `;
