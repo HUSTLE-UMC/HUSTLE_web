@@ -11,6 +11,15 @@ export const TeamContainer = styled.div`
   height: 2.4rem;
 `;
 
+export const TeamContainerReverse = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  width: auto;
+  height: 2.4rem;
+`;
+
 export const LogoWrap = styled.img`
   display: flex;
   align-items: center;
