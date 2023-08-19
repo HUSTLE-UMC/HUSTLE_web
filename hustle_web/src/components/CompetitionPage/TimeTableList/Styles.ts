@@ -50,7 +50,10 @@ export const MatchNameWrap = styled.div`
 export const MatchResultWrap = styled.div`
   width: 48.9rem;
   height: auto;
-
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   > * {
     flex: 1;
   }
@@ -62,4 +65,16 @@ export const MatchResultBox = styled.div`
   color: ${Colors.MainBlack};
   font-size: ${FONT.SIZE.BODY2};
   font-weight: ${FONT.WEIGHT.BOLD};
+  align-items: center;
+  justify-content: center;
+  display: flex;
+`;
+
+export const ButtonBox = styled.div`
+  width: 16rem;
+  height: auto;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin-left: 23rem;
 `;
