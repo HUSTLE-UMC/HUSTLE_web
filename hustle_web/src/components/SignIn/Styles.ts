@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Colors from '../../styles/Color';
 import FONT from '../../styles/Font';
+import { GenderButtonProps } from './GenderButton';
 // import { GenderButtonProps } from './GenderButton';
 
 export const Layout = styled.div`
@@ -140,24 +141,36 @@ export const UniversityList = styled.div`
   }
 `;
 
-// {
-//   const Genderbutton = styled.button<GenderButtonProps>`
-//   padding: 10px 20px;
-//   font-size: 16px;
-//   border: none;
-//   border-radius: 5px;
-//   cursor: pointer;
-//   background-color: ${(props) => (props.isActive ? 'pink' : 'white')};
-//   color: ${(props) => (props.isActive ? 'white' : 'black')};
-//   margin-right: 10px;
+export const Genderbutton = styled.button<GenderButtonProps>`
+  padding: 10px 20px;
+  font-size: ${FONT.SIZE.BODY3};
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 
-//   &:active {
-//     background-color: pink;
-//     color: white;
-//   }
+  ${({ isselected }) =>
+    isselected
+      ? `
+        background-color: ${Colors.MainColor};
+        color: ${Colors.TrueWhite};
+      `
+      : `
+        background-color: ${Colors.TrueWhite};
+        color: ${Colors.MainBlack};
+      `}
+`;
 
-//   &:hover {
-//     background-color: ${(props) => (props.isActive ? 'pink' : '#f0f0f0')};
-//   }
-// `;
-// }
+export const RightContainer = styled.div`
+  display: flex;
+  justify-content: right;
+  text-align: right;
+`;
+
+export const NameText = styled.text`
+  font-size: ${FONT.SIZE.BODY2};
+  font-weight: ${FONT.WEIGHT.MEDIUM};
+`;
+
+export const AddressText = styled.text`
+  font-size: ${FONT.SIZE.CAPTION};
+`;

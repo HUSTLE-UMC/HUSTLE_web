@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import * as C from './Styles';
 import LogoImg from '../../../assets/images/competition_logoimg.png';
 import { MainCompetitionProps } from '../../../constants/interfaces';
@@ -8,6 +10,7 @@ import FormRequirements from '../../../constants/FormRequirements';
 import UploadImage from './UploadImage';
 
 const PostCompetition = () => {
+  const navigate = useNavigate();
   const { contentRequirements } = FormRequirements;
   const defaultMainValue = defaultMainCompetition;
   const {
@@ -18,9 +21,46 @@ const PostCompetition = () => {
     defaultValues: { ...defaultMainValue }
   });
 
-  const onSubmitHandler: SubmitHandler<MainCompetitionProps> = (data) => {
-    console.log(data);
-    alert('대회 등록이 완료되었습니다.');
+  const onSubmitHandler: SubmitHandler<MainCompetitionProps> = async (
+    data: MainCompetitionProps
+  ) => {
+    try {
+      const response = await axios.post('', {
+        title: data.title,
+        host: data.host,
+        place: data.place,
+        startDate: data.startDate,
+        endDate: data.endDate,
+        recruitmentStartDate: data.recruitmentStartDate,
+        recruitmentEndDate: data.recruitmentEndDate,
+        entryFee: data.entryFee,
+        maxEntryCount: data.maxEntryCount,
+        sponsor: data.sponsor,
+        posterUrl: data.posterUrl,
+        preRoundGroupCount: data.preRoundGroupCount,
+        finalRoundTeamCount: data.finalRoundTeamCount,
+        contacts: [
+          {
+            name: data.contacts[0]?.name,
+            phoneNumber: data.contacts[0]?.phoneNumber
+          },
+          {
+            name: data.contacts[1]?.name,
+            phoneNumber: data.contacts[1]?.phoneNumber
+          }
+        ],
+        sportEventId: 0
+      });
+
+      if (response.status === 200) {
+        console.log(data);
+        alert('대회 개설이 완료되었습니다.');
+        navigate('/competitions');
+      }
+    } catch (e) {
+      alert('대회 개설에 실패하였습니다. 다시 진행해주세요');
+      return;
+    }
   };
 
   return (
@@ -33,17 +73,22 @@ const PostCompetition = () => {
         <C.SubtitleText>대회 이름</C.SubtitleText>
         <C.InputLarge
           placeholder='개설하고자 하는 대회 이름을 입력하세요'
-          {...register('competitionname', contentRequirements)}
+          {...register('title', contentRequirements)}
         />
-        {errors.competitionname && (
-          <C.Error>{errors.competitionname.message}</C.Error>
-        )}
+        {errors.title && <C.Error>{errors.title.message}</C.Error>}
         <C.SubtitleText>주최</C.SubtitleText>
         <C.InputLarge
           placeholder='동아리/단체명을 입력하세요'
-          {...register('teamname', contentRequirements)}
+          {...register('host', contentRequirements)}
         />
-        {errors.teamname && <C.Error>{errors.teamname.message}</C.Error>}
+        {errors.host && <C.Error>{errors.host.message}</C.Error>}
+
+        <C.SubtitleText>장소</C.SubtitleText>
+        <C.InputLarge
+          placeholder='장소를 입력하세요'
+          {...register('place', contentRequirements)}
+        />
+        {errors.place && <C.Error>{errors.place.message}</C.Error>}
 
         <C.SubtitleText>대회 포스터</C.SubtitleText>
         <C.CenterWrapper>
@@ -54,88 +99,87 @@ const PostCompetition = () => {
             <C.SubtitleText>대회 시작일</C.SubtitleText>
             <C.InputSmall
               type='date'
-              {...register('competitiondate', contentRequirements)}
+              {...register('startDate', contentRequirements)}
             />
-            {errors.competitiondate && (
-              <C.Error>{errors.competitiondate.message}</C.Error>
-            )}
+            {errors.startDate && <C.Error>{errors.startDate.message}</C.Error>}
 
             <C.SubtitleText>모집 시작일</C.SubtitleText>
             <C.InputSmall
               type='date'
-              {...register('recruitdate', contentRequirements)}
+              {...register('recruitmentStartDate', contentRequirements)}
             />
-            {errors.recruitdate && (
-              <C.Error>{errors.recruitdate.message}</C.Error>
+            {errors.recruitmentStartDate && (
+              <C.Error>{errors.recruitmentStartDate.message}</C.Error>
             )}
 
             <C.SubtitleText>참가비</C.SubtitleText>
             <C.InputContainer>
-              <C.InputSmall {...register('fee', contentRequirements)} />
+              <C.InputSmall {...register('entryFee', contentRequirements)} />
               <C.CurrencyText>원</C.CurrencyText>
-              {errors.fee && <C.Error>{errors.fee.message}</C.Error>}
+              {errors.entryFee && <C.Error>{errors.entryFee.message}</C.Error>}
             </C.InputContainer>
 
             <C.SubtitleText>예선 조</C.SubtitleText>
             <C.InputContainer>
-              <C.InputSmall {...register('team', contentRequirements)} />
+              <C.InputSmall
+                {...register('preRoundGroupCount', contentRequirements)}
+              />
               <C.CurrencyText>조</C.CurrencyText>
-              {errors.team && <C.Error>{errors.team.message}</C.Error>}
+              {errors.preRoundGroupCount && (
+                <C.Error>{errors.preRoundGroupCount.message}</C.Error>
+              )}
             </C.InputContainer>
 
             <C.TitleText>대표자 연락처</C.TitleText>
             <C.SubtitleText>회장</C.SubtitleText>
             <C.InputSmall
               placeholder='이름'
-              {...register('presidentname', contentRequirements)}
+              {...register('contacts.0.name', contentRequirements)}
             />
-            {errors.presidentname && (
-              <C.Error>{errors.presidentname.message}</C.Error>
-            )}
 
             <C.SubtitleText>부회장</C.SubtitleText>
             <C.InputSmall
               placeholder='이름'
-              {...register('president2name', contentRequirements)}
+              {...register('contacts.1.name', contentRequirements)}
             />
-            {errors.president2name && (
-              <C.Error>{errors.president2name.message}</C.Error>
-            )}
           </div>
+
           <div>
             <C.SubtitleText>대회 종료일</C.SubtitleText>
             <C.InputSmall
               type='date'
-              {...register('competitiondue', contentRequirements)}
+              {...register('endDate', contentRequirements)}
             />
-            {errors.competitiondue && (
-              <C.Error>{errors.competitiondue.message}</C.Error>
-            )}
+            {errors.endDate && <C.Error>{errors.endDate.message}</C.Error>}
 
             <C.SubtitleText>모집 마감일</C.SubtitleText>
             <C.InputSmall
               type='date'
-              {...register('recruitdue', contentRequirements)}
+              {...register('recruitmentEndDate', contentRequirements)}
             />
-            {errors.recruitdue && (
-              <C.Error>{errors.recruitdue.message}</C.Error>
+            {errors.recruitmentEndDate && (
+              <C.Error>{errors.recruitmentEndDate.message}</C.Error>
             )}
 
             <C.SubtitleText>모집팀 수</C.SubtitleText>
             <C.InputContainer>
-              <C.InputSmall {...register('recruitteam', contentRequirements)} />
+              <C.InputSmall
+                {...register('maxEntryCount', contentRequirements)}
+              />
               <C.CurrencyText>팀</C.CurrencyText>
-              {errors.recruitteam && (
-                <C.Error>{errors.recruitteam.message}</C.Error>
+              {errors.maxEntryCount && (
+                <C.Error>{errors.maxEntryCount.message}</C.Error>
               )}
             </C.InputContainer>
 
             <C.SubtitleText>본선 진출</C.SubtitleText>
             <C.InputContainer>
-              <C.InputSmall {...register('finalteam', contentRequirements)} />
+              <C.InputSmall
+                {...register('finalRoundTeamCount', contentRequirements)}
+              />
               <C.CurrencyText>강</C.CurrencyText>
-              {errors.finalteam && (
-                <C.Error>{errors.finalteam.message}</C.Error>
+              {errors.finalRoundTeamCount && (
+                <C.Error>{errors.finalRoundTeamCount.message}</C.Error>
               )}
             </C.InputContainer>
 
@@ -147,11 +191,8 @@ const PostCompetition = () => {
             </C.SubtitleText>
             <C.InputSmall
               placeholder='연락처'
-              {...register('presidentphone', contentRequirements)}
+              {...register('contacts.0.phoneNumber', contentRequirements)}
             />
-            {errors.presidentphone && (
-              <C.Error>{errors.presidentphone.message}</C.Error>
-            )}
 
             <C.SubtitleText>
               <span>&nbsp;</span>
@@ -159,19 +200,16 @@ const PostCompetition = () => {
 
             <C.InputSmall
               placeholder='연락처'
-              {...register('president2phone', contentRequirements)}
+              {...register('contacts.1.phoneNumber', contentRequirements)}
             />
-            {errors.president2phone && (
-              <C.Error>{errors.president2phone.message}</C.Error>
-            )}
           </div>
         </C.RowContainer>
         <C.SubtitleText>후원</C.SubtitleText>
         <C.InputLarge
           placeholder='후원 단체명을 입력하세요'
-          {...register('support', contentRequirements)}
+          {...register('sponsor', contentRequirements)}
         />
-        {errors.support && <C.Error>{errors.support.message}</C.Error>}
+        {errors.sponsor && <C.Error>{errors.sponsor.message}</C.Error>}
 
         <C.CenterWrapper>
           <C.SubmitButton type='submit'>대회 등록하기</C.SubmitButton>
