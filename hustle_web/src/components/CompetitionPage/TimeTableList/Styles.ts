@@ -7,8 +7,8 @@ export const LabelContainer = styled.div`
   height: 6rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 1.9rem 3.2rem;
+  align-items: flex-start;
+  padding: 0 3.2rem;
   background-color: ${Colors.BGgray};
   border-top: 0.1rem solid ${Colors.Gray20};
   border-bottom: 0.1rem solid ${Colors.Gray20};
@@ -40,9 +40,41 @@ export const TimeWrap = styled.div`
 `;
 
 export const MatchNameWrap = styled.div`
-  width: 36.5rem;
+  width: 28rem;
   height: auto;
   color: ${Colors.Gray70};
   font-size: ${FONT.SIZE.BODY3};
   font-weight: ${FONT.WEIGHT.REGULAR};
+`;
+
+export const MatchResultWrap = styled.div`
+  width: 48.9rem;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  > * {
+    flex: 1;
+  }
+`;
+
+export const MatchResultBox = styled.div`
+  width: auto;
+  height: auto;
+  color: ${Colors.MainBlack};
+  font-size: ${FONT.SIZE.BODY2};
+  font-weight: ${FONT.WEIGHT.BOLD};
+  align-items: center;
+  justify-content: center;
+  display: flex;
+`;
+
+export const ButtonBox = styled.div`
+  width: 16rem;
+  height: auto;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin-left: 23rem;
 `;
