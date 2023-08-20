@@ -5,17 +5,15 @@ import FONT from '../../../styles/Font';
 export const TitleContainer = styled.div`
   box-sizing: border-box;
   width: 100%;
-  padding: 1rem 5rem;
+  //padding: 1rem 5rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  border-bottom: 0.5px solid ${Colors.Gray20};
 `;
 
 export const MenuBox = styled.div`
   width: 25.4rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 `;
 
 export const SelectedMenu = styled.button`

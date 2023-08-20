@@ -15,10 +15,14 @@ export const competitionMenuSelector = selector({
   key: 'competitionMenuSelector',
   get: ({ get }: any) => {
     const menus = get(S.competitionMenuState);
-    return menus.findIndex((v: T.menuTypes) => v.isSelected);
+    const selectedId = menus.findIndex(
+      (v: T.CompetitionMenuTypes) => v.isSelected
+    );
+    return selectedId;
   }
 });
 
+// 대회 관련 리스트
 export const listsSelector = selector({
   key: 'listsSelector',
   get: ({ get }: any) => {

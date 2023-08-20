@@ -7,8 +7,8 @@ export const LabelContainer = styled.div`
   height: 6rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 1.9rem 3.2rem;
+  align-items: flex-start;
+  padding: 0 3.2rem;
   background-color: ${Colors.BGgray};
   border-top: 0.1rem solid ${Colors.Gray20};
   border-bottom: 0.1rem solid ${Colors.Gray20};

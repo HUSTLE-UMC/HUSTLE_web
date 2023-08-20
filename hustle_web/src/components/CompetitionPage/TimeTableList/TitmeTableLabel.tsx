@@ -2,10 +2,10 @@ import React from 'react';
 import { TimeTableProps } from './TimeTableProps';
 import * as T from './Styles';
 
-const TimeTableLabel = ({ date }: TimeTableProps) => {
+const TimeTableLabel = ({ date }: Pick<TimeTableProps, 'date'>) => {
   return (
     <T.LabelContainer>
-      <T.LabelTitle>Date: {date}</T.LabelTitle>
+      <T.LabelTitle>{date}</T.LabelTitle>
     </T.LabelContainer>
   );
 };

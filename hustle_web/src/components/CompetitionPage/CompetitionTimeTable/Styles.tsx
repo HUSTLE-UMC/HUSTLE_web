@@ -6,6 +6,7 @@ export const CompetitionTimeTableContainer = styled.div`
   width: 100%;
   height: auto;
   display: flex;
+  flex-direction: column;
   //box-sizing: border-box;
   //padding: 1rem 5rem;
   align-items: center;

@@ -3,13 +3,13 @@ import * as S from './Styles';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { competitionMenuState } from '../../../recoil/CompetitionPage/states';
-import { menuTypes } from '../../../recoil/CompetitionPage/types';
+import { CompetitionMenuTypes } from '../../../recoil/CompetitionPage/types';
 
 export const CompetitonMenu = () => {
   const [menu, setMenu] = useRecoilState(competitionMenuState);
   const handleClick = (id: number) => {
     setMenu(
-      menu.map((m: menuTypes) => {
+      menu.map((m: CompetitionMenuTypes) => {
         return m.id === id
           ? { ...m, isSelected: true }
           : { ...m, isSelected: false };

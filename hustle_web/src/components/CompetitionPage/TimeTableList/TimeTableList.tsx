@@ -12,7 +12,10 @@ const TimeTableList = ({
   team1,
   score,
   team2
-}: TimeTableProps) => {
+}: Pick<
+  TimeTableProps,
+  'time' | 'matchName' | 'team1' | 'score' | 'team2'
+>) => {
   const handleRecordClick = () => {
     console.log('기록 보기 버튼이 클릭되었습니다.');
   };

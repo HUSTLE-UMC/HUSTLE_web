@@ -2,7 +2,7 @@ import * as S from './Styles';
 import GroupSelector from '../../GroupSelector/GroupSelector';
 import { useRecoilState, useSetRecoilState } from 'recoil';
 import {
-  competitionMenuState,
+  PreCompetitionState,
   competitionSelectState,
   competitionTypes
 } from '../../../recoil/CompetitionPage/CompetitionButton';
@@ -12,12 +12,12 @@ interface Props {
 }
 
 export const CompetitionButton = ({ disable }: Props) => {
-  const [menus, setMenus] = useRecoilState(competitionMenuState);
+  const [menus, setMenus] = useRecoilState(PreCompetitionState);
   const setIsSelected = useSetRecoilState(competitionSelectState);
-  const handleClick = (id: number) => {
+  const handleClick = (menuId: number) => {
     setMenus(
       menus.map((m: competitionTypes) => {
-        return m.id === id
+        return m.menuId === menuId
           ? { ...m, selected: true }
           : { ...m, selected: false };
       })
@@ -28,7 +28,8 @@ export const CompetitionButton = ({ disable }: Props) => {
     <S.CategoryLayout>
       {menus.map((m, index) => (
         <GroupSelector
-          key={index}
+          key={m.menuId}
+          type={m.type}
           label={m.label}
           selected={m.selected}
           onClick={

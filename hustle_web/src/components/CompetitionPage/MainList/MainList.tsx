@@ -21,7 +21,6 @@ export const MainList = () => {
         return (
           <CompetitionTimeTable
             key={i}
-            // id={i}
             date={v.date}
             time={v.time}
             matchName={v.matchName}
@@ -32,7 +31,7 @@ export const MainList = () => {
         );
       })}
       {isSelected && matchs.length === 0 && (
-        <S.TextBox>현재 등록된 교류전이 없습니다.</S.TextBox>
+        <S.TextBox>진행 예정인 경기가 없습니다.</S.TextBox>
       )}
     </>
   );
