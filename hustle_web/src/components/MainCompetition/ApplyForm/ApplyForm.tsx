@@ -1,11 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import * as C from './Styles';
 import NoticeCheck from './NoticeCheck';
 import PrivacyCheck from './PrivacyCheck';
-import { CompetitionApplyProps } from '../../../constants/interfaces';
+import {
+  CompetitionApplyProps,
+  ApplyCompetitionProps
+} from '../../../constants/interfaces';
 import { defaultCompetitionApplyFormValue } from '../../../constants/defaultFormOption';
 import FormRequirements from '../../../constants/FormRequirements';
+import { dummyCompetition } from './DummyCompetition';
 
 const ApplyForm = () => {
   const { contentRequirements } = FormRequirements;
@@ -19,8 +24,31 @@ const ApplyForm = () => {
 
   const [isNoticeChecked, setIsNoticeChecked] = useState(false);
   const [isPrivacyChecked, setIsPrivacyChecked] = useState(false);
+  const [competitionData, setCompetitionData] =
+    useState<ApplyCompetitionProps | null>(null);
 
-  const onSubmitHandler: SubmitHandler<CompetitionApplyProps> = (data) => {
+  useEffect(() => {
+    setCompetitionData(dummyCompetition[0]); // 연동할 때 주석처리하기
+    async function fetchCompetitionData() {
+      try {
+        const response = await axios.get('URL_TO_GET_COMPETITION_DATA');
+        setCompetitionData(response.data);
+      } catch (error) {
+        console.error('Error fetching competition data:', error);
+      }
+    }
+
+    fetchCompetitionData();
+  }, []);
+
+  const onSubmitHandler: SubmitHandler<CompetitionApplyProps> = async (
+    data: CompetitionApplyProps
+  ) => {
+    try {
+      const response = await axios.post('', {});
+    } catch (e) {
+      alert('대회 신청에 실패하였습니다. 다시 진행해주세요.');
+    }
     if (!isNoticeChecked) {
       alert('주의사항에 동의해주세요.');
       return;
@@ -37,11 +65,18 @@ const ApplyForm = () => {
     <C.ApplyContainer>
       <form>
         <C.TitleText>대회 신청</C.TitleText>
-        <C.ApplySubtitleText>가톨릭대학교 총장배 대회</C.ApplySubtitleText>
+        <C.ApplySubtitleText>
+          {competitionData ? competitionData.title : '대회 정보 없음'}
+        </C.ApplySubtitleText>
 
         <C.ApplyRowContainer>
-          <C.SubtitleLightText>가톨릭대학교 바스타즈</C.SubtitleLightText>
-          <C.SubtitleLightText>2023-07-07</C.SubtitleLightText>
+          <C.SubtitleLightText>
+            {competitionData ? competitionData.host : '대회 정보 없음'}
+          </C.SubtitleLightText>
+          <C.SubtitleLightText>
+            {competitionData ? competitionData.startDate : '대회 정보 없음'} ~{' '}
+            {competitionData ? competitionData.dueDate : '대회 정보 없음'}
+          </C.SubtitleLightText>
         </C.ApplyRowContainer>
 
         <C.LeftWrapper>

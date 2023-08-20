@@ -1,22 +1,22 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import * as S from './Styles';
 import { SignInProps } from '../../constants/interfaces';
 import { defaultSignInFormValue } from '../../constants/defaultFormOption';
 import FormRequirements from '../../constants/FormRequirements';
-import { GenderButtonProps } from './GenderButton';
+import UniversitySearch from './UniversitySearch';
 
 const SignIn = () => {
   const navigate = useNavigate();
-  const [universityList, setUniversityList] = useState([
-    { id: '', name: '', address: '' }
-  ]);
-  const [searchQuery, setSearchQuery] = useState(''); // 검색어 상태 추가
+  const [selectedUniversity, setSelectedUniversity] = useState('');
   const [gender, setGender] = useState('');
   const handleButtonClick = (selectedGender: string) => {
     setGender(selectedGender); // 클릭된 버튼의 상태를 업데이트
+  };
+  const handleUniversitySelection = (universityName: string) => {
+    setSelectedUniversity(universityName);
   };
 
   const onSubmitHandler: SubmitHandler<SignInProps> = async (
@@ -31,7 +31,7 @@ const SignIn = () => {
           passwordcheck: data.passwordcheck,
           name: data.name,
           birth: data.birth,
-          university: data.university,
+          university: selectedUniversity,
           gender: data.gender
         }
       );
@@ -74,17 +74,6 @@ const SignIn = () => {
     defaultValues: { ...defaultSignInFormValue }
   });
 
-  const handleSearchUniversity = async () => {
-    try {
-      const response = await axios.get(
-        `https://api.example.com/universities?search=${searchQuery}`
-      );
-      setUniversityList(response.data); // 대학교 목록 설정
-    } catch (error) {
-      console.error('대학교 검색 오류:', error);
-    }
-  };
-
   return (
     <S.Layout>
       <form>
@@ -103,6 +92,7 @@ const SignIn = () => {
             <S.ErrorDiv>{errors.id.message}</S.ErrorDiv>
           )}
         </S.Box>
+
         <S.Box>
           <S.InputLabel>비밀번호</S.InputLabel>
           <S.InputLarge
@@ -120,6 +110,7 @@ const SignIn = () => {
             <S.ErrorDiv>{errors.password.message}</S.ErrorDiv>
           )}
         </S.Box>
+
         <S.Box>
           <S.InputLabel>비밀번호 확인</S.InputLabel>
           <S.InputLarge
@@ -137,6 +128,7 @@ const SignIn = () => {
             <S.ErrorDiv>{errors.passwordcheck.message}</S.ErrorDiv>
           )}
         </S.Box>
+
         <S.Box>
           <S.InputLabel>이름</S.InputLabel>
           <S.InputLarge
@@ -186,42 +178,9 @@ const SignIn = () => {
         }
 
         <S.Box>
-          <S.InputLabel>소속 대학교</S.InputLabel>
-          <S.InputLarge
-            type='university' // 원하는 타입으로 변경하세요
-            placeholder='재학 중인 대학교를 입력하세요'
-            value={searchQuery} // 입력창에 표시될 값은 searchQuery 상태
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              setSearchQuery(e.target.value);
-            }}
-          />
-          <S.SubmitButton
-            type='button'
-            onClick={() => handleSearchUniversity()} // 검색 버튼 클릭 시 대학교 목록 검색
-          >
-            검색
-          </S.SubmitButton>
-
-          {universityList.length > 0 && (
-            <S.UniversityList>
-              {' '}
-              {universityList.map((university, id) => (
-                <div key={id}>
-                  {university.name} {university.address}
-                  <button
-                    type='button'
-                    onClick={() => {
-                      setSearchQuery(university.name);
-                      register('university', { value: university.name });
-                    }}
-                  >
-                    선택
-                  </button>
-                </div>
-              ))}
-            </S.UniversityList>
-          )}
+          <UniversitySearch onSelectUniversity={handleUniversitySelection} />
         </S.Box>
+
         <S.Box>
           <S.SubmitButton type='submit' onClick={handleSubmit(onSubmitHandler)}>
             회원가입

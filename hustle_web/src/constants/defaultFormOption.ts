@@ -14,21 +14,19 @@ export const defaultCompetition = {
 };
 
 export const defaultMainCompetition = {
-  competitionname: '',
-  teamname: '',
-  support: '',
-  competitiondue: 0,
-  recruitdue: 0,
-  recruitteam: 0,
-  finalteam: 0,
-  presidentphone: '',
-  president2phone: '',
-  competitiondate: 0,
-  recruitdate: 0,
-  fee: 0,
-  team: 0,
-  presidentname: '',
-  president2name: ''
+  title: '',
+  host: '',
+  place: '',
+  sponsor: '',
+  endDate: '',
+  recruitmentEndDate: '',
+  maxEntryCount: 0,
+  finalRoundTeamCount: 0,
+  startDate: '',
+  recruitmentStartDate: '',
+  entryFee: 0,
+  preRoundGroupCount: 0,
+  posterUrl: ''
 };
 
 export const defaultApplyFormValue = {

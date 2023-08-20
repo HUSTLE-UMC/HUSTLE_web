@@ -61,21 +61,33 @@ export interface PostMatchProps {
 }
 
 export interface MainCompetitionProps {
-  competitionname: string;
-  teamname: string;
-  support: string;
-  competitiondue: number;
-  recruitdue: number;
-  recruitteam: number;
-  finalteam: number;
-  presidentphone: string;
-  president2phone: string;
-  competitiondate: number;
-  recruitdate: number;
-  fee: number;
-  team: number;
-  presidentname: string;
-  president2name: string;
+  title: string;
+  host: string;
+  place: string;
+  sponsor: string;
+  endDate: string;
+  recruitmentEndDate: string;
+  maxEntryCount: number;
+  finalRoundTeamCount: number;
+  // presidentphone: string;
+  // president2phone: string;
+  startDate: string;
+  recruitmentStartDate: string;
+  entryFee: number;
+  preRoundGroupCount: number;
+  // presidentname: string;
+  // president2name: string;
+  posterUrl: string;
+  contacts: [
+    {
+      name: string;
+      phoneNumber: string;
+    },
+    {
+      name: string;
+      phoneNumber: string;
+    }
+  ];
 }
 
 export interface CompetitionApplyProps {
@@ -102,4 +114,17 @@ export interface RankingProps {
   win: number;
   undefeat: number;
   defeat: number;
+}
+
+export interface ApplyCompetitionProps {
+  title: string;
+  host: string;
+  startDate: string;
+  dueDate: string;
+}
+
+export interface UniversityProps {
+  id: number;
+  universityName: string;
+  address: string;
 }

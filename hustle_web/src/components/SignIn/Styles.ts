@@ -143,7 +143,7 @@ export const UniversityList = styled.div`
 
 export const Genderbutton = styled.button<GenderButtonProps>`
   padding: 10px 20px;
-  font-size: 16px;
+  font-size: ${FONT.SIZE.BODY3};
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -158,4 +158,19 @@ export const Genderbutton = styled.button<GenderButtonProps>`
         background-color: ${Colors.TrueWhite};
         color: ${Colors.MainBlack};
       `}
+`;
+
+export const RightContainer = styled.div`
+  display: flex;
+  justify-content: right;
+  text-align: right;
+`;
+
+export const NameText = styled.text`
+  font-size: ${FONT.SIZE.BODY2};
+  font-weight: ${FONT.WEIGHT.MEDIUM};
+`;
+
+export const AddressText = styled.text`
+  font-size: ${FONT.SIZE.CAPTION};
 `;
