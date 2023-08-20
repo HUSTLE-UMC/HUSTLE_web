@@ -4,7 +4,6 @@ import SportsMenu from '../../components/SportsMenu/SportsMenu';
 const ApplyCompetition = () => {
   return (
     <>
-      <SportsMenu />
       <ApplyForm />
     </>
   );

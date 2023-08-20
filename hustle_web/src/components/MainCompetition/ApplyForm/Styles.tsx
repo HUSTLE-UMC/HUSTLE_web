@@ -61,13 +61,15 @@ export const NoticeContent = styled.div`
 
 export const CheckboxContainer = styled.label`
   display: flex;
-  margin-left: 14rem;
+  margin-left: 13rem;
   cursor: pointer;
+  justify-content: right;
+  text-align: right;
 `;
 
 export const CheckboxContainer2 = styled.label`
   display: flex;
-  margin-left: 10.1rem;
+  margin-left: 9.2rem;
   cursor: pointer;
 `;
 
@@ -80,7 +82,7 @@ export const NoticeBox = styled.div`
 `;
 
 export const ArrowBox = styled.div`
-  margin-left: 36.7rem;
+  margin-left: 35.7rem;
   cursor: pointer;
 `;
 
@@ -112,6 +114,7 @@ export const InputLarge = styled.input`
 `;
 
 export const ApplyRowContainer = styled.div`
+  //width: 38rem;
   gap: 1rem;
   display: flex;
   flex-direction: row;
