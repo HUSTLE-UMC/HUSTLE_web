@@ -4,6 +4,13 @@ export interface menuTypes {
   isSelected: boolean;
 }
 
+export interface CompetitionMenuTypes {
+  id: number;
+  label: string;
+  type: 'Preliminary' | 'Finals';
+  isSelected: boolean;
+}
+
 export interface sortTypes {
   id: number;
   sort: string;
@@ -33,12 +40,6 @@ export interface clubListsTypes {
 
 export interface selectedTypes {
   selected: boolean;
-}
-
-export interface menuTypes {
-  id: number;
-  label: string;
-  isSelected: boolean;
 }
 
 export interface CompetitionResultTypes {

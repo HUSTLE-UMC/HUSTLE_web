@@ -9,10 +9,14 @@ export const Layout = styled.div`
 `;
 
 export const LabelWrap = styled.div`
+  display: flex;
   width: auto;
   height: 6rem;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
+  font-size: ${FONT.SIZE.TITLE3};
+  font-weight: ${FONT.WEIGHT.BOLD};
+  color: ${Colors.MainBlack};
 `;
 
 export const TextBox = styled.div`

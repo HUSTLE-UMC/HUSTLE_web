@@ -15,17 +15,9 @@ const CompetitionTimeTable = ({
   return (
     <C.CompetitionTimeTableContainer>
       {/* TimeTableList에 들어가야할 props가 Label에 가있는 거같음*/}
-      <TimeTableLabel
-        date={date}
-        matchName={matchName}
-        score={score}
-        team1={team1}
-        team2={team2}
-        time={time}
-      />
+      <TimeTableLabel date={date} />
       <TimeTableList
         time={time}
-        date={date}
         matchName={matchName}
         team1={team1}
         team2={team2}

@@ -7,21 +7,17 @@ import {
   sportSelectState,
   sportsMenuState
 } from '../../../recoil/SportsButton';
-import { pageNumberState } from '../../../recoil/friendlyMatchPage/states';
 import { useEffect } from 'react';
 
 export const CompetitionResult = () => {
+  //  selectedMenu는 예선 본선이다
   const selectedMenu = useRecoilValue(competitionMenuSelector);
   const resetSportMenu = useResetRecoilState(sportsMenuState);
   const resetSportSelect = useResetRecoilState(sportSelectState);
-  const resetPageSelect = useResetRecoilState(pageNumberState);
   useEffect(() => {
     resetSportMenu();
     resetSportSelect();
   }, []);
-  useEffect(() => {
-    resetPageSelect();
-  }, [selectedMenu]);
   return (
     <>
       <S.Layout>{selectedMenu === 0 ? <PreList /> : <MainList />}</S.Layout>

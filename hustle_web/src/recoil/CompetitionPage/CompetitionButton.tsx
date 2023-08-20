@@ -1,101 +1,109 @@
 import { atom, selector } from 'recoil';
+import MainCompetition from '../../pages/MainCompetition/MainCompetition';
+import { competitionMenuState } from './states';
 
 export interface competitionTypes {
-  id: number;
+  menuId: number;
   type?: 'Preliminary' | 'Finals';
   label: string;
   selected: boolean;
 }
 
-export const competitionMenuState = atom<competitionTypes[]>({
-  key: 'sportsMenuState',
+export const PreCompetitionState = atom<competitionTypes[]>({
+  key: 'competitionMenuState',
   default: [
     {
-      id: 0,
+      menuId: 0,
       type: 'Preliminary',
-      label: 'A조',
+      label: '예선',
       selected: false
     },
     {
-      id: 1,
+      menuId: 1,
       type: 'Preliminary',
-      label: 'B조',
+      label: '본선',
       selected: false
     },
     {
-      id: 2,
+      menuId: 2,
       type: 'Preliminary',
       label: 'C조',
       selected: false
     },
     {
-      id: 3,
+      menuId: 3,
       type: 'Preliminary',
       label: 'D조',
       selected: false
     },
     {
-      id: 4,
+      menuId: 4,
       type: 'Preliminary',
       label: 'E조',
       selected: false
     },
     {
-      id: 5,
+      menuId: 5,
       type: 'Preliminary',
       label: 'F조',
       selected: false
     },
     {
-      id: 6,
+      menuId: 6,
       type: 'Preliminary',
       label: 'G조',
       selected: false
     },
     {
-      id: 7,
+      menuId: 7,
       type: 'Preliminary',
       label: 'H조',
       selected: false
-    },
+    }
+  ]
+});
+
+export const MainCompetitionState = atom<competitionTypes[]>({
+  key: 'MainCompetition',
+  default: [
     {
-      id: 8,
+      menuId: 0,
       type: 'Finals',
       label: '32강',
       selected: false
     },
     {
-      id: 9,
+      menuId: 1,
       type: 'Finals',
       label: '16강',
       selected: false
     },
     {
-      id: 10,
+      menuId: 2,
       type: 'Finals',
       label: '8강',
       selected: false
     },
     {
-      id: 11,
+      menuId: 3,
       type: 'Finals',
       label: '4강',
       selected: false
     },
     {
-      id: 12,
+      menuId: 4,
       type: 'Finals',
       label: '준결승',
       selected: false
     },
     {
-      id: 13,
+      menuId: 5,
       type: 'Finals',
       label: '순위 결정전',
       selected: false
     },
     {
-      id: 14,
+      menuId: 6,
       type: 'Finals',
       label: '결승',
       selected: false
@@ -108,20 +116,30 @@ export const competitionSelectState = atom<boolean>({
   default: false
 });
 
-// 현재 선택되어 있는 경기(몇강, 몇강) 정보 Selector
+//  대회 예선-본선 타입 선택
+export const CompetitionTypeSelector = selector({
+  key: 'CompetitionTypeSelector',
+  get: ({ get }) => {
+    const menu = get(competitionMenuState);
+    const selectedMenu = menu.find((item) => item.isSelected);
+    return selectedMenu ? selectedMenu.type : null;
+  }
+});
+
+// 현재 선택되어 있는 경기(몇강, 몇강) 정보 Selector(예선용)
 export const CompetitionSelector = selector({
   key: 'CompetitionSelector',
   get: ({ get }: any) => {
-    const sports = get(competitionMenuState);
+    const sports = get(PreCompetitionState);
     return sports.filter((v: competitionTypes) => v.selected);
   }
 });
 
-// 현재 선택되어 있는 경기 type의 ID Selector
+// 현재 선택되어 있는 경기 type의 ID Selector(예선용)
 export const CompetitionIdSelector = selector({
-  key: 'SportsIdSelector',
+  key: 'CompetitionIdSelector',
   get: ({ get }: any) => {
-    const sports = get(competitionMenuState);
+    const sports = get(PreCompetitionState);
     return sports.findIndex((v: competitionTypes) => v.selected);
   }
 });
