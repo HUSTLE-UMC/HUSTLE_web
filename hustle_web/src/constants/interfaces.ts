@@ -114,6 +114,8 @@ export interface RankingProps {
   win: number;
   undefeat: number;
   defeat: number;
+  logo: string;
+  menuId: number;
 }
 
 export interface ApplyCompetitionProps {
