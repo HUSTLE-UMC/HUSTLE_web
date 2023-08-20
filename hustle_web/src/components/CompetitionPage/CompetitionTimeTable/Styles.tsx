@@ -4,17 +4,10 @@ import FONT from '../../../styles/Font';
 
 export const CompetitionTimeTableContainer = styled.div`
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  //box-sizing: border-box;
-  //padding: 1rem 5rem;
-  align-items: center;
-`;
-
-export const CompetitionTimeTableContainer = styled.div`
-  width: 100%;
   height: auto;
   display: flex;
+  //box-sizing: border-box;
+  //padding: 1rem 5rem;
   align-items: center;
 `;
 
