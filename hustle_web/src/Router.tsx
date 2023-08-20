@@ -21,7 +21,7 @@ import MainCompetition from './pages/MainCompetition/MainCompetition';
 import ApplyCompetition from './pages/MainCompetition/ApplyCompetition';
 import RankingPage from './pages/Ranking/RankingPage';
 import CompetitionApply from './pages/Competition/CompetitionApply/CompetitionApply';
-
+import CompetitionResultPage from './pages/Competition/CompetitionResult/CompetitionResultPage';
 
 const loadingPage = <div>화면 로딩중...</div>;
 const DefaultLayout = React.lazy(() => import('./layout/DefaultLayout'));
@@ -37,6 +37,10 @@ const Router = () => {
             <Route path='/signIn' element={<SignIn />} />
             <Route path='/competitions' element={<Competition />} />
             <Route path='/competitions/apply' element={<CompetitionApply />} />
+            <Route
+              path='/competitions/result'
+              element={<CompetitionResultPage />}
+            />
             <Route path='/mypage' element={<MyPageMain />} />
             <Route path='/community' element={<Community />} />
             <Route path='/community/club' element={<Club />} />
@@ -55,7 +59,7 @@ const Router = () => {
             <Route path='/forgot' element={<ForgotPage />} />
             <Route path='/reset' element={<ResetPage />} />
             <Route path='/maincompetition' element={<MainCompetition />} />
-            <Route path='/ranking' element={<RankingPage/>}/>
+            <Route path='/ranking' element={<RankingPage />} />
             <Route
               path='/maincompetition/apply'
               element={<ApplyCompetition />}
