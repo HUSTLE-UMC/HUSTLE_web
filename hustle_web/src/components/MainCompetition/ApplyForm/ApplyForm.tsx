@@ -93,16 +93,18 @@ const ApplyForm = () => {
         <C.LeftWrapper>
           <C.ApplySubtitleText>대표자 연락처</C.ApplySubtitleText>
         </C.LeftWrapper>
-        <C.ApplyRowContainer>
-          <C.InputSmall
-            placeholder='이름'
-            {...register('name', contentRequirements)}
-          />
-          <C.InputSmall
-            placeholder='연락처'
-            {...register('phone', contentRequirements)}
-          />
-        </C.ApplyRowContainer>
+        <C.LeftWrapper>
+          <C.ApplyRowContainer>
+            <C.InputSmall
+              placeholder='이름'
+              {...register('name', contentRequirements)}
+            />
+            <C.InputSmall
+              placeholder='연락처'
+              {...register('phone', contentRequirements)}
+            />
+          </C.ApplyRowContainer>
+        </C.LeftWrapper>
 
         <C.LeftWrapper>
           {errors.name && errors.phone && (
