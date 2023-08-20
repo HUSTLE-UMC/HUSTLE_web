@@ -5,13 +5,13 @@ import {
   competitionMenuState,
   competitionSelectState,
   competitionTypes
-} from '../../../recoil/CompetitionPage/CompetitionMenu';
+} from '../../../recoil/CompetitionPage/CompetitionButton';
 
 interface Props {
   disable?: boolean;
 }
 
-export const SportsMenu = ({ disable }: Props) => {
+export const CompetitionButton = ({ disable }: Props) => {
   const [menus, setMenus] = useRecoilState(competitionMenuState);
   const setIsSelected = useSetRecoilState(competitionSelectState);
   const handleClick = (id: number) => {
@@ -44,4 +44,4 @@ export const SportsMenu = ({ disable }: Props) => {
   );
 };
 
-export default SportsMenu;
+export default CompetitionButton;

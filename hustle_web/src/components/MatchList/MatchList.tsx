@@ -14,6 +14,9 @@ const MatchList = () => {
   const handleApplyClick = () => {
     navigate('/competitions/apply'); //
   };
+  const handleResultClick = () => {
+    navigate('/competitions/result'); //
+  };
 
   return (
     <L.ListContainer>
@@ -35,9 +38,7 @@ const MatchList = () => {
             <MatchButton
               type='small'
               label='결과 확인'
-              onClick={() => {
-                /* 온클릭 이벤트 */
-              }}
+              onClick={handleResultClick}
             />
           </L.BtnWrap>
         </L.MatchItem>

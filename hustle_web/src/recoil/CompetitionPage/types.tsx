@@ -19,7 +19,6 @@ export interface CompetitionTypes {
   date: string;
 }
 
-
 export interface clubListsTypes {
   sportId: number;
   sport: string;
@@ -40,4 +39,22 @@ export interface menuTypes {
   id: number;
   label: string;
   isSelected: boolean;
+}
+
+export interface CompetitionResultTypes {
+  sportId: number;
+  sortId: number;
+  id: number;
+  date: string;
+  time: string;
+  matchName: string;
+  team1: string;
+  team2: string;
+  score: string;
+}
+
+export interface scoreTypes {
+  club1Id: number;
+  club2Id: number;
+  score: string;
 }

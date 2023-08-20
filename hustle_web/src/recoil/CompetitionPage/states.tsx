@@ -30,6 +30,81 @@ export const competitionSortState = atom<T.sortTypes[]>({
   ]
 });
 
+// export const ScoreResult = atom<T.scoreTypes[]>({
+//   key: 'ScoreResult',
+//   default: [
+//     {
+//       sportId: 0,
+//       id: 0,
+//       date: '7월 19일 (토)',
+//       time: '17:00',
+//       matchName: 'A조 1경기',
+//       team1: '바스타즈',
+//       team2: '바스타즈',
+//       score: '43: 19'
+//     },
+//     {
+//       sportId: 1,
+//       id: 1,
+//       date: '7월 19일 (토)',
+//       time: '17:00',
+//       matchName: 'A조 1경기',
+//       team1: '바스타즈',
+//       team2: '바스타즈',
+//       score: '43: 19'
+//     },
+//     {
+//       sportId: 2,
+//       id: 2,
+//       date: '7월 19일 (토)',
+//       time: '17:00',
+//       matchName: 'A조 1경기',
+//       team1: '바스타즈',
+//       team2: '바스타즈',
+//       score: '43: 19'
+//     }
+//   ]
+// });
+
+export const CompetitionResult = atom<T.CompetitionResultTypes[]>({
+  key: 'CompetitionResult',
+  default: [
+    {
+      sportId: 0,
+      sortId: 0,
+      id: 0,
+      date: '7월 19일 (토)',
+      time: '17:00',
+      matchName: 'A조 1경기',
+      team1: '바스타즈',
+      team2: '바스타즈',
+      score: '43: 19'
+    },
+    {
+      sportId: 1,
+      sortId: 0,
+      id: 1,
+      date: '7월 19일 (토)',
+      time: '17:00',
+      matchName: 'A조 1경기',
+      team1: '바스타즈',
+      team2: '바스타즈',
+      score: '43: 19'
+    },
+    {
+      sportId: 2,
+      sortId: 0,
+      id: 2,
+      date: '7월 19일 (토)',
+      time: '17:00',
+      matchName: 'A조 1경기',
+      team1: '바스타즈',
+      team2: '바스타즈',
+      score: '43: 19'
+    }
+  ]
+});
+
 export const CompetitionState = atom<T.CompetitionTypes[]>({
   key: 'CompetitionState',
   default: [
@@ -101,6 +176,6 @@ export const CompetitionState = atom<T.CompetitionTypes[]>({
 });
 
 export const selectedCompetitionId = atom<number>({
-  key : 'selectedCompetitonId',
+  key: 'selectedCompetitonId',
   default: 0
 });
