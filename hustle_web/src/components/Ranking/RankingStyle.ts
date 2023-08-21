@@ -17,6 +17,7 @@ export const Hr = styled.hr`
 export const Layout = styled.div`
   margin-top: 2rem;
   margin-bottom: 3rem;
+  height: 4rem;
 `;
 
 export const Div = styled.div`

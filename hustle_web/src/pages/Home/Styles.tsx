@@ -16,7 +16,6 @@ export const RankContainer = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 3rem;
-  margin-bottom: 3rem;
   background-color: ${Colors.Gray10};
 `;
 
@@ -25,16 +24,17 @@ export const HotContainer = styled.div`
   height: 45rem;
   display: flex;
   margin-top: 3rem;
-  margin-bottom: 3rem;
   flex-direction: column;
   background-color: ${Colors.Gray10};
 `;
 
 export const HotBox = styled.div`
+  margin: 2rem;
   display: grid;
   grid-row-gap: 2rem;
   grid-column-gap: 4rem;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  overflow: hidden;
 `;
 
 export const MatchContainer = styled.div`

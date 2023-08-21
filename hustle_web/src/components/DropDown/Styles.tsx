@@ -30,6 +30,7 @@ export const DropDownItem = styled(DropDownTitle)`
   border-radius: 0;
   font-weight: ${FONT.WEIGHT.REGULAR};
   z-index: 999;
+  background: white;
 `;
 
 export const TitleText = styled.div`
