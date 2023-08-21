@@ -19,12 +19,12 @@ const MatchList = () => {
           // 파라미터
         },
         headers: {
-          Authorization: `Bearer ${'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZTQxMTIzMjMyQGdtYWlsLmNvbSIsImlhdCI6MTY5MjY0Nzc1MiwidHlwZSI6IkFDQ0VTU19UT0tFTiIsImV4cCI6MTY5MjY0OTU1Mn0.Ehd7t1P74LjXodv9AGzgF_bQmIp_HeyZvfyuqvYZ9to'}`
+          Authorization: `Bearer ${'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZTQxMTIzMjMyQGdtYWlsLmNvbSIsImlhdCI6MTY5MjY1MDAyOSwidHlwZSI6IkFDQ0VTU19UT0tFTiIsImV4cCI6MTY5MjY1MTgyOX0.o-7lJn-XECCr4ugz0yiYeQv9YiT5oac7kXKADHXPuw0'}`
         }
       })
       .then((response) => {
         console.log('데이턴', response.data);
-        setMatchState(response.data);
+        setMatchState(response.data.data);
         console.log('데이턴', response.data);
       })
       .catch((error) => {
