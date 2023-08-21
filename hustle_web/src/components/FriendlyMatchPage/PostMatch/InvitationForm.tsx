@@ -5,14 +5,19 @@ import { PostMatchProps } from '../../../constants/interfaces';
 import { defaultPostFormValue } from '../../../constants/defaultFormOption';
 import FormRequirements from '../../../constants/FormRequirements';
 import LocationBox from '../LocationBox/LocationBox';
+import { Search } from '../../../stories/Icons/svg';
+import { useSetRecoilState } from 'recoil';
+import { inputValue } from '../../../recoil/friendlyMatchPage/states';
 
 const { contentRequirements } = FormRequirements;
 const defaultValue = defaultPostFormValue;
 
 export const InvitationForm = () => {
+  const setValue = useSetRecoilState(inputValue);
   const {
     register,
     handleSubmit,
+    getValues,
     formState: { errors }
   } = useForm<PostMatchProps>({
     defaultValues: {
@@ -21,8 +26,14 @@ export const InvitationForm = () => {
   });
 
   const onSubmitHandler: SubmitHandler<PostMatchProps> = (data) => {
-    console.log(data);
     alert('교류전 신청이 완료되었습니다.');
+  };
+
+  const onSearchHandler = () => {
+    const v = getValues('location');
+    if (v.length === 0) alert('주소를 입력하세요.');
+    setValue(v);
+    console.log(v);
   };
 
   return (
@@ -81,10 +92,15 @@ export const InvitationForm = () => {
         </M.PostBox>
         <M.PostBox>
           <M.TitleBox>주요 활동 지역</M.TitleBox>
-          <M.InputLarge
-            placeholder='주요 활동 지역을 입력하세요'
-            {...register('location', contentRequirements)}
-          />
+          <M.InputBox>
+            <M.InputLarge
+              placeholder='주요 활동 지역을 입력하세요'
+              {...register('location', contentRequirements)}
+            />
+            <M.IconBox onClick={() => onSearchHandler()}>
+              <Search />
+            </M.IconBox>
+          </M.InputBox>
           {errors.location && (
             <M.ErrorText>{errors.location.message}</M.ErrorText>
           )}

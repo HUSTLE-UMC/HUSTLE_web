@@ -1,18 +1,22 @@
-import React from 'react';
 import * as M from './Styles';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { PostMatchProps } from '../../../constants/interfaces';
 import { defaultPostFormValue } from '../../../constants/defaultFormOption';
 import FormRequirements from '../../../constants/FormRequirements';
 import LocationBox from '../LocationBox/LocationBox';
+import { useSetRecoilState } from 'recoil';
+import { inputValue } from '../../../recoil/friendlyMatchPage/states';
+import { Search } from '../../../stories/Icons/svg';
 
 const { contentRequirements } = FormRequirements;
 const defaultValue = defaultPostFormValue;
 
 export const MatchForm = () => {
+  const setValue = useSetRecoilState(inputValue);
   const {
     register,
     handleSubmit,
+    getValues,
     formState: { errors }
   } = useForm<PostMatchProps>({
     defaultValues: {
@@ -21,8 +25,14 @@ export const MatchForm = () => {
   });
 
   const onSubmitHandler: SubmitHandler<PostMatchProps> = (data) => {
-    console.log(data);
     alert('교류전 신청이 완료되었습니다.');
+  };
+
+  const onSearchHandler = () => {
+    const v = getValues('location');
+    if (v.length === 0) alert('주소를 입력하세요.');
+    setValue(v);
+    console.log(v);
   };
 
   return (
@@ -81,10 +91,15 @@ export const MatchForm = () => {
         </M.PostBox>
         <M.PostBox>
           <M.TitleBox>교류전 위치</M.TitleBox>
-          <M.InputLarge
-            placeholder='교류전 위치를 입력하세요'
-            {...register('location', contentRequirements)}
-          />
+          <M.InputBox>
+            <M.InputLarge
+              placeholder='교류전 위치를 입력하세요'
+              {...register('location', contentRequirements)}
+            />
+            <M.IconBox onClick={() => onSearchHandler()}>
+              <Search />
+            </M.IconBox>
+          </M.InputBox>
           {errors.location && (
             <M.ErrorText>{errors.location.message}</M.ErrorText>
           )}
