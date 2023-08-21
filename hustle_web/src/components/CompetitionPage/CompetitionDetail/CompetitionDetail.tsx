@@ -3,13 +3,7 @@ import * as S from './Styles';
 import { useRecoilValue } from 'recoil';
 import { CompetitionDetailState } from '../../../recoil/CompetitionPage/states';
 import { PlayerInfo } from '../../../recoil/CompetitionPage/types';
-import {
-  labelWrap,
-  NameBox,
-  NameResultBox,
-  NumberBox,
-  NumberResultBox
-} from './Styles';
+
 const CompetitionDetail = () => {
   const matchResults = useRecoilValue(CompetitionDetailState);
 

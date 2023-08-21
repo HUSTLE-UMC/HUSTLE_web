@@ -1,8 +1,15 @@
 import { atom } from 'recoil';
 import * as T from './types';
-import { RankingProps } from '../../constants/interfaces';
 import { CompetitionDetailTypes } from './types';
 
+//  menuTypes 중복 사용 확인
+export const CompetitiondropdownMenuState = atom<T.menuTypes[]>({
+  key: 'CompetitiondropdownMenuState',
+  default: [
+    { id: 0, label: '바스타즈', isSelected: false },
+    { id: 1, label: '버스타죠', isSelected: false }
+  ]
+});
 export const competitionMenuState = atom<T.CompetitionMenuTypes[]>({
   key: 'competitionMenuState',
   default: [
