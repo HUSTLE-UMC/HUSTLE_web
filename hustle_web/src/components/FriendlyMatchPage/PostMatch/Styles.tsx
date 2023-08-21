@@ -42,6 +42,7 @@ export const InputBox = styled.div`
   width: 39.4rem;
   display: flex;
   justify-content: space-between;
+  position: relative;
 `;
 
 export const InputLarge = styled.input`
@@ -108,4 +109,11 @@ export const ErrorText = styled.div`
   font-size: ${FONT.SIZE.CAPTION};
   font-weight: ${FONT.WEIGHT.REGULAR};
   color: red;
+`;
+
+export const IconBox = styled.div`
+  position: absolute;
+  top: 1.3rem;
+  right: 1.3rem;
+  cursor: pointer;
 `;
