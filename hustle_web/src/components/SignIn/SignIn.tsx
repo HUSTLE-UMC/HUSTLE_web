@@ -16,7 +16,7 @@ const SignIn = () => {
   const handleButtonClick = (selectedGender: string) => {
     const genderClick = `${selectedGender}`;
     setGender(genderClick); // 클릭된 버튼의 상태를 업데이트
-    console.log(genderClick);
+    console.log(gender);
   };
 
   const handleUniversitySelection = (universityId: number) => {
@@ -25,23 +25,27 @@ const SignIn = () => {
     console.log(selectedUniversity);
   };
 
-  const onSubmitHandler: SubmitHandler<SignInProps> = async(data) => {
+  const onSubmitHandler: SubmitHandler<SignInProps> = async (data) => {
     try {
-    console.log(data);
-    const formData = {
-          email: data.id,
-          password: data.password,
-          name: data.name,
-          birth: data.birth,
-          university: selectedUniversity,
-          gender: gender,
-        }
+      console.log(data);
+      const formData = {
+        email: data.id,
+        password: data.password,
+        name: data.name,
+        birth: data.birth,
+        university: selectedUniversity,
+        gender: gender
+      };
 
-     const res = await axios.post('https://api.sport-hustle.com/api/auth/signin', formData, {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
+      const res = await axios.post(
+        'https://api.sport-hustle.com/api/auth/signin',
+        formData,
+        {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
+      );
       if (res.status === 200) {
         console.log(res.data);
         alert('회원가입이 완료되었습니다.');
@@ -58,10 +62,10 @@ const SignIn = () => {
         alert('비밀번호가 일치하지 않습니다.');
         return;
       }
-    } catch(error) {
+    } catch (error) {
       console.log(error);
       alert('회원가입에 실패하셨습니다. 다시 회원가입 해주세요');
-    };
+    }
   };
 
   const {
@@ -161,7 +165,7 @@ const SignIn = () => {
                 type='button'
                 isselected={gender === 'MALE'}
                 onClick={() => {
-                  handleButtonClick(gender);
+                  handleButtonClick('MALE');
                 }}
               >
                 남자
@@ -170,7 +174,7 @@ const SignIn = () => {
                 type='button'
                 isselected={gender === 'FEMALE'}
                 onClick={() => {
-                  handleButtonClick(gender);
+                  handleButtonClick('FEMALE');
                 }}
               >
                 여자
@@ -184,9 +188,7 @@ const SignIn = () => {
         </S.Box>
 
         <S.Box>
-          <S.SubmitButton type='submit'>
-            회원가입
-          </S.SubmitButton>
+          <S.SubmitButton type='submit'>회원가입</S.SubmitButton>
         </S.Box>
       </form>
     </S.Layout>
