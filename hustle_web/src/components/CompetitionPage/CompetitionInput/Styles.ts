@@ -21,28 +21,10 @@ export const MatchContainer = styled.div`
 export const TeamWrap = styled.div`
   display: flex;
   width: 100%;
-  height: 31.2rem;
+  height: 16rem;
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
-`;
-
-export const ResultWrap = styled.div`
-  display: flex;
-  width: 100%;
-  height: auto;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-`;
-
-export const ResultBox = styled.div`
-  display: flex;
-  width: 100%;
-  height: auto;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 `;
 
 export const TeamInfo = styled.div`
@@ -51,13 +33,9 @@ export const TeamInfo = styled.div`
   align-items: center;
   margin-left: 9.3rem;
   margin-right: 9.3rem;
-`;
-
-export const TeamLogo = styled.img`
-  width: 20rem;
-  height: 20rem;
-  margin-bottom: 2rem;
-  border-radius: 10rem;
+  font-size: ${FONT.SIZE.TITLE3};
+  font-weight: ${FONT.WEIGHT.REGULAR};
+  color: ${Colors.MainBlack};
 `;
 
 export const TeamName = styled.div`
@@ -68,10 +46,11 @@ export const TeamName = styled.div`
 
 export const MatchResult = styled.div`
   width: 100%;
-  height: 62rem;
+  height: auto;
   display: flex;
   flex-direction: column;
-  background-color: #61dafb;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const PlayerResult = styled.div`
@@ -84,30 +63,33 @@ export const PlayerResult = styled.div`
 `;
 
 export const labelWrap = styled.div`
-  width: auto;
-  height: 4rem;
+  width: 128rem;
+  height: auto;
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const NameBox = styled.div`
   display: flex;
-  width: 15rem;
+  width: 26.3rem;
   height: 4rem;
-  background-color: #3f37c9;
+  background-color: ${Colors.WriteButton};
   align-items: center;
   justify-content: center;
   color: ${Colors.TrueWhite};
   font-size: ${FONT.SIZE.BODY3};
-  font-weight: ${FONT.WEIGHT.BOLD};
-  margin-left: 0.4rem;
-  margin-right: 0.4rem;
+  font-weight: ${FONT.WEIGHT.SEMIBOLD};
+  margin-left: 0.7rem;
+  margin-right: 0.7rem;
+  margin-top: 0.7rem;
   border-radius: 1.2rem;
 `;
 
-export const NameResultBox = styled.div`
+export const NameResultBox = styled.input`
   display: flex;
-  width: 15rem;
+  width: 26.3rem;
   height: 4rem;
   background-color: white;
   align-items: center;
@@ -115,29 +97,32 @@ export const NameResultBox = styled.div`
   color: ${Colors.MainBlack};
   font-size: ${FONT.SIZE.BODY3};
   font-weight: ${FONT.WEIGHT.REGULAR};
-  margin: 0.4rem;
+  margin-left: 0.7rem;
+  margin-right: 0.7rem;
+  margin-top: 0.7rem;
   border-radius: 1.2rem;
   border: 0.1rem solid rgba(0, 0, 0, 0.25);
 `;
 
 export const NumberBox = styled.div`
   display: flex;
-  width: 10rem;
+  width: 17.5rem;
   height: 4rem;
-  background-color: #3f37c9;
+  background-color: ${Colors.WriteButton};
   align-items: center;
   justify-content: center;
   color: ${Colors.TrueWhite};
   font-size: ${FONT.SIZE.BODY3};
-  font-weight: ${FONT.WEIGHT.BOLD};
-  margin-left: 0.4rem;
-  margin-right: 0.4rem;
+  font-weight: ${FONT.WEIGHT.SEMIBOLD};
+  margin-left: 0.7rem;
+  margin-right: 0.7rem;
+  margin-top: 0.7rem;
   border-radius: 1.2rem;
 `;
 
-export const NumberResultBox = styled.div`
+export const NumberResultBox = styled.input`
   display: flex;
-  width: 10rem;
+  width: 17.5rem;
   height: 4rem;
   background-color: white;
   align-items: center;
@@ -145,7 +130,47 @@ export const NumberResultBox = styled.div`
   color: ${Colors.MainBlack};
   font-size: ${FONT.SIZE.BODY3};
   font-weight: ${FONT.WEIGHT.REGULAR};
-  margin: 0.4rem;
+  margin-left: 0.7rem;
+  margin-right: 0.7rem;
+  margin-top: 0.7rem;
   border-radius: 1.2rem;
   border: 0.1rem solid rgba(0, 0, 0, 0.25);
+`;
+
+export const PlayerInputBox = styled.div`
+  display: flex;
+  width: 128rem;
+  height: auto;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const AddPlayerButton = styled.div`
+  display: flex;
+  width: 83rem;
+  height: 4rem;
+  align-items: center;
+  justify-content: center;
+  color: ${Colors.TrueWhite};
+  background-color: ${Colors.WriteButton};
+  font-size: ${FONT.SIZE.BODY3};
+  font-weight: ${FONT.WEIGHT.BOLD};
+  border-radius: 1.2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+`;
+export const SaveButton = styled.div`
+  display: flex;
+  width: 83rem;
+  height: 4rem;
+  align-items: center;
+  justify-content: center;
+  color: ${Colors.TrueWhite};
+  background-color: ${Colors.WriteButton};
+  font-size: ${FONT.SIZE.BODY3};
+  font-weight: ${FONT.WEIGHT.BOLD};
+  border-radius: 1.2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 `;
