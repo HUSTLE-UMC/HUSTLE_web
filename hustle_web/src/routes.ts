@@ -56,7 +56,7 @@ const CompetitionDetailResult = React.lazy(
     )
 );
 const CompetitionInput = React.lazy(
-  () => import('./pages/Competition/CompetitionInput/CompetitionInput')
+  () => import('./pages/Competition/CompetitionInputPage/CompetitionInputPage')
 );
 
 const RankingPage = React.lazy(() => import('./pages/Ranking/RankingPage'));
