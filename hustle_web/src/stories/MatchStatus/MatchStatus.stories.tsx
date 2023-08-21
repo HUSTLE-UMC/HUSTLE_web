@@ -11,24 +11,20 @@ const Template: Story<typeof MatchStatus> = (args) => <MatchStatus {...args} />;
 
 export const Example1 = Template.bind({});
 Example1.args = {
-  status: 'applying',
-  label: '모집 중'
+  status: 'RECRUITING'
 };
 
 export const Example2 = Template.bind({});
 Example2.args = {
-  status: 'before',
-  label: '모집 예정'
+  status: 'BEFORE'
 };
 
 export const Example3 = Template.bind({});
 Example3.args = {
-  status: 'ongoing',
-  label: '진행 중'
+  status: 'ACTIVE'
 };
 
 export const Example4 = Template.bind({});
 Example4.args = {
-  status: 'finish',
-  label: '종료'
+  status: 'COMPLETE'
 };

@@ -1,4 +1,3 @@
 export interface MatchStatusProps {
-  status: 'before' | 'applying' | 'ongoing' | 'finish';
-  label: string;
+  status: 'BEFORE' | 'RECRUITING' | 'ACTIVE' | 'COMPLETE';
 }

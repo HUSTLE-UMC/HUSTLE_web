@@ -2,44 +2,33 @@ import { atom, selector } from 'recoil';
 
 export interface MatchTypes {
   id: number;
-  status: 'before' | 'applying' | 'ongoing' | 'finish';
-  label: string;
+  competitionState: 'BEFORE' | 'RECRUITING' | 'ACTIVE' | 'COMPLETE';
+  title: string;
+  host: string;
+  place: string;
+  startDate: string;
+  endDate: string;
+  recruitmentStartDate: string;
+  recruitmentEndDate: string;
+  entryFee: number;
+  maxEntryCount: number;
+  entryCount: number;
+  posterUrl: string;
+  preRoundGroupCount: number;
+  finalRoundTeamCount: number;
+  sponsor: string;
+  contacts: Contact[];
+}
+
+export interface Contact {
+  id: number;
   name: string;
-  period: string;
+  phoneNumber: string;
 }
 
 export const MatchState = atom<MatchTypes[]>({
   key: 'MatchState',
-  default: [
-    {
-      id: 0,
-      status: 'applying',
-      label: '모집 중',
-      name: '가톨릭대학교 총장배 대회',
-      period: '2023.08.13 - 2023.08.20'
-    },
-    {
-      id: 1,
-      status: 'before',
-      label: '모집 예정',
-      name: '가톨릭대학교 총장배 대회',
-      period: '2023.08.13 - 2023.08.20'
-    },
-    {
-      id: 2,
-      status: 'ongoing',
-      label: '진행 중',
-      name: '가톨릭대학교 총장배 대회',
-      period: '2023.08.13 - 2023.08.20'
-    },
-    {
-      id: 3,
-      status: 'finish',
-      label: '종료',
-      name: '가톨릭대학교 총장배 대회',
-      period: '2023.08.13 - 2023.08.20'
-    }
-  ]
+  default: []
 });
 
 // export const sportSelectState = atom<boolean>({
