@@ -4,6 +4,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { PostMatchProps } from '../../../constants/interfaces';
 import { defaultPostFormValue } from '../../../constants/defaultFormOption';
 import FormRequirements from '../../../constants/FormRequirements';
+import LocationBox from '../LocationBox/LocationBox';
 
 const { contentRequirements } = FormRequirements;
 const defaultValue = defaultPostFormValue;
@@ -80,11 +81,15 @@ export const InvitationForm = () => {
         </M.PostBox>
         <M.PostBox>
           <M.TitleBox>주요 활동 지역</M.TitleBox>
+          <M.InputLarge
+            placeholder='주요 활동 지역을 입력하세요'
+            {...register('location', contentRequirements)}
+          />
           {errors.location && (
             <M.ErrorText>{errors.location.message}</M.ErrorText>
           )}
         </M.PostBox>
-        <M.ImageBox></M.ImageBox>
+        <LocationBox />
         <M.SubmitButton type='submit'>신청하기</M.SubmitButton>
       </M.PostContainer>
     </form>
