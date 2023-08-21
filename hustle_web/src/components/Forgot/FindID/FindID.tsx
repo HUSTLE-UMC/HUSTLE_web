@@ -25,9 +25,11 @@ const FindId = () => {
 
   const onSubmitHandler: SubmitHandler<forgotProps> = (data) => {
     axios
-      .get(`/auth/findId/${data.name}`, {
-        headers: { 'Content-Type': 'text/plain;charset=UTF-8' }
-      })
+      .post('https://api.sport-hustle.com/api/user/find/email', {
+        header : {'Content-Type' : 'application/json' },
+        name : data.name,
+        birth : data.birth
+      },)
       .then((res) => {
         const userName = res.data.name;
         setUserId(userName);

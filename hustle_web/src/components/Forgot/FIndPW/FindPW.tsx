@@ -27,12 +27,11 @@ const FindPw = () => {
 
   const onSubmitHandler: SubmitHandler<findPwProps> = (data) => {
     axios
-      .get('auth/findPassword', {
-        params: {
+      .post('https://api.sport-hustle.com/api/user/find/password', {
+        header : {'Content-Type' : 'application/json' },
           name: data.name,
           birth: data.birth,
           id: data.id
-        }
       })
       .then((res) => {
         const foundUser = res.data;
