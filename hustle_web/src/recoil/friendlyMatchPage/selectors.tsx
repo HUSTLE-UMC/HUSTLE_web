@@ -14,8 +14,8 @@ export const friendlyMenuSelector = selector({
 });
 
 // 사용자가 선택한 교류전 selector
-export const listsSelector = selector({
-  key: 'listsSelector',
+export const friendlyListsSelector = selector({
+  key: 'friendlyListsistsSelector',
   get: ({ get }: any) => {
     const menu = get(friendlyMenuSelector);
     let matchs = [];
@@ -37,7 +37,7 @@ export const listsSelector = selector({
 export const matchSelector = selector({
   key: 'matchSelector',
   get: ({ get }: any) => {
-    const list = get(listsSelector);
+    const list = get(friendlyListsSelector);
     const selectedID = get(S.selectedMatchID);
     const selectedList = list[selectedID];
     return selectedList;
