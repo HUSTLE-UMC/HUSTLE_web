@@ -5,6 +5,7 @@ import TeamListInfo from '../../TeamListInfo/TeamListInfo';
 import TeamListInfoReverse from '../../TeamListInfo/TeamListInfoReverse';
 import TeamInfoTest from '../../../assets/images/TeamInfoTest.png';
 import MatchButton from '../../MatchButton/MatchButton';
+import { useNavigate } from 'react-router-dom';
 
 const TimeTableList = ({
   time,
@@ -16,9 +17,14 @@ const TimeTableList = ({
   TimeTableProps,
   'time' | 'matchName' | 'team1' | 'score' | 'team2'
 >) => {
-  const handleRecordClick = () => {
-    console.log('기록 보기 버튼이 클릭되었습니다.');
+  const navigate = useNavigate();
+  const handleResultClick = () => {
+    navigate('/competitions/input');
   };
+  const handleRecordClick = () => {
+    navigate('/competitions/detail');
+  };
+
   return (
     <S.ListContainer>
       <S.TimeWrap>{time}</S.TimeWrap>
@@ -32,6 +38,11 @@ const TimeTableList = ({
         ></TeamListInfoReverse>
       </S.MatchResultWrap>
       <S.ButtonBox>
+        <MatchButton
+          type={'small'}
+          label='결과입력'
+          onClick={handleResultClick}
+        ></MatchButton>
         <MatchButton
           type={'small'}
           label='기록보기'

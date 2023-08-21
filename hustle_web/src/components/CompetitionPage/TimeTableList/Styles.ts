@@ -71,10 +71,10 @@ export const MatchResultBox = styled.div`
 `;
 
 export const ButtonBox = styled.div`
-  width: 16rem;
+  width: 28rem;
   height: auto;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   display: flex;
-  margin-left: 23rem;
+  margin-left: 14rem;
 `;

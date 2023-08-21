@@ -63,7 +63,7 @@ export const PlayerResult = styled.div`
 `;
 
 export const labelWrap = styled.div`
-  width: 100%;
+  width: 128rem;
   height: auto;
   display: flex;
   flex-direction: row;
@@ -83,6 +83,7 @@ export const NameBox = styled.div`
   font-weight: ${FONT.WEIGHT.SEMIBOLD};
   margin-left: 0.7rem;
   margin-right: 0.7rem;
+  margin-top: 0.7rem;
   border-radius: 1.2rem;
 `;
 
@@ -96,7 +97,9 @@ export const NameResultBox = styled.input`
   color: ${Colors.MainBlack};
   font-size: ${FONT.SIZE.BODY3};
   font-weight: ${FONT.WEIGHT.REGULAR};
-  margin: 0.7rem;
+  margin-left: 0.7rem;
+  margin-right: 0.7rem;
+  margin-top: 0.7rem;
   border-radius: 1.2rem;
   border: 0.1rem solid rgba(0, 0, 0, 0.25);
 `;
@@ -113,6 +116,7 @@ export const NumberBox = styled.div`
   font-weight: ${FONT.WEIGHT.SEMIBOLD};
   margin-left: 0.7rem;
   margin-right: 0.7rem;
+  margin-top: 0.7rem;
   border-radius: 1.2rem;
 `;
 
@@ -126,14 +130,16 @@ export const NumberResultBox = styled.input`
   color: ${Colors.MainBlack};
   font-size: ${FONT.SIZE.BODY3};
   font-weight: ${FONT.WEIGHT.REGULAR};
-  margin: 0.7rem;
+  margin-left: 0.7rem;
+  margin-right: 0.7rem;
+  margin-top: 0.7rem;
   border-radius: 1.2rem;
   border: 0.1rem solid rgba(0, 0, 0, 0.25);
 `;
 
 export const PlayerInputBox = styled.div`
   display: flex;
-  width: 100%;
+  width: 128rem;
   height: auto;
   flex-direction: row;
   align-items: center;
