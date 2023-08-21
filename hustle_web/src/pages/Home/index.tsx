@@ -11,6 +11,13 @@ import CompetitionScreen from '../../components/CompetitionScreen/CompetitionScr
 import { matchListsTypes } from '../../recoil/friendlyMatchPage/types';
 import { matchListsState } from '../../recoil/friendlyMatchPage/states';
 import { sportSelectState, sportsMenuState } from '../../recoil/SportsButton';
+import { RankingProps } from '../../constants/interfaces';
+import { RankingState } from '../../recoil/Ranking/rankingLists';
+import TeamListInfo from '../../components/TeamListInfo/TeamListInfo';
+
+interface RankingListProps {
+  rankings: RankingProps; 
+}
 
 const HomePage = () => {
   // const images = [banner1, banner2, banner3];
@@ -19,6 +26,25 @@ const HomePage = () => {
   const competitons = useRecoilValue(CompetitionState);
   const resetSportMenu = useResetRecoilState(sportsMenuState);
   const resetSportSelect = useResetRecoilState(sportSelectState);
+
+  const rankingList = useRecoilValue(RankingState);
+  
+  const HomeRankingLists = ({rankings} : RankingListProps) => {
+    // const rankings = useRecoilValue(fetchRankings);
+    return (
+      <S.Box>
+        {/* {rankings.map((rankings, index) => ( */}
+          <S.List>
+            <S.sub2>{rankings.rank}</S.sub2>
+            <S.sub1><TeamListInfo logo={rankings.logo} name={rankings.teamname}/></S.sub1>
+          </S.List>
+      </S.Box>
+    )
+  }
+
+  let matchs = [];
+  matchs = rankingList;
+
   useEffect(() => {
     resetSportMenu();
     resetSportSelect();
@@ -64,7 +90,10 @@ const HomePage = () => {
           </S.ListBox>
         </S.MatchContainer>
         <S.RankContainer>
-          <ListInfo title='인기 순위' />
+          <ListInfo title='전체 순위' />
+          {matchs.slice(0,3).map((v: RankingProps, i: number) => {
+              return <HomeRankingLists key={i} rankings={v} />;
+            })}
         </S.RankContainer>
       </S.HomeContainer>
     </>
