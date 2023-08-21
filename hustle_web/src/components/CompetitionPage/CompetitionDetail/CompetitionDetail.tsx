@@ -1,10 +1,15 @@
-// CompetitionDetail.tsx
 import React from 'react';
 import * as S from './Styles';
 import { useRecoilValue } from 'recoil';
 import { CompetitionDetailState } from '../../../recoil/CompetitionPage/states';
 import { PlayerInfo } from '../../../recoil/CompetitionPage/types';
-
+import {
+  labelWrap,
+  NameBox,
+  NameResultBox,
+  NumberBox,
+  NumberResultBox
+} from './Styles';
 const CompetitionDetail = () => {
   const matchResults = useRecoilValue(CompetitionDetailState);
 
@@ -12,24 +17,50 @@ const CompetitionDetail = () => {
     <S.Container>
       {matchResults.map((result, index) => (
         <S.MatchContainer key={index}>
-          <S.TeamInfo>
-            <S.TeamLogo src={result.logo1} alt={`Team 1`} />
-            <S.TeamName>{result.team1}</S.TeamName>
-          </S.TeamInfo>
-          <S.MatchResult>
-            {result.result.map((player: PlayerInfo, playerIndex: number) => (
-              <S.PlayerResult key={playerIndex}>
-                <div>{player.name}</div>
-                <div>득점: {player.goal}</div>
-                <div>리바운드: {player.rebound}</div>
-                <div>어시스트: {player.assist}</div>
-              </S.PlayerResult>
-            ))}
-          </S.MatchResult>
-          <S.TeamInfo>
-            <S.TeamLogo src={result.logo2} alt={`Team 2`} />
-            <S.TeamName>{result.team2}</S.TeamName>
-          </S.TeamInfo>
+          <S.TeamWrap>
+            <S.TeamInfo>
+              <S.TeamLogo src={result.logo1} alt={''} />
+              <S.TeamName>{result.score1}</S.TeamName>
+            </S.TeamInfo>
+            <S.TeamInfo>
+              <S.TeamLogo src={result.logo2} alt={''} />
+              <S.TeamName>{result.score2}</S.TeamName>
+            </S.TeamInfo>
+          </S.TeamWrap>
+          <S.ResultWrap>
+            <S.ResultBox>
+              <S.labelWrap>
+                <S.NameBox>이름</S.NameBox>
+                <S.NumberBox>득점</S.NumberBox>
+                <S.NumberBox>리바운드</S.NumberBox>
+                <S.NumberBox>어시스트</S.NumberBox>
+              </S.labelWrap>
+              {result.result.map((player: PlayerInfo, playerIndex: number) => (
+                <S.PlayerResult key={playerIndex}>
+                  <S.NameResultBox>{player.name}</S.NameResultBox>
+                  <S.NumberResultBox>{player.goal}</S.NumberResultBox>
+                  <S.NumberResultBox>{player.rebound}</S.NumberResultBox>
+                  <S.NumberResultBox>{player.assist}</S.NumberResultBox>
+                </S.PlayerResult>
+              ))}
+            </S.ResultBox>
+            <S.ResultBox>
+              <S.labelWrap>
+                <S.NameBox>이름</S.NameBox>
+                <S.NumberBox>득점</S.NumberBox>
+                <S.NumberBox>리바운드</S.NumberBox>
+                <S.NumberBox>어시스트</S.NumberBox>
+              </S.labelWrap>
+              {result.result.map((player: PlayerInfo, playerIndex: number) => (
+                <S.PlayerResult key={playerIndex}>
+                  <S.NameResultBox>{player.name}</S.NameResultBox>
+                  <S.NumberResultBox>{player.goal}</S.NumberResultBox>
+                  <S.NumberResultBox>{player.rebound}</S.NumberResultBox>
+                  <S.NumberResultBox>{player.assist}</S.NumberResultBox>
+                </S.PlayerResult>
+              ))}
+            </S.ResultBox>
+          </S.ResultWrap>
         </S.MatchContainer>
       ))}
     </S.Container>

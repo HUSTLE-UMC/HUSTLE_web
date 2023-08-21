@@ -1,15 +1,13 @@
-import CompetitionResult from '../../../components/CompetitionPage/CompetitionResult/CompetitionResult';
-import SportsMenu from '../../../components/SportsMenu/SportsMenu';
+import CompetitionDetail from '../../../components/CompetitionPage/CompetitionDetail/CompetitionDetail';
 
-const CompetitionResultPage = () => {
+const CompetitionDetailResult = () => {
   return (
     <>
       <>
-        <SportsMenu />
-        <CompetitionResult />
+        <CompetitionDetail />
       </>
     </>
   );
 };
 
-export default CompetitionResultPage;
+export default CompetitionDetailResult;
