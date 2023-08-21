@@ -105,3 +105,18 @@ export const pageNumberState = atom<T.pageNumberTypes[]>({
     { id: 10, isSelected: false }
   ]
 });
+
+// 교류전 개설시 입력받은 주소
+export const inputValue = atom<string>({
+  key: 'inputValue',
+  default: '서울특별시 영등포구 문래동6가 문래로 55'
+});
+
+// 현재 위치
+export const currentLocationState = atom<T.currentLocationTypes>({
+  key: 'currentLocationState',
+  default: {
+    lat: 37.5204082,
+    lng: 126.887799
+  }
+});
