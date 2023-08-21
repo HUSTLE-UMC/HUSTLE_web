@@ -3,13 +3,13 @@ import * as S from '../Styles';
 import MatchMenu from '../../MatchMenu/MatchMenu';
 import FriendlyMatchList from '../../FriendlyMatchList/FriendlyMatchList';
 import { useRecoilValue } from 'recoil';
-import { listsSelector } from '../../../../recoil/friendlyMatchPage/selectors';
+import { friendlyListsSelector } from '../../../../recoil/friendlyMatchPage/selectors';
 import { sportSelectState } from '../../../../recoil/SportsButton';
 import { matchListsTypes } from '../../../../recoil/friendlyMatchPage/types';
 import PageButton from '../../PageButton/PageButton';
 
 export const InvitationLists = () => {
-  const matchs = useRecoilValue(listsSelector);
+  const matchs = useRecoilValue(friendlyListsSelector);
   const isSelected = useRecoilValue(sportSelectState);
 
   return (
