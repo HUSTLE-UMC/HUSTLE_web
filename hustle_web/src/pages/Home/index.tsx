@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import * as S from './Styles';
+import axios from 'axios';
 import Swiper from '../../components/Swiper/Swiper';
 import banner1 from '../../assets/svg/banner1.svg';
 import ListInfo from '../../components/ListInfo/ListInfo';
 import FriendlyMatchList from '../../components/FriendlyMatchPage/FriendlyMatchList/FriendlyMatchList';
-import competitonLogo from '../../assets/images/CompetitionEx.png';
 import { useRecoilValue, useResetRecoilState } from 'recoil';
 import { CompetitionState } from '../../recoil/CompetitionPage/states';
 import CompetitionScreen from '../../components/CompetitionScreen/CompetitionScreen';
@@ -14,6 +14,7 @@ import { sportSelectState, sportsMenuState } from '../../recoil/SportsButton';
 import { RankingProps } from '../../constants/interfaces';
 import { RankingState } from '../../recoil/Ranking/rankingLists';
 import TeamListInfo from '../../components/TeamListInfo/TeamListInfo';
+import { HotCompetition } from '../../recoil/hotcompetitionList';
 
 interface RankingListProps {
   rankings: RankingProps; 
@@ -42,12 +43,31 @@ const HomePage = () => {
     )
   }
 
+  const [hotcompetitions, setCompetitions] = useState<HotCompetition[]>([]);
+
   let matchs = [];
   matchs = rankingList;
 
   useEffect(() => {
-    resetSportMenu();
-    resetSportSelect();
+      axios.get('https://api.sport-hustle.com/api/competition/popular', {
+        params: {
+          pageable: {}
+        },
+        headers: {
+          Authorization: `Bearer ${'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0MTIzNDVAZ21haWwuY29tIiwiaWF0IjoxNjkyNjQ5Mzk5LCJ0eXBlIjoiQUNDRVNTX1RPS0VOIiwiZXhwIjoxNjkyNjUxMTk5fQ.kHIAqhBLyHEXOgKi4iGmE7KDpyyYTan1bxVMzUsuoFg'
+        }`
+        }
+      })
+        .then((response) => {
+          console.log(response.data.data);
+          setCompetitions(response.data.data);
+        })
+        .catch((error) => {
+          console.error('error:', error);
+        });
+    
+        resetSportMenu();
+        resetSportSelect();
   }, []);
 
   return (
@@ -55,17 +75,17 @@ const HomePage = () => {
       <S.HomeContainer>
         <Swiper images={images} pagination={true} />
         <S.HotContainer>
-          <ListInfo title='Hot 게시물' />
+          <ListInfo title='Hot 대회' />
           <S.HotBox>
-            {competitons.map((v) => (
+            {hotcompetitions.map((v) => (
               <CompetitionScreen
                 key={v.id}
                 id={v.id}
-                img={competitonLogo}
-                sort={v.sort}
+                img={v.posterUrl}
+                sort={v.sportEvent.name}
                 title={v.title}
-                date={v.date}
-                location={v.location}
+                date={`${v.startDate.substring(0, 10)} - ${v.endDate.substring(0, 10)}`}
+                location={v.place}
               />
             ))}
           </S.HotBox>
