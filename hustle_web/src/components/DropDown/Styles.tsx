@@ -19,6 +19,7 @@ export const DropDownTitle = styled.div`
   justify-content: center;
   color: ${Colors.Gray80};
   position: relative;
+  background-color : white;
 `;
 
 export const DropDownItem = styled(DropDownTitle)`

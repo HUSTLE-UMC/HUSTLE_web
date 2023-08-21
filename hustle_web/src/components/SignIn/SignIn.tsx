@@ -12,38 +12,42 @@ const SignIn = () => {
   const navigate = useNavigate();
   const [selectedUniversity, setSelectedUniversity] = useState('');
   const [gender, setGender] = useState('');
+
   const handleButtonClick = (selectedGender: string) => {
-    setGender(selectedGender); // 클릭된 버튼의 상태를 업데이트
-  };
-  const handleUniversitySelection = (universityName: string) => {
-    setSelectedUniversity(universityName);
+    const genderClick = `${selectedGender}`;
+    setGender(genderClick); // 클릭된 버튼의 상태를 업데이트
+    console.log(genderClick);
   };
 
-  const onSubmitHandler: SubmitHandler<SignInProps> = async (
-    data: SignInProps
-  ) => {
+  const handleUniversitySelection = (universityId: number) => {
+    const university = `${universityId}`;
+    setSelectedUniversity(university);
+    console.log(selectedUniversity);
+  };
+
+  const onSubmitHandler: SubmitHandler<SignInProps> = async(data) => {
     try {
-      const response = await axios.post(
-        'https://api.sport-hustle.com/api/auth/signup',
-        {
+    console.log(data);
+    const formData = {
           email: data.id,
           password: data.password,
-          passwordcheck: data.passwordcheck,
           name: data.name,
           birth: data.birth,
           university: selectedUniversity,
-          gender: data.gender
+          gender: gender,
         }
-      );
 
-      if (response.status === 400) {
-        alert('이미 존재하는 유저입니다.');
-        return;
-      }
-      if (response.status === 200) {
-        console.log(data);
+     const res = await axios.post('https://api.sport-hustle.com/api/auth/signin', formData, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      if (res.status === 200) {
+        console.log(res.data);
         alert('회원가입이 완료되었습니다.');
         navigate('/');
+      } else if (res.status === 400) {
+        alert('이미 존재하는 유저입니다.');
       }
 
       if (!data.gender) {
@@ -54,9 +58,10 @@ const SignIn = () => {
         alert('비밀번호가 일치하지 않습니다.');
         return;
       }
-    } catch (e) {
+    } catch(error) {
+      console.log(error);
       alert('회원가입에 실패하셨습니다. 다시 회원가입 해주세요');
-    }
+    };
   };
 
   const {
@@ -76,7 +81,7 @@ const SignIn = () => {
 
   return (
     <S.Layout>
-      <form>
+      <form onSubmit={handleSubmit(onSubmitHandler)}>
         <S.H2>회원가입</S.H2>
         <S.Box>
           <S.InputLabel>아이디</S.InputLabel>
@@ -85,9 +90,9 @@ const SignIn = () => {
             placeholder='아이디를 입력하세요'
             {...register('id', idRequirements)}
           />
-          {errors.id && errors.id.type === 'pattern' && (
+          {/* {errors.id && errors.id.type === 'pattern' && (
             <S.ErrorDiv>{errors.id.message}</S.ErrorDiv>
-          )}
+          )} */}
           {errors.id && errors.id.type !== 'pattern' && (
             <S.ErrorDiv>{errors.id.message}</S.ErrorDiv>
           )}
@@ -128,7 +133,6 @@ const SignIn = () => {
             <S.ErrorDiv>{errors.passwordcheck.message}</S.ErrorDiv>
           )}
         </S.Box>
-
         <S.Box>
           <S.InputLabel>이름</S.InputLabel>
           <S.InputLarge
@@ -155,20 +159,18 @@ const SignIn = () => {
             <div>
               <S.Genderbutton
                 type='button'
-                isselected={gender === 'male'}
+                isselected={gender === 'MALE'}
                 onClick={() => {
-                  handleButtonClick('male');
-                  register('gender', contentRequirements);
+                  handleButtonClick(gender);
                 }}
               >
                 남자
               </S.Genderbutton>
               <S.Genderbutton
                 type='button'
-                isselected={gender === 'female'}
+                isselected={gender === 'FEMALE'}
                 onClick={() => {
-                  handleButtonClick('female');
-                  register('gender', contentRequirements);
+                  handleButtonClick(gender);
                 }}
               >
                 여자
@@ -178,11 +180,11 @@ const SignIn = () => {
         }
 
         <S.Box>
-          <UniversitySearch onSelectUniversity={handleUniversitySelection} />
+          <UniversitySearch onSelecteUniversity={handleUniversitySelection} />
         </S.Box>
 
         <S.Box>
-          <S.SubmitButton type='submit' onClick={handleSubmit(onSubmitHandler)}>
+          <S.SubmitButton type='submit'>
             회원가입
           </S.SubmitButton>
         </S.Box>

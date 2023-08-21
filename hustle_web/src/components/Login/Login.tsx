@@ -47,6 +47,7 @@ const LoginMain = () => {
           'Content-Type': 'application/json'
         }
       });
+      if (response.status === 200) {
       const user = response.data;
       const accessToken = user.accessToken;
 
@@ -58,6 +59,13 @@ const LoginMain = () => {
       setUser(user);
       setIsLoggedIn(true);
       navigate('/');
+    } else {
+      console.log('로그인 실패');
+      alert('로그인에 실패하셨습니다. 다시 로그인해주세요');
+    } 
+    } catch (error) {
+      console.error('로그인 오류', error);
+      alert('로그인 중 오류가 발생했습니다.');
     } finally {
       setIsLoading(false);
       console.log('login fail');
