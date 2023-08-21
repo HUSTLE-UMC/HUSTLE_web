@@ -1,5 +1,7 @@
 import { atom } from 'recoil';
 import * as T from './types';
+import { RankingProps } from '../../constants/interfaces';
+import { CompetitionDetailTypes } from './types';
 
 export const competitionMenuState = atom<T.CompetitionMenuTypes[]>({
   key: 'competitionMenuState',
@@ -177,4 +179,23 @@ export const CompetitionState = atom<T.CompetitionTypes[]>({
 export const selectedCompetitionId = atom<number>({
   key: 'selectedCompetitonId',
   default: 0
+});
+
+export const CompetitionDetailState = atom<CompetitionDetailTypes[]>({
+  key: 'competitionDetailState',
+  default: [
+    {
+      id: 0, // 스포츠 아이디
+      menuId: 0, // 임시로 지정
+      logo1: require('../../assets/images/TeamInfoTest.png'),
+      logo2: require('../../assets/images/TeamInfoTest.png'),
+      team1: '바스타즈',
+      team2: '바스타즈',
+      score1: '32',
+      score2: '19',
+      result: [{ name: '최유빈', goal: '15', rebound: '14', assist: '13' }],
+      undefeat: 0,
+      defeat: 0
+    }
+  ]
 });
