@@ -32,12 +32,12 @@ const Ranking = () => {
     <R.Box>
       <div>
         <R.H3>순위</R.H3>
-        <R.Hr/>
+        <R.Hr />
         <R.Div>
-        <SportsMenu/>
+          <SportsMenu />
         </R.Div>
         <R.Layout>
-        <DropdownBtn/>
+          <DropdownBtn />
         </R.Layout>
         <R.Table>
           <R.Thead>
@@ -51,16 +51,14 @@ const Ranking = () => {
             </R.Div>
           </R.Thead>
           <R.Tbody>
-            {matchs.map((v : RankingProps, i : number) => {
-              return (
-                <RankingLists key={i} rankings={v}/>
-              )
+            {matchs.map((v: RankingProps, i: number) => {
+              return <RankingLists key={i} rankings={v} />;
             })}
           </R.Tbody>
         </R.Table>
       </div>
     </R.Box>
-  )
-}
+  );
+};
 
 export default Ranking;
