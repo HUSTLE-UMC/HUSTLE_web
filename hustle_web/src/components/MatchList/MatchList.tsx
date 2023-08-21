@@ -5,12 +5,12 @@ import { useNavigate } from 'react-router-dom';
 import MatchStatus from '../MatchStatus/MatchStatus';
 import MatchButton from '../MatchButton/MatchButton';
 import { MatchState } from '../../recoil/MatchList';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 
 const MatchList = () => {
   const navigate = useNavigate();
-  const [matchList, setMatchList] = useRecoilState(MatchState);
-
+  const setMatchState = useSetRecoilState(MatchState);
+  const matchList = useRecoilValue(MatchState);
   useEffect(() => {
     axios
       .get('https://api.sport-hustle.com/api/competition', {
@@ -19,17 +19,18 @@ const MatchList = () => {
           // 파라미터
         },
         headers: {
-          Authorization: `Bearer ${'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZTQxMTIzMjMyQGdtYWlsLmNvbSIsImlhdCI6MTY5MjY0MjUxNiwidHlwZSI6IkFDQ0VTU19UT0tFTiIsImV4cCI6MTY5MjY0NDMxNn0.GQH42KkeFZUJuqI2SIibgVmfpUndAOS9MAmxLXKm7Rc'}`
+          Authorization: `Bearer ${'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZTQxMTIzMjMyQGdtYWlsLmNvbSIsImlhdCI6MTY5MjY0Nzc1MiwidHlwZSI6IkFDQ0VTU19UT0tFTiIsImV4cCI6MTY5MjY0OTU1Mn0.Ehd7t1P74LjXodv9AGzgF_bQmIp_HeyZvfyuqvYZ9to'}`
         }
       })
       .then((response) => {
-        console.log(response.data);
-        setMatchList(response.data);
+        console.log('데이턴', response.data);
+        setMatchState(response.data);
+        console.log('데이턴', response.data);
       })
       .catch((error) => {
         console.error('Error fetching data:', error);
       });
-  }, []);
+  }, [setMatchState]);
 
   const handleApplyClick = () => {
     navigate('/competitions/apply');
@@ -41,8 +42,8 @@ const MatchList = () => {
 
   return (
     <L.ListContainer>
-      {matchList.map((contest) => (
-        <L.MatchItem key={contest.id}>
+      {matchList.map((contest, index) => (
+        <L.MatchItem key={index}>
           <L.LabelWrap>
             <MatchStatus status={contest.competitionState} />
           </L.LabelWrap>
