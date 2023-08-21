@@ -59,3 +59,24 @@ export interface scoreTypes {
   club2Id: number;
   score: string;
 }
+
+export interface PlayerInfo {
+  name: string;
+  goal: string;
+  rebound: string;
+  assist: string;
+}
+
+export interface CompetitionDetailTypes {
+  id: number;
+  menuId: number;
+  logo1: string;
+  logo2: string;
+  team1: string;
+  team2: string;
+  score1: string;
+  score2: string;
+  result: PlayerInfo[];
+  undefeat: number;
+  defeat: number;
+}
