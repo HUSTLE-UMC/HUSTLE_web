@@ -1,32 +1,57 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import * as L from './Styles';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import MatchStatus from '../MatchStatus/MatchStatus';
 import MatchButton from '../MatchButton/MatchButton';
 import { MatchState } from '../../recoil/MatchList';
-import { useRecoilValue } from 'recoil';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 
-// const ContestList = ({ label, name, period }: MatchingListProps) => {
 const MatchList = () => {
   const navigate = useNavigate();
+  const setMatchState = useSetRecoilState(MatchState);
   const matchList = useRecoilValue(MatchState);
+  useEffect(() => {
+    axios
+      .get('https://api.sport-hustle.com/api/competition', {
+        params: {
+          pageable: {}
+          // 파라미터
+        },
+        headers: {
+          Authorization: `Bearer ${'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZTQxMTIzMjMyQGdtYWlsLmNvbSIsImlhdCI6MTY5MjY1MDAyOSwidHlwZSI6IkFDQ0VTU19UT0tFTiIsImV4cCI6MTY5MjY1MTgyOX0.o-7lJn-XECCr4ugz0yiYeQv9YiT5oac7kXKADHXPuw0'}`
+        }
+      })
+      .then((response) => {
+        console.log('데이턴', response.data);
+        setMatchState(response.data.data);
+        console.log('데이턴', response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+      });
+  }, [setMatchState]);
 
   const handleApplyClick = () => {
-    navigate('/competitions/apply'); //
+    navigate('/competitions/apply');
   };
+
   const handleResultClick = () => {
-    navigate('/competitions/result'); //
+    navigate('/competitions/result');
   };
 
   return (
     <L.ListContainer>
-      {matchList.map((contest) => (
-        <L.MatchItem key={contest.id}>
+      {matchList.map((contest, index) => (
+        <L.MatchItem key={index}>
           <L.LabelWrap>
-            <MatchStatus status={contest.status} label={contest.label} />
+            <MatchStatus status={contest.competitionState} />
           </L.LabelWrap>
-          <L.TitleWrap>{contest.name}</L.TitleWrap>
-          <L.PeriodWrap>{contest.period}</L.PeriodWrap>
+          <L.TitleWrap>{contest.title}</L.TitleWrap>
+          <L.PeriodWrap>
+            {contest.startDate.substring(0, 10)} -{' '}
+            {contest.endDate.substring(0, 10)}
+          </L.PeriodWrap>
           <L.BtnWrap>
             <MatchButton
               type='small'
