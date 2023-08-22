@@ -21,6 +21,7 @@ export const Search = styled(Input)`
 export const preparingImg = styled.div`
   display: flex;
   justify-content: center;
+  padding: 150px;
 `;
 
 export const PointImg = styled.img`

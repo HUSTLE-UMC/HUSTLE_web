@@ -24,6 +24,7 @@ import CompetitionApply from './pages/Competition/CompetitionApply/CompetitionAp
 import CompetitionResultPage from './pages/Competition/CompetitionResult/CompetitionResultPage';
 import CompetitionDetailResult from './pages/Competition/CompetitionDetailResult/CompetitionDetailResult';
 import CompetitionInput from './pages/Competition/CompetitionInputPage/CompetitionInputPage';
+import CommunityList from './components/Community/Main/Lists';
 
 const loadingPage = <div>화면 로딩중...</div>;
 const DefaultLayout = React.lazy(() => import('./layout/DefaultLayout'));
@@ -50,9 +51,10 @@ const Router = () => {
             <Route path='/competitions/input' element={<CompetitionInput />} />
             <Route path='/mypage' element={<MyPageMain />} />
             <Route path='/community' element={<Community />} />
-            <Route path='/community/club' element={<Club />} />
+            <Route path='/community/club' element={<CommunityList />} />
             <Route path='/join' element={<Join />} />
-            <Route path='/community/question' element={<Question />} />
+            <Route path='/community/question' element={<CommunityList />} />
+            <Route path='/community' element={<Community/>}/>
             <Route
               path='/community/question/write'
               element={<QuestionForm />}
