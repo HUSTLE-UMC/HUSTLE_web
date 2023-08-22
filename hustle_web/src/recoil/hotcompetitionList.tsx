@@ -1,4 +1,5 @@
 // hotcompetitionList.tsx
+
 export {}; 
 export interface Contact {
     id: number;
@@ -31,4 +32,5 @@ export interface Contact {
     contacts: Contact[];
     sportEvent: SportEvent;
   }
+
   

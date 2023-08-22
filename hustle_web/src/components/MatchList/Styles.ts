@@ -53,3 +53,26 @@ export const BtnWrap = styled.div`
   width: 20rem;
   height: 14rem;
 `;
+
+export const TitleContainer = styled.div`
+  box-sizing: border-box;
+  width: 100%;
+  padding: 1rem 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 0.5px solid ${Colors.Gray20};
+`;
+
+export const WriteButton = styled.div`
+  width: 8rem;
+  height: 3.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid ${Colors.Gray20};
+  font-size: ${FONT.SIZE.BODY3};
+  font-weight: ${FONT.WEIGHT.REGULAR};
+  background: ${Colors.TrueWhite};
+  cursor: pointer;
+`;

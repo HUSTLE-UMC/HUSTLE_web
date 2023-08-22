@@ -54,7 +54,7 @@ const HomePage = () => {
           pageable: {}
         },
         headers: {
-          Authorization: `Bearer ${'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0MTIzNDVAZ21haWwuY29tIiwiaWF0IjoxNjkyNjQ5Mzk5LCJ0eXBlIjoiQUNDRVNTX1RPS0VOIiwiZXhwIjoxNjkyNjUxMTk5fQ.kHIAqhBLyHEXOgKi4iGmE7KDpyyYTan1bxVMzUsuoFg'
+          Authorization: `Bearer ${process.env.REACT_APP_ACCESS_TOKEN
         }`
         }
       })
