@@ -11,8 +11,19 @@ import {
 import { defaultCompetitionApplyFormValue } from '../../../constants/defaultFormOption';
 import FormRequirements from '../../../constants/FormRequirements';
 import { dummyCompetition } from './DummyCompetition';
+import { MatchState } from '../../../recoil/MatchList';
+import { useRecoilValue } from 'recoil';
+import { useNavigate, useParams } from 'react-router-dom';
 
-const ApplyForm = () => {
+const CompetitionApplyForm = () => {
+
+  const navigate = useNavigate();
+  const { competitionId } = useParams();
+  const matchList = useRecoilValue(MatchState);
+  const competitionInfo = matchList.find(
+    (contest) => contest.id === Number(competitionId)
+  );
+
   const { contentRequirements } = FormRequirements;
   const {
     register,
@@ -24,30 +35,55 @@ const ApplyForm = () => {
 
   const [isNoticeChecked, setIsNoticeChecked] = useState(false);
   const [isPrivacyChecked, setIsPrivacyChecked] = useState(false);
-  const [competitionData, setCompetitionData] =
-    useState<ApplyCompetitionProps | null>(null);
+  // const [competitionInfo, setCompetitionInfo] =
+  //   useState<ApplyCompetitionProps | null>(null);
+
+  // useEffect(() => {
+  //   setCompetitionData(dummyCompetition[0]); // 연동할 때 주석처리하기
+  //   async function fetchCompetitionData() {
+  //     try {
+  //       const response = await axios.get('URL_TO_GET_COMPETITION_DATA');
+  //       setCompetitionData(response.data);
+  //     } catch (error) {
+  //       console.error('Error fetching competition data:', error);
+  //     }
+  //   }
+
+  //   fetchCompetitionData();
+  // }, []);
 
   useEffect(() => {
-    setCompetitionData(dummyCompetition[0]); // 연동할 때 주석처리하기
-    async function fetchCompetitionData() {
-      try {
-        const response = await axios.get('URL_TO_GET_COMPETITION_DATA');
-        setCompetitionData(response.data);
-      } catch (error) {
-        console.error('Error fetching competition data:', error);
-      }
-    }
-
-    fetchCompetitionData();
-  }, []);
+    console.log('competitionId:', competitionId);
+    console.log('competitionInfo:', competitionInfo);
+  }, [competitionId, competitionInfo]);
 
   const onSubmitHandler: SubmitHandler<CompetitionApplyProps> = async (
     data: CompetitionApplyProps
   ) => {
+    const requestBody = {
+      name: data.name,
+      phoneNumber: data.phone,
+      clubId: 4
+    };
+    console.log(requestBody);
+
     try {
-      const response = await axios.post('', {});
+      const response = await axios.post(`https://api.sport-hustle.com/api/competition/${competitionId}/entry_team?userId=7`, requestBody,
+         {
+        headers: {
+          Authorization: `Bearer ${process.env.REACT_APP_ACCESS_TOKEN}`
+        }
+      },  
+      );
+    
+      // if (response.status == 200){
+      //   console.log(response.data);
+      //    alert('대회 신청이 완료되었습니다.');
+      //    navigate(`/competitions/apply/${competitionId}`);
+      // }
+
     } catch (e) {
-      alert('대회 신청에 실패하였습니다. 다시 진행해주세요.');
+      console.log(e);
     }
     if (!isNoticeChecked) {
       alert('주의사항에 동의해주세요.');
@@ -59,6 +95,7 @@ const ApplyForm = () => {
     }
     console.log(data);
     alert('대회 신청이 완료되었습니다.');
+    navigate(`/competitions/apply/${competitionId}`);
   };
 
   return (
@@ -66,16 +103,16 @@ const ApplyForm = () => {
       <form>
         <C.TitleText>대회 신청</C.TitleText>
         <C.ApplySubtitleText>
-          {competitionData ? competitionData.title : '대회 정보 없음'}
+          {competitionInfo ? competitionInfo.title : '대회 정보 없음'}
         </C.ApplySubtitleText>
 
         <C.ApplyRowContainer>
           <C.SubtitleLightText>
-            {competitionData ? competitionData.host : '대회 정보 없음'}
+            {competitionInfo ? competitionInfo.host : '대회 정보 없음'}
           </C.SubtitleLightText>
           <C.SubtitleLightText>
-            {competitionData ? competitionData.startDate : '대회 정보 없음'} ~{' '}
-            {competitionData ? competitionData.dueDate : '대회 정보 없음'}
+            {competitionInfo ? competitionInfo.startDate.substring(0, 10) : '대회 정보 없음'} ~{' '}
+            {competitionInfo ? competitionInfo.endDate.substring(0, 10) : '대회 정보 없음'}
           </C.SubtitleLightText>
         </C.ApplyRowContainer>
 
@@ -129,4 +166,4 @@ const ApplyForm = () => {
   );
 };
 
-export default ApplyForm;
+export default CompetitionApplyForm;

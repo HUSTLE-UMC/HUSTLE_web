@@ -1,21 +1,29 @@
 import React from 'react';
 import * as S from './Styles';
 import MatchList from '../../components/MatchList/MatchList';
+import SportsMenu from '../../components/SportsMenu/SportsMenu';
+import PostMatchButton from '../../components/PostMatchButton/PostMatchButton';
+import { useNavigate } from 'react-router-dom';
+// import { MatchState } from '../../recoil/MatchList';
+// import { useRecoilValue } from 'recoil';
+
 const Competition = () => {
-  const contests = [
-    {
-      label: '모집 중',
-      name: '대회 A',
-      period: '2023-08-01 ~ 2023-08-15'
-    },
-    {
-      label: '진행 중',
-      name: '대회 B',
-      period: '2023-08-10 ~ 2023-08-20'
-    }
-  ];
+
+  const navigate = useNavigate();
+  const handlePostClick = () => {
+    navigate('/competitions/Post');
+  };
+
   return (
     <S.HomeContainer>
+      <SportsMenu />
+      <S.PostBtnWrap>
+            <PostMatchButton
+              type='small'
+              label='대회 개설'
+              onClick={handlePostClick}
+            />
+          </S.PostBtnWrap>
       <S.SortWrap>
         <S.LabelBox>구분</S.LabelBox>
         <S.TitleBox>대회명</S.TitleBox>
@@ -23,7 +31,7 @@ const Competition = () => {
         <S.BtnBox>신청</S.BtnBox>
         <S.BtnBox>결과</S.BtnBox>
       </S.SortWrap>
-      <MatchList contests={contests} />
+      <MatchList />
     </S.HomeContainer>
   );
 };

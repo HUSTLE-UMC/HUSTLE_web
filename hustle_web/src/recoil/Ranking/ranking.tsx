@@ -40,7 +40,7 @@ export const matchListSelector = selector({
     const selectedId = get(SportsIdSelector);
     const Lists = get(S.RankingState);
     const filterLists = Lists.filter(
-      (m:T.clubListsTypes) => m.sportId === selectedId
+      (m: RankingProps) => m.menuId === selectedId
     );
     return filterLists;
   }

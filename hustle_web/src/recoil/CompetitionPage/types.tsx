@@ -4,6 +4,13 @@ export interface menuTypes {
   isSelected: boolean;
 }
 
+export interface CompetitionMenuTypes {
+  id: number;
+  label: string;
+  type: 'Preliminary' | 'Finals';
+  isSelected: boolean;
+}
+
 export interface sortTypes {
   id: number;
   sort: string;
@@ -18,7 +25,6 @@ export interface CompetitionTypes {
   location: string;
   date: string;
 }
-
 
 export interface clubListsTypes {
   sportId: number;
@@ -36,8 +42,41 @@ export interface selectedTypes {
   selected: boolean;
 }
 
-export interface menuTypes {
+export interface CompetitionResultTypes {
+  sportId: number;
+  sortId: number;
   id: number;
-  label: string;
-  isSelected: boolean;
+  date: string;
+  time: string;
+  matchName: string;
+  team1: string;
+  team2: string;
+  score: string;
+}
+
+export interface scoreTypes {
+  club1Id: number;
+  club2Id: number;
+  score: string;
+}
+
+export interface PlayerInfo {
+  name: string;
+  goal: string;
+  rebound: string;
+  assist: string;
+}
+
+export interface CompetitionDetailTypes {
+  id: number;
+  menuId: number;
+  logo1: string;
+  logo2: string;
+  team1: string;
+  team2: string;
+  score1: string;
+  score2: string;
+  result: PlayerInfo[];
+  undefeat: number;
+  defeat: number;
 }

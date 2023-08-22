@@ -1,6 +1,6 @@
 import * as S from './Styles';
 import axios from 'axios';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { UniversityProps } from '../../constants/interfaces';
 
 interface UniversitySearchProps {
@@ -27,6 +27,28 @@ const UniversitySearch = ({ onSelectUniversity }: UniversitySearchProps) => {
       }
     } catch (error) {
       console.error('대학교 검색 오류:', error);
+      setUniversityList([]);
+    }
+  };
+
+  const options = universityList.map((university) => ({
+    value: university.id,
+    label: university.name,
+  }));
+
+  // const handleUniversitySelection = (universityId: number) => {
+  //   const selectedUniversity = universityList.find(university => university.id === universityId);
+    
+  //   if(selectedUniversity){
+  //     setSearchQuery(selectedUniversity.name); // 선택된 대학교 이름을 검색창에 표시
+  //     onSelecteUniversity(selectedUniversity.id); // 선택된 대학교 이름을 부모 컴포넌트로 전달
+  //   }
+  // };
+
+  const handleUniversitySelection = (selectedOption: any) => {
+    if (selectedOption) {
+      setSearchQuery(selectedOption.label); // 선택된 대학교 이름을 검색창에 표시
+      onSelecteUniversity(selectedOption.value); // 선택된 대학교 ID를 부모 컴포넌트로 전달
     }
   };
 
@@ -39,7 +61,7 @@ const UniversitySearch = ({ onSelectUniversity }: UniversitySearchProps) => {
   return (
     <>
       <S.InputLabel>소속 대학교</S.InputLabel>
-      <S.InputLarge
+      {/* <S.InputLarge
         type='university'
         placeholder='재학 중인 대학교를 입력하세요'
         value={searchQuery}
@@ -49,7 +71,7 @@ const UniversitySearch = ({ onSelectUniversity }: UniversitySearchProps) => {
       />
       <S.SubmitButton type='button' onClick={handleSearchUniversity}>
         검색
-      </S.SubmitButton>
+      </S.SubmitButton> */}
 
       <S.UniversityList>
         {universityList.map((university) => (

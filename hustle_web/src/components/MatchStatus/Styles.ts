@@ -9,13 +9,13 @@ export const StatusContainer = styled.div<{ status: string }>`
   border: solid 0.1rem ${Colors.Gray20};
   background-color: ${({ status }) => {
     switch (status) {
-      case 'before':
+      case 'BEFORE':
         return Colors.Before;
-      case 'applying':
+      case 'RECRUITING':
         return Colors.Applying;
-      case 'ongoing':
+      case 'ACTIVE':
         return Colors.Ongoing;
-      case 'finish':
+      case 'COMPLETE':
         return Colors.Finish;
       default:
         return Colors.Gray20;

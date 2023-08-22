@@ -21,6 +21,12 @@ import MainCompetition from './pages/MainCompetition/MainCompetition';
 import ApplyCompetition from './pages/MainCompetition/ApplyCompetition';
 import RankingPage from './pages/Ranking/RankingPage';
 import CompetitionApply from './pages/Competition/CompetitionApply/CompetitionApply';
+import CompetitionResultPage from './pages/Competition/CompetitionResult/CompetitionResultPage';
+import CompetitionDetailResult from './pages/Competition/CompetitionDetailResult/CompetitionDetailResult';
+import CompetitionInput from './pages/Competition/CompetitionInputPage/CompetitionInputPage';
+import CommunityList from './components/Community/Main/Lists';
+import PostCompetition from './components/MainCompetition/PostCompetition/PostCompetition';
+import CompetitionApplyForm from './components/MainCompetition/ApplyForm/CompetitionApplyForm';
 
 
 const loadingPage = <div>화면 로딩중...</div>;
@@ -36,12 +42,31 @@ const Router = () => {
             <Route path='/login' element={<Login />} />
             <Route path='/signIn' element={<SignIn />} />
             <Route path='/competitions' element={<Competition />} />
-            <Route path='/competitions/apply' element={<CompetitionApply />} />
+            <Route
+              path='/competitions/apply/:competitionId'
+              element={<CompetitionApply />}
+            />
+
+            <Route
+              path='/competitions/result'
+              element={<CompetitionResultPage />}
+            />
+            <Route
+              path='/competitions/detail'
+              element={<CompetitionDetailResult />}
+            />
+            <Route path='/competitions/input' element={<CompetitionInput />} />
+            <Route path='/competitions/post' element={<PostCompetition />} />
+            <Route
+              path='/competitions/applyform/:competitionId'
+              element={<CompetitionApplyForm />}
+            />
             <Route path='/mypage' element={<MyPageMain />} />
             <Route path='/community' element={<Community />} />
-            <Route path='/community/club' element={<Club />} />
+            <Route path='/community/club' element={<CommunityList />} />
             <Route path='/join' element={<Join />} />
-            <Route path='/community/question' element={<Question />} />
+            <Route path='/community/question' element={<CommunityList />} />
+            <Route path='/community' element={<Community/>}/>
             <Route
               path='/community/question/write'
               element={<QuestionForm />}
@@ -51,11 +76,14 @@ const Router = () => {
             <Route path='/friendly/match' element={<FriendlyLists />} />
             <Route path='/friendly/post' element={<PostMatch />} />
             <Route path='/friendly/apply' element={<ApplyMatch />} />
-            <Route path='/friendly/apply/form' element={<ApplyForm />} />
+            <Route
+              path='/friendly/apply/form'
+              element={<CompetitionApplyForm />}
+            />
             <Route path='/forgot' element={<ForgotPage />} />
             <Route path='/reset' element={<ResetPage />} />
             <Route path='/maincompetition' element={<MainCompetition />} />
-            <Route path='/ranking' element={<RankingPage/>}/>
+            <Route path='/ranking' element={<RankingPage />} />
             <Route
               path='/maincompetition/apply'
               element={<ApplyCompetition />}

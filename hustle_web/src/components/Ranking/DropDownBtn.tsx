@@ -1,6 +1,6 @@
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { useState } from 'react';
-import { selectedMenuIdState, dropdownMenuSelector } from '../../recoil/Ranking/ranking';
+import { dropdownMenuSelector } from '../../recoil/Ranking/ranking';
 import { dropdownMenuState } from '../../recoil/Ranking/rankingLists';
 import { menuTypes } from '../../recoil/CompetitionPage/types';
 import * as S from '../DropDown/Styles';
@@ -10,29 +10,28 @@ import {
   RadioButtonSelected
 } from '../../stories/Icons/svg/index';
 
-interface DropDownProps {
-  index: number;
-}
-
-const DropdownBtn = ({index}: DropDownProps) => {
+const DropdownBtn = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [menus, setMenus] = useRecoilState(dropdownMenuState);
-  const [title, setTitle] = useState<string>(menus[index].label);
-  const selectedId = useRecoilValue(dropdownMenuSelector);
+  const selectedID = useRecoilValue(dropdownMenuSelector);
+  const [title, setTitle] = useState<string>(selectedID !== -1 ? menus[selectedID].label : '');
 
-  const handleBtnClick = (id : number) => {
+  console.log(selectedID);
+
+
+  const HandleChange = (id: number) => {
     setTitle(menus[id].label);
     setMenus(
-      menus.map((m:menuTypes) => {
+      menus.map((m: menuTypes) => {
         return m.id === id
-        ? {...m, isSelected: true}
-        : {...m, isSelected: false};
+          ? { ...m, isSelected: true }
+          : { ...m, isSelected: false };
       })
     );
     setIsOpen(false);
   };
 
-  return(
+  return (
     <S.DropDownLayout>
       <S.DropDownTitle onClick={() => setIsOpen(!isOpen)}>
         <S.TitleText>{title}</S.TitleText>
@@ -42,9 +41,9 @@ const DropdownBtn = ({index}: DropDownProps) => {
       </S.DropDownTitle>
       {isOpen &&
         menus.map((item) => (
-          <S.DropDownItem key={item.id} onClick={() => handleBtnClick(item.id)}>
+          <S.DropDownItem key={item.id} onClick={() => HandleChange(item.id)}>
             <S.RadioButtonBox>
-              {item.id === selectedId ? (
+              {item.id === selectedID ? (
                 <RadioButtonSelected />
               ) : (
                 <RadioButton />
@@ -54,7 +53,8 @@ const DropdownBtn = ({index}: DropDownProps) => {
           </S.DropDownItem>
         ))}
     </S.DropDownLayout>
-  )
-}
+  );
+};
+
 
 export default DropdownBtn;

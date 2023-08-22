@@ -34,10 +34,6 @@ const idRequirements = {
   required: {
     value: true,
     message: '아이디를 입력해주세요.'
-  },
-  pattern: {
-    value: /^[a-zA-Z0-9]*$/,
-    message: '아이디는 영문, 숫자만 가능합니다.'
   }
 };
 

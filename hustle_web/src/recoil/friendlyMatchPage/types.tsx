@@ -36,3 +36,8 @@ export interface pageNumberTypes {
   id: number;
   isSelected: boolean;
 }
+
+export interface currentLocationTypes {
+  lat: number;
+  lng: number;
+}

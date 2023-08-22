@@ -19,3 +19,4 @@ export { ReactComponent as Attach } from '../../assets/Attach.svg';
 export { ReactComponent as Character } from '../../assets/Charactor.svg';
 export { ReactComponent as RadioButton } from '../../assets/RadioButton.svg';
 export { ReactComponent as RadioButtonSelected } from '../../assets/RadioButtonSelected.svg';
+export { ReactComponent as Search } from '../../assets/Search.svg';

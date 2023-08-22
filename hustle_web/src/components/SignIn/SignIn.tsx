@@ -10,6 +10,7 @@ import UniversitySearch from './UniversitySearch';
 
 const SignIn = () => {
   const navigate = useNavigate();
+
   // const [selectedUniversity, setSelectedUniversity] = useState('');
   const [selectedUniversityId, setSelectedUniversityId] = useState<string>('');
   // const [gender, setGender] = useState('');
@@ -20,14 +21,24 @@ const SignIn = () => {
 
   const handleSelectUniversity = (universityId: string) => {
     setSelectedUniversityId(universityId); // UniversitySearch 컴포넌트에서 받아온 id를 상태로 설정
+
   };
 
-  const onSubmitHandler: SubmitHandler<SignInProps> = async (
-    data: SignInProps
-  ) => {
+  const onSubmitHandler: SubmitHandler<SignInProps> = async (data) => {
     try {
-      const response = await axios.post(
-        'https://api.sport-hustle.com/api/auth/signup',
+      console.log(data);
+      const formData = {
+        email: data.id,
+        password: data.password,
+        name: data.name,
+        birth: data.birth,
+        university: selectedUniversity,
+        gender: gender
+      };
+
+      const res = await axios.post(
+        'https://api.sport-hustle.com/api/auth/signin',
+        formData,
         {
           email: data.id,
           password: data.password,
@@ -38,15 +49,12 @@ const SignIn = () => {
           universityId: selectedUniversityId
         }
       );
-
-      if (response.status === 400) {
-        alert('이미 존재하는 유저입니다.');
-        return;
-      }
-      if (response.status === 200) {
-        console.log(data);
+      if (res.status === 200) {
+        console.log(res.data);
         alert('회원가입이 완료되었습니다.');
         navigate('/');
+      } else if (res.status === 400) {
+        alert('이미 존재하는 유저입니다.');
       }
 
       if (!data.gender) {
@@ -57,7 +65,8 @@ const SignIn = () => {
         alert('비밀번호가 일치하지 않습니다.');
         return;
       }
-    } catch (e) {
+    } catch (error) {
+      console.log(error);
       alert('회원가입에 실패하셨습니다. 다시 회원가입 해주세요');
     }
   };
@@ -79,7 +88,7 @@ const SignIn = () => {
 
   return (
     <S.Layout>
-      <form>
+      <form onSubmit={handleSubmit(onSubmitHandler)}>
         <S.H2>회원가입</S.H2>
         <S.Box>
           <S.InputLabel>아이디</S.InputLabel>
@@ -88,9 +97,9 @@ const SignIn = () => {
             placeholder='아이디를 입력하세요'
             {...register('id', idRequirements)}
           />
-          {errors.id && errors.id.type === 'pattern' && (
+          {/* {errors.id && errors.id.type === 'pattern' && (
             <S.ErrorDiv>{errors.id.message}</S.ErrorDiv>
-          )}
+          )} */}
           {errors.id && errors.id.type !== 'pattern' && (
             <S.ErrorDiv>{errors.id.message}</S.ErrorDiv>
           )}
@@ -131,7 +140,6 @@ const SignIn = () => {
             <S.ErrorDiv>{errors.passwordcheck.message}</S.ErrorDiv>
           )}
         </S.Box>
-
         <S.Box>
           <S.InputLabel>이름</S.InputLabel>
           <S.InputLarge
@@ -185,9 +193,7 @@ const SignIn = () => {
         </S.Box>
 
         <S.Box>
-          <S.SubmitButton type='submit' onClick={handleSubmit(onSubmitHandler)}>
-            회원가입
-          </S.SubmitButton>
+          <S.SubmitButton type='submit'>회원가입</S.SubmitButton>
         </S.Box>
       </form>
     </S.Layout>

@@ -2,24 +2,14 @@ import styled from 'styled-components';
 import Colors from '../../../styles/Color';
 import FONT from '../../../styles/Font';
 
-export const TitleContainer = styled.div`
+export const CompetitionTimeTableContainer = styled.div`
   width: 100%;
+  height: auto;
   display: flex;
   flex-direction: column;
   //box-sizing: border-box;
   //padding: 1rem 5rem;
   align-items: center;
-`;
-
-export const LabelContainer = styled.div`
-  width: 100%;
-  height: 6rem;
-  display: flex;
-  align-items: center;
-  font-size: ${FONT.SIZE.TITLE3};
-  font-weight: ${FONT.WEIGHT.BOLD};
-  background-color: ${Colors.TrueWhite};
-  color: ${Colors.MainBlack};
 `;
 
 export const SortContainer = styled.div`

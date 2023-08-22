@@ -4,8 +4,12 @@ export interface QuestionProps {
 }
 
 export interface LoginProps {
-  username: string;
+  email: string;
   password: string;
+}
+
+export interface kakaoLoginProps {
+  onSuccess: string;
 }
 
 export interface AuthContextType {
@@ -67,14 +71,14 @@ export interface MainCompetitionProps {
   sponsor: string;
   endDate: string;
   recruitmentEndDate: string;
-  maxEntryCount: number;
-  finalRoundTeamCount: number;
+  maxEntryCount: string; //
+  finalRoundTeamCount: string; //
   // presidentphone: string;
   // president2phone: string;
   startDate: string;
   recruitmentStartDate: string;
-  entryFee: number;
-  preRoundGroupCount: number;
+  entryFee: string; //
+  preRoundGroupCount: string; //
   // presidentname: string;
   // president2name: string;
   posterUrl: string;
@@ -114,6 +118,8 @@ export interface RankingProps {
   win: number;
   undefeat: number;
   defeat: number;
+  logo: string;
+  menuId: number;
 }
 
 export interface ApplyCompetitionProps {

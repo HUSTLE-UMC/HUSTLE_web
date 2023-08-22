@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { fetchRankings, matchListSelector } from '../../recoil/Ranking/ranking';
+import { matchListSelector } from '../../recoil/Ranking/ranking';
 import * as R from './RankingStyle';
-import SportsMenu from '../SportsMenu/SportsMenu';
+import SportsMenu from './SportMenu/SportMenu';
 import DropdownBtn from './DropDownBtn';
 import { selectedCompetitionId } from '../../recoil/CompetitionPage/states';
 import { sportSelectState } from '../../recoil/SportsButton';
@@ -12,18 +12,17 @@ import RankingLists from './RankingList';
 
 const Ranking = () => {
   // const [ranking, setRankings] = useRecoilState(rankignState);
-  const fetchedRankings = useRecoilValue(fetchRankings);
   const [selectedId, setSelectedId] = useRecoilState(selectedCompetitionId);
   const filtermatchs = useRecoilValue(matchListSelector);
   const isSelected = useRecoilValue(sportSelectState);
   const rankingList = useRecoilValue(RankingState);
+
   let matchs = [];
   // useEffect(() => {
   //   setRankings(fetchedRankings);
   //   },[fetchedRankings,setRankings]);
-  const selectedRankings = fetchedRankings.filter(rank => rank.id === selectedId);
 
-  isSelected ? (matchs = filtermatchs) : (matchs = rankingList)
+  matchs = isSelected ? filtermatchs : rankingList;
 
   useEffect(() => {
     setSelectedId(selectedId); // 선택한 대회의 id 설정
@@ -31,15 +30,15 @@ const Ranking = () => {
 
   return (
     <R.Box>
-      <R.Div>
-        <SportsMenu/>
-      </R.Div>
       <div>
-        <h3>순위</h3>
-        <R.Hr/>
-        <div>
-        <DropdownBtn index={selectedId}/>
-        </div>
+        <R.H3>순위</R.H3>
+        <R.Hr />
+        <R.Div>
+          <SportsMenu />
+        </R.Div>
+        <R.Layout>
+          <DropdownBtn />
+        </R.Layout>
         <R.Table>
           <R.Thead>
             <R.Div>
@@ -52,16 +51,14 @@ const Ranking = () => {
             </R.Div>
           </R.Thead>
           <R.Tbody>
-            {matchs.map((v : RankingProps, i : number) => {
-              return (
-                <RankingLists key={i} selectedCompetitionId={selectedId} rankings={selectedRankings} />
-              )
+            {matchs.map((v: RankingProps, i: number) => {
+              return <RankingLists key={i} rankings={v} />;
             })}
           </R.Tbody>
         </R.Table>
       </div>
     </R.Box>
-  )
-}
+  );
+};
 
 export default Ranking;

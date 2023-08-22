@@ -41,10 +41,6 @@ const Header = () => {
           커뮤니티
         </H.HeaderBtn>
         <H.HeaderBtn onClick={() => navigate('/ranking')}>순위</H.HeaderBtn>
-        {user !== null ? <LoginComponent user={user} /> : <NotLoginComponent />}
-        <H.HeaderBtn onClick={() => navigate('/mypage')}>Mypage</H.HeaderBtn>
-
-        <H.HeaderBtn>순위</H.HeaderBtn>
       </H.BtnWrap>
     </H.Header>
   );
