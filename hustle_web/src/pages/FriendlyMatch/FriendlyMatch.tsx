@@ -7,7 +7,6 @@ import axios from 'axios';
 
 const FriendlyMatch = () => {
   const setMatch = useSetRecoilState(matchListsState);
-  let data;
 
   useEffect(() => {
     axios
@@ -21,8 +20,6 @@ const FriendlyMatch = () => {
       )
       .then((response) => {
         setMatch(response.data.content);
-        data = response.data.content;
-        console.log(data);
       })
       .catch((error) => {
         console.error('Error fetching data:', error);
