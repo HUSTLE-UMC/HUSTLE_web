@@ -40,7 +40,7 @@ const CompetitionApply = () => {
             location={competitionInfo.place}
           />
           <S.ContentWrap>
-            <S.ImgWrap src={competitionInfo.postUrl} alt='대회 이미지' />
+            <S.ImgWrap src={competitionInfo.posterUrl} alt='대회 이미지' />
             <S.DetailBox>
               <Content
                 recruitmentPeriod={`${competitionInfo.recruitmentStartDate.substring(
