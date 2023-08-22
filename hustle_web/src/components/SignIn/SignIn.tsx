@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import * as S from './Styles';
@@ -10,19 +10,18 @@ import UniversitySearch from './UniversitySearch';
 
 const SignIn = () => {
   const navigate = useNavigate();
-  const [selectedUniversity, setSelectedUniversity] = useState('');
-  const [gender, setGender] = useState('');
 
+  // const [selectedUniversity, setSelectedUniversity] = useState('');
+  const [selectedUniversityId, setSelectedUniversityId] = useState<string>('');
+  // const [gender, setGender] = useState('');
+  const [selectedGender, setSelectedGender] = useState('');
   const handleButtonClick = (selectedGender: string) => {
-    const genderClick = `${selectedGender}`;
-    setGender(genderClick); // 클릭된 버튼의 상태를 업데이트
-    console.log(gender);
+    setSelectedGender(selectedGender); // 클릭된 버튼의 상태를 업데이트
   };
 
-  const handleUniversitySelection = (universityId: number) => {
-    const university = `${universityId}`;
-    setSelectedUniversity(university);
-    console.log(selectedUniversity);
+  const handleSelectUniversity = (universityId: string) => {
+    setSelectedUniversityId(universityId); // UniversitySearch 컴포넌트에서 받아온 id를 상태로 설정
+
   };
 
   const onSubmitHandler: SubmitHandler<SignInProps> = async (data) => {
@@ -41,9 +40,13 @@ const SignIn = () => {
         'https://api.sport-hustle.com/api/auth/signin',
         formData,
         {
-          headers: {
-            'Content-Type': 'application/json'
-          }
+          email: data.id,
+          password: data.password,
+          // passwordcheck: data.passwordcheck,
+          name: data.name,
+          birthday: data.birth,
+          gender: selectedGender,
+          universityId: selectedUniversityId
         }
       );
       if (res.status === 200) {
@@ -163,18 +166,20 @@ const SignIn = () => {
             <div>
               <S.Genderbutton
                 type='button'
-                isselected={gender === 'MALE'}
+                isselected={selectedGender === 'MALE'}
                 onClick={() => {
                   handleButtonClick('MALE');
+                  setSelectedGender('MALE');
                 }}
               >
                 남자
               </S.Genderbutton>
               <S.Genderbutton
                 type='button'
-                isselected={gender === 'FEMALE'}
+                isselected={selectedGender === 'FEMALE'}
                 onClick={() => {
                   handleButtonClick('FEMALE');
+                  setSelectedGender('FEMALE');
                 }}
               >
                 여자
@@ -184,7 +189,7 @@ const SignIn = () => {
         }
 
         <S.Box>
-          <UniversitySearch onSelecteUniversity={handleUniversitySelection} />
+          <UniversitySearch onSelectUniversity={handleSelectUniversity} />
         </S.Box>
 
         <S.Box>
