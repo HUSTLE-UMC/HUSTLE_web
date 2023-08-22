@@ -71,14 +71,14 @@ export interface MainCompetitionProps {
   sponsor: string;
   endDate: string;
   recruitmentEndDate: string;
-  maxEntryCount: number;
-  finalRoundTeamCount: number;
+  maxEntryCount: string; //
+  finalRoundTeamCount: string; //
   // presidentphone: string;
   // president2phone: string;
   startDate: string;
   recruitmentStartDate: string;
-  entryFee: number;
-  preRoundGroupCount: number;
+  entryFee: string; //
+  preRoundGroupCount: string; //
   // presidentname: string;
   // president2name: string;
   posterUrl: string;

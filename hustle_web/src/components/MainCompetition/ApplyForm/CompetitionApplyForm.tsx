@@ -12,7 +12,7 @@ import { defaultCompetitionApplyFormValue } from '../../../constants/defaultForm
 import FormRequirements from '../../../constants/FormRequirements';
 import { dummyCompetition } from './DummyCompetition';
 
-const ApplyForm = () => {
+const CompetitionApplyForm = () => {
   const { contentRequirements } = FormRequirements;
   const {
     register,
@@ -129,4 +129,4 @@ const ApplyForm = () => {
   );
 };
 
-export default ApplyForm;
+export default CompetitionApplyForm;

@@ -1,10 +1,10 @@
-import ApplyForm from '../../components/MainCompetition/ApplyForm/ApplyForm';
+import CompetitionApplyForm from '../../components/MainCompetition/ApplyForm/CompetitionApplyForm';
 import SportsMenu from '../../components/SportsMenu/SportsMenu';
 
 const ApplyCompetition = () => {
   return (
     <>
-      <ApplyForm />
+      <CompetitionApplyForm />
     </>
   );
 };

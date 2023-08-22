@@ -19,7 +19,8 @@ const MatchList = () => {
           // 파라미터
         },
         headers: {
-          Authorization: `Bearer ${'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZTQxMTIzMjMyQGdtYWlsLmNvbSIsImlhdCI6MTY5MjY1MDAyOSwidHlwZSI6IkFDQ0VTU19UT0tFTiIsImV4cCI6MTY5MjY1MTgyOX0.o-7lJn-XECCr4ugz0yiYeQv9YiT5oac7kXKADHXPuw0'}`
+          Authorization: `Bearer ${process.env.REACT_APP_ACCESS_TOKEN}`
+
         }
       })
       .then((response) => {
@@ -32,14 +33,14 @@ const MatchList = () => {
       });
   }, [setMatchState]);
 
-  const handleApplyClick = () => {
-    navigate('/competitions/apply');
+  const handleApplyClick = (competitionId: number) => {
+    console.log('competitionId:', competitionId);
+    navigate(`/competitions/apply/${competitionId}`);
   };
 
   const handleResultClick = () => {
     navigate('/competitions/result');
   };
-
   return (
     <L.ListContainer>
       {matchList.map((contest, index) => (
@@ -56,7 +57,7 @@ const MatchList = () => {
             <MatchButton
               type='small'
               label='신청하기'
-              onClick={handleApplyClick}
+              onClick={() => handleApplyClick(contest.id)}
             />
           </L.BtnWrap>
           <L.BtnWrap>

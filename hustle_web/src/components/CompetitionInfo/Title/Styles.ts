@@ -13,7 +13,7 @@ export const TitleContainer = styled.div`
 `;
 
 export const TitleWrap = styled.div`
-  width: 30rem;
+  width: 60rem;
   height: 6.8rem;
   margin-left: 1.6rem;
   margin-top: 2.1rem;
@@ -22,18 +22,15 @@ export const TitleWrap = styled.div`
 `;
 
 export const MainBox = styled.div`
-  width: 30rem;
+  width: 60rem;
   height: 3.6rem;
   color: ${Colors.MainBlack};
   font-size: 3rem;
   font-weight: ${FONT.WEIGHT.SEMIBOLD};
 `;
 export const SubBox = styled.div`
-  width: 30rem;
+  width: auto;
   height: 2rem;
-  color: ${Colors.Gray50};
-  font-size: ${FONT.SIZE.BODY2};
-  font-weight: ${FONT.WEIGHT.REGULAR};
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -41,8 +38,13 @@ export const SubBox = styled.div`
   margin-bottom: 1.2rem;
 `;
 
-export const SubLabel = styled.p`
-  margin-right: 2rem;
+export const SubLabel = styled.div`
+  display: flex;
+  width: 22rem;
+  height: 2rem;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  color: ${Colors.Gray50};
+  font-size: ${FONT.SIZE.BODY2};
+  font-weight: ${FONT.WEIGHT.REGULAR};
 `;
