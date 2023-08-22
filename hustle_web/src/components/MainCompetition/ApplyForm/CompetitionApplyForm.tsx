@@ -6,7 +6,6 @@ import NoticeCheck from './NoticeCheck';
 import PrivacyCheck from './PrivacyCheck';
 import {
   CompetitionApplyProps,
-  ApplyCompetitionProps
 } from '../../../constants/interfaces';
 import { defaultCompetitionApplyFormValue } from '../../../constants/defaultFormOption';
 import FormRequirements from '../../../constants/FormRequirements';
@@ -63,7 +62,7 @@ const CompetitionApplyForm = () => {
     const requestBody = {
       name: data.name,
       phoneNumber: data.phone,
-      clubId: 4
+      clubId: 1
     };
     console.log(requestBody);
 
@@ -76,26 +75,24 @@ const CompetitionApplyForm = () => {
       },  
       );
     
-      // if (response.status == 200){
-      //   console.log(response.data);
-      //    alert('대회 신청이 완료되었습니다.');
-      //    navigate(`/competitions/apply/${competitionId}`);
-      // }
+      if (response.status == 200){
+        console.log(response.data);
+         alert('대회 신청이 완료되었습니다.');
+         navigate(`/competitions/apply/${competitionId}`);
+      }
 
     } catch (e) {
-      console.log(e);
+      console.log(e)
+      alert('신청이 완료되지 않았습니다')
     }
-    if (!isNoticeChecked) {
-      alert('주의사항에 동의해주세요.');
-      return;
-    }
-    if (!isPrivacyChecked) {
-      alert('개인정보 수집에 동의해주세요.');
-      return;
-    }
-    console.log(data);
-    alert('대회 신청이 완료되었습니다.');
-    navigate(`/competitions/apply/${competitionId}`);
+    // if (!isNoticeChecked) {
+    //   alert('주의사항에 동의해주세요.');
+    //   return;
+    // }
+    // if (!isPrivacyChecked) {
+    //   alert('개인정보 수집에 동의해주세요.');
+    //   return;
+    // }
   };
 
   return (
