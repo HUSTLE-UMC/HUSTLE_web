@@ -86,6 +86,11 @@ const SignIn = () => {
             type='id'
             placeholder='아이디를 입력하세요'
             {...register('id', idRequirements)}
+            onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
+              if (e.key === 'Enter') {
+                e.preventDefault(); // 엔터 키 이벤트를 막음
+              }
+            }}
           />
           {errors.id && errors.id.type === 'pattern' && (
             <S.ErrorDiv>{errors.id.message}</S.ErrorDiv>
@@ -104,6 +109,11 @@ const SignIn = () => {
               required: passwordRequirements.required,
               pattern: passwordRequirements.pattern
             })}
+            onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
+              if (e.key === 'Enter') {
+                e.preventDefault(); // 엔터 키 이벤트를 막음
+              }
+            }}
           />
           {errors.password && errors.password.type === 'pattern' && (
             <S.ErrorDiv>{errors.password.message}</S.ErrorDiv>
@@ -122,6 +132,11 @@ const SignIn = () => {
               required: passwordCheckRequirements.required,
               pattern: passwordCheckRequirements.pattern
             })}
+            onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
+              if (e.key === 'Enter') {
+                e.preventDefault(); // 엔터 키 이벤트를 막음
+              }
+            }}
           />
           {errors.passwordcheck && errors.passwordcheck.type === 'pattern' && (
             <S.ErrorDiv>{errors.passwordcheck.message}</S.ErrorDiv>
@@ -137,6 +152,11 @@ const SignIn = () => {
             type='name' // 원하는 타입으로 변경하세요
             placeholder='이름을 입력하세요'
             {...register('name', contentRequirements)}
+            onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
+              if (e.key === 'Enter') {
+                e.preventDefault(); // 엔터 키 이벤트를 막음
+              }
+            }}
           />
           {errors.name && <S.ErrorDiv>{errors.name.message}</S.ErrorDiv>}
         </S.Box>
@@ -147,6 +167,11 @@ const SignIn = () => {
             type='date'
             placeholder='이름을 입력하세요'
             {...register('birth', contentRequirements)}
+            onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
+              if (e.key === 'Enter') {
+                e.preventDefault(); // 엔터 키 이벤트를 막음
+              }
+            }}
           />
           {errors.birth && <S.ErrorDiv>{errors.birth.message}</S.ErrorDiv>}
         </S.Box>

@@ -53,6 +53,11 @@ const UniversitySearch = ({ onSelectUniversity }: UniversitySearchProps) => {
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
           setSearchQuery(e.target.value);
         }}
+        onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
+          if (e.key === 'Enter') {
+            e.preventDefault(); // 엔터 키 이벤트를 막음
+          }
+        }}
       />
       <S.SubmitButton type='button' onClick={handleSearchUniversity}>
         검색
