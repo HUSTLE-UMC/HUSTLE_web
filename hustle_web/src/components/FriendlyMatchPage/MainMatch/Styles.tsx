@@ -10,6 +10,7 @@ export const Layout = styled.div`
 
 export const TextBox = styled.div`
   width: 100%;
+  height: 50rem;
   margin-top: 1rem;
   display: flex;
   justify-content: center;
