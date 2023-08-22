@@ -8,6 +8,10 @@ export interface LoginProps {
   password: string;
 }
 
+export interface kakaoLoginProps {
+  onSuccess: string;
+}
+
 export interface AuthContextType {
   isLoggedIn: boolean;
   setIsLoggedIn: (value: boolean) => void;
