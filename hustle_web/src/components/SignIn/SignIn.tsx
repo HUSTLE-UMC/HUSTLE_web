@@ -10,31 +10,32 @@ import UniversitySearch from './UniversitySearch';
 
 const SignIn = () => {
   const navigate = useNavigate();
-  const [selectedUniversity, setSelectedUniversity] = useState('');
+  // const [selectedUniversity, setSelectedUniversity] = useState('');
+  const [selectedUniversityId, setSelectedUniversityId] = useState<string>('');
   // const [gender, setGender] = useState('');
   const [selectedGender, setSelectedGender] = useState('');
   const handleButtonClick = (selectedGender: string) => {
     setSelectedGender(selectedGender); // 클릭된 버튼의 상태를 업데이트
   };
-  const handleUniversitySelection = (universityName: string) => {
-    setSelectedUniversity(universityName);
+
+  const handleSelectUniversity = (universityId: string) => {
+    setSelectedUniversityId(universityId); // UniversitySearch 컴포넌트에서 받아온 id를 상태로 설정
   };
 
   const onSubmitHandler: SubmitHandler<SignInProps> = async (
     data: SignInProps
   ) => {
-    console.log(selectedUniversity);
     try {
       const response = await axios.post(
         'https://api.sport-hustle.com/api/auth/signup',
         {
           email: data.id,
           password: data.password,
-          passwordcheck: data.passwordcheck,
+          // passwordcheck: data.passwordcheck,
           name: data.name,
-          birth: data.birth,
-          university: selectedUniversity,
-          gender: selectedGender
+          birthday: data.birth,
+          gender: selectedGender,
+          universityId: selectedUniversityId
         }
       );
 
@@ -157,20 +158,20 @@ const SignIn = () => {
             <div>
               <S.Genderbutton
                 type='button'
-                isselected={selectedGender === 'male'}
+                isselected={selectedGender === 'MALE'}
                 onClick={() => {
-                  handleButtonClick('male');
-                  setSelectedGender('male');
+                  handleButtonClick('MALE');
+                  setSelectedGender('MALE');
                 }}
               >
                 남자
               </S.Genderbutton>
               <S.Genderbutton
                 type='button'
-                isselected={selectedGender === 'female'}
+                isselected={selectedGender === 'FEMALE'}
                 onClick={() => {
-                  handleButtonClick('female');
-                  setSelectedGender('female');
+                  handleButtonClick('FEMALE');
+                  setSelectedGender('FEMALE');
                 }}
               >
                 여자
@@ -180,7 +181,7 @@ const SignIn = () => {
         }
 
         <S.Box>
-          <UniversitySearch onSelectUniversity={handleUniversitySelection} />
+          <UniversitySearch onSelectUniversity={handleSelectUniversity} />
         </S.Box>
 
         <S.Box>

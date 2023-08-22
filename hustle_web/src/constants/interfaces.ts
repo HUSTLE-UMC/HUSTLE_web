@@ -124,7 +124,11 @@ export interface ApplyCompetitionProps {
 }
 
 export interface UniversityProps {
-  id: number;
-  universityName: string;
-  address: string;
+  universities: [
+    {
+      id: string;
+      name: string;
+      address: string;
+    }
+  ];
 }
