@@ -56,7 +56,7 @@ const Router = () => {
             <Route path='/competitions/input' element={<CompetitionInput />} />
             <Route path='/competitions/post' element={<PostCompetition />} />
             <Route
-              path='/competitions/applyform'
+              path='/competitions/applyform/:competitionId'
               element={<CompetitionApplyForm />}
             />
             <Route path='/mypage' element={<MyPageMain />} />

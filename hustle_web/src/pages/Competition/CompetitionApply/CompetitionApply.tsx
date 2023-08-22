@@ -19,7 +19,8 @@ const CompetitionApply = () => {
   );
 
   const handleResultClick = () => {
-    navigate('/competitions/applyform');
+    console.log('competitionId:', competitionId);
+    navigate(`/competitions/applyform/${competitionId}`);
   };
 
   useEffect(() => {
