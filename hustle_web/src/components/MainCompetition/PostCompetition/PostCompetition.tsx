@@ -27,7 +27,7 @@ const PostCompetition = () => {
     data: MainCompetitionProps
   ) => {
     const requestData ={
-      title: data.title,
+        title: data.title,
           host: data.host,
           place: data.place,
           startDate: new Date(data.startDate).toISOString(),
