@@ -30,21 +30,22 @@ export const defaultMainCompetition = {
 };
 
 export const defaultApplyFormValue = {
-  clubName: '',
-  person: '',
-  contact: ''
+  type: '',
+  name: '',
+  phoneNumber: '',
+  locationAddress: ''
 };
 
 export const defaultPostFormValue = {
-  sportId: 0,
-  sport: '',
-  img: '',
-  clubName: '',
   title: '',
-  location: '',
-  date: '',
-  person: '',
-  contact: ''
+  category: '',
+  name: '',
+  phoneNumber: '',
+  startDate: '',
+  location: { type: '', coordinates: [0, 0] },
+  locationAddress: '',
+  sportEventId: 0,
+  clubId: 0
 };
 
 export const defaultCompetitionApplyFormValue = {

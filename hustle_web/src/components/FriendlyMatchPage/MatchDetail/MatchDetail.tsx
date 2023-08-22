@@ -12,7 +12,7 @@ const MatchDetail = () => {
   const match = useRecoilValue(matchSelector);
   const menu = useRecoilValue(friendlyMenuSelector);
   const navigate = useNavigate();
-
+  console.log(match);
   return (
     <C.Layout>
       <C.TitleLayout>

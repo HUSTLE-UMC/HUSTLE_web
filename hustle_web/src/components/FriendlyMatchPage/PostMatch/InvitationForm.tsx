@@ -25,12 +25,12 @@ export const InvitationForm = () => {
     }
   });
 
-  const onSubmitHandler: SubmitHandler<PostMatchProps> = (data) => {
+  const onSubmitHandler: SubmitHandler<PostMatchProps> = async (data) => {
     alert('교류전 신청이 완료되었습니다.');
   };
 
   const onSearchHandler = () => {
-    const v = getValues('location');
+    const v = getValues('locationAddress');
     if (v.length === 0) alert('주소를 입력하세요.');
     setValue(v);
     console.log(v);
@@ -39,7 +39,7 @@ export const InvitationForm = () => {
   return (
     <form onSubmit={handleSubmit(onSubmitHandler)}>
       <M.PostContainer>
-        <M.PostBox>
+        {/* <M.PostBox>
           <M.TitleBox>동아리 명</M.TitleBox>
           <M.InputLarge
             placeholder='동아리 명을 입력하세요'
@@ -48,29 +48,29 @@ export const InvitationForm = () => {
           {errors.clubName && (
             <M.ErrorText>{errors.clubName.message}</M.ErrorText>
           )}
-        </M.PostBox>
+        </M.PostBox> */}
         <M.PostBox>
           <M.TitleBox>대표자 연락처</M.TitleBox>
           <M.InputBox>
             <M.InputSmall
               placeholder='이름'
-              {...register('person', contentRequirements)}
+              {...register('name', contentRequirements)}
             />
 
             <M.InputSmall
               placeholder='연락처'
-              {...register('contact', contentRequirements)}
+              {...register('phoneNumber', contentRequirements)}
             />
           </M.InputBox>
           <M.ErrorBox>
-            {errors.person && errors.contact && (
-              <M.ErrorText>{errors.person.message}</M.ErrorText>
+            {errors.name && errors.phoneNumber && (
+              <M.ErrorText>{errors.name.message}</M.ErrorText>
             )}
-            {errors.person && !errors.contact && (
-              <M.ErrorText>{errors.person.message}</M.ErrorText>
+            {errors.name && !errors.phoneNumber && (
+              <M.ErrorText>{errors.name.message}</M.ErrorText>
             )}
-            {errors.contact && !errors.person && (
-              <M.ErrorText>{errors.contact.message}</M.ErrorText>
+            {errors.phoneNumber && !errors.name && (
+              <M.ErrorText>{errors.phoneNumber.message}</M.ErrorText>
             )}
           </M.ErrorBox>
         </M.PostBox>
@@ -84,25 +84,24 @@ export const InvitationForm = () => {
         </M.PostBox>
         <M.PostBox>
           <M.TitleBox>일시</M.TitleBox>
-          <M.InputLarge
-            type='date'
-            {...register('date', contentRequirements)}
-          />
-          {errors.date && <M.ErrorText>{errors.date.message}</M.ErrorText>}
+          <M.InputLarge {...register('startDate', contentRequirements)} />
+          {errors.startDate && (
+            <M.ErrorText>{errors.startDate.message}</M.ErrorText>
+          )}
         </M.PostBox>
         <M.PostBox>
           <M.TitleBox>주요 활동 지역</M.TitleBox>
           <M.InputBox>
             <M.InputLarge
               placeholder='주요 활동 지역을 입력하세요'
-              {...register('location', contentRequirements)}
+              {...register('locationAddress', contentRequirements)}
             />
             <M.IconBox onClick={() => onSearchHandler()}>
               <Search />
             </M.IconBox>
           </M.InputBox>
-          {errors.location && (
-            <M.ErrorText>{errors.location.message}</M.ErrorText>
+          {errors.locationAddress && (
+            <M.ErrorText>{errors.locationAddress.message}</M.ErrorText>
           )}
         </M.PostBox>
         <LocationBox />

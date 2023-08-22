@@ -43,21 +43,22 @@ export interface isMatchProps {
 }
 
 export interface ApplyMatchProps {
-  clubName: string;
-  person: string;
-  contact: string;
+  type: string;
+  name: string;
+  phoneNumber: string;
+  locationAddress?: string;
 }
 
 export interface PostMatchProps {
-  sportId: number;
-  sport: string;
-  img: string;
-  clubName: string;
   title: string;
-  location: string;
-  date: string;
-  person: string;
-  contact: string;
+  category: string;
+  name: string;
+  phoneNumber: string;
+  startDate: string;
+  location: locationProps;
+  locationAddress: string;
+  sportEventId: number;
+  clubId: number;
 }
 
 export interface MainCompetitionProps {

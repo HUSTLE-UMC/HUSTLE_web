@@ -29,16 +29,15 @@ export const MatchForm = () => {
   };
 
   const onSearchHandler = () => {
-    const v = getValues('location');
-    if (v.length === 0) alert('주소를 입력하세요.');
-    setValue(v);
-    console.log(v);
+    const v = getValues('locationAddress');
+    if (!v) alert('주소를 입력하세요.');
+    else setValue(v);
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmitHandler)}>
       <M.PostContainer>
-        <M.PostBox>
+        {/* <M.PostBox>
           <M.TitleBox>동아리 명</M.TitleBox>
           <M.InputLarge
             placeholder='동아리 명을 입력하세요'
@@ -47,61 +46,60 @@ export const MatchForm = () => {
           {errors.clubName && (
             <M.ErrorText>{errors.clubName.message}</M.ErrorText>
           )}
-        </M.PostBox>
+        </M.PostBox> */}
         <M.PostBox>
           <M.TitleBox>대표자 연락처</M.TitleBox>
           <M.InputBox>
             <M.InputSmall
               placeholder='이름'
-              {...register('person', contentRequirements)}
+              {...register('name', contentRequirements)}
             />
 
             <M.InputSmall
               placeholder='연락처'
-              {...register('contact', contentRequirements)}
+              {...register('phoneNumber', contentRequirements)}
             />
           </M.InputBox>
           <M.ErrorBox>
-            {errors.person && errors.contact && (
-              <M.ErrorText>{errors.person.message}</M.ErrorText>
+            {errors.name && errors.phoneNumber && (
+              <M.ErrorText>{errors.name.message}</M.ErrorText>
             )}
-            {errors.person && !errors.contact && (
-              <M.ErrorText>{errors.person.message}</M.ErrorText>
+            {errors.name && !errors.phoneNumber && (
+              <M.ErrorText>{errors.name.message}</M.ErrorText>
             )}
-            {errors.contact && !errors.person && (
-              <M.ErrorText>{errors.contact.message}</M.ErrorText>
+            {errors.phoneNumber && !errors.name && (
+              <M.ErrorText>{errors.phoneNumber.message}</M.ErrorText>
             )}
           </M.ErrorBox>
         </M.PostBox>
         <M.PostBox>
-          <M.TitleBox>교류전 제목</M.TitleBox>
+          <M.TitleBox>글 제목</M.TitleBox>
           <M.InputLarge
-            placeholder='교류전 제목을 입력하세요'
+            placeholder='글 제목을 입력하세요'
             {...register('title', contentRequirements)}
           />
           {errors.title && <M.ErrorText>{errors.title.message}</M.ErrorText>}
         </M.PostBox>
         <M.PostBox>
           <M.TitleBox>일시</M.TitleBox>
-          <M.InputLarge
-            type='date'
-            {...register('date', contentRequirements)}
-          />
-          {errors.date && <M.ErrorText>{errors.date.message}</M.ErrorText>}
+          <M.InputLarge {...register('startDate', contentRequirements)} />
+          {errors.startDate && (
+            <M.ErrorText>{errors.startDate.message}</M.ErrorText>
+          )}
         </M.PostBox>
         <M.PostBox>
           <M.TitleBox>교류전 위치</M.TitleBox>
           <M.InputBox>
             <M.InputLarge
               placeholder='교류전 위치를 입력하세요'
-              {...register('location', contentRequirements)}
+              {...register('locationAddress', contentRequirements)}
             />
             <M.IconBox onClick={() => onSearchHandler()}>
               <Search />
             </M.IconBox>
           </M.InputBox>
-          {errors.location && (
-            <M.ErrorText>{errors.location.message}</M.ErrorText>
+          {errors.locationAddress && (
+            <M.ErrorText>{errors.locationAddress.message}</M.ErrorText>
           )}
         </M.PostBox>
         <LocationBox />
