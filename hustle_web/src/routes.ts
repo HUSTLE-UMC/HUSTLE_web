@@ -75,7 +75,7 @@ const routes = [
   { path: '/friendly/match', element: FriendlyLists },
   { path: '/friendly/invite', element: FriendlyLists },
   { path: '/competitions', element: Competition },
-  { path: '/competitions/apply', element: CompetitionApply },
+  { path: '/competitions/apply/:competitionId', element: CompetitionApply },
   { path: '/competitions/result', element: CompetitionResult },
   { path: '/competitions/detail', element: CompetitionDetailResult },
   { path: '/competitions/input', element: CompetitionInput },

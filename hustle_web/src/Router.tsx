@@ -38,7 +38,11 @@ const Router = () => {
             <Route path='/login' element={<Login />} />
             <Route path='/signIn' element={<SignIn />} />
             <Route path='/competitions' element={<Competition />} />
-            <Route path='/competitions/apply' element={<CompetitionApply />} />
+            <Route
+              path='/competitions/apply/:competitionId'
+              element={<CompetitionApply />}
+            />
+
             <Route
               path='/competitions/result'
               element={<CompetitionResultPage />}

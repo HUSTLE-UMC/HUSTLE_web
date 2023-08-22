@@ -1,7 +1,6 @@
 import React from 'react';
 import * as T from './Styles';
 import { TitleProps } from './TitleProps';
-import { SubLabel } from './Styles';
 
 const Title: React.FC<TitleProps> = ({ title, period, location }) => {
   return (

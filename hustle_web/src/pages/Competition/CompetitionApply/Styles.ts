@@ -58,6 +58,7 @@ export const ImgWrap = styled.img`
   height: 63rem;
   display: flex;
   margin-right: 8.7rem;
+  object-fit: cover;
 `;
 
 export const BtnWrap = styled.div`
