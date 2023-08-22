@@ -14,7 +14,10 @@ const MatchStatus = ({ status }: MatchStatusProps) => {
   } else if (status === 'COMPLETE') {
     label = '종료';
   }
-  return <S.StatusContainer status={status}>{label}</S.StatusContainer>;
+  return (
+    <S.StatusContainer status={status}>
+      <S.LabelContainer>{label}</S.LabelContainer>
+    </S.StatusContainer>
+  );
 };
-
 export default MatchStatus;

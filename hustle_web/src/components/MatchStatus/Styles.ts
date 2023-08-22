@@ -28,3 +28,11 @@ export const StatusContainer = styled.div<{ status: string }>`
   color: ${Colors.TrueWhite};
   font-weight: ${FONT.WEIGHT.SEMIBOLD};
 `;
+
+export const LabelContainer = styled.div`
+  width: auto;
+  height: auto;
+  font-weight: ${FONT.WEIGHT.SEMIBOLD};
+  font-size: ${FONT.SIZE.BODY3};
+  color: ${Colors.TrueWhite};
+`;
