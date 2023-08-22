@@ -1,3 +1,4 @@
+import React from 'react';
 import * as S from './Styles';
 import GroupSelector from '../../GroupSelector/GroupSelector';
 import { useRecoilState, useSetRecoilState } from 'recoil';
@@ -7,16 +8,12 @@ import {
   competitionTypes
 } from '../../../recoil/CompetitionPage/CompetitionButton';
 
-interface Props {
-  disable?: boolean;
-}
-
-export const CompetitionButton = ({ disable }: Props) => {
-  const [menus, setMenus] = useRecoilState(PreCompetitionState);
+export const MainCompetitionButton = () => {
+  const [menu, setMenu] = useRecoilState(PreCompetitionState);
   const setIsSelected = useSetRecoilState(competitionSelectState);
   const handleClick = (menuId: number) => {
-    setMenus(
-      menus.map((m: competitionTypes) => {
+    setMenu(
+      menu.map((m) => {
         return m.menuId === menuId
           ? { ...m, selected: true }
           : { ...m, selected: false };
@@ -26,23 +23,17 @@ export const CompetitionButton = ({ disable }: Props) => {
   };
   return (
     <S.CategoryLayout>
-      {menus.map((m, index) => (
+      {menu.map((m: competitionTypes, index: number) => (
         <GroupSelector
           key={m.menuId}
           type={m.type}
           label={m.label}
           selected={m.selected}
-          onClick={
-            disable
-              ? () => {
-                  alert('종목 변경을 원하시면 목록 페이지로 돌아가 주세요.');
-                }
-              : () => handleClick(index)
-          }
+          onClick={() => handleClick(index)}
         ></GroupSelector>
       ))}
     </S.CategoryLayout>
   );
 };
 
-export default CompetitionButton;
+export default MainCompetitionButton;
