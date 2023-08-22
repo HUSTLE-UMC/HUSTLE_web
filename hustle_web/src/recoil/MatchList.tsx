@@ -6,7 +6,6 @@ export interface MatchTypes {
   title: string;
   host: string;
   place: string;
-  postUrl: string;
   startDate: string;
   endDate: string;
   recruitmentStartDate: string;
