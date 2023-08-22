@@ -130,3 +130,25 @@ export interface UniversityProps {
   name: string;
   address: string;
 }
+
+export interface ClubProps {
+  id: number;
+  instagram: string;
+  mainArea: string;
+  name: string;
+  point: number;
+  profileImageUrl: string;
+  sportEvent: sportEventProps;
+  university: UniversityProps;
+  youtubeUrl: string;
+}
+
+export interface sportEventProps {
+  id: number;
+  name: string;
+}
+
+export interface locationProps {
+  coordinates: number[];
+  type: string;
+}

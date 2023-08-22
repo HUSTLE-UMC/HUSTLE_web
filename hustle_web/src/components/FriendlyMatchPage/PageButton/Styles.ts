@@ -7,7 +7,7 @@ export const ButtonLayout = styled.div`
   display: flex;
   justify-content: center;
   position: absolute;
-  bottom: 5rem;
+  bottom: 0;
 `;
 
 export const ButtonComponent = styled.div`

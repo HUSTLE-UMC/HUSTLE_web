@@ -1,24 +1,23 @@
+import * as P from '../../constants/interfaces';
+
 export interface menuTypes {
   id: number;
   label: string;
   isSelected: boolean;
 }
 
-export interface submitTypes {
-  id: number;
-  msg: string;
-  isSubmitted: boolean;
-}
-
 export interface matchListsTypes {
-  sportId: number;
-  sport: string;
-  clubName: string;
+  category: string;
+  club: P.ClubProps;
+  id: number;
+  location: P.locationProps;
+  locationAddress: string;
+  name: string;
+  phoneNumber: string;
+  sportEvent: P.sportEventProps;
+  startDate: string;
   title: string;
-  location: string;
-  date: string;
-  person: string;
-  contact: string;
+  user: { id: number };
 }
 
 export interface invitationListsTypes {

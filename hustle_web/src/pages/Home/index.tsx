@@ -17,7 +17,7 @@ import TeamListInfo from '../../components/TeamListInfo/TeamListInfo';
 import { HotCompetition } from '../../recoil/hotcompetitionList';
 
 interface RankingListProps {
-  rankings: RankingProps; 
+  rankings: RankingProps;
 }
 
 const HomePage = () => {
@@ -29,19 +29,21 @@ const HomePage = () => {
   const resetSportSelect = useResetRecoilState(sportSelectState);
 
   const rankingList = useRecoilValue(RankingState);
-  
-  const HomeRankingLists = ({rankings} : RankingListProps) => {
+
+  const HomeRankingLists = ({ rankings }: RankingListProps) => {
     // const rankings = useRecoilValue(fetchRankings);
     return (
       <S.Box>
         {/* {rankings.map((rankings, index) => ( */}
-          <S.List>
-            <S.sub2>{rankings.rank}</S.sub2>
-            <S.sub1><TeamListInfo logo={rankings.logo} name={rankings.teamname}/></S.sub1>
-          </S.List>
+        <S.List>
+          <S.sub2>{rankings.rank}</S.sub2>
+          <S.sub1>
+            <TeamListInfo logo={rankings.logo} name={rankings.teamname} />
+          </S.sub1>
+        </S.List>
       </S.Box>
-    )
-  }
+    );
+  };
 
   const [hotcompetitions, setCompetitions] = useState<HotCompetition[]>([]);
 
@@ -49,25 +51,25 @@ const HomePage = () => {
   matchs = rankingList;
 
   useEffect(() => {
-      axios.get('https://api.sport-hustle.com/api/competition/popular', {
+    axios
+      .get('https://api.sport-hustle.com/api/competition/popular', {
         params: {
           pageable: {}
         },
         headers: {
-          Authorization: `Bearer ${'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0MTIzNDVAZ21haWwuY29tIiwiaWF0IjoxNjkyNjQ5Mzk5LCJ0eXBlIjoiQUNDRVNTX1RPS0VOIiwiZXhwIjoxNjkyNjUxMTk5fQ.kHIAqhBLyHEXOgKi4iGmE7KDpyyYTan1bxVMzUsuoFg'
-        }`
+          Authorization: `Bearer ${process.env.REACT_APP_ACCESS_TOKEN}`
         }
       })
-        .then((response) => {
-          console.log(response.data.data);
-          setCompetitions(response.data.data);
-        })
-        .catch((error) => {
-          console.error('error:', error);
-        });
-    
-        resetSportMenu();
-        resetSportSelect();
+      .then((response) => {
+        console.log(response.data.data);
+        setCompetitions(response.data.data);
+      })
+      .catch((error) => {
+        console.error('error:', error);
+      });
+
+    resetSportMenu();
+    resetSportSelect();
   }, []);
 
   return (
@@ -84,7 +86,10 @@ const HomePage = () => {
                 img={v.posterUrl}
                 sort={v.sportEvent.name}
                 title={v.title}
-                date={`${v.startDate.substring(0, 10)} - ${v.endDate.substring(0, 10)}`}
+                date={`${v.startDate.substring(0, 10)} - ${v.endDate.substring(
+                  0,
+                  10
+                )}`}
                 location={v.place}
               />
             ))}
@@ -96,12 +101,12 @@ const HomePage = () => {
             {clubs.map((v: matchListsTypes, i: number) => (
               <FriendlyMatchList
                 key={i}
-                id={i}
-                sport={v.sport}
+                id={v.id}
+                sport={v.sportEvent.name}
                 title={v.title}
-                date={v.date}
-                location={v.location}
-                clubName={v.clubName}
+                date={`${v.startDate.substring(0, 10)}`}
+                location={v.locationAddress}
+                clubName={v.club.name}
               />
             ))}
             {clubs.length === 0 && (
@@ -111,9 +116,9 @@ const HomePage = () => {
         </S.MatchContainer>
         <S.RankContainer>
           <ListInfo title='전체 순위' />
-          {matchs.slice(0,3).map((v: RankingProps, i: number) => {
-              return <HomeRankingLists key={i} rankings={v} />;
-            })}
+          {matchs.slice(0, 3).map((v: RankingProps, i: number) => {
+            return <HomeRankingLists key={i} rankings={v} />;
+          })}
         </S.RankContainer>
       </S.HomeContainer>
     </>
