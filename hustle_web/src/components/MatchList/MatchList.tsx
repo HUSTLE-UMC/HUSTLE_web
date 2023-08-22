@@ -20,6 +20,7 @@ const MatchList = () => {
         },
         headers: {
           Authorization: `Bearer ${process.env.REACT_APP_ACCESS_TOKEN}`
+
         }
       })
       .then((response) => {
@@ -32,14 +33,14 @@ const MatchList = () => {
       });
   }, [setMatchState]);
 
-  const handleApplyClick = () => {
-    navigate('/competitions/apply');
+  const handleApplyClick = (competitionId: number) => {
+    console.log('competitionId:', competitionId);
+    navigate(`/competitions/apply/${competitionId}`);
   };
 
   const handleResultClick = () => {
     navigate('/competitions/result');
   };
-
   return (
     <L.ListContainer>
       {matchList.map((contest, index) => (
@@ -56,7 +57,7 @@ const MatchList = () => {
             <MatchButton
               type='small'
               label='신청하기'
-              onClick={handleApplyClick}
+              onClick={() => handleApplyClick(contest.id)}
             />
           </L.BtnWrap>
           <L.BtnWrap>
