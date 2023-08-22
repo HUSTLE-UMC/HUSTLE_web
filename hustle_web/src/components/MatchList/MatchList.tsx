@@ -19,7 +19,8 @@ const MatchList = () => {
           // 파라미터
         },
         headers: {
-          Authorization: `Bearer ${'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0NjY2MjM0QGdvb2dsZS5jb20iLCJpYXQiOjE2OTI3MjU0NTEsInR5cGUiOiJBQ0NFU1NfVE9LRU4iLCJleHAiOjE2OTI3MjcyNTF9.UoTTDsImrjyYRqpZ9WW9QvvN0Zik1S3IkDgTQxJC0po'}`
+          Authorization: `Bearer ${process.env.REACT_APP_ACCESS_TOKEN}`
+
         }
       })
       .then((response) => {

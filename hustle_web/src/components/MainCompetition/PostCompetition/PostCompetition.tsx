@@ -21,43 +21,55 @@ const PostCompetition = () => {
     defaultValues: { ...defaultMainValue }
   });
 
+  
+
   const onSubmitHandler: SubmitHandler<MainCompetitionProps> = async (
     data: MainCompetitionProps
   ) => {
-    try {
-      const response = await axios.post('', {
-        title: data.title,
-        host: data.host,
-        place: data.place,
-        startDate: data.startDate,
-        endDate: data.endDate,
-        recruitmentStartDate: data.recruitmentStartDate,
-        recruitmentEndDate: data.recruitmentEndDate,
-        entryFee: data.entryFee,
-        maxEntryCount: data.maxEntryCount,
-        sponsor: data.sponsor,
-        posterUrl: data.posterUrl,
-        preRoundGroupCount: data.preRoundGroupCount,
-        finalRoundTeamCount: data.finalRoundTeamCount,
-        contacts: [
-          {
-            name: data.contacts[0]?.name,
-            phoneNumber: data.contacts[0]?.phoneNumber
-          },
-          {
-            name: data.contacts[1]?.name,
-            phoneNumber: data.contacts[1]?.phoneNumber
-          }
-        ],
-        sportEventId: 0
-      });
+    const requestData ={
+      title: data.title,
+          host: data.host,
+          place: data.place,
+          startDate: new Date(data.startDate).toISOString(),
+          endDate: new Date(data.endDate).toISOString(),
+          recruitmentStartDate: new Date(data.recruitmentStartDate).toISOString(),
+          recruitmentEndDate: new Date(data.recruitmentEndDate).toISOString(),
+          entryFee: parseInt(data.entryFee),
+          maxEntryCount: parseInt(data.maxEntryCount),
+          sponsor: data.sponsor,
+          posterUrl: 'www.naver.com',
+          preRoundGroupCount: parseInt(data.preRoundGroupCount),
+          finalRoundTeamCount: parseInt(data.finalRoundTeamCount),
+          contacts: [
+            {
+              name: data.contacts[0]?.name,
+              phoneNumber: data.contacts[0]?.phoneNumber
+            },
+            {
+              name: data.contacts[1]?.name,
+              phoneNumber: data.contacts[1]?.phoneNumber
+            }
+          ],
+          sportEventId: 1
+        };
+        console.log(requestData);
 
-      if (response.status === 200) {
-        console.log(data);
-        alert('대회 개설이 완료되었습니다.');
-        navigate('/competitions');
+    try {
+      const response = await axios.post('https://api.sport-hustle.com/api/competition?userId=7', requestData,
+         {
+        headers: {
+          Authorization: `Bearer ${process.env.REACT_APP_ACCESS_TOKEN}`
+        }
+      },  
+      );
+
+      if (response.status == 200){
+        console.log(response.data);
+         alert('대회 개설이 완료되었습니다.');
+         navigate('/competitions');
       }
-    } catch (e) {
+    } catch (error) {
+      console.error('Error fetching data:', error);
       alert('대회 개설에 실패하였습니다. 다시 진행해주세요');
       return;
     }

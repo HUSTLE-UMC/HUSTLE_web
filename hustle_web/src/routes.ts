@@ -59,6 +59,9 @@ const CompetitionInput = React.lazy(
   () => import('./pages/Competition/CompetitionInputPage/CompetitionInputPage')
 );
 
+const PostCompetition = React.lazy(
+  () => import('./components/MainCompetition/PostCompetition/PostCompetition')
+)
 const RankingPage = React.lazy(() => import('./pages/Ranking/RankingPage'));
 
 const routes = [
@@ -76,6 +79,7 @@ const routes = [
   { path: '/friendly/invite', element: FriendlyLists },
   { path: '/competitions', element: Competition },
   { path: '/competitions/apply/:competitionId', element: CompetitionApply },
+  { path: '/competitions/post', element: PostCompetition},
   { path: '/competitions/result', element: CompetitionResult },
   { path: '/competitions/detail', element: CompetitionDetailResult },
   { path: '/competitions/input', element: CompetitionInput },
