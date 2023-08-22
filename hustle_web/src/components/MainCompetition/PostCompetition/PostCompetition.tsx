@@ -37,7 +37,7 @@ const PostCompetition = () => {
           entryFee: parseInt(data.entryFee),
           maxEntryCount: parseInt(data.maxEntryCount),
           sponsor: data.sponsor,
-          posterUrl: 'www.naver.com',
+          posterUrl: 'https://dummyimage.com/1240x1754/000000/ffffff.png&text=Temporary+Competition+Poster',
           preRoundGroupCount: parseInt(data.preRoundGroupCount),
           finalRoundTeamCount: parseInt(data.finalRoundTeamCount),
           contacts: [
