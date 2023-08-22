@@ -10,7 +10,7 @@ export interface competitionTypes {
 }
 
 export const PreCompetitionState = atom<competitionTypes[]>({
-  key: 'competitionMenuState',
+  key: 'PreCompetitionState',
   default: [
     {
       menuId: 0,
@@ -64,7 +64,7 @@ export const PreCompetitionState = atom<competitionTypes[]>({
 });
 
 export const MainCompetitionState = atom<competitionTypes[]>({
-  key: 'MainCompetition',
+  key: 'MainCompetitionState',
   default: [
     {
       menuId: 0,
@@ -131,6 +131,7 @@ export const CompetitionSelector = selector({
   key: 'CompetitionSelector',
   get: ({ get }: any) => {
     const sports = get(PreCompetitionState);
+
     return sports.filter((v: competitionTypes) => v.selected);
   }
 });
