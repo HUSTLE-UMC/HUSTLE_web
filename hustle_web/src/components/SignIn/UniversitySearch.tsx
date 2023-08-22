@@ -14,7 +14,8 @@ const UniversitySearch = ({ onSelectUniversity }: UniversitySearchProps) => {
 
   const handleSearchUniversity = async () => {
     if (searchQuery.trim() === '') {
-      setUniversityList([]);
+      onSelectUniversity(''); // 검색 결과 초기화
+      return;
     } else {
       const filteredUniversities = dummyUniversityData.filter((university) =>
         university.universityName.includes(searchQuery)
@@ -26,10 +27,16 @@ const UniversitySearch = ({ onSelectUniversity }: UniversitySearchProps) => {
       const response = await axios.get('URL_TO_GET_UNIVERSITY_DATA', {
         params: { query: searchQuery }
       });
+      onSelectUniversity(searchQuery);
       setUniversityList(response.data);
     } catch (error) {
       console.error('대학교 검색 오류:', error);
     }
+  };
+
+  const handleUniversitySelection = (universityName: string) => {
+    setSearchQuery(universityName); // 선택된 대학 이름을 검색어로 설정
+    onSelectUniversity(universityName); // 선택된 대학 이름을 부모 컴포넌트로 전달
   };
 
   return (
@@ -45,10 +52,10 @@ const UniversitySearch = ({ onSelectUniversity }: UniversitySearchProps) => {
       />
       <S.SubmitButton
         type='button'
-        onClick={() => {
-          handleSearchUniversity();
-          onSelectUniversity(searchQuery);
-        }} // 검색 버튼 클릭 시 대학교 목록 검색
+        onClick={
+          handleSearchUniversity
+          // onSelectUniversity(searchQuery);
+        } // 검색 버튼 클릭 시 대학교 목록 검색
       >
         검색
       </S.SubmitButton>
@@ -66,7 +73,7 @@ const UniversitySearch = ({ onSelectUniversity }: UniversitySearchProps) => {
                 <button
                   type='button'
                   onClick={() => {
-                    setSearchQuery(university.universityName);
+                    handleUniversitySelection(university.universityName);
                   }}
                 >
                   선택

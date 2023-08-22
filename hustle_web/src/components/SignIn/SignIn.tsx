@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import * as S from './Styles';
@@ -11,9 +11,10 @@ import UniversitySearch from './UniversitySearch';
 const SignIn = () => {
   const navigate = useNavigate();
   const [selectedUniversity, setSelectedUniversity] = useState('');
-  const [gender, setGender] = useState('');
+  // const [gender, setGender] = useState('');
+  const [selectedGender, setSelectedGender] = useState('');
   const handleButtonClick = (selectedGender: string) => {
-    setGender(selectedGender); // 클릭된 버튼의 상태를 업데이트
+    setSelectedGender(selectedGender); // 클릭된 버튼의 상태를 업데이트
   };
   const handleUniversitySelection = (universityName: string) => {
     setSelectedUniversity(universityName);
@@ -22,6 +23,7 @@ const SignIn = () => {
   const onSubmitHandler: SubmitHandler<SignInProps> = async (
     data: SignInProps
   ) => {
+    console.log(selectedUniversity);
     try {
       const response = await axios.post(
         'https://api.sport-hustle.com/api/auth/signup',
@@ -32,7 +34,7 @@ const SignIn = () => {
           name: data.name,
           birth: data.birth,
           university: selectedUniversity,
-          gender: data.gender
+          gender: selectedGender
         }
       );
 
@@ -155,20 +157,20 @@ const SignIn = () => {
             <div>
               <S.Genderbutton
                 type='button'
-                isselected={gender === 'male'}
+                isselected={selectedGender === 'male'}
                 onClick={() => {
                   handleButtonClick('male');
-                  register('gender', contentRequirements);
+                  setSelectedGender('male');
                 }}
               >
                 남자
               </S.Genderbutton>
               <S.Genderbutton
                 type='button'
-                isselected={gender === 'female'}
+                isselected={selectedGender === 'female'}
                 onClick={() => {
                   handleButtonClick('female');
-                  register('gender', contentRequirements);
+                  setSelectedGender('female');
                 }}
               >
                 여자
