@@ -19,7 +19,7 @@ const MatchList = () => {
           // 파라미터
         },
         headers: {
-          Authorization: `Bearer ${'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJUZTQxMTIzMjMyQGdtYWlsLmNvbSIsImlhdCI6MTY5MjY1MDAyOSwidHlwZSI6IkFDQ0VTU19UT0tFTiIsImV4cCI6MTY5MjY1MTgyOX0.o-7lJn-XECCr4ugz0yiYeQv9YiT5oac7kXKADHXPuw0'}`
+          Authorization: `Bearer ${process.env.REACT_APP_ACCESS_TOKEN}`
         }
       })
       .then((response) => {

@@ -20,12 +20,12 @@ export const defaultMainCompetition = {
   sponsor: '',
   endDate: '',
   recruitmentEndDate: '',
-  maxEntryCount: 0,
-  finalRoundTeamCount: 0,
+  maxEntryCount: '', //
+  finalRoundTeamCount: '', //
   startDate: '',
   recruitmentStartDate: '',
-  entryFee: 0,
-  preRoundGroupCount: 0,
+  entryFee: '', //
+  preRoundGroupCount: '', //
   posterUrl: ''
 };
 
