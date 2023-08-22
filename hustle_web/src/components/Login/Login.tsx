@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import * as L from './LoginStyle';
 import { useNavigate } from 'react-router-dom';
-import { LoginProps } from '../../constants/interfaces';
+import { LoginProps, kakaoLoginProps } from '../../constants/interfaces';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { defaultLoginValue } from '../../constants/defaultFormOption';
 import FormRequirements from '../../constants/FormRequirements';
@@ -9,6 +9,7 @@ import axios from 'axios';
 import { AuthContext } from '../Auth/AuthProvider';
 import { userAtom } from '../../recoil/login/login';
 import { useRecoilState } from 'recoil';
+import kakaoLogin from './Kakao/KakaoLogin';
 
 const { usernameRequirements, passwordRequirements } = FormRequirements;
 const defaultValue = defaultLoginValue;
@@ -73,6 +74,7 @@ const LoginMain = () => {
     }
   };
 
+
   return (
     <L.Layout>
       <L.H2>로그인</L.H2>
@@ -92,11 +94,11 @@ const LoginMain = () => {
             <L.Input
               type='password'
               placeholder='비밀번호를 입력하세요'
-              {...register('password', passwordRequirements)}
+              // {...register('password', passwordRequirements)}
             />
-            {errors.password && errors.password.type === 'pattern' && (
+            {/* {errors.password && errors.password.type === 'pattern' && (
               <L.ErrorDiv>{errors.password.message}</L.ErrorDiv>
-            )}
+            )} */}
           </div>
           <L.SubmitButton type='submit'>
             {isLoading ? 'LOGINING...' : '로그인'}
@@ -105,7 +107,9 @@ const LoginMain = () => {
       </L.Container>
       <L.Line></L.Line>
       <L.ButtonDiv>
-        <L.KakaoButton>카카오 로그인</L.KakaoButton>
+        <L.KakaoButton
+          onClick={kakaoLogin}
+        >카카오 로그인</L.KakaoButton>
       </L.ButtonDiv>
       <L.ButtonDiv>
         <L.Button onClick={forgotPage}>아이디 찾기 · 비밀번호 찾기</L.Button>

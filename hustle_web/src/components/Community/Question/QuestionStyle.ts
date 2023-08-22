@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import { Input } from '../../../stories/Inputs/Input';
 import { Link } from 'react-router-dom';
 import Colors from '../../../styles/Color';
+import emoji from '../../../assets/images/competition_logoimg.png';
+import FONT from '../../../styles/Font';
 
 export const Container = styled.div`
   width: 1440px;
@@ -16,6 +18,25 @@ export const Search = styled(Input)`
   align-items: center;
 `;
 
+export const preparingImg = styled.div`
+  display: flex;
+  justify-content: center;
+  padding: 150px;
+`;
+
+export const PointImg = styled.img`
+  display: flex;
+  background-color: none;
+`;
+
+export const Span = styled.span`
+  display: flex;
+  justify-content: center;
+  padding-top: 80px;
+  font-size: ${FONT.SIZE.BODY3};
+  font-weight: ${FONT.WEIGHT.BOLD};
+`;
+
 export const WriteButton = styled(Link)`
   display: flex;
   flex-direction: row;
@@ -28,7 +49,7 @@ export const WriteButton = styled(Link)`
   text-align: center;
   width: 10rem;
   height: 1.5rem;
-  margin: 63px 142px 15px 292p;
+  margin: 63px 142px 15px 292px;
   padding: 12px 48.5px 13px 47px;
   justify-content: center;
   align-items: center;
