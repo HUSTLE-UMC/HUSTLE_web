@@ -47,7 +47,7 @@ const CompetitionApply = () => {
                   0,
                   10
                 )} - ${competitionInfo.recruitmentEndDate.substring(0, 10)}`}
-                location={competitionInfo.title}
+                location={competitionInfo.place}
                 preliminariesFinals={`${competitionInfo.preRoundGroupCount}팀 / ${competitionInfo.finalRoundTeamCount}팀`}
                 entryFee={`${competitionInfo.entryFee} 원`}
                 organizer={competitionInfo.host}
