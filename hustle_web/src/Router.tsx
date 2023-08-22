@@ -25,6 +25,7 @@ import CompetitionResultPage from './pages/Competition/CompetitionResult/Competi
 import CompetitionDetailResult from './pages/Competition/CompetitionDetailResult/CompetitionDetailResult';
 import CompetitionInput from './pages/Competition/CompetitionInputPage/CompetitionInputPage';
 import PostCompetition from './components/MainCompetition/PostCompetition/PostCompetition';
+import CompetitionApplyForm from './components/MainCompetition/ApplyForm/CompetitionApplyForm';
 
 const loadingPage = <div>화면 로딩중...</div>;
 const DefaultLayout = React.lazy(() => import('./layout/DefaultLayout'));
@@ -54,6 +55,10 @@ const Router = () => {
             />
             <Route path='/competitions/input' element={<CompetitionInput />} />
             <Route path='/competitions/post' element={<PostCompetition />} />
+            <Route
+              path='/competitions/applyform'
+              element={<CompetitionApplyForm />}
+            />
             <Route path='/mypage' element={<MyPageMain />} />
             <Route path='/community' element={<Community />} />
             <Route path='/community/club' element={<Club />} />
@@ -68,7 +73,10 @@ const Router = () => {
             <Route path='/friendly/match' element={<FriendlyLists />} />
             <Route path='/friendly/post' element={<PostMatch />} />
             <Route path='/friendly/apply' element={<ApplyMatch />} />
-            <Route path='/friendly/apply/form' element={<ApplyForm />} />
+            <Route
+              path='/friendly/apply/form'
+              element={<CompetitionApplyForm />}
+            />
             <Route path='/forgot' element={<ForgotPage />} />
             <Route path='/reset' element={<ResetPage />} />
             <Route path='/maincompetition' element={<MainCompetition />} />

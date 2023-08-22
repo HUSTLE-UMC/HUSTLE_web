@@ -5,10 +5,11 @@ import Content from '../../../components/CompetitionInfo/Content/Content';
 import TeamInfo from '../../../components/TeamInfo/TeamInfo';
 import TeamInfoTest from '../../../assets/images/TeamInfoTest.png';
 import MatchButton from '../../../components/MatchButton/MatchButton';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import { MatchState } from '../../../recoil/MatchList';
 const CompetitionApply = () => {
+  const navigate = useNavigate();
   const { competitionId } = useParams();
   const matchList = useRecoilValue(MatchState);
 
@@ -16,6 +17,10 @@ const CompetitionApply = () => {
   const competitionInfo = matchList.find(
     (contest) => contest.id === Number(competitionId)
   );
+
+  const handleResultClick = () => {
+    navigate('/competitions/applyform');
+  };
 
   useEffect(() => {
     console.log('competitionId:', competitionId);
@@ -60,9 +65,7 @@ const CompetitionApply = () => {
             <MatchButton
               type='big'
               label='신청하기'
-              onClick={() => {
-                // 버튼 클릭 이벤트
-              }}
+              onClick={handleResultClick}
             />
           </S.ApplyWrap>
         </React.Fragment>
