@@ -43,7 +43,7 @@ export interface isMatchProps {
 }
 
 export interface ApplyMatchProps {
-  type: string;
+  type: 'WAIT' | 'ACCEPT' | 'DECLINE';
   name: string;
   phoneNumber: string;
   locationAddress?: string;

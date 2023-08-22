@@ -4,15 +4,22 @@ import { PostMatchProps } from '../../../constants/interfaces';
 import { defaultPostFormValue } from '../../../constants/defaultFormOption';
 import FormRequirements from '../../../constants/FormRequirements';
 import LocationBox from '../LocationBox/LocationBox';
-import { useSetRecoilState } from 'recoil';
-import { inputValue } from '../../../recoil/friendlyMatchPage/states';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import {
+  LocationState,
+  inputValue
+} from '../../../recoil/friendlyMatchPage/states';
 import { Search } from '../../../stories/Icons/svg';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const { contentRequirements } = FormRequirements;
 const defaultValue = defaultPostFormValue;
 
 export const MatchForm = () => {
   const setValue = useSetRecoilState(inputValue);
+  const navigate = useNavigate();
+  const coords = useRecoilValue(LocationState);
   const {
     register,
     handleSubmit,
@@ -24,8 +31,38 @@ export const MatchForm = () => {
     }
   });
 
-  const onSubmitHandler: SubmitHandler<PostMatchProps> = (data) => {
-    alert('교류전 신청이 완료되었습니다.');
+  const onSubmitHandler: SubmitHandler<PostMatchProps> = async (data) => {
+    const requestData = {
+      title: data.title,
+      category: 'INVITE',
+      name: data.name,
+      phoneNumber: data.phoneNumber,
+      startDate: new Date(data.startDate).toISOString(),
+      locationAddress: data.locationAddress,
+      location: { type: 'Point', coordinates: coords },
+      sportEventId: 2,
+      clubId: 2
+    };
+    console.log(requestData);
+    try {
+      const response = await axios.post(
+        'https://api.sport-hustle.com/api/friendMatchingPosts?userId=4',
+        requestData,
+        {
+          headers: {
+            Authorization: `Bearer ${process.env.REACT_APP_ACCESS_TOKEN}`
+          }
+        }
+      );
+
+      if (response.status == 200) {
+        console.log(response.data);
+        alert('대회 개설이 완료되었습니다.');
+        navigate('/friendly');
+      }
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
   };
 
   const onSearchHandler = () => {
@@ -82,7 +119,10 @@ export const MatchForm = () => {
         </M.PostBox>
         <M.PostBox>
           <M.TitleBox>일시</M.TitleBox>
-          <M.InputLarge {...register('startDate', contentRequirements)} />
+          <M.InputLarge
+            placeholder='ex) 2023-01-01'
+            {...register('startDate', contentRequirements)}
+          />
           {errors.startDate && (
             <M.ErrorText>{errors.startDate.message}</M.ErrorText>
           )}

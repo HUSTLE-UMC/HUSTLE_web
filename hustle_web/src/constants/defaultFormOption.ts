@@ -30,7 +30,6 @@ export const defaultMainCompetition = {
 };
 
 export const defaultApplyFormValue = {
-  type: '',
   name: '',
   phoneNumber: '',
   locationAddress: ''
@@ -38,7 +37,7 @@ export const defaultApplyFormValue = {
 
 export const defaultPostFormValue = {
   title: '',
-  category: '',
+  category: 'INVITE' || 'REQUEST',
   name: '',
   phoneNumber: '',
   startDate: '',

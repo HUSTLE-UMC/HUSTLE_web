@@ -20,6 +20,7 @@ const FriendlyMatch = () => {
       )
       .then((response) => {
         setMatch(response.data.content);
+        console.log(response.data.content);
       })
       .catch((error) => {
         console.error('Error fetching data:', error);

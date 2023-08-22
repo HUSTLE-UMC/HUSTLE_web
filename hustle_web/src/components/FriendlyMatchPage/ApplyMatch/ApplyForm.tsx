@@ -4,8 +4,6 @@ import FormRequirements from '../../../constants/FormRequirements';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { ApplyMatchProps } from '../../../constants/interfaces';
 import { defaultApplyFormValue } from '../../../constants/defaultFormOption';
-import { matchSelector } from '../../../recoil/friendlyMatchPage/selectors';
-import { useRecoilValue } from 'recoil';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
@@ -13,13 +11,11 @@ const { contentRequirements } = FormRequirements;
 const defaultValue = defaultApplyFormValue;
 
 export const ApplyForm = () => {
-  const match = useRecoilValue(matchSelector);
   const navigate = useNavigate();
 
   const {
     register,
     handleSubmit,
-    getValues,
     formState: { errors }
   } = useForm<ApplyMatchProps>({ defaultValues: defaultValue });
 
@@ -28,9 +24,8 @@ export const ApplyForm = () => {
       type: 'WAIT',
       name: data.name,
       phoneNumber: data.phoneNumber,
-      locationAddress: '서울시 강남구'
+      locationAddress: ''
     };
-
     try {
       const response = await axios.post(
         'https://api.sport-hustle.com/api/friendMatchingPosts/1?userId=4',

@@ -13,7 +13,7 @@ export const friendlyMenuSelector = selector({
   }
 });
 
-// 사용자가 선택한 교류전 selector
+// 메인에 출력되는 교류전 리스트 selector
 export const friendlyListsSelector = selector({
   key: 'friendlyListsistsSelector',
   get: ({ get }: any) => {
@@ -37,8 +37,9 @@ export const matchSelector = selector({
   get: ({ get }: any) => {
     const list = get(friendlyListsSelector);
     const selectedID = get(S.selectedMatchID);
-    const selectedList = list[selectedID];
-    return selectedList;
+    const Index = list.findIndex((v: T.matchListsTypes) => v.id === selectedID);
+    const result = list[Index];
+    return result;
   }
 });
 

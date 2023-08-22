@@ -1,7 +1,10 @@
 import React, { useEffect } from 'react';
 import * as S from './Styles';
-import { useRecoilValue } from 'recoil';
-import { inputValue } from '../../../recoil/friendlyMatchPage/states';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import {
+  LocationState,
+  inputValue
+} from '../../../recoil/friendlyMatchPage/states';
 import currentLocation from './currentLocation';
 
 declare global {
@@ -15,6 +18,7 @@ const { kakao } = window;
 const LocationBox = () => {
   const location = currentLocation();
   const value = useRecoilValue(inputValue);
+  const setLocation = useSetRecoilState(LocationState);
   const newScript = (src: string) => {
     return new Promise<void>((resolve, reject) => {
       const script = document.createElement('script');
@@ -58,6 +62,7 @@ const LocationBox = () => {
             });
             infowindow.open(map, marker);
             map.setCenter(coords);
+            setLocation([coords.Ma, coords.La]);
           }
         });
       });

@@ -27,7 +27,6 @@ const HomePage = () => {
   const competitons = useRecoilValue(CompetitionState);
   const resetSportMenu = useResetRecoilState(sportsMenuState);
   const resetSportSelect = useResetRecoilState(sportSelectState);
-
   const rankingList = useRecoilValue(RankingState);
 
   const HomeRankingLists = ({ rankings }: RankingListProps) => {

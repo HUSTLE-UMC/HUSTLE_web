@@ -2,10 +2,7 @@ import * as S from '../Styles';
 import MatchMenu from '../../MatchMenu/MatchMenu';
 import FriendlyMatchList from '../../FriendlyMatchList/FriendlyMatchList';
 import { useRecoilValue } from 'recoil';
-import {
-  pageListSelector,
-  pageNumberSelector
-} from '../../../../recoil/friendlyMatchPage/selectors';
+import { pageListSelector } from '../../../../recoil/friendlyMatchPage/selectors';
 import { matchListsTypes } from '../../../../recoil/friendlyMatchPage/types';
 import { sportSelectState } from '../../../../recoil/SportsButton';
 import PageButton from '../../PageButton/PageButton';
@@ -17,10 +14,10 @@ export const MatchLists = () => {
   return (
     <>
       <MatchMenu />
-      {matchs.map((v: matchListsTypes, i: number) => {
+      {matchs.map((v: matchListsTypes) => {
         return (
           <FriendlyMatchList
-            key={i}
+            key={v.id}
             id={v.id}
             sport={v.sportEvent.name}
             title={v.title}

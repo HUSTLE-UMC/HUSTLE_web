@@ -73,6 +73,6 @@ export const SportsIdSelector = selector({
   get: ({ get }: any) => {
     const sports = get(sportsMenuState);
     const selectedId = sports.findIndex((v: sportsTypes) => v.selected);
-    return selectedId;
+    return selectedId + 1;
   }
 });

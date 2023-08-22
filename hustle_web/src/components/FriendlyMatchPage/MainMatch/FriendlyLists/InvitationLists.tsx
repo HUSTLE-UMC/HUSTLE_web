@@ -15,10 +15,10 @@ export const InvitationLists = () => {
   return (
     <>
       <MatchMenu />
-      {matchs.map((v: matchListsTypes, i: number) => {
+      {matchs.map((v: matchListsTypes) => {
         return (
           <FriendlyMatchList
-            key={i}
+            key={v.id}
             id={v.id}
             sport={v.sportEvent.name}
             title={v.title}

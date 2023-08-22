@@ -6,14 +6,21 @@ import { defaultPostFormValue } from '../../../constants/defaultFormOption';
 import FormRequirements from '../../../constants/FormRequirements';
 import LocationBox from '../LocationBox/LocationBox';
 import { Search } from '../../../stories/Icons/svg';
-import { useSetRecoilState } from 'recoil';
-import { inputValue } from '../../../recoil/friendlyMatchPage/states';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import {
+  LocationState,
+  inputValue
+} from '../../../recoil/friendlyMatchPage/states';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const { contentRequirements } = FormRequirements;
 const defaultValue = defaultPostFormValue;
 
 export const InvitationForm = () => {
   const setValue = useSetRecoilState(inputValue);
+  const navigate = useNavigate();
+  const coords = useRecoilValue(LocationState);
   const {
     register,
     handleSubmit,
@@ -26,7 +33,37 @@ export const InvitationForm = () => {
   });
 
   const onSubmitHandler: SubmitHandler<PostMatchProps> = async (data) => {
-    alert('교류전 신청이 완료되었습니다.');
+    const requestData = {
+      title: data.title,
+      category: 'REQUEST',
+      name: data.name,
+      phoneNumber: data.phoneNumber,
+      startDate: new Date(data.startDate).toISOString(),
+      locationAddress: data.locationAddress,
+      location: { type: 'Point', coordinates: coords },
+      sportEventId: 2,
+      clubId: 2
+    };
+    console.log(requestData);
+    try {
+      const response = await axios.post(
+        'https://api.sport-hustle.com/api/friendMatchingPosts?userId=4',
+        requestData,
+        {
+          headers: {
+            Authorization: `Bearer ${process.env.REACT_APP_ACCESS_TOKEN}`
+          }
+        }
+      );
+
+      if (response.status == 200) {
+        console.log(response.data);
+        alert('대회 개설이 완료되었습니다.');
+        navigate('/friendly');
+      }
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
   };
 
   const onSearchHandler = () => {

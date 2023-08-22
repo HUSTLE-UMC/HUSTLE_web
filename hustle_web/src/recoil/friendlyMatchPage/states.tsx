@@ -15,7 +15,122 @@ export const friendlyMenuState = atom<T.menuTypes[]>({
 // 교류전 상대 구해요 목록
 export const matchListsState = atom<T.matchListsTypes[]>({
   key: 'matchListsState',
-  default: [],
+  default: [
+    {
+      id: 1,
+      title: '친구 찾기 게시글 제목',
+      category: 'INVITE',
+      name: '홍길동',
+      phoneNumber: '010-1234-5678',
+      startDate: '2023-08-20T01:00:00',
+      location: {
+        type: 'Point',
+        coordinates: [37.123456, -122.654321]
+      },
+      locationAddress: '서울시 강남구',
+      user: {
+        id: 4
+      },
+      club: {
+        id: 2,
+        name: '스포츠 동아리2',
+        instagram: 'https://www.instagram.com/my_club',
+        youtubeUrl: 'https://www.youtube.com/my_club',
+        mainArea: '서울시 강남구',
+        profileImageUrl: 'https://example.com/my_club_image.jpg',
+        point: 0,
+        university: {
+          id: 1,
+          name: '가톨릭대학교 성신교정 (이원화캠퍼스)',
+          address: '서울 종로'
+        },
+        sportEvent: {
+          id: 2,
+          name: '농구'
+        }
+      },
+      sportEvent: {
+        id: 2,
+        name: '농구'
+      }
+    },
+    {
+      id: 2,
+      title: '친구 찾기 게시글 제목',
+      category: 'INVITE',
+      name: '홍길동',
+      phoneNumber: '010-1234-5678',
+      startDate: '2023-08-20T01:00:00',
+      location: {
+        type: 'Point',
+        coordinates: [37.123456, -122.654321]
+      },
+      locationAddress: '서울시 강남구',
+      user: {
+        id: 4
+      },
+      club: {
+        id: 2,
+        name: '스포츠 동아리2',
+        instagram: 'https://www.instagram.com/my_club',
+        youtubeUrl: 'https://www.youtube.com/my_club',
+        mainArea: '서울시 강남구',
+        profileImageUrl: 'https://example.com/my_club_image.jpg',
+        point: 0,
+        university: {
+          id: 1,
+          name: '가톨릭대학교 성신교정 (이원화캠퍼스)',
+          address: '서울 종로'
+        },
+        sportEvent: {
+          id: 2,
+          name: '농구'
+        }
+      },
+      sportEvent: {
+        id: 2,
+        name: '농구'
+      }
+    },
+    {
+      id: 2,
+      title: '친구 찾기 게시글 제목',
+      category: 'INVITE',
+      name: '홍길동',
+      phoneNumber: '010-1234-5678',
+      startDate: '2023-08-20T01:00:00',
+      location: {
+        type: 'Point',
+        coordinates: [37.123456, -122.654321]
+      },
+      locationAddress: '서울시 강남구',
+      user: {
+        id: 4
+      },
+      club: {
+        id: 2,
+        name: '스포츠 동아리2',
+        instagram: 'https://www.instagram.com/my_club',
+        youtubeUrl: 'https://www.youtube.com/my_club',
+        mainArea: '서울시 강남구',
+        profileImageUrl: 'https://example.com/my_club_image.jpg',
+        point: 0,
+        university: {
+          id: 1,
+          name: '가톨릭대학교 성신교정 (이원화캠퍼스)',
+          address: '서울 종로'
+        },
+        sportEvent: {
+          id: 2,
+          name: '농구'
+        }
+      },
+      sportEvent: {
+        id: 2,
+        name: '농구'
+      }
+    }
+  ],
   effects_UNSTABLE: [persistAtom]
 });
 
@@ -64,10 +179,7 @@ export const currentLocationState = atom<T.currentLocationTypes>({
   }
 });
 
-export const LocationState = atom<T.currentLocationTypes>({
+export const LocationState = atom<number[]>({
   key: 'LocationState',
-  default: {
-    lat: 37.5204082,
-    lng: 126.887799
-  }
+  default: [0, 0]
 });
