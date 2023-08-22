@@ -11,7 +11,7 @@ import { userAtom } from '../../recoil/login/login';
 import { useRecoilState } from 'recoil';
 import kakaoLogin from './Kakao/KakaoLogin';
 
-const { usernameRequirements, passwordRequirements } = FormRequirements;
+const { idRequirements, passwordRequirements } = FormRequirements;
 const defaultValue = defaultLoginValue;
 
 const LoginMain = () => {
@@ -37,17 +37,21 @@ const LoginMain = () => {
     defaultValues: defaultValue
   });
 
-  const onSubmitHandler: SubmitHandler<LoginProps> = async (
-    data: LoginProps
-  ) => {
+  const onSubmitHandler: SubmitHandler<LoginProps> = async (data) => {
     console.log(data);
+    const formData = {
+      email : data.email,
+      password : data.password,
+    };
+    console.log(formData);
     setIsLoading(true);
     try {
-      const response = await axios.post('https://api.sport-hustle.com/api/auth/signin', data, {
+      const response = await axios.post('https://api.sport-hustle.com/api/auth/signin', formData, {
         headers: {
           'Content-Type': 'application/json'
         }
       });
+
       if (response.status === 200) {
       const user = response.data;
       const accessToken = user.accessToken;
@@ -82,23 +86,23 @@ const LoginMain = () => {
         <L.Box>
           <div>
             <L.Input
-              type='username'
+              type='email'
               placeholder='아이디를 입력하세요'
-              {...register('username', usernameRequirements)}
+              {...register('email', {...idRequirements})}
             />
-            {errors.username && (
-              <L.ErrorDiv>{errors.username.message}</L.ErrorDiv>
+            {errors.email && (
+              <L.ErrorDiv>{errors.email.message}</L.ErrorDiv>
             )}
           </div>
           <div>
             <L.Input
               type='password'
               placeholder='비밀번호를 입력하세요'
-              // {...register('password', passwordRequirements)}
+              {...register('password', {...passwordRequirements})}
             />
-            {/* {errors.password && errors.password.type === 'pattern' && (
+            {errors.password && errors.password.type === 'pattern' && (
               <L.ErrorDiv>{errors.password.message}</L.ErrorDiv>
-            )} */}
+            )}
           </div>
           <L.SubmitButton type='submit'>
             {isLoading ? 'LOGINING...' : '로그인'}

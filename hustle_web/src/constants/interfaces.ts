@@ -4,7 +4,7 @@ export interface QuestionProps {
 }
 
 export interface LoginProps {
-  username: string;
+  email: string;
   password: string;
 }
 
