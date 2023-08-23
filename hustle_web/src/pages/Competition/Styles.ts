@@ -66,3 +66,22 @@ export const BtnBox = styled.div`
   font-weight: ${FONT.WEIGHT.REGULAR};
   font-family: Pretendard;
 `;
+
+export const BtnWrap = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20rem;
+  height: 14rem;
+`;
+
+export const PostBtnWrap = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 20rem;
+  height: 14rem;
+  margin-top: 2rem;
+  margin-right: 10rem;
+  margin-left: auto;
+`;

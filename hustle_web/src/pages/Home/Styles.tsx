@@ -4,7 +4,7 @@ import FONT from '../../styles/Font';
 
 export const HomeContainer = styled.div`
   width: 100%;
-  height: 100vh;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -12,7 +12,7 @@ export const HomeContainer = styled.div`
 
 export const RankContainer = styled.div`
   width: 100%;
-  height: 33rem;
+  height: 20rem;
   display: flex;
   flex-direction: column;
   margin-top: 3rem;

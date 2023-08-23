@@ -3,7 +3,7 @@ import Colors from '../../styles/Color';
 
 export const Content = styled.div`
   width: 1280px;
-  height: 200rem;
+  height: auto;
   display: flex;
   flex-direction: column;
   background-color: ${Colors.TrueWhite};

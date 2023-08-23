@@ -4,12 +4,15 @@ import { useState, useEffect } from 'react';
 import { UniversityProps } from '../../constants/interfaces';
 import Select from 'react-select';
 
-
 // interface UniversitySearchProps {
 //   onSelectUniversity: (universityName: string) => void;
 // }
 
-const UniversitySearch = ({ onSelecteUniversity }: {onSelecteUniversity : (UniversityId : number) => void}) => {
+const UniversitySearch = ({
+  onSelecteUniversity
+}: {
+  onSelecteUniversity: (UniversityId: number) => void;
+}) => {
   const [universityList, setUniversityList] = useState<UniversityProps[]>([]);
   const [searchQuery, setSearchQuery] = useState(''); // 검색어 상태 추가
   const [selectedId, setSelectedId] = useState(0);
@@ -17,7 +20,9 @@ const UniversitySearch = ({ onSelecteUniversity }: {onSelecteUniversity : (Unive
   const handleSearchUniversity = async () => {
     // setUniversityList(dummyUniversityData);
     try {
-      const response = await axios.get(`https://api.sport-hustle.com/api/university?keyword=${searchQuery}`);
+      const response = await axios.get(
+        `https://api.sport-hustle.com/api/university?keyword=${searchQuery}`
+      );
       setUniversityList(response.data.universities);
     } catch (error) {
       console.error('대학교 검색 오류:', error);
@@ -27,12 +32,12 @@ const UniversitySearch = ({ onSelecteUniversity }: {onSelecteUniversity : (Unive
 
   const options = universityList.map((university) => ({
     value: university.id,
-    label: university.name,
+    label: university.name
   }));
 
   // const handleUniversitySelection = (universityId: number) => {
   //   const selectedUniversity = universityList.find(university => university.id === universityId);
-    
+
   //   if(selectedUniversity){
   //     setSearchQuery(selectedUniversity.name); // 선택된 대학교 이름을 검색창에 표시
   //     onSelecteUniversity(selectedUniversity.id); // 선택된 대학교 이름을 부모 컴포넌트로 전달
@@ -47,8 +52,8 @@ const UniversitySearch = ({ onSelecteUniversity }: {onSelecteUniversity : (Unive
   };
 
   useEffect(() => {
-    handleSearchUniversity()
-  },);
+    handleSearchUniversity();
+  });
 
   return (
     <>
@@ -65,7 +70,7 @@ const UniversitySearch = ({ onSelecteUniversity }: {onSelecteUniversity : (Unive
         <Select
           options={options}
           onChange={handleUniversitySelection}
-          placeholder="대학교를 선택하세요"
+          placeholder='대학교를 선택하세요'
         />
       )}
       {/* <S.SubmitButton

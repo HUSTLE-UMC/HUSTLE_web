@@ -10,7 +10,7 @@ import { AuthContext } from '../Auth/AuthProvider';
 import { userAtom } from '../../recoil/login/login';
 import { useRecoilState } from 'recoil';
 
-const { usernameRequirements, passwordRequirements } = FormRequirements;
+const { idRequirements, passwordRequirements } = FormRequirements;
 const defaultValue = defaultLoginValue;
 
 const LoginMain = () => {
@@ -36,17 +36,21 @@ const LoginMain = () => {
     defaultValues: defaultValue
   });
 
-  const onSubmitHandler: SubmitHandler<LoginProps> = async (
-    data: LoginProps
-  ) => {
+  const onSubmitHandler: SubmitHandler<LoginProps> = async (data) => {
     console.log(data);
+    const formData = {
+      email : data.email,
+      password : data.password,
+    };
+    console.log(formData);
     setIsLoading(true);
     try {
-      const response = await axios.post('https://api.sport-hustle.com/api/auth/signin', data, {
+      const response = await axios.post('https://api.sport-hustle.com/api/auth/signin', formData, {
         headers: {
           'Content-Type': 'application/json'
         }
       });
+
       if (response.status === 200) {
       const user = response.data;
       const accessToken = user.accessToken;
@@ -73,6 +77,16 @@ const LoginMain = () => {
     }
   };
 
+  const kakaoLoginHandler = () => {
+    const REST_API_KEY = process.env.REACT_API_KEY;
+    const REDIRECT_URL = process.env.REDIRECT_URI;
+    const kakaoUrl = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URL}&response_type=code`
+
+    window.location.href = kakaoUrl;
+    
+  }
+
+
   return (
     <L.Layout>
       <L.H2>로그인</L.H2>
@@ -80,19 +94,19 @@ const LoginMain = () => {
         <L.Box>
           <div>
             <L.Input
-              type='username'
+              type='email'
               placeholder='아이디를 입력하세요'
-              {...register('username', usernameRequirements)}
+              {...register('email', {...idRequirements})}
             />
-            {errors.username && (
-              <L.ErrorDiv>{errors.username.message}</L.ErrorDiv>
+            {errors.email && (
+              <L.ErrorDiv>{errors.email.message}</L.ErrorDiv>
             )}
           </div>
           <div>
             <L.Input
               type='password'
               placeholder='비밀번호를 입력하세요'
-              {...register('password', passwordRequirements)}
+              {...register('password', {...passwordRequirements})}
             />
             {errors.password && errors.password.type === 'pattern' && (
               <L.ErrorDiv>{errors.password.message}</L.ErrorDiv>
@@ -105,7 +119,9 @@ const LoginMain = () => {
       </L.Container>
       <L.Line></L.Line>
       <L.ButtonDiv>
-        <L.KakaoButton>카카오 로그인</L.KakaoButton>
+        <L.KakaoButton
+          onClick={kakaoLoginHandler}
+        >카카오 로그인</L.KakaoButton>
       </L.ButtonDiv>
       <L.ButtonDiv>
         <L.Button onClick={forgotPage}>아이디 찾기 · 비밀번호 찾기</L.Button>
