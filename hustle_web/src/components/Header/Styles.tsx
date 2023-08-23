@@ -90,3 +90,8 @@ export const RightContainer = styled.div`
   display: flex;
   justify-content: right;
 `;
+
+export const Button = styled.button`
+background: none;
+border: none;
+`

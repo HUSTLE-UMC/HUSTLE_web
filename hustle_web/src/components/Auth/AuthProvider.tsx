@@ -11,7 +11,6 @@ import type { AuthContextType } from '../../constants/interfaces';
 
 const AuthContext = createContext<AuthContextType>({
   isLoggedIn: false,
-
   setIsLoggedIn: () => {
     return;
   },
@@ -29,11 +28,10 @@ const AuthContext = createContext<AuthContextType>({
   logoutHandler: () => {
     return;
   },
-
 });
 
 const AuthProvider = ({ children }: any) => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(LoginState);
   const [accessToken, setAccessToken] = useRecoilState<string | null>(TokenState,);
   const refreshToken = useRecoilValue(refreshTokenState);
@@ -53,10 +51,12 @@ const AuthProvider = ({ children }: any) => {
   };
 
   const logoutHandler = () => {
+    console.log('로그아웃 클릭실행돼씀');
     localStorage.removeItem('accessToken');
+    console.log(logoutHandler);
     setIsLoggedIn(false);
     setAccessToken(null);
-    navigate('/');
+    // navigate('/');
   };
 
   useEffect(() => {

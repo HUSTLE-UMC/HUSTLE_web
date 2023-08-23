@@ -1,5 +1,6 @@
 import React from 'react';
 import Router from './Router';
+import { AuthProvider } from './components/Auth/AuthProvider';
 
 // const loadingPage = <div>화면 로딩중...</div>;
 // const DefaultLayout = React.lazy(() => import('./layout/DefaultLayout'));
@@ -8,9 +9,9 @@ import Router from './Router';
 
 const App = () => {
   return (
-    <>
+    <AuthProvider>
       <Router />
-    </>
+    </AuthProvider>
   );
 };
 

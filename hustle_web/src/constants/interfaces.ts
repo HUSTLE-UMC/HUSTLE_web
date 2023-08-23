@@ -102,12 +102,12 @@ export interface CompetitionApplyProps {
 }
 
 export interface SignInProps {
-  id: string;
+  email: string;
   password: string;
   passwordcheck: string;
   name: string;
-  birth: string;
-  university: string;
+  birthday: string;
+  universityId: string;
   gender: string;
 }
 
