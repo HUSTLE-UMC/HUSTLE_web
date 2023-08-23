@@ -5,6 +5,7 @@ export const Footer = styled.div`
   justify-content: center;
   margin-top: 3rem;
   flex-direction: column;
+  min-height: 12rem;
 `;
 
 export const Box = styled.div`
