@@ -10,7 +10,7 @@ interface UniversitySearchProps {
 const UniversitySearch = ({ onSelectUniversity }: UniversitySearchProps) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [universityList, setUniversityList] = useState<
-    UniversityProps['universities'][0][]
+    UniversityProps['university'][0][]
   >([]);
   const [selectedUniversityId, setSelectedUniversityId] = useState<string>('');
 

@@ -131,7 +131,7 @@ export interface ApplyCompetitionProps {
 }
 
 export interface UniversityProps {
-  universities: [
+  university: [
     {
       id: string;
       name: string;
