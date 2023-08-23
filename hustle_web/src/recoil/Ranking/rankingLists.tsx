@@ -16,17 +16,6 @@ export const RankingState = atom<RankingProps[]>({
   key: 'rankingListsState',
   default: [
     {
-      id: 0, // 스포츠 아이디
-      menuId: 0, // 메뉴 아이디
-      logo: require('../../assets/images/TeamInfoTest.png'),
-      rank: '1위',
-      teamname: '가대축구부',
-      matchesNumber: 3,
-      win: 3,
-      undefeat: 0,
-      defeat: 0
-    },
-    {
       id: 0,
       menuId: 1,
       logo: require('../../assets/images/TeamInfoTest.png'),
@@ -58,6 +47,17 @@ export const RankingState = atom<RankingProps[]>({
       win: 3,
       undefeat: 1,
       defeat: 1
+    },
+    {
+      id: 0, // 스포츠 아이디
+      menuId: 0, // 메뉴 아이디
+      logo: require('../../assets/images/TeamInfoTest.png'),
+      rank: '1위',
+      teamname: '가대축구부',
+      matchesNumber: 6,
+      win: 3,
+      undefeat: 0,
+      defeat: 0
     },
     {
       id: 1,
