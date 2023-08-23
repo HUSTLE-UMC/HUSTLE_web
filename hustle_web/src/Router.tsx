@@ -27,7 +27,7 @@ import CompetitionInput from './pages/Competition/CompetitionInputPage/Competiti
 import CommunityList from './components/Community/Main/Lists';
 import PostCompetition from './components/MainCompetition/PostCompetition/PostCompetition';
 import CompetitionApplyForm from './components/MainCompetition/ApplyForm/CompetitionApplyForm';
-
+import KakaoLoginRedirect from './components/Login/Kakao/KakaoLogin';
 
 const loadingPage = <div>화면 로딩중...</div>;
 const DefaultLayout = React.lazy(() => import('./layout/DefaultLayout'));
@@ -41,6 +41,7 @@ const Router = () => {
             <Route index element={<Home />} />
             <Route path='/login' element={<Login />} />
             <Route path='/signIn' element={<SignIn />} />
+            <Route path='/kakaoLogin' element={<KakaoLoginRedirect />}/>
             <Route path='/competitions' element={<Competition />} />
             <Route
               path='/competitions/apply/:competitionId'

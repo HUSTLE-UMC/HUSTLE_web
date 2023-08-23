@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import * as L from './LoginStyle';
 import { useNavigate } from 'react-router-dom';
-import { LoginProps, kakaoLoginProps } from '../../constants/interfaces';
+import { LoginProps } from '../../constants/interfaces';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { defaultLoginValue } from '../../constants/defaultFormOption';
 import FormRequirements from '../../constants/FormRequirements';
@@ -9,7 +9,6 @@ import axios from 'axios';
 import { AuthContext } from '../Auth/AuthProvider';
 import { userAtom } from '../../recoil/login/login';
 import { useRecoilState } from 'recoil';
-import kakaoLogin from './Kakao/KakaoLogin';
 
 const { idRequirements, passwordRequirements } = FormRequirements;
 const defaultValue = defaultLoginValue;
@@ -78,6 +77,15 @@ const LoginMain = () => {
     }
   };
 
+  const kakaoLoginHandler = () => {
+    const REST_API_KEY = process.env.REACT_API_KEY;
+    const REDIRECT_URL = process.env.REDIRECT_URI;
+    const kakaoUrl = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URL}&response_type=code`
+
+    window.location.href = kakaoUrl;
+    
+  }
+
 
   return (
     <L.Layout>
@@ -112,7 +120,7 @@ const LoginMain = () => {
       <L.Line></L.Line>
       <L.ButtonDiv>
         <L.KakaoButton
-          onClick={kakaoLogin}
+          onClick={kakaoLoginHandler}
         >카카오 로그인</L.KakaoButton>
       </L.ButtonDiv>
       <L.ButtonDiv>

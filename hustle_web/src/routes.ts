@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
+
 const Home = React.lazy(() => import('./pages/Home'));
 const Login = React.lazy(() => import('./pages/Login'));
 const SignIn = React.lazy(() => import('./pages/SignIn'));
@@ -68,6 +69,9 @@ const CompetitionApplyForm = React.lazy(
   () => import('./components/MainCompetition/ApplyForm/CompetitionApplyForm')
 );
 
+const KakaoLoginRedirect = React.lazy(
+  () => import('./components/Login/Kakao/KakaoLogin')
+);
 
 const routes = [
   { path: '/', element: Home },
@@ -83,7 +87,10 @@ const routes = [
   { path: '/friendly/match', element: FriendlyLists },
   { path: '/friendly/invite', element: FriendlyLists },
   { path: '/competitions', element: Competition },
-  { path: '/competitions/applyform/:competitionId', element: CompetitionApplyForm },
+  {
+    path: '/competitions/applyform/:competitionId',
+    element: CompetitionApplyForm
+  },
   { path: '/competitions/apply/:competitionId', element: CompetitionApply },
   { path: '/competitions/post', element: PostCompetition },
   { path: '/competitions/result', element: CompetitionResult },
@@ -96,7 +103,8 @@ const routes = [
   { path: '/reset', element: ResetPage },
   { path: '/maincompetition', element: MainCompetition },
   { path: '/maincompetition/apply', element: ApplyCompetition },
-  { path: '/ranking', element: RankingPage }
+  { path: '/ranking', element: RankingPage },
+  { path: '/kakaoLogin', element: KakaoLoginRedirect }
 ];
 
 export default routes;
