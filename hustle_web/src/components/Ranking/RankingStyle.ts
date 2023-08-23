@@ -11,7 +11,7 @@ export const Box = styled.div`
 
 export const Hr = styled.hr`
   border: 1px solid rgba(0, 0, 0, 0.25);
-  width: 1280px;
+  width: 862px;
 `;
 
 export const Layout = styled.div`
