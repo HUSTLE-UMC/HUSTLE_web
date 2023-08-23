@@ -18,7 +18,7 @@ const LoginMain = () => {
   const [isLoading, setIsLoading] = useState(false);
   const { setIsLoggedIn, setAccessToken } =
     useContext(AuthContext);
-  const [user, setUser] = useRecoilState(userAtom);
+  // const [user, setUser] = useRecoilState(userAtom);
 
   function signInPage() {
     navigate('/signIn');
@@ -53,14 +53,14 @@ const LoginMain = () => {
 
       if (response.status === 200) {
       const user = response.data;
-      const accessToken = user.accessToken;
+      const accessToken = user.tokenInfo.accessToken;
 
       // token 저장
-      localStorage.setItem('refreshToken', user.refreshToken);
+      localStorage.setItem('refreshToken', user.tokenInfo.refreshToken);
       // 리코일에 jwt토큰에 업뎃
       setAccessToken(accessToken);
       // 리코일에 유저정보 저장
-      setUser(user);
+      // setUser(user);
       setIsLoggedIn(true);
       navigate('/');
     } else {
@@ -70,10 +70,6 @@ const LoginMain = () => {
     } catch (error) {
       console.error('로그인 오류', error);
       alert('로그인 중 오류가 발생했습니다.');
-    } finally {
-      setIsLoading(false);
-      console.log('login fail');
-      alert('로그인에 실패하셨습니다. 다시 로그인해주세요');
     }
   };
 

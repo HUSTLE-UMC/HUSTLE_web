@@ -29,16 +29,17 @@ const SignIn = () => {
     try {
       console.log(data);
       const formData = {
-        email: data.id,
+        email: data.email,
         password: data.password,
         name: data.name,
-        birth: data.birth,
-        university: selectedUniversity,
+        birthday: data.birthday,
+        universityId: selectedUniversity,
         gender: gender
       };
+      console.log('폼데이터 : ',formData);
 
       const res = await axios.post(
-        'https://api.sport-hustle.com/api/auth/signin',
+        'https://api.sport-hustle.com/api/auth/signup',
         formData,
         {
           headers: {
@@ -90,15 +91,12 @@ const SignIn = () => {
         <S.Box>
           <S.InputLabel>아이디</S.InputLabel>
           <S.InputLarge
-            type='id'
+            type='email'
             placeholder='아이디를 입력하세요'
-            {...register('id', idRequirements)}
+            {...register('email', idRequirements)}
           />
-          {/* {errors.id && errors.id.type === 'pattern' && (
-            <S.ErrorDiv>{errors.id.message}</S.ErrorDiv>
-          )} */}
-          {errors.id && errors.id.type !== 'pattern' && (
-            <S.ErrorDiv>{errors.id.message}</S.ErrorDiv>
+          {errors.email && errors.email.type !== 'pattern' && (
+            <S.ErrorDiv>{errors.email.message}</S.ErrorDiv>
           )}
         </S.Box>
 
@@ -152,9 +150,9 @@ const SignIn = () => {
           <S.InputLarge
             type='date'
             placeholder='이름을 입력하세요'
-            {...register('birth', contentRequirements)}
+            {...register('birthday', contentRequirements)}
           />
-          {errors.birth && <S.ErrorDiv>{errors.birth.message}</S.ErrorDiv>}
+          {errors.birthday && <S.ErrorDiv>{errors.birthday.message}</S.ErrorDiv>}
         </S.Box>
 
         {
