@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import * as S from './Styles';
@@ -10,61 +10,54 @@ import UniversitySearch from './UniversitySearch';
 
 const SignIn = () => {
   const navigate = useNavigate();
-  const [selectedUniversity, setSelectedUniversity] = useState('');
-  const [gender, setGender] = useState('');
-
+  // const [selectedUniversity, setSelectedUniversity] = useState('');
+  const [selectedUniversityId, setSelectedUniversityId] = useState<string>('');
+  // const [gender, setGender] = useState('');
+  const [selectedGender, setSelectedGender] = useState('');
   const handleButtonClick = (selectedGender: string) => {
-    const genderClick = `${selectedGender}`;
-    setGender(genderClick); // 클릭된 버튼의 상태를 업데이트
-    console.log(gender);
+    setSelectedGender(selectedGender); // 클릭된 버튼의 상태를 업데이트
   };
 
-  const handleUniversitySelection = (universityId: number) => {
-    const university = `${universityId}`;
-    setSelectedUniversity(university);
-    console.log(selectedUniversity);
+  const handleSelectUniversity = (universityId: string) => {
+    setSelectedUniversityId(universityId); // UniversitySearch 컴포넌트에서 받아온 id를 상태로 설정
   };
 
-  const onSubmitHandler: SubmitHandler<SignInProps> = async (data) => {
+  const onSubmitHandler: SubmitHandler<SignInProps> = async (
+    data: SignInProps
+  ) => {
+    if (!selectedGender) {
+      alert('성별을 선택해주세요.');
+      return;
+    }
+    if (data.password !== data.passwordcheck) {
+      alert('비밀번호가 일치하지 않습니다.');
+      return;
+    }
     try {
-      console.log(data);
-      const formData = {
-        email: data.id,
-        password: data.password,
-        name: data.name,
-        birth: data.birth,
-        university: selectedUniversity,
-        gender: gender
-      };
-
-      const res = await axios.post(
-        'https://api.sport-hustle.com/api/auth/signin',
-        formData,
+      const response = await axios.post(
+        'https://api.sport-hustle.com/api/auth/signup',
         {
-          headers: {
-            'Content-Type': 'application/json'
-          }
+          email: data.id,
+          password: data.password,
+          // passwordcheck: data.passwordcheck,
+          name: data.name,
+          birthday: data.birth,
+          gender: selectedGender,
+          universityId: selectedUniversityId
         }
       );
-      if (res.status === 200) {
-        console.log(res.data);
+      if (response.status === 200) {
+        console.log(data);
         alert('회원가입이 완료되었습니다.');
         navigate('/');
-      } else if (res.status === 400) {
+      } else if (response.status === 400) {
         alert('이미 존재하는 유저입니다.');
-      }
-
-      if (!data.gender) {
-        alert('성별을 선택해주세요.');
         return;
+      } else {
+        alert('회원가입에 실패하셨습니다. 다시 회원가입 해주세요');
       }
-      if (data.password !== data.passwordcheck) {
-        alert('비밀번호가 일치하지 않습니다.');
-        return;
-      }
-    } catch (error) {
-      console.log(error);
-      alert('회원가입에 실패하셨습니다. 다시 회원가입 해주세요');
+    } catch (e) {
+      alert('회원가입 실패');
     }
   };
 
@@ -85,7 +78,7 @@ const SignIn = () => {
 
   return (
     <S.Layout>
-      <form onSubmit={handleSubmit(onSubmitHandler)}>
+      <form>
         <S.H2>회원가입</S.H2>
         <S.Box>
           <S.InputLabel>아이디</S.InputLabel>
@@ -93,10 +86,15 @@ const SignIn = () => {
             type='id'
             placeholder='아이디를 입력하세요'
             {...register('id', idRequirements)}
+            onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
+              if (e.key === 'Enter') {
+                e.preventDefault(); // 엔터 키 이벤트를 막음
+              }
+            }}
           />
-          {/* {errors.id && errors.id.type === 'pattern' && (
+          {errors.id && errors.id.type === 'pattern' && (
             <S.ErrorDiv>{errors.id.message}</S.ErrorDiv>
-          )} */}
+          )}
           {errors.id && errors.id.type !== 'pattern' && (
             <S.ErrorDiv>{errors.id.message}</S.ErrorDiv>
           )}
@@ -111,6 +109,11 @@ const SignIn = () => {
               required: passwordRequirements.required,
               pattern: passwordRequirements.pattern
             })}
+            onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
+              if (e.key === 'Enter') {
+                e.preventDefault(); // 엔터 키 이벤트를 막음
+              }
+            }}
           />
           {errors.password && errors.password.type === 'pattern' && (
             <S.ErrorDiv>{errors.password.message}</S.ErrorDiv>
@@ -129,6 +132,11 @@ const SignIn = () => {
               required: passwordCheckRequirements.required,
               pattern: passwordCheckRequirements.pattern
             })}
+            onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
+              if (e.key === 'Enter') {
+                e.preventDefault(); // 엔터 키 이벤트를 막음
+              }
+            }}
           />
           {errors.passwordcheck && errors.passwordcheck.type === 'pattern' && (
             <S.ErrorDiv>{errors.passwordcheck.message}</S.ErrorDiv>
@@ -137,12 +145,18 @@ const SignIn = () => {
             <S.ErrorDiv>{errors.passwordcheck.message}</S.ErrorDiv>
           )}
         </S.Box>
+
         <S.Box>
           <S.InputLabel>이름</S.InputLabel>
           <S.InputLarge
             type='name' // 원하는 타입으로 변경하세요
             placeholder='이름을 입력하세요'
             {...register('name', contentRequirements)}
+            onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
+              if (e.key === 'Enter') {
+                e.preventDefault(); // 엔터 키 이벤트를 막음
+              }
+            }}
           />
           {errors.name && <S.ErrorDiv>{errors.name.message}</S.ErrorDiv>}
         </S.Box>
@@ -153,6 +167,11 @@ const SignIn = () => {
             type='date'
             placeholder='이름을 입력하세요'
             {...register('birth', contentRequirements)}
+            onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
+              if (e.key === 'Enter') {
+                e.preventDefault(); // 엔터 키 이벤트를 막음
+              }
+            }}
           />
           {errors.birth && <S.ErrorDiv>{errors.birth.message}</S.ErrorDiv>}
         </S.Box>
@@ -163,18 +182,20 @@ const SignIn = () => {
             <div>
               <S.Genderbutton
                 type='button'
-                isselected={gender === 'MALE'}
+                isselected={selectedGender === 'MALE'}
                 onClick={() => {
                   handleButtonClick('MALE');
+                  setSelectedGender('MALE');
                 }}
               >
                 남자
               </S.Genderbutton>
               <S.Genderbutton
                 type='button'
-                isselected={gender === 'FEMALE'}
+                isselected={selectedGender === 'FEMALE'}
                 onClick={() => {
                   handleButtonClick('FEMALE');
+                  setSelectedGender('FEMALE');
                 }}
               >
                 여자
@@ -184,11 +205,13 @@ const SignIn = () => {
         }
 
         <S.Box>
-          <UniversitySearch onSelecteUniversity={handleUniversitySelection} />
+          <UniversitySearch onSelectUniversity={handleSelectUniversity} />
         </S.Box>
 
         <S.Box>
-          <S.SubmitButton type='submit'>회원가입</S.SubmitButton>
+          <S.SubmitButton type='submit' onClick={handleSubmit(onSubmitHandler)}>
+            회원가입
+          </S.SubmitButton>
         </S.Box>
       </form>
     </S.Layout>
