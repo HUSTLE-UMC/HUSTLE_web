@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import { useRecoilState } from 'recoil';
 import { currentLocationState } from '../../../recoil/friendlyMatchPage/states';
 
+// 현재 위치 구하는 함수
 const currentLocation = () => {
   const [location, setLocation] = useRecoilState(currentLocationState);
   useMemo(() => {

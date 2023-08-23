@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import * as C from './Styles';
 import { useRecoilValue } from 'recoil';
 import {
@@ -6,16 +6,18 @@ import {
   matchSelector
 } from '../../../recoil/friendlyMatchPage/selectors';
 import { useNavigate } from 'react-router-dom';
+import Location from './Location';
 
 const MatchDetail = () => {
   const match = useRecoilValue(matchSelector);
   const menu = useRecoilValue(friendlyMenuSelector);
   const navigate = useNavigate();
+  console.log(match);
   return (
     <C.Layout>
       <C.TitleLayout>
         <C.TitleContainer>
-          <C.ClubBox>{match.clubName}</C.ClubBox>
+          <C.ClubBox>{match.club.name}</C.ClubBox>
           <C.TitleBox>{match.title}</C.TitleBox>
         </C.TitleContainer>
         <C.ImgBox></C.ImgBox>
@@ -43,15 +45,15 @@ const MatchDetail = () => {
           <C.InfoTitle>위치 보기</C.InfoTitle>
         </div>
         <div>
-          <C.Info>{match.clubName}</C.Info>
+          <C.Info>{match.club.name}</C.Info>
           <C.Info>
-            {match.person}
+            {match.name}
             {'\t'}
-            {match.contact}
+            {match.phoneNumber}
           </C.Info>
-          <C.Info>{match.date}</C.Info>
-          <C.Info>{match.location}</C.Info>
-          <C.LocationBox />
+          <C.Info>{match.startDate.substring(0, 10)}</C.Info>
+          <C.Info>{match.locationAddress}</C.Info>
+          <Location />
         </div>
       </C.ContentLayout>
       {/* <SubmitButton

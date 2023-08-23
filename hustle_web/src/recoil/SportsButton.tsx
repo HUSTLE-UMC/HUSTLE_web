@@ -10,42 +10,42 @@ export const sportsMenuState = atom<sportsTypes[]>({
   key: 'sportsMenuState',
   default: [
     {
-      id: 0,
+      id: 1,
       label: '축구',
       selected: false
     },
     {
-      id: 1,
+      id: 2,
       label: '농구',
       selected: false
     },
     {
-      id: 2,
+      id: 3,
       label: '야구',
       selected: false
     },
     {
-      id: 3,
+      id: 4,
       label: '배구',
       selected: false
     },
     {
-      id: 4,
+      id: 5,
       label: '테니스',
       selected: false
     },
     {
-      id: 5,
+      id: 6,
       label: '탁구',
       selected: false
     },
     {
-      id: 6,
+      id: 7,
       label: '풋살',
       selected: false
     },
     {
-      id: 7,
+      id: 8,
       label: '더보기',
       selected: false
     }
@@ -73,6 +73,6 @@ export const SportsIdSelector = selector({
   get: ({ get }: any) => {
     const sports = get(sportsMenuState);
     const selectedId = sports.findIndex((v: sportsTypes) => v.selected);
-    return selectedId;
+    return selectedId + 1;
   }
 });

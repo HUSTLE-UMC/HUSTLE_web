@@ -1,5 +1,8 @@
 import { atom } from 'recoil';
 import * as T from './types';
+import { recoilPersist } from 'recoil-persist';
+
+const { persistAtom } = recoilPersist();
 
 export const friendlyMenuState = atom<T.menuTypes[]>({
   key: 'friendlyMenuState',
@@ -14,73 +17,128 @@ export const matchListsState = atom<T.matchListsTypes[]>({
   key: 'matchListsState',
   default: [
     {
-      sportId: 1,
-      sport: '농구',
-      title: '대회 연습 상대 구해요!',
-      clubName: '가톨릭대학교 바스타즈',
-      location: '가톨릭대학교 체육관',
-      date: '2023-07-07',
-      person: '최유빈',
-      contact: '010-0000-0000'
+      id: 1,
+      title: '친구 찾기 게시글 제목',
+      category: 'INVITE',
+      name: '홍길동',
+      phoneNumber: '010-1234-5678',
+      startDate: '2023-08-20T01:00:00',
+      location: {
+        type: 'Point',
+        coordinates: [37.123456, -122.654321]
+      },
+      locationAddress: '서울시 강남구',
+      user: {
+        id: 4
+      },
+      club: {
+        id: 2,
+        name: '스포츠 동아리2',
+        instagram: 'https://www.instagram.com/my_club',
+        youtubeUrl: 'https://www.youtube.com/my_club',
+        mainArea: '서울시 강남구',
+        profileImageUrl: 'https://example.com/my_club_image.jpg',
+        point: 0,
+        university: {
+          id: 1,
+          name: '가톨릭대학교 성신교정 (이원화캠퍼스)',
+          address: '서울 종로'
+        },
+        sportEvent: {
+          id: 2,
+          name: '농구'
+        }
+      },
+      sportEvent: {
+        id: 2,
+        name: '농구'
+      }
     },
     {
-      sportId: 3,
-      sport: '배구',
-      title: '배구 경기 하실 분!',
-      clubName: '배구동아리',
-      location: 'ㅇㅇ시 ㅇㅇ동',
-      date: '2023-07-07',
-      person: '홍길동',
-      contact: '010-0000-0000'
+      id: 2,
+      title: '친구 찾기 게시글 제목',
+      category: 'INVITE',
+      name: '홍길동',
+      phoneNumber: '010-1234-5678',
+      startDate: '2023-08-20T01:00:00',
+      location: {
+        type: 'Point',
+        coordinates: [37.123456, -122.654321]
+      },
+      locationAddress: '서울시 강남구',
+      user: {
+        id: 4
+      },
+      club: {
+        id: 2,
+        name: '스포츠 동아리2',
+        instagram: 'https://www.instagram.com/my_club',
+        youtubeUrl: 'https://www.youtube.com/my_club',
+        mainArea: '서울시 강남구',
+        profileImageUrl: 'https://example.com/my_club_image.jpg',
+        point: 0,
+        university: {
+          id: 1,
+          name: '가톨릭대학교 성신교정 (이원화캠퍼스)',
+          address: '서울 종로'
+        },
+        sportEvent: {
+          id: 2,
+          name: '농구'
+        }
+      },
+      sportEvent: {
+        id: 2,
+        name: '농구'
+      }
     },
     {
-      sportId: 0,
-      sport: '축구',
-      title: '축구 같이 합시다',
-      clubName: '축구동아리',
-      location: '서울특별시 어디어디',
-      date: '2023-07-07',
-      person: '아무개',
-      contact: '010-0000-0000'
-    },
-    {
-      sportId: 0,
-      sport: '축구',
-      title: '축구 교류전 할 사람',
-      clubName: '축구동아리222',
-      location: '시흥시 어디어디 체육관',
-      date: '2023-07-07',
-      person: '아무개2',
-      contact: '010-0000-0000'
+      id: 2,
+      title: '친구 찾기 게시글 제목',
+      category: 'INVITE',
+      name: '홍길동',
+      phoneNumber: '010-1234-5678',
+      startDate: '2023-08-20T01:00:00',
+      location: {
+        type: 'Point',
+        coordinates: [37.123456, -122.654321]
+      },
+      locationAddress: '서울시 강남구',
+      user: {
+        id: 4
+      },
+      club: {
+        id: 2,
+        name: '스포츠 동아리2',
+        instagram: 'https://www.instagram.com/my_club',
+        youtubeUrl: 'https://www.youtube.com/my_club',
+        mainArea: '서울시 강남구',
+        profileImageUrl: 'https://example.com/my_club_image.jpg',
+        point: 0,
+        university: {
+          id: 1,
+          name: '가톨릭대학교 성신교정 (이원화캠퍼스)',
+          address: '서울 종로'
+        },
+        sportEvent: {
+          id: 2,
+          name: '농구'
+        }
+      },
+      sportEvent: {
+        id: 2,
+        name: '농구'
+      }
     }
-  ]
+  ],
+  effects_UNSTABLE: [persistAtom]
 });
 
 // 초청해주세요 목록
 export const invitationListsState = atom<T.invitationListsTypes[]>({
   key: 'invitationListsState',
-  default: [
-    {
-      sportId: 0,
-      sport: '축구',
-      title: '축구 교류전 초청해주세요',
-      clubName: '축구 동아리',
-      location: '시흥시 어디어디 체육관',
-      date: '2023-07-07',
-      person: '아무개2',
-      contact: '010-0000-0000'
-    },
-    {
-      sportId: 1,
-      sport: '농구',
-      title: '열심히 뛰겠습니다!',
-      clubName: '바스타즈',
-      location: '가톨릭대학교',
-      date: '2023-07-07',
-      person: '아무개2',
-      contact: '010-0000-0000'
-    }
-  ]
+  default: [],
+  effects_UNSTABLE: [persistAtom]
 });
 
 // 사용자가 신청하기를 선택한 교류전
@@ -119,4 +177,9 @@ export const currentLocationState = atom<T.currentLocationTypes>({
     lat: 37.5204082,
     lng: 126.887799
   }
+});
+
+export const LocationState = atom<number[]>({
+  key: 'LocationState',
+  default: [0, 0]
 });

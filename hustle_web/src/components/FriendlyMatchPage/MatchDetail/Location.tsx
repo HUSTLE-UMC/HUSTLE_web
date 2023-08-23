@@ -1,11 +1,7 @@
 import React, { useEffect } from 'react';
 import * as S from './Styles';
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
-import {
-  LocationState,
-  inputValue
-} from '../../../recoil/friendlyMatchPage/states';
-import currentLocation from './currentLocation';
+import { useRecoilValue } from 'recoil';
+import { matchSelector } from '../../../recoil/friendlyMatchPage/selectors';
 
 declare global {
   interface Window {
@@ -15,10 +11,11 @@ declare global {
 
 const { kakao } = window;
 
-const LocationBox = () => {
-  const location = currentLocation();
-  const value = useRecoilValue(inputValue);
-  const setLocation = useSetRecoilState(LocationState);
+const Location = () => {
+  const match = useRecoilValue(matchSelector);
+  const location = match.location.coordinates;
+  const value = match.locationAddress;
+  console.log(value, location);
   const newScript = (src: string) => {
     return new Promise<void>((resolve, reject) => {
       const script = document.createElement('script');
@@ -42,7 +39,7 @@ const LocationBox = () => {
       kakao.maps.load(() => {
         const mapContainer = document.getElementById('map');
         const options = {
-          center: new kakao.maps.LatLng(location.lat, location.lng),
+          center: new kakao.maps.LatLng(location[0], location[1]),
           level: 3
         };
         const map = new kakao.maps.Map(mapContainer, options);
@@ -62,7 +59,6 @@ const LocationBox = () => {
             });
             infowindow.open(map, marker);
             map.setCenter(coords);
-            setLocation([coords.Ma, coords.La]);
           }
         });
       });
@@ -70,9 +66,9 @@ const LocationBox = () => {
   }, [value]);
   return (
     <>
-      <S.Layout id='map'></S.Layout>
+      <S.LocationBox id='map'></S.LocationBox>
     </>
   );
 };
 
-export default LocationBox;
+export default Location;

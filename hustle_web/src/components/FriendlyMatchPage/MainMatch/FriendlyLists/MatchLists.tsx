@@ -1,30 +1,29 @@
-import React from 'react';
 import * as S from '../Styles';
 import MatchMenu from '../../MatchMenu/MatchMenu';
 import FriendlyMatchList from '../../FriendlyMatchList/FriendlyMatchList';
 import { useRecoilValue } from 'recoil';
-import { friendlyListsSelector } from '../../../../recoil/friendlyMatchPage/selectors';
+import { pageListSelector } from '../../../../recoil/friendlyMatchPage/selectors';
 import { matchListsTypes } from '../../../../recoil/friendlyMatchPage/types';
 import { sportSelectState } from '../../../../recoil/SportsButton';
 import PageButton from '../../PageButton/PageButton';
 
 export const MatchLists = () => {
-  const matchs = useRecoilValue(friendlyListsSelector);
+  const matchs = useRecoilValue(pageListSelector);
   const isSelected = useRecoilValue(sportSelectState);
-  console.log(matchs);
+
   return (
     <>
       <MatchMenu />
-      {matchs.map((v: matchListsTypes, i: number) => {
+      {matchs.map((v: matchListsTypes) => {
         return (
           <FriendlyMatchList
-            key={i}
-            id={i}
-            sport={v.sport}
+            key={v.id}
+            id={v.id}
+            sport={v.sportEvent.name}
             title={v.title}
-            date={v.date}
-            location={v.location}
-            clubName={v.clubName}
+            date={`${v.startDate.substring(0, 10)}`}
+            location={v.locationAddress}
+            clubName={v.club.name}
           />
         );
       })}

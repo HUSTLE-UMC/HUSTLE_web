@@ -36,7 +36,7 @@ export const SportsMenu = ({ disable }: Props) => {
               ? () => {
                   alert('종목 변경을 원하시면 목록 페이지로 돌아가 주세요.');
                 }
-              : () => handleClick(index)
+              : () => handleClick(index + 1)
           }
         ></SportsButton>
       ))}

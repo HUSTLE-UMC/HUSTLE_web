@@ -13,7 +13,7 @@ export const friendlyMenuSelector = selector({
   }
 });
 
-// 사용자가 선택한 교류전 selector
+// 메인에 출력되는 교류전 리스트 selector
 export const friendlyListsSelector = selector({
   key: 'friendlyListsistsSelector',
   get: ({ get }: any) => {
@@ -25,9 +25,7 @@ export const friendlyListsSelector = selector({
         ? menu === 0
           ? (matchs = get(matchListsSelector))
           : (matchs = get(invitationListsSelector))
-        : menu === 0
-        ? (matchs = get(S.matchListsState))
-        : (matchs = get(S.invitationListsState));
+        : (matchs = get(S.matchListsState));
     }
     return matchs;
   }
@@ -39,8 +37,9 @@ export const matchSelector = selector({
   get: ({ get }: any) => {
     const list = get(friendlyListsSelector);
     const selectedID = get(S.selectedMatchID);
-    const selectedList = list[selectedID];
-    return selectedList;
+    const Index = list.findIndex((v: T.matchListsTypes) => v.id === selectedID);
+    const result = list[Index];
+    return result;
   }
 });
 
@@ -51,7 +50,7 @@ export const matchListsSelector = selector({
     const selectedID = get(SportsIdSelector);
     const Lists = get(S.matchListsState);
     const filteredLists = Lists.filter(
-      (m: T.matchListsTypes) => m.sportId === selectedID
+      (m: T.matchListsTypes) => m.sportEvent.id === selectedID
     );
     return filteredLists;
   }
@@ -78,7 +77,19 @@ export const pageNumberSelector = selector({
     const selectedIndex = page.findIndex(
       (v: T.pageNumberTypes) => v.isSelected == true
     );
-    const selectedPage = page[selectedIndex].id;
-    return selectedPage;
+    return selectedIndex + 1;
+  }
+});
+
+// 특정 페이지에 보여질 리스트 selector
+export const pageListSelector = selector({
+  key: 'pageListSelector',
+  get: ({ get }: any) => {
+    const page = get(pageNumberSelector);
+    const list = get(friendlyListsSelector);
+    const filteredList = list.filter(
+      (v: T.matchListsTypes) => page * 10 > v.id && v.id > (page - 1) * 10
+    );
+    return filteredList;
   }
 });

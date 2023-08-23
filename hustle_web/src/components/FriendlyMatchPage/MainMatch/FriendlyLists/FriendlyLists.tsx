@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import SportsMenu from '../../../SportsMenu/SportsMenu';
 import InvitationLists from './InvitationLists';
 import MatchLists from './MatchLists';

@@ -3,28 +3,28 @@ import * as S from '../Styles';
 import MatchMenu from '../../MatchMenu/MatchMenu';
 import FriendlyMatchList from '../../FriendlyMatchList/FriendlyMatchList';
 import { useRecoilValue } from 'recoil';
-import { friendlyListsSelector } from '../../../../recoil/friendlyMatchPage/selectors';
+import { pageListSelector } from '../../../../recoil/friendlyMatchPage/selectors';
 import { sportSelectState } from '../../../../recoil/SportsButton';
 import { matchListsTypes } from '../../../../recoil/friendlyMatchPage/types';
 import PageButton from '../../PageButton/PageButton';
 
 export const InvitationLists = () => {
-  const matchs = useRecoilValue(friendlyListsSelector);
+  const matchs = useRecoilValue(pageListSelector);
   const isSelected = useRecoilValue(sportSelectState);
 
   return (
     <>
       <MatchMenu />
-      {matchs.map((v: matchListsTypes, i: number) => {
+      {matchs.map((v: matchListsTypes) => {
         return (
           <FriendlyMatchList
-            key={i}
-            id={i}
-            sport={v.sport}
+            key={v.id}
+            id={v.id}
+            sport={v.sportEvent.name}
             title={v.title}
-            date={v.date}
-            location={v.location}
-            clubName={v.clubName}
+            date={`${v.startDate.substring(0, 10)}`}
+            location={v.locationAddress}
+            clubName={v.club.name}
           />
         );
       })}

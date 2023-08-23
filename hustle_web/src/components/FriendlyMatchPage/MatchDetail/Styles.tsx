@@ -66,7 +66,6 @@ export const Info = styled(InfoTitle)`
 export const LocationBox = styled.div`
   width: 76.6rem;
   height: 37rem;
-  border: 1px solid red;
 `;
 
 export const SubmitButton = styled.button`

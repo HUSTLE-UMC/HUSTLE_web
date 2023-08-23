@@ -4,12 +4,13 @@ import Colors from '../../../styles/Color';
 
 export const Layout = styled.div`
   width: 100%;
-  height: 138.5rem;
-  margin-top: 5rem;
+  margin-top: 2rem;
+  overflow: hidden;
 `;
 
 export const TextBox = styled.div`
   width: 100%;
+  height: 50rem;
   margin-top: 1rem;
   display: flex;
   justify-content: center;

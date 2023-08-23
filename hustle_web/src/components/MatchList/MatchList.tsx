@@ -20,7 +20,6 @@ const MatchList = () => {
         },
         headers: {
           Authorization: `Bearer ${process.env.REACT_APP_ACCESS_TOKEN}`
-
         }
       })
       .then((response) => {
