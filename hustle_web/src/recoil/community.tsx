@@ -30,7 +30,7 @@ export const communityMenuSelector = selector({
 
 
 export const communityMenuState = atom<T.menuTypes[]>({
-  key: 'friendlyMenuState',
+  key: 'communityMenuState',
   default: [
     { id: 0, label: '질문 게시판', isSelected: true },
     { id: 1, label: '동아리 게시판', isSelected: false }
