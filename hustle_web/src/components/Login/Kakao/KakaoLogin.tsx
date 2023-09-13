@@ -1,37 +1,29 @@
 import axios from 'axios';
-import { useEffect } from 'react';
+import { useEffect,useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../Auth/AuthProvider';
 
-const kakaoLogin = () => {
+
+const KakaoLoginRedirect = () => {
+  const navigate = useNavigate();
+  const { setIsLoggedIn } = useContext(AuthContext);
+
   useEffect(() => {
     const code = new URL(window.location.href).searchParams.get('code');
-    const grantType = 'authorization_code';
-    const REST_API_KEY = process.env.REACT_API_KEY;
-    const REDIRECT_URI = process.env.REDIRECT_URI;
-    
-    axios.post(
-      `https://kauth.kakao.com/oauth/token?grant_type=${grantType}&client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&code=${code}`,
-      {},
-      { headers: { 'Content-type': 'application/x-www-form-urlencoded;charset=utf-8' }}
-    )
+    axios.get(`https://api.sport-hustle.com/api/oauth/kakao/token?code=${code}`, {
+      headers : {'Content-Type' : 'application/json;charset=utf-8'},
+    })
     .then((res) => {
-      console.log(res);
-      const accessToken = res.data.accessToken;
-      axios.post('https://api.sport-hustle.com/api/auth/signin/oauth',
-      {},
-      {
-        headers : {
-          Authorization : `Bearer ${accessToken}`,
-          'Content-type' : 'application/x-www-form-urlencoded;charset=utf-8',
-        }
-      })
-      .then((res: any) => {
-        console.log('seconde : ', res.data.accessToken);
-      })
+      console.log('코드 전송 성공', res);
+      // localStorage.setItem('token : ',res.headers.authorization)
+      localStorage.setItem('카카오 토큰', res.data.accessToken);
+      setIsLoggedIn(true);
+      navigate('/');
+    }).catch((error) => {
+      console.log('코드 전송 실패', error);
     })
-    .catch((error) => {
-      console.log(error);
-    })
-  },[])
+  },[setIsLoggedIn, navigate]);
+
 
   return (
     <div>
@@ -40,4 +32,4 @@ const kakaoLogin = () => {
   );
 };
 
-export default kakaoLogin;
+export default KakaoLoginRedirect;

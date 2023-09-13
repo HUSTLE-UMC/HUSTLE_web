@@ -5,17 +5,11 @@ const Home = React.lazy(() => import('./pages/Home'));
 const Login = React.lazy(() => import('./pages/Login'));
 const SignIn = React.lazy(() => import('./pages/SignIn'));
 const MyPage = React.lazy(() => import('./pages/MyPage/MyPageMain'));
-const CommunityList = React.lazy(
-  () => import('./components/Community/Main/Lists')
-);
 const Join = React.lazy(() => import('./pages/Join/Join'));
 const Friendly = React.lazy(
   () => import('./pages/FriendlyMatch/FriendlyMatch')
 );
 const Competition = React.lazy(() => import('./pages/Competition/Competition'));
-const QuestionForm = React.lazy(
-  () => import('./components/Community/Question/QuestionForm')
-);
 const PostMatch = React.lazy(
   () => import('./components/FriendlyMatchPage/PostMatch/PostMatch')
 );
@@ -63,8 +57,6 @@ const PostCompetition = React.lazy(
 );
 const RankingPage = React.lazy(() => import('./pages/Ranking/RankingPage'));
 
-const Community = React.lazy(() => import('./pages/Community/CommunityPage'));
-
 const CompetitionApplyForm = React.lazy(
   () => import('./components/MainCompetition/ApplyForm/CompetitionApplyForm')
 );
@@ -73,15 +65,17 @@ const KakaoLoginRedirect = React.lazy(
   () => import('./components/Login/Kakao/KakaoLogin')
 );
 
+const ClubMain = React.lazy(() => import('./pages/Club/Club'));
+const ClubOpen = React.lazy(() => import('./components/Club/ClubOpen'));
+
 const routes = [
   { path: '/', element: Home },
   { path: '/login', element: Login },
   { path: '/signIn', element: SignIn },
   { path: '/mypage', element: MyPage },
-  { path: '/community/question', element: CommunityList },
-  { path: '/community/question/write', element: QuestionForm },
-  { path: '/community', element: Community },
-  { path: '/club', element: CommunityList },
+  { path: '/club', element: ClubMain },
+  { path: '/clubOpen', element: ClubOpen },
+
   { path: '/join', element: Join },
   { path: '/friendly', element: Friendly },
   { path: '/friendly/match', element: FriendlyLists },

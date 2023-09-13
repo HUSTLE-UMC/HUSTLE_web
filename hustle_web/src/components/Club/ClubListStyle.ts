@@ -1,9 +1,7 @@
 import styled from 'styled-components';
-import { Input } from '../../../stories/Inputs/Input';
 import { Link } from 'react-router-dom';
-import Colors from '../../../styles/Color';
-import emoji from '../../../assets/images/competition_logoimg.png';
-import FONT from '../../../styles/Font';
+import Colors from '../../styles/Color';
+import FONT from '../../styles/Font';
 
 export const Container = styled.div`
   width: 1440px;
@@ -12,10 +10,6 @@ export const Container = styled.div`
 export const FirstDiv = styled.div`
   display: flex;
   justify-content: space-between;
-`;
-
-export const Search = styled(Input)`
-  align-items: center;
 `;
 
 export const preparingImg = styled.div`

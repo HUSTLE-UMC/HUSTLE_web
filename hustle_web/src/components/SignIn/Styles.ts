@@ -174,3 +174,8 @@ export const NameText = styled.text`
 export const AddressText = styled.text`
   font-size: ${FONT.SIZE.CAPTION};
 `;
+
+export const SelectBox = styled.div`
+  display: flex;
+  weight: 50%;
+`;

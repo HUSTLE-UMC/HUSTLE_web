@@ -7,8 +7,6 @@ import { defaultLoginValue } from '../../constants/defaultFormOption';
 import FormRequirements from '../../constants/FormRequirements';
 import axios from 'axios';
 import { AuthContext } from '../Auth/AuthProvider';
-import { userAtom } from '../../recoil/login/login';
-import { useRecoilState } from 'recoil';
 
 const { idRequirements, passwordRequirements } = FormRequirements;
 const defaultValue = defaultLoginValue;
@@ -73,14 +71,14 @@ const LoginMain = () => {
     }
   };
 
-  const kakaoLoginHandler = () => {
-    const REST_API_KEY = process.env.REACT_API_KEY;
-    const REDIRECT_URL = process.env.REDIRECT_URI;
-    const kakaoUrl = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URL}&response_type=code`
+  
+    const REST_API_KEY = '170a8a097251697cc023f05857280065';
+    const REDIRECT_URL = 'http://localhost:3000/kakaoLogin';
+    const kakaoUrl = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URL}&response_type=code`;
 
-    window.location.href = kakaoUrl;
-    
-  }
+    const kakaoLoginHandler = () => {
+      window.location.href = kakaoUrl;
+    }
 
 
   return (
