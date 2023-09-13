@@ -55,8 +55,8 @@ const Header = () => {
           대회
         </H.HeaderBtn>
         <H.HeaderBtn onClick={() => navigate('/friendly')}>교류전</H.HeaderBtn>
-        <H.HeaderBtn onClick={() => navigate('/community')}>
-          커뮤니티
+        <H.HeaderBtn onClick={() => navigate('/club')}>
+          동아리
         </H.HeaderBtn>
         <H.HeaderBtn onClick={() => navigate('/ranking')}>순위</H.HeaderBtn>
       </H.BtnWrap>
