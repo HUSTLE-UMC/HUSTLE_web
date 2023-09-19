@@ -39,7 +39,7 @@ const Router = () => {
             <Route index element={<Home />} />
             <Route path='/login' element={<Login />} />
             <Route path='/signIn' element={<SignIn />} />
-            <Route path='/kakaoLogin' element={<KakaoLoginRedirect />}/>
+            <Route path='/oauth/kakaoLogin' element={<KakaoLoginRedirect />}/>
             <Route path='/competitions' element={<Competition />} />
             <Route
               path='/competitions/apply/:competitionId'

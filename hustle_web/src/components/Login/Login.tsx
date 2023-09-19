@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import * as L from './LoginStyle';
 import { useNavigate } from 'react-router-dom';
 import { LoginProps } from '../../constants/interfaces';
@@ -7,8 +7,6 @@ import { defaultLoginValue } from '../../constants/defaultFormOption';
 import FormRequirements from '../../constants/FormRequirements';
 import axios from 'axios';
 import { AuthContext } from '../Auth/AuthProvider';
-import { userAtom } from '../../recoil/login/login';
-import { useRecoilState } from 'recoil';
 
 const { idRequirements, passwordRequirements } = FormRequirements;
 const defaultValue = defaultLoginValue;
@@ -73,14 +71,12 @@ const LoginMain = () => {
     }
   };
 
-  const kakaoLoginHandler = () => {
-    const REST_API_KEY = process.env.REACT_API_KEY;
-    const REDIRECT_URL = process.env.REDIRECT_URI;
-    const kakaoUrl = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URL}&response_type=code`
-
-    window.location.href = kakaoUrl;
-    
-  }
+    function loginwithKakao() {
+      const REST_API_KEY = '170a8a097251697cc023f05857280065';
+      const REDIRECT_URL = 'http://localhost:3000/oauth/kakaoLogin';
+      const kakaoUrl = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URL}&response_type=code`;
+      window.location.href = kakaoUrl;
+    }
 
 
   return (
@@ -116,7 +112,7 @@ const LoginMain = () => {
       <L.Line></L.Line>
       <L.ButtonDiv>
         <L.KakaoButton
-          onClick={kakaoLoginHandler}
+          onClick={loginwithKakao}
         >카카오 로그인</L.KakaoButton>
       </L.ButtonDiv>
       <L.ButtonDiv>

@@ -1,43 +1,63 @@
 import axios from 'axios';
-import { useEffect } from 'react';
+import { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../Auth/AuthProvider';
+import UniversitySearch from '../../SignIn/UniversitySearch';
 
-const kakaoLogin = () => {
-  useEffect(() => {
-    const code = new URL(window.location.href).searchParams.get('code');
-    const grantType = 'authorization_code';
-    const REST_API_KEY = process.env.REACT_API_KEY;
-    const REDIRECT_URI = process.env.REDIRECT_URI;
-    
-    axios.post(
-      `https://kauth.kakao.com/oauth/token?grant_type=${grantType}&client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&code=${code}`,
-      {},
-      { headers: { 'Content-type': 'application/x-www-form-urlencoded;charset=utf-8' }}
-    )
+const KakaoLoginRedirect = () => {
+  const navigate = useNavigate();
+  const { setIsLoggedIn, setAccessToken, refreshAccessToken } = useContext(AuthContext);
+  const code = new URL(window.location.href).searchParams.get('code');
+  const [selectedUniversity, setSelectedUniversity] = useState('');
+
+  const handleUniversitySelection = (universityId: number) => {
+    const university = `${universityId}`;
+    setSelectedUniversity(university);
+    console.log(selectedUniversity);
+  };
+
+  const handleSubmit = () => {
+    axios.get(`https://api.sport-hustle.com/api/oauth/kakao/token?code=${code}`)
     .then((res) => {
-      console.log(res);
-      const accessToken = res.data.accessToken;
-      axios.post('https://api.sport-hustle.com/api/auth/signin/oauth',
-      {},
-      {
+      console.log('카카오 정보 : ',res.data);
+      console.log('카카오 accessToken : ',res.data.accessToken);
+      const token = res.data.accessToken;
+      const postData = {
+        kakaoInfo : res.data,
+        university : selectedUniversity, // 선택된 대학교 아이디 값
+      };
+      axios.post('카카오 회원가입 정보 api', postData,{
         headers : {
-          Authorization : `Bearer ${accessToken}`,
-          'Content-type' : 'application/x-www-form-urlencoded;charset=utf-8',
+          'Authorization' : `Bearer ${token}`
         }
       })
-      .then((res: any) => {
-        console.log('seconde : ', res.data.accessToken);
+      .then((res) => {
+        console.log('회원가입 성공 : ', res);
+        setIsLoggedIn(true);
+        const accessToken = res.data.accessToken;
+        localStorage.setItem('카카오 허슬 토큰', accessToken);
+        localStorage.setItem('카카오 허슬 리프레시 토큰', res.data.refreshToken);
+        setAccessToken(accessToken);
+        navigate('/');
       })
+    }).catch((error) => {
+      console.log('카카오 정보 가져오기 실패',error);
+      if(error.res && error.res.status === 400){
+        refreshAccessToken();
+      } else {
+        navigate('/login');
+      }
     })
-    .catch((error) => {
-      console.log(error);
-    })
-  },[])
+  }
+
 
   return (
     <div>
-      로그인 중입니다. 잠시만 기다려주세요
+      <div>카카오 추가 정보</div>
+      <UniversitySearch onSelecteUniversity={handleUniversitySelection} />
+      <button type='submit' onClick={handleSubmit}>회원가입</button>
     </div>
   );
 };
 
-export default kakaoLogin;
+export default KakaoLoginRedirect;
