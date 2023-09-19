@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import * as L from './LoginStyle';
 import { useNavigate } from 'react-router-dom';
 import { LoginProps } from '../../constants/interfaces';
@@ -71,12 +71,10 @@ const LoginMain = () => {
     }
   };
 
-  
-    const REST_API_KEY = '170a8a097251697cc023f05857280065';
-    const REDIRECT_URL = 'http://localhost:3000/kakaoLogin';
-    const kakaoUrl = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URL}&response_type=code`;
-
-    const kakaoLoginHandler = () => {
+    function loginwithKakao() {
+      const REST_API_KEY = '170a8a097251697cc023f05857280065';
+      const REDIRECT_URL = 'http://localhost:3000/oauth/kakaoLogin';
+      const kakaoUrl = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URL}&response_type=code`;
       window.location.href = kakaoUrl;
     }
 
@@ -114,7 +112,7 @@ const LoginMain = () => {
       <L.Line></L.Line>
       <L.ButtonDiv>
         <L.KakaoButton
-          onClick={kakaoLoginHandler}
+          onClick={loginwithKakao}
         >카카오 로그인</L.KakaoButton>
       </L.ButtonDiv>
       <L.ButtonDiv>

@@ -104,7 +104,7 @@ const routes = [
   { path: '/maincompetition', element: MainCompetition },
   { path: '/maincompetition/apply', element: ApplyCompetition },
   { path: '/ranking', element: RankingPage },
-  { path: '/kakaoLogin', element: KakaoLoginRedirect }
+  { path: '/oauth/kakaoLogin', element: KakaoLoginRedirect }
 ];
 
 export default routes;
